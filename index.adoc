@@ -1,0 +1,15 @@
+---
+layout: astra 
+sidebar: sidebar 
+permalink: index.html 
+lead: Cloud Volumes ONTAP enables you to optimize your cloud storage costs and performance while enhancing data protection, security, and compliance. 
+summary: 借助 Cloud Volumes ONTAP ，您可以优化云存储成本和性能，同时增强数据保护，安全性和合规性。 
+---
+= Cloud Volumes ONTAP 文档
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: task-registering.html 
+keywords: Cloud Volumes ONTAP, register, registering, paygo, pay-as-you-go, registration, instance id, serial number, account id, support 
+summary: Cloud Volumes ONTAP PAYGO 系统附带 NetApp 提供的支持，但您必须先向 NetApp 注册这些系统以激活支持。 
+---
+= 注册按需购买的系统
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP PAYGO 系统附带 NetApp 提供的支持，但您必须先向 NetApp 注册这些系统以激活支持。
+
+要使用任何方法升级 ONTAP 软件，需要向 NetApp 注册 PAYGO 系统 link:task-updating-ontap-cloud.html["本页介绍"]。
+
+
+TIP: 未注册支持的系统仍会收到 Cloud Manager 中显示的软件更新通知，如果有新版本可用。但是，您需要先注册系统，然后才能升级软件。
+
+.步骤
+. 如果您尚未将 NetApp 支持站点帐户添加到 Cloud Manager ，请转到 * 帐户设置 * 并立即添加。
++
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-nss-accounts.html["了解如何添加 NetApp 支持站点帐户"^]。
+
+. 在 " 画布 " 页面上，双击要注册的系统的名称。
+. 单击菜单图标，然后单击 * 支持注册 * ：
++
+image:screenshot_menu_registration.gif["屏幕截图：显示了在 Cloud Volumes ONTAP 系统的菜单图标中选择的支持注册选项。"]
+
+. 选择一个 NetApp 支持站点帐户，然后单击 * 注册 * 。
+
+
+Cloud Manager 将系统注册到 NetApp 。

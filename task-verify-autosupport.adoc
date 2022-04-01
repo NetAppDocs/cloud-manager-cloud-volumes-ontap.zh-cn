@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: task-verify-autosupport.html 
+keywords: autosupport, set up autosupport, test autosupport, asup, test asup 
+summary: AutoSupport 会主动监控系统的运行状况，并向 NetApp 技术支持发送消息。默认情况下，每个节点都启用了 AutoSupport ，以便使用 HTTPS 传输协议向技术支持发送消息。 
+---
+= 验证 AutoSupport 设置
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+AutoSupport 会主动监控系统的运行状况，并向 NetApp 技术支持发送消息。默认情况下，每个节点都启用了 AutoSupport ，以便使用 HTTPS 传输协议向技术支持发送消息。最好验证 AutoSupport 是否可以发送这些消息。
+
+如果 Cloud Manager 帐户管理员在启动实例之前向 Cloud Manager 添加了一个代理服务器，则 Cloud Volumes ONTAP 会配置为使用该代理服务器发送 AutoSupport 消息。
+
+唯一需要的配置步骤是，确保 Cloud Volumes ONTAP 通过 NAT 实例或您环境的代理服务建立出站 Internet 连接。有关详细信息，请参阅云提供商的网络要求。
+
+* link:reference-networking-aws.html["AWS 网络要求"]
+* link:reference-networking-azure.html["Azure 网络要求"]
+* link:reference-networking-gcp.html["Google Cloud 网络连接要求"]
+
+
+确认出站 Internet 访问可用后，您可以测试 AutoSupport 以确保它可以发送消息。有关说明，请参见 https://docs.netapp.com/us-en/ontap/system-admin/setup-autosupport-task.html["ONTAP 文档：设置 AutoSupport"^]。

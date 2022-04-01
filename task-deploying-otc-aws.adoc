@@ -1,0 +1,467 @@
+---
+sidebar: sidebar 
+permalink: task-deploying-otc-aws.html 
+keywords: Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, aws, serial number, license key, byol, test instance, aws tags, tags, location, vpc, encryption, security group, aws-managed encryption, disk size, disk type, write speed, licensing, IAM role, preconfigured package, access control, volume protection, usage profile, register, CIFS share, quota, qtree, WorkingEnvironmentId, HA, high availability, subscription 
+summary: 您可以在单系统配置中启动 Cloud Volumes ONTAP 实例，也可以在 AWS 中作为 HA 对启动。 
+---
+= 在 AWS 中启动 Cloud Volumes ONTAP
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在单系统配置中或在 AWS 中作为 HA 对启动 Cloud Volumes ONTAP 。
+
+
+
+== 开始之前
+
+要创建工作环境，您需要满足以下要求。
+
+[[licensing]]
+* 已启动且正在运行的连接器。
++
+** 您应具有 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["与工作空间关联的连接器"^]。
+** https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["您应做好准备，使 Connector 始终保持运行"^]。
+
+
+* 了解要使用的配置。
++
+您应该已准备好选择配置并从管理员处获取 AWS 网络信息。有关详细信息，请参见 link:task-planning-your-config.html["规划 Cloud Volumes ONTAP 配置"]。
+
+* 用于 CIFS 配置的 DNS 和 Active Directory 。
++
+有关详细信息，请参见 link:reference-networking-aws.html["AWS 中的 Cloud Volumes ONTAP 的网络要求"]。
+
+* 了解在添加工作环境向导中选择特定许可选项所需的条件。 link:concept-licensing.html["了解有关 Cloud Volumes ONTAP 许可的更多信息"]。
++
+[cols="20,40,40"]
+|===
+| 许可选项 | 要求 | 如何满足要求 
+
+
+| 免费 | 需要提供 Marketplace 订阅或 NetApp 支持站点（ NSS ）帐户。 | 您可以从 * 详细信息和凭据 * 页面订阅云提供商的市场。您可以在 * 充电方法和 NSS 帐户 * 页面上输入 NSS 帐户。 
+
+
+| 专业或基本软件包 | 需要 Marketplace 订阅或基于容量的许可证（ BYOL ）。如果您的帐户没有有效的基于容量的许可证，或者您配置的容量超过许可容量，则建议使用 Marketplace 订阅进行基于容量的收费。 | 您可以从 * 详细信息和凭据 * 页面订阅云提供商的市场。如果要使用从 NetApp 购买的基于容量的许可证（ BYOL ），必须先将其添加到 * 数字电子钱包 * 中。 link:task-manage-capacity-licenses.html["了解如何添加基于容量的 BYOL 许可证"]。 
+
+
+| Keystone Flex 订阅 | 您的帐户必须获得授权，并且必须启用订阅才能在 Cloud Volumes ONTAP 中使用。  a| 
+.. mailto ： ng-keystone-success@netapp.com （联系 NetApp ）授权您的 Cloud Manager 用户帐户订阅一个或多个 Keystone Flex 订阅。
+.. 在 NetApp 授权您的帐户后， link:task-manage-keystone.html#link-a-subscription["链接您的订阅以用于 Cloud Volumes ONTAP"]。
+.. 创建 Cloud Volumes ONTAP HA 对时，请选择 Keystone Flex 订阅收费方法。
+
+
+
+
+| 按节点许可 | 需要订阅 Marketplace ，或者您需要自带许可证（ BYOL ）。具有现有订阅或现有许可证的客户可以使用此选项。它不适用于新客户。 | 如果要使用从 NetApp 购买的基于节点的许可证（ BYOL ），必须先将其添加到 * 数字电子钱包 * 中。 link:task-manage-node-licenses.html#obtain-a-system-license-file["了解如何添加基于节点的 BYOL 许可证"]。您可以在 * 充电方法和 NSS 帐户 * 页面上输入 NSS 帐户。 
+|===
+
+
+
+
+== 在 AWS 中启动单节点 Cloud Volumes ONTAP 系统
+
+如果要在 AWS 中启动 Cloud Volumes ONTAP 、则需要在 Cloud Manager 中创建新的工作环境。
+
+在创建工作环境之后、 Cloud Manager 会立即在指定的 VPC 中启动测试实例以验证连接性。如果成功、 Cloud Manager 会立即终止实例、然后开始部署 Cloud Volumes ONTAP 系统。如果 Cloud Manager 无法验证连接性、则无法创建工作环境。该测试实例可以是 t2.nano （对于默认 vPC 占用）或 m3.medium （对于专用 vPC 占用）。
+
+.步骤
+. 【订阅】在 " 画布 " 页面上，单击 * 添加工作环境 * 并按照提示进行操作。
+. * 选择一个位置 * ：选择 * Amazon Web Services* 和 * Cloud Volumes ONTAP Single Node* 。
+. 如果出现提示， https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["创建连接器"^]。
+. * 详细信息和凭据 * ：可选择更改 AWS 凭据和订阅，输入工作环境名称，根据需要添加标记，然后输入密码。
++
+本页中的某些字段是不言自明的。下表介绍了可能需要指导的字段：
+
++
+[cols="25,75"]
+|===
+| 字段 | Description 
+
+
+| 工作环境名称 | Cloud Manager 使用工作环境名称来命名 Cloud Volumes ONTAP 系统和 Amazon EC2 实例。如果您选择了预定义安全组的前缀，则它还会使用该名称作为前缀。 
+
+
+| 添加标记 | AWS 标记是 AWS 资源的元数据。Cloud Manager 将这些标记添加到 Cloud Volumes ONTAP 实例以及与该实例关联的每个 AWS 资源。在创建工作环境时，最多可以从用户界面添加四个标签，然后可以在创建工作环境后添加更多标签。请注意，在创建工作环境时， API 不会将您限制为四个标记。有关标记的信息，请参见 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html["AWS 文档：标记 Amazon EC2 资源"^]。 
+
+
+| 用户名和密码 | 这些是 Cloud Volumes ONTAP 集群管理员帐户的凭据。您可以使用这些凭据通过 System Manager 或其命令行界面连接到 Cloud Volumes ONTAP 。保留默认的 _admin_ 用户名或将其更改为自定义用户名。 
+
+
+| 编辑凭据 | 选择与要部署此系统的帐户关联的 AWS 凭据。您还可以关联 AWS Marketplace 订阅以用于此 Cloud Volumes ONTAP 系统。单击 * 添加订阅 * 将选定凭据与新的 AWS Marketplace 订阅关联。订阅可以是一份年度合同，也可以是按小时付费的 Cloud Volumes ONTAP 。https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["了解如何向 Cloud Manager 添加其他 AWS 凭据"^]。 
+|===
++
+以下视频介绍如何将按需购买的 Marketplace 订阅与您的 AWS 凭据相关联：
+
++
+video::video_subscribing_aws.mp4[width=848,height=480]
++
+
+TIP: 如果多个 IAM 用户在同一个 AWS 帐户中工作，则每个用户都需要订阅。第一个用户订阅后， AWS Marketplace 会通知后续用户他们已订阅，如下图所示。虽然已为 AWS _account_ 订阅，但每个 IAM 用户都需要将自己与该订阅关联起来。如果您看到以下消息，请单击 * 单击此处 * 链接以转到 Cloud Central 并完成此过程。image:screenshot_aws_marketplace.gif["一个屏幕截图，显示在 AWS 帐户已订阅但特定 IAM 用户可能未订阅时适用于 Cloud Volumes ONTAP 的 Cloud Manager 订阅页面。"]
+
+. * 服务 * ：保持服务处于启用状态或禁用不想在 Cloud Volumes ONTAP 中使用的单个服务。
++
+** https://docs.netapp.com/us-en/cloud-manager-data-sense/concept-cloud-compliance.html["了解有关 Cloud Data sense 的更多信息"^]。
+** https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-backup-to-cloud.html["了解有关 Cloud Backup 的更多信息"^]。
+** https://docs.netapp.com/us-en/cloud-manager-monitoring/concept-monitoring.html["了解有关监控的更多信息"^]。
+
+
+. * 位置和连接 * ：输入您在中记录的网络信息 link:task-planning-your-config.html#aws-network-information-worksheet["AWS 工作表"]。
++
+如果您有 AWS 前台，则可以通过选择前台 VPC 在该前台部署单节点 Cloud Volumes ONTAP 系统。体验与 AWS 中的任何其他 VPC 相同。
+
++
+下图显示了已填写的页面：
+
++
+image:screenshot_cot_vpc.gif["屏幕截图：显示为新的 Cloud Volumes ONTAP 实例填写的 VPC 页面。"]
+
+. * 数据加密 * ：不选择数据加密或 AWS 管理的加密。
++
+对于 AWS 管理的加密，您可以从您的帐户或其他 AWS 帐户中选择其他客户主密钥（ CMK ）。
+
++
+
+TIP: 创建 Cloud Volumes ONTAP 系统后，您无法更改 AWS 数据加密方法。
+
++
+link:task-setting-up-kms.html["了解如何为 Cloud Volumes ONTAP 设置 AWS KMS"]。
+
++
+link:concept-security.html#encryption-of-data-at-rest["了解有关支持的加密技术的更多信息"]。
+
+. * 充电方法和 NSS 帐户 * ：指定要在此系统中使用的充电选项，然后指定 NetApp 支持站点帐户。
++
+** link:concept-licensing.html["了解这些充电方法"]。
+** link:task-deploying-otc-aws.html#licensing["在向导中了解要使用的许可方法的要求。"]
+
+
+. * Cloud Volumes ONTAP 配置 * （仅限年度 Marketplace 合同）：查看默认配置，然后单击 * 继续 * 或单击 * 更改配置 * 以选择您自己的配置。
++
+如果保留默认配置，则只需指定一个卷，然后查看并批准该配置。
+
+. * 预配置软件包 * （仅限每小时或自带卷）：选择一个软件包以快速启动 Cloud Volumes ONTAP ，或者单击 * 更改配置 * 以选择您自己的配置。
++
+如果选择其中一个软件包，则只需指定一个卷，然后查看并批准该配置。
+
+. * IAM 角色 * ：最好保留默认选项，让 Cloud Manager 为您创建角色。
++
+如果您希望使用自己的策略，则必须满足 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Volumes ONTAP 节点的策略要求"^]。
+
+. * 许可 * ：根据需要更改 Cloud Volumes ONTAP 版本，选择许可证，实例类型和实例租户。
++
+image:screenshot_cvo_licensing_aws.gif["许可页面的屏幕截图"]
+
++
+如果启动实例后需要更改、则可以稍后修改许可证或实例类型。
+
++
+
+NOTE: 如果选定版本有较新的候选版本、一般可用性或修补程序版本可用、则在创建工作环境时， Cloud Manager 会将系统更新为该版本。例如，如果您选择 Cloud Volumes ONTAP 9.6 RC1 和 9.6 GA 可用，则会发生此更新。更新不会从一个版本更新到另一个版本，例如从 9.6 到 9.7 。
+
+. * 底层存储资源 * ：选择初始聚合的设置：磁盘类型，每个磁盘的大小以及是否应启用数据分层。
++
+请注意以下事项：
+
++
+** 磁盘类型用于初始卷。您可以为后续卷选择不同的磁盘类型。
+** 磁盘大小适用于初始聚合中的所有磁盘以及使用 Simple Provisioning （简单配置）选项时 Cloud Manager 创建的任何其他聚合。您可以使用高级分配选项创建使用不同磁盘大小的聚合。
++
+有关选择磁盘类型和大小的帮助，请参见 link:task-planning-your-config.html#sizing-your-system-in-aws["在 AWS 中估算系统规模"]。
+
+** 您可以在创建或编辑卷时选择特定的卷分层策略。
+** 如果禁用数据分层，则可以在后续聚合上启用它。
++
+link:concept-data-tiering.html["了解数据分层的工作原理"]。
+
+
+
+. * 写入速度和 WORM* ：选择 * 正常 * 或 * 高 * 写入速度，并根据需要激活一次写入，多次读取（ WORM ）存储。
++
+link:concept-write-speed.html["了解有关写入速度的更多信息。"]。
+
++
+如果启用了 Cloud Backup 或启用了数据分层，则无法启用 WORM 。
+
++
+link:concept-worm.html["了解有关 WORM 存储的更多信息。"]。
+
+. * 创建卷 * ：输入新卷的详细信息或单击 * 跳过 * 。
++
+本页中的某些字段是不言自明的。下表介绍了可能需要指导的字段：
+
++
+在 <stdin> 中未解析的指令 - 包括： _include/create_volume.adoc]]
+
++
+下图显示了已填写 CIFS 协议的卷页面：
+
++
+image:screenshot_cot_vol.gif["屏幕截图：显示为 Cloud Volumes ONTAP 实例填写的卷页面。"]
+
+. * CIFS 设置 * ：如果选择 CIFS 协议，请设置 CIFS 服务器。
++
+[cols="25,75"]
+|===
+| 字段 | Description 
+
+
+| DNS 主 IP 地址和次 IP 地址 | 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。 
+
+
+| 要加入的 Active Directory 域 | 您希望 CIFS 服务器加入的 Active Directory （ AD ）域的 FQDN 。 
+
+
+| 授权加入域的凭据 | 具有足够权限将计算机添加到 AD 域中指定组织单位 (OU) 的 Windows 帐户的名称和密码。 
+
+
+| CIFS server NetBIOS name | 在 AD 域中唯一的 CIFS 服务器名称。 
+
+
+| 组织单位 | AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。如果将 AWS 托管 Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，则应在此字段中输入 * OU=Computers ， OU=corp* 。 
+
+
+| DNS 域 | Cloud Volumes ONTAP Storage Virtual Machine （ SVM ）的 DNS 域。在大多数情况下，域与 AD 域相同。 
+
+
+| NTP 服务器 | 选择 * 使用 Active Directory 域 * 以使用 Active Directory DNS 配置 NTP 服务器。如果需要使用其他地址配置 NTP 服务器，则应使用 API 。请参见 https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager 自动化文档"^] 了解详细信息。 
+|===
+. * 使用情况配置文件，磁盘类型和分层策略 * ：选择是否要启用存储效率功能并根据需要编辑卷分层策略。
++
+有关详细信息，请参见 link:task-planning-your-config.html#choosing-a-volume-usage-profile["了解卷使用情况配置文件"] 和 link:concept-data-tiering.html["数据分层概述"]。
+
+. * 审核并批准 * ：审核并确认您的选择。
++
+.. 查看有关配置的详细信息。
+.. 单击 * 更多信息 * 可查看有关 Cloud Manager 将购买的支持和 AWS 资源的详细信息。
+.. 选中 * 我了解 ...* 复选框。
+.. 单击 * 执行 * 。
+
+
+
+
+Cloud Manager 将启动 Cloud Volumes ONTAP 实例。您可以跟踪时间链中的进度。
+
+如果在启动 Cloud Volumes ONTAP 实例时遇到任何问题，请查看故障消息。您还可以选择工作环境并单击重新创建环境。
+
+要获得更多帮助，请转至 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP 支持"^]。
+
+.完成后
+* 如果配置了 CIFS 共享、请授予用户或组对文件和文件夹的权限、并验证这些用户是否可以访问该共享并创建文件。
+* 如果要对卷应用配额、请使用 System Manager 或 CLI 。
++
+配额允许您限制或跟踪用户、组或 qtree 使用的磁盘空间和文件数量。
+
+
+
+
+
+== 在 AWS 中启动 Cloud Volumes ONTAP HA 对
+
+如果要在 AWS 中启动 Cloud Volumes ONTAP HA 对、则需要在 Cloud Manager 中创建 HA 工作环境。
+
+目前， AWS 前向不支持 HA 对。
+
+在创建工作环境之后、 Cloud Manager 会立即在指定的 VPC 中启动测试实例以验证连接性。如果成功、 Cloud Manager 会立即终止实例、然后开始部署 Cloud Volumes ONTAP 系统。如果 Cloud Manager 无法验证连接性、则无法创建工作环境。该测试实例可以是 t2.nano （对于默认 vPC 占用）或 m3.medium （对于专用 vPC 占用）。
+
+.步骤
+. 在 " 画布 " 页面上，单击 * 添加工作环境 * 并按照提示进行操作。
+. * 选择一个位置 * ：选择 * Amazon Web Services* 和 * Cloud Volumes ONTAP Single Node* 。
+. * 详细信息和凭据 * ：可选择更改 AWS 凭据和订阅，输入工作环境名称，根据需要添加标记，然后输入密码。
++
+本页中的某些字段是不言自明的。下表介绍了可能需要指导的字段：
+
++
+[cols="25,75"]
+|===
+| 字段 | Description 
+
+
+| 工作环境名称 | Cloud Manager 使用工作环境名称来命名 Cloud Volumes ONTAP 系统和 Amazon EC2 实例。如果您选择了预定义安全组的前缀，则它还会使用该名称作为前缀。 
+
+
+| 添加标记 | AWS 标记是 AWS 资源的元数据。Cloud Manager 将这些标记添加到 Cloud Volumes ONTAP 实例以及与该实例关联的每个 AWS 资源。在创建工作环境时，最多可以从用户界面添加四个标签，然后可以在创建工作环境后添加更多标签。请注意，在创建工作环境时， API 不会将您限制为四个标记。有关标记的信息，请参见 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html["AWS 文档：标记 Amazon EC2 资源"^]。 
+
+
+| 用户名和密码 | 这些是 Cloud Volumes ONTAP 集群管理员帐户的凭据。您可以使用这些凭据通过 System Manager 或其命令行界面连接到 Cloud Volumes ONTAP 。保留默认的 _admin_ 用户名或将其更改为自定义用户名。 
+
+
+| 编辑凭据 | 选择要用于此 Cloud Volumes ONTAP 系统的 AWS 凭据和 Marketplace 订阅。单击 * 添加订阅 * 将选定凭据与新的 AWS Marketplace 订阅关联。订阅可以是一份年度合同，也可以是按小时付费的 Cloud Volumes ONTAP 。如果直接从 NetApp （ BYOL ）购买许可证，则不需要 AWS 订阅。https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["了解如何向 Cloud Manager 添加其他 AWS 凭据"^]。 
+|===
++
+以下视频介绍如何将按需购买的 Marketplace 订阅与您的 AWS 凭据相关联：
+
++
+video::video_subscribing_aws.mp4[width=848,height=480]
++
+
+TIP: 如果多个 IAM 用户在同一个 AWS 帐户中工作，则每个用户都需要订阅。第一个用户订阅后， AWS Marketplace 会通知后续用户他们已订阅，如下图所示。虽然已为 AWS _account_ 订阅，但每个 IAM 用户都需要将自己与该订阅关联起来。如果您看到以下消息，请单击 * 单击此处 * 链接以转到 Cloud Central 并完成此过程。image:screenshot_aws_marketplace.gif["一个屏幕截图，显示在 AWS 帐户已订阅但特定 IAM 用户可能未订阅时适用于 Cloud Volumes ONTAP 的 Cloud Manager 订阅页面。"]
+
+. * 服务 * ：保持服务处于启用状态或禁用不想在此 Cloud Volumes ONTAP 系统中使用的单个服务。
++
+** https://docs.netapp.com/us-en/cloud-manager-data-sense/concept-cloud-compliance.html["了解有关 Cloud Data sense 的更多信息"^]。
+** https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html["了解有关 Cloud Backup 的更多信息"^]。
+** https://docs.netapp.com/us-en/cloud-manager-monitoring/concept-monitoring.html["了解有关监控的更多信息"^]。
+
+
+. * 高可用性部署模式 * ：选择一个高可用性配置。
++
+有关部署模式的概述，请参见 link:concept-ha.html["适用于 AWS 的 Cloud Volumes ONTAP HA"]。
+
+. * 地区和 VPC* ：输入您在 AWS 工作表中记录的网络信息。
++
+下图显示了为多 AZ 配置填写的页面：
+
++
+image:screenshot_cot_vpc_ha.gif["屏幕抓图：显示为 HA 配置填写的 VPC 页面。为每个实例选择了不同的可用性区域。"]
+
+. * 连接和 SSH 身份验证 * ：选择 HA 对和调解器的连接方法。
+. * 浮动 IP* ：如果选择多个 AZs ，请指定浮动 IP 地址。
++
+该区域中所有 VPC 的 IP 地址必须位于 CIDR 块之外。有关其他详细信息，请参见 link:reference-networking-aws.html#aws-networking-requirements-for-cloud-volumes-ontap-ha-in-multiple-azs["适用于多个 AWS 中的 Cloud Volumes ONTAP HA 的 AWS 网络要求"]。
+
+. * 路由表 * ：如果选择多个 AZs ，请选择应包含指向浮动 IP 地址的路由的路由表。
++
+如果有多个路由表、则选择正确的路由表非常重要。否则，某些客户端可能无法访问 Cloud Volumes ONTAP HA 对。有关路由表的详细信息，请参见 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文档：路由表"^]。
+
+. * 数据加密 * ：不选择数据加密或 AWS 管理的加密。
++
+对于 AWS 管理的加密，您可以从您的帐户或其他 AWS 帐户中选择其他客户主密钥（ CMK ）。
+
++
+
+TIP: 创建 Cloud Volumes ONTAP 系统后，您无法更改 AWS 数据加密方法。
+
++
+link:task-setting-up-kms.html["了解如何为 Cloud Volumes ONTAP 设置 AWS KMS"]。
+
++
+link:concept-security.html#encryption-of-data-at-rest["了解有关支持的加密技术的更多信息"]。
+
+. * 充电方法和 NSS 帐户 * ：指定要在此系统中使用的充电选项，然后指定 NetApp 支持站点帐户。
++
+** link:concept-licensing.html["了解这些充电方法"]。
+** link:task-deploying-otc-aws.html#licensing["在向导中了解要使用的许可方法的要求"]。
+
+
+. * Cloud Volumes ONTAP 配置 * （仅限年度 Marketplace 合同）：查看默认配置，然后单击 * 继续 * 或单击 * 更改配置 * 以选择您自己的配置。
++
+如果保留默认配置，则只需指定一个卷，然后查看并批准该配置。
+
+. * 预配置软件包 * （仅限每小时或自带卷）：选择一个软件包以快速启动 Cloud Volumes ONTAP ，或者单击 * 更改配置 * 以选择您自己的配置。
++
+如果选择其中一个软件包，则只需指定一个卷，然后查看并批准该配置。
+
+. * IAM 角色 * ：最好保留默认选项，让 Cloud Manager 为您创建角色。
++
+如果您希望使用自己的策略，则必须满足 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Volumes ONTAP 节点和 HA 调解器的策略要求"^]。
+
+. * 许可 * ：根据需要更改 Cloud Volumes ONTAP 版本，选择许可证，实例类型和实例租户。
++
+image:screenshot_cvo_licensing_aws.gif["许可页面的屏幕截图"]
+
++
+如果在启动实例后需要更改、您可以稍后修改许可证或实例类型。
+
++
+
+NOTE: 如果选定版本有较新的候选版本、一般可用性或修补程序版本可用、则在创建工作环境时， Cloud Manager 会将系统更新为该版本。例如，如果您选择 Cloud Volumes ONTAP 9.6 RC1 和 9.6 GA 可用，则会发生此更新。更新不会从一个版本更新到另一个版本，例如从 9.6 到 9.7 。
+
+. * 底层存储资源 * ：选择初始聚合的设置：磁盘类型，每个磁盘的大小以及是否应启用数据分层。
++
+请注意以下事项：
+
++
+** 磁盘类型用于初始卷。您可以为后续卷选择不同的磁盘类型。
+** 磁盘大小适用于初始聚合中的所有磁盘以及使用 Simple Provisioning （简单配置）选项时 Cloud Manager 创建的任何其他聚合。您可以使用高级分配选项创建使用不同磁盘大小的聚合。
++
+有关选择磁盘类型和大小的帮助，请参见 link:task-planning-your-config.html#sizing-your-system-in-aws["在 AWS 中估算系统规模"]。
+
+** 您可以在创建或编辑卷时选择特定的卷分层策略。
+** 如果禁用数据分层，则可以在后续聚合上启用它。
++
+link:concept-data-tiering.html["了解数据分层的工作原理"]。
+
+
+
+. * 写入速度和 WORM* ：选择 * 正常 * 或 * 高 * 写入速度，并根据需要激活一次写入，多次读取（ WORM ）存储。
++
+link:concept-write-speed.html["了解有关写入速度的更多信息。"]。
+
++
+如果启用了 Cloud Backup 或启用了数据分层，则无法启用 WORM 。
+
++
+link:concept-worm.html["了解有关 WORM 存储的更多信息。"]。
+
+. * 创建卷 * ：输入新卷的详细信息或单击 * 跳过 * 。
++
+本页中的某些字段是不言自明的。下表介绍了可能需要指导的字段：
+
++
+在 <stdin> 中未解析的指令 - 包括： _include/create_volume.adoc]]
+
++
+下图显示了已填写 CIFS 协议的卷页面：
+
++
+image:screenshot_cot_vol.gif["屏幕截图：显示为 Cloud Volumes ONTAP 实例填写的卷页面。"]
+
+. * CIFS 设置 * ：如果选择 CIFS 协议，请设置 CIFS 服务器。
++
+[cols="25,75"]
+|===
+| 字段 | Description 
+
+
+| DNS 主 IP 地址和次 IP 地址 | 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。 
+
+
+| 要加入的 Active Directory 域 | 您希望 CIFS 服务器加入的 Active Directory （ AD ）域的 FQDN 。 
+
+
+| 授权加入域的凭据 | 具有足够权限将计算机添加到 AD 域中指定组织单位 (OU) 的 Windows 帐户的名称和密码。 
+
+
+| CIFS server NetBIOS name | 在 AD 域中唯一的 CIFS 服务器名称。 
+
+
+| 组织单位 | AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。如果将 AWS 托管 Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，则应在此字段中输入 * OU=Computers ， OU=corp* 。 
+
+
+| DNS 域 | Cloud Volumes ONTAP Storage Virtual Machine （ SVM ）的 DNS 域。在大多数情况下，域与 AD 域相同。 
+
+
+| NTP 服务器 | 选择 * 使用 Active Directory 域 * 以使用 Active Directory DNS 配置 NTP 服务器。如果需要使用其他地址配置 NTP 服务器，则应使用 API 。请参见 https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager 自动化文档"^] 了解详细信息。 
+|===
+. * 使用情况配置文件，磁盘类型和分层策略 * ：选择是否要启用存储效率功能并根据需要编辑卷分层策略。
++
+有关详细信息，请参见 link:task-planning-your-config.html#choosing-a-volume-usage-profile["了解卷使用情况配置文件"] 和 link:concept-data-tiering.html["数据分层概述"]。
+
+. * 审核并批准 * ：审核并确认您的选择。
++
+.. 查看有关配置的详细信息。
+.. 单击 * 更多信息 * 可查看有关 Cloud Manager 将购买的支持和 AWS 资源的详细信息。
+.. 选中 * 我了解 ...* 复选框。
+.. 单击 * 执行 * 。
+
+
+
+
+Cloud Manager 将启动 Cloud Volumes ONTAP HA 对。您可以跟踪时间链中的进度。
+
+如果在启动 HA 对时遇到任何问题、请查看故障消息。您还可以选择工作环境并单击重新创建环境。
+
+要获得更多帮助，请转至 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP 支持"^]。
+
+.完成后
+* 如果配置了 CIFS 共享、请授予用户或组对文件和文件夹的权限、并验证这些用户是否可以访问该共享并创建文件。
+* 如果要对卷应用配额、请使用 System Manager 或 CLI 。
++
+配额允许您限制或跟踪用户、组或 qtree 使用的磁盘空间和文件数量。
+
+
