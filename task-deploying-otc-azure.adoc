@@ -219,7 +219,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为 Cloud Volumes ONTAP 实�
 | DNS 域 | Cloud Volumes ONTAP Storage Virtual Machine （ SVM ）的 DNS 域。在大多数情况下，域与 AD 域相同。 
 
 
-| NTP 服务器 | 选择 * 使用 Active Directory 域 * 以使用 Active Directory DNS 配置 NTP 服务器。如果需要使用其他地址配置 NTP 服务器，则应使用 API 。请参见 https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager 自动化文档"^] 了解详细信息。 
+| NTP 服务器 | 选择 * 使用 Active Directory 域 * 以使用 Active Directory DNS 配置 NTP 服务器。如果需要使用其他地址配置 NTP 服务器，则应使用 API 。请参见 https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager 自动化文档"^] 了解详细信息。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。在创建 CIFS 服务器后，它不可配置。 
 |===
 . * 使用情况配置文件，磁盘类型和分层策略 * ：选择是否要启用存储效率功能，并根据需要更改卷分层策略。
 +

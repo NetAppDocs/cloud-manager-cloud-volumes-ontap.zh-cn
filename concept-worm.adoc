@@ -27,7 +27,9 @@ summary: 您可以在 Cloud Volumes ONTAP 系统上激活一次写入、多次�
 
 == 正在充电
 
-目前， WORM 存储采用首发特惠价，在 2022 年 4 月 1 日之前免费提供。之后，您可以选择继续使用此功能，此时将产生额外费用。
+根据卷的总配置容量， WORM 存储的费用为每小时一次。
+
+https://cloud.netapp.com/pricing["了解 WORM 存储的定价"^]。
 
 
 

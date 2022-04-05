@@ -15,7 +15,19 @@ summary: 了解 <service> 中的新增功能。
 [role="lead"]
 了解 Cloud Manager 中 Cloud Volumes ONTAP 管理的新增功能。
 
-此页面上介绍的增强功能专用于支持 Cloud Volumes ONTAP 管理的 Cloud Manager 功能。一组单独的发行说明介绍了 Cloud Volumes ONTAP 软件本身的新增功能。
+此页面上介绍的增强功能专用于支持 Cloud Volumes ONTAP 管理的 Cloud Manager 功能。 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["查看《 Cloud Volumes ONTAP 发行说明》"^] 了解 Cloud Volumes ONTAP 软件本身的新增功能。
+
+
+
+== 2022 年 4 月 3 日
+
+
+
+=== 为 WORM 存储充电
+
+现在，首发特惠价已过期，您将需要为使用 WORM 存储付费。根据卷的总配置容量，每小时充电一次。此适用场景 新的和现有的 Cloud Volumes ONTAP 系统。
+
+https://cloud.netapp.com/pricing["了解 WORM 存储的定价"^]。
 
 
 
@@ -27,7 +39,7 @@ summary: 了解 <service> 中的新增功能。
 
 现在，在通过 * 高级分配 * 选项在特定聚合上创建卷时，可以使用我们最近推出的创建新卷向导。
 
-link:task-create-volumes.html["了解如何在特定聚合上创建卷"]。
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-create-volumes.html["了解如何在特定聚合上创建卷"]。
 
 
 
@@ -53,7 +65,7 @@ link:task-create-volumes.html["了解如何在特定聚合上创建卷"]。
 
 
 
-link:concept-licensing.html["详细了解 Cloud Volumes ONTAP 的许可选项"]。
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html["详细了解 Cloud Volumes ONTAP 的许可选项"]。
 
 
 
@@ -67,7 +79,7 @@ link:concept-licensing.html["详细了解 Cloud Volumes ONTAP 的许可选项"]�
 
 此操作将撤消 Cloud Volumes ONTAP 许可证，并为此服务创建一个具有相同到期日期的等效美元的许可证。
 
-link:task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["了解如何交换未分配的基于节点的许可证"]。
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["了解如何交换未分配的基于节点的许可证"]。
 
 
 
@@ -263,7 +275,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["查看 AWS 中支持
 
 
 
-=== 现有 Azure 资源组
+=== 选择现有 Azure 资源组
 
 在 Azure 中创建 Cloud Volumes ONTAP 系统时，您现在可以选择为虚拟机及其关联资源选择现有资源组。
 

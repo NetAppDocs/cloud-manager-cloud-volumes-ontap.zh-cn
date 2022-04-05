@@ -15,11 +15,7 @@ summary: 指定 NTP 服务器可同步网络中各个系统之间的时间，这
 [role="lead"]
 指定 NTP 服务器可同步网络中各个系统之间的时间，这有助于防止因时间差异而出现问题。
 
-在设置 CIFS 服务器时，使用 Cloud Manager API 或从用户界面指定 NTP 服务器。
-
-* link:task-manage-volumes.html#modifying-the-cifs-server["修改 CIFS 服务器"]
-* https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager 自动化文档"^]
-
+使用指定 NTP 服务器 https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager API"^] 或从用户界面创建 CIFS 服务器时。
 
 例如，下面是 AWS 中单节点系统的 API ：
 
