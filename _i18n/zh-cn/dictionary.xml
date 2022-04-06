@@ -183,7 +183,6 @@
   <block id="02c690c7e2df5602e590fab55c30a15e" category="paragraph">HTTPS 连接从 Cloud Volumes ONTAP 9.7 HA 对连接到 Azure 存储帐户。请注意，启用此选项可能会影响写入性能。创建工作环境后，您无法更改此设置。</block>
   <block id="7fd530af1ffbe88c56d08b069efeba9e" category="list-text">* 创建卷 * ：输入新卷的详细信息或单击 * 跳过 * 。</block>
   <block id="09eb13e81cc007418ee8fa04feb8088f" category="paragraph">本页中的某些字段是不言自明的。下表介绍了可能需要指导的字段：</block>
-  <block id="4019d9e3e500c8109fa424a39c08d94b" category="paragraph">在 &lt;stdin&gt; 中未解析的指令 - 包括： _include/create_volume.adoc]]</block>
   <block id="2047d66d7f84aebbeede37060dd241ac" category="paragraph">下图显示了已填写 CIFS 协议的卷页面：</block>
   <block id="ffa93c03fe02e87d998cd9a350ece595" category="inline-image-macro">屏幕截图：显示为 Cloud Volumes ONTAP 实例填写的卷页面。</block>
   <block id="9cd65b9992efcafc37377a9fe9dc45f4" category="paragraph"><block ref="9cd65b9992efcafc37377a9fe9dc45f4" category="inline-image-macro-rx" type="image"></block></block>
@@ -3644,4 +3643,13 @@
   <block id="986760502c5f72b9233b40b1621b0e4c" category="paragraph"><block ref="986760502c5f72b9233b40b1621b0e4c" category="inline-link-rx"></block></block>
   <block id="28d1200478fccc009b0e5ac11ab32501" category="paragraph"><block ref="28d1200478fccc009b0e5ac11ab32501" category="inline-link-rx"></block></block>
   <block id="74800c4b0c4f7420856e108da469e4d7" category="paragraph">设置 AWS 传输网关以允许访问 HA 对 <block ref="b4592641b260566283cc706f7ca397da" category="inline-link-macro-rx"></block> 从 HA 对所在的 VPC 外部。</block>
+  <block id="6f6cb72d544962fa333e2e34ce64f719" category="cell">Size</block>
+  <block id="bcdd7ef73721b892a492bf27fa634f7e" category="cell">访问控制（仅适用于 NFS ）</block>
+  <block id="a53068405a66e58d1a070c4ff3c1b272" category="cell">导出策略定义子网中可以访问卷的客户端。默认情况下， Cloud Manager 会输入一个值、用于访问子网中的所有实例。</block>
+  <block id="8764e88b56cc40b94d30a67dfbf91d43" category="cell">权限和用户 / 组（仅限 CIFS ）</block>
+  <block id="ec32b0289b4c5e86e48f585b24563ec1" category="cell">这些字段使您能够控制用户和组对共享的访问级别（也称为访问控制列表或 ACL ）。您可以指定本地或域 Windows 用户或组、 UNIX 用户或组。如果指定域 Windows 用户名，则必须使用 domain\username 格式包含用户的域。</block>
+  <block id="67aa713de67c8b70e0a8d714e4ea7dc6" category="cell">高级选项（仅适用于 NFS ）</block>
+  <block id="b50c0b33e57b5c9ee115739c46632fb7" category="cell">为卷选择 NFS 版本： NFSv3 或 NFSv4 。</block>
+  <block id="18f1f9ca3b7402c1f840aba2c56d18c7" category="cell">启动程序组和 IQN （仅适用于 iSCSI ）</block>
+  <block id="7a45d8b3ab8b6621427f532caad57a5f" category="cell">iSCSI 存储目标称为 LUN （逻辑单元），并作为标准块设备提供给主机。启动程序组是包含 iSCSI 主机节点名称的表，用于控制哪些启动程序可以访问哪些 LUN 。iSCSI 目标通过标准以太网网络适配器（ NIC ），带软件启动程序的 TCP 卸载引擎（ TOE ）卡，融合网络适配器（ CNA ）或专用主机总线适配器（ HBA ）连接到网络，并通过 iSCSI 限定名称（ IQN ）进行标识。创建 iSCSI 卷时， Cloud Manager 会自动为您创建 LUN 。我们通过为每个卷仅创建一个 LUN 来简化此过程，因此无需进行管理。创建卷后， <block ref="a56ae12401d3846252ee1d7537583dde" category="inline-link-macro-rx"></block>。</block>
 </blocks>
