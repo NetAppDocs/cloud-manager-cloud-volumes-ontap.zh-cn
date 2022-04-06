@@ -22,7 +22,7 @@ Storage VM 是在 ONTAP 中运行的虚拟机，可为客户端提供存储和�
 
 == 支持的 Storage VM 数量
 
-在某些配置下， AWS 和 Azure 中的 Cloud Volumes ONTAP 支持多个 Storage VM 。转至 https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html["《 Cloud Volumes ONTAP 发行说明》"^] 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。
+在某些配置下， AWS 和 Azure 中的 Cloud Volumes ONTAP 支持多个 Storage VM 。转至 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["《 Cloud Volumes ONTAP 发行说明》"^] 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。
 
 
 

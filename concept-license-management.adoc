@@ -33,7 +33,7 @@ link:concept-licensing.html["了解有关 Cloud Volumes ONTAP 许可选项的更
 
 NOTE: 您购买的某些内部 ONTAP 存储系统可能附带了免费的 Cloud Volumes ONTAP 许可证。您可以使用此许可证创建新的 Cloud Volumes ONTAP 系统，也可以将此许可证应用于现有 Cloud Volumes ONTAP 系统以扩展容量。 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-managing-ontap.html#viewing-unused-cloud-volumes-ontap-licenses["查看您是否有任何可用的许可证可供使用"^]。
 
-请注意，磁盘限制可能会阻止您单独使用磁盘来达到容量限制。您可以通过超出磁盘限制 link:concept-data-tiering.html["将非活动数据分层到对象存储"]。有关磁盘限制的信息，请参见 https://docs.netapp.com/us-en/cloud-volumes-ontap/["《 Cloud Volumes ONTAP 发行说明》中的存储限制"^]。
+请注意，磁盘限制可能会阻止您单独使用磁盘来达到容量限制。您可以通过超出磁盘限制 link:concept-data-tiering.html["将非活动数据分层到对象存储"]。有关磁盘限制的信息，请参见 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["《 Cloud Volumes ONTAP 发行说明》中的存储限制"^]。
 
 
 

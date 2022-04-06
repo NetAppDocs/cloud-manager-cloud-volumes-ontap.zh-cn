@@ -67,7 +67,7 @@ link:concept-ha.html["详细了解 AWS 中的 HA 对"]。
 
 从 9.8 版开始，如果使用几乎所有受支持的 EC2 实例类型（ m5.xlarge 和 R5.xlarge 除外），则 Cloud Volumes ONTAP 支持 HA 对的高写入速度。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_aws_9101.html["详细了解 Cloud Volumes ONTAP 支持的 Amazon EC2 实例"^]。
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["详细了解 Cloud Volumes ONTAP 支持的 Amazon EC2 实例"^]。
 
 
 
@@ -75,7 +75,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_aws_9101.htm
 
 如果使用单节点系统，则 Cloud Volumes ONTAP 支持对所有 VM 类型使用高写入速度。
 
-如果使用 HA 对，则从 9.8 版开始， Cloud Volumes ONTAP 支持对多种 VM 类型使用高写入速度。转至 https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_azure_9101.html["《 Cloud Volumes ONTAP 发行说明》"^] 可查看支持高写入速度的 VM 类型。
+如果使用 HA 对，则从 9.8 版开始， Cloud Volumes ONTAP 支持对多种 VM 类型使用高写入速度。转至 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["《 Cloud Volumes ONTAP 发行说明》"^] 可查看支持高写入速度的 VM 类型。
 
 
 
@@ -85,7 +85,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_aws_9101.htm
 
 Cloud Volumes ONTAP 不支持在 Google Cloud 中对 HA 对使用高写入速度。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_gcp_9101.html["详细了解 Cloud Volumes ONTAP 支持的 Google Cloud 计算机类型"^]。
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["详细了解 Cloud Volumes ONTAP 支持的 Google Cloud 计算机类型"^]。
 
 
 

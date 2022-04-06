@@ -190,7 +190,7 @@ image:screenshot_define_cvo_vol_from_template.png["显示创建卷所需填写�
 NOTE: 如果要查看这些参数的值，可以单击 * 显示只读参数 * 复选框以显示模板锁定的所有字段。默认情况下，这些预定义字段将被隐藏，并且仅显示需要填写的字段。
 
 . 在 _context_ 区域中，工作环境将使用您启动的工作环境的名称进行填充。您需要选择要在其中创建卷的 * Storage VM* 。
-. 为模板中未硬编码的所有参数添加值。请参见 <<Create FlexVol volumes,正在创建卷>> 有关部署 Cloud Volumes ONTAP 卷所需完成的所有参数的详细信息。
+. 为模板中未硬编码的所有参数添加值。请参见 <<create a volume,创建卷>> 有关部署 Cloud Volumes ONTAP 卷所需完成的所有参数的详细信息。
 . 如果不需要定义任何其他操作（例如配置 Cloud Backup ），请单击 * 运行模板 * 。
 +
 如果还有其他操作，请单击左窗格中的操作以显示需要完成的参数。

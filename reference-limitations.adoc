@@ -15,7 +15,7 @@ summary: 已知限制确定了本产品版本不支持的平台、设备或功�
 [role="lead"]
 已知限制确定了本产品版本不支持的平台、设备或功能、或者这些平台、设备或功能无法与产品正确交互操作。仔细审查这些限制。
 
-这些限制特定于 Cloud Manager 中的 Cloud Volumes ONTAP 管理。
+这些限制特定于 Cloud Manager 中的 Cloud Volumes ONTAP 管理。要查看 Cloud Volumes ONTAP 软件本身的限制， https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limitations.html["转至《 Cloud Volumes ONTAP 发行说明》"^]
 
 
 

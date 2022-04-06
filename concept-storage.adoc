@@ -53,8 +53,8 @@ NOTE: 使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到�
 
 * http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["AWS 文档： EBS 卷类型"^]
 * link:task-planning-your-config.html["了解如何在 AWS 中为您的系统选择磁盘类型和磁盘大小"]
-* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_aws_9101.html["查看 AWS 中 Cloud Volumes ONTAP 的存储限制"^]
-* http://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_aws_9101.html["查看 AWS 中支持的 Cloud Volumes ONTAP 配置"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html["查看 AWS 中 Cloud Volumes ONTAP 的存储限制"^]
+* http://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["查看 AWS 中支持的 Cloud Volumes ONTAP 配置"^]
 
 
 
@@ -86,7 +86,7 @@ HA 对:: HA 对使用高级页面 Blobs ，这些页面的最大磁盘大小为 
 * https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types["Microsoft Azure 文档： Azure 托管磁盘类型"^]
 * https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-pageblob-overview["Microsoft Azure 文档： Azure 页面 Blobs 概述"^]
 * link:task-planning-your-config-azure.html["了解如何在 Azure 中为您的系统选择磁盘类型和磁盘大小"]
-* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_azure_9101.html["查看 Azure 中 Cloud Volumes ONTAP 的存储限制"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["查看 Azure 中 Cloud Volumes ONTAP 的存储限制"^]
 
 
 
@@ -100,7 +100,7 @@ HA 对:: HA 对使用高级页面 Blobs ，这些页面的最大磁盘大小为 
 * 相关链接 *
 
 * https://cloud.google.com/compute/docs/disks/["Google Cloud Platform 文档：存储选项"^]
-* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_gcp_9101.html["查看 GCP 中 Cloud Volumes ONTAP 的存储限制"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html["查看 GCP 中 Cloud Volumes ONTAP 的存储限制"^]
 
 
 

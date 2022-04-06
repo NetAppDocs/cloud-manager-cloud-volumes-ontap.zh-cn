@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: whats-new.html 
 keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes' 
-summary: 了解 <service> 中的新增功能。 
+summary: 了解 Cloud Manager 中 Cloud Volumes ONTAP 管理的新增功能。 
 ---
 = 新增功能
 :hardbreaks:
@@ -15,7 +15,7 @@ summary: 了解 <service> 中的新增功能。
 [role="lead"]
 了解 Cloud Manager 中 Cloud Volumes ONTAP 管理的新增功能。
 
-此页面上介绍的增强功能专用于支持 Cloud Volumes ONTAP 管理的 Cloud Manager 功能。 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["查看《 Cloud Volumes ONTAP 发行说明》"^] 了解 Cloud Volumes ONTAP 软件本身的新增功能。
+此页面上介绍的增强功能专用于支持 Cloud Volumes ONTAP 管理的 Cloud Manager 功能。要了解 Cloud Volumes ONTAP 软件本身的新增功能， https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["转至《 Cloud Volumes ONTAP 发行说明》"^]
 
 
 
@@ -107,7 +107,7 @@ system_ 是 HA 对或单节点系统。例如，如果您有两个 Cloud Volumes
 
 如有任何疑问，请联系您的客户代表或销售团队。
 
-link:concept-netapp-accounts.html["了解有关 NetApp 客户的更多信息"]。
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["了解有关 NetApp 客户的更多信息"^]
 
 
 
@@ -271,7 +271,7 @@ image:screenshot_cvo_charging_methods.png["Cloud Volumes ONTAP 工作环境向�
 
 从 9.9.1 版开始， Cloud Volumes ONTAP 现在支持采用以下充电方法的 m5dn.24xlarge 实例类型： PAYGO Premium ，自带许可证（ BYOL ）和 Freemium 。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["查看 AWS 中支持的 Cloud Volumes ONTAP 配置"^]。
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["查看 AWS 中支持的 Cloud Volumes ONTAP 配置"^]。
 
 
 
@@ -322,7 +322,7 @@ link:task-enabling-private-link.html["了解有关将 Azure 专用链路与 Clou
 
 如果您的现有系统在此计算机类型上运行，则可以继续使用它，但我们建议切换到 n2-standard-4 计算机类型。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["在 GCP 中查看支持的 Cloud Volumes ONTAP 配置"^]。
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["在 GCP 中查看支持的 Cloud Volumes ONTAP 配置"^]。
 
 
 

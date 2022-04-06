@@ -24,7 +24,7 @@ Storage VM 是在 ONTAP 中运行的虚拟机，可为客户端提供存储和�
 
 == 支持的 Storage VM 数量
 
-Azure 中的 Cloud Volumes ONTAP BYOL 支持多个 Storage VM ，并且从 9.9.0 版开始提供附加许可证。转至 https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html["《 Cloud Volumes ONTAP 发行说明》"^] 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。
+Azure 中的 Cloud Volumes ONTAP BYOL 支持多个 Storage VM ，并且从 9.9.0 版开始提供附加许可证。转至 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["《 Cloud Volumes ONTAP 发行说明》"^] 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。
 
 所有其他 Cloud Volumes ONTAP 配置均支持一个提供数据的 Storage VM 和一个用于灾难恢复的目标 Storage VM 。如果源 Storage VM 发生中断，您可以激活目标 Storage VM 以进行数据访问。
 

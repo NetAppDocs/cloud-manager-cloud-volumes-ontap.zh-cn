@@ -195,7 +195,7 @@ image:screenshot_aggr_state.gif["屏幕抓图：显示查看聚合信息时的�
 
 当有新版本可供升级时， Cloud Manager 会向您发出通知。您可以从此通知启动升级过程。有关详细信息，请参见 <<Upgrade from Cloud Manager notifications>>。
 
-使用外部 URL 上的映像执行软件升级的另一种方式。如果 Cloud Manager 无法访问 S3 存储分段来升级软件或为您提供了修补程序，则此选项很有用。有关详细信息，请参见 <<Upgrade by using an HTTP or FTP server>>。
+使用外部 URL 上的映像执行软件升级的另一种方式。如果 Cloud Manager 无法访问 S3 存储分段来升级软件或为您提供了修补程序，则此选项很有用。有关详细信息，请参见 <<Upgrade from an image available at a URL>>。
 
 
 

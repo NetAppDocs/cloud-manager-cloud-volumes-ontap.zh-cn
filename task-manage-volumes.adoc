@@ -118,7 +118,7 @@ NOTE: Cloud Manager 会将卷移动到使用选定磁盘类型并进行分层的
 
 默认情况下，卷在空间不足时会自动增长到最大大小。默认值为 1 ， 000 ，这意味着卷可以增长到其大小的 11 倍。此值可在 Connector 的设置中进行配置。
 
-如果需要调整卷大小，可以通过执行此操作 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-C04C2C72-FF1F-4240-A22D-BE20BB74A116.html["ONTAP 系统管理器"^]。调整卷大小时，请务必考虑系统的容量限制。转至 https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html["《 Cloud Volumes ONTAP 发行说明》"^] 有关详细信息：
+如果需要调整卷大小，可以通过执行此操作 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-C04C2C72-FF1F-4240-A22D-BE20BB74A116.html["ONTAP 系统管理器"^]。调整卷大小时，请务必考虑系统的容量限制。转至 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["《 Cloud Volumes ONTAP 发行说明》"^] 有关详细信息：
 
 
 

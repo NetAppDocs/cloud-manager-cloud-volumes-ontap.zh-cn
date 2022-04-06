@@ -33,7 +33,7 @@ Cloud Volumes ONTAP 提供了多种许可选项。每个选项都允许您选择
 
 Cloud Volumes ONTAP 支持多种 VM 类型，具体取决于您选择的许可证类型。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_azure_9101.html["支持 Azure 中 Cloud Volumes ONTAP 的配置"^]
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["支持 Azure 中 Cloud Volumes ONTAP 的配置"^]
 
 
 
@@ -41,7 +41,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_azure_9101.h
 
 Cloud Volumes ONTAP 系统的原始容量限制与许可证相关。附加限制会影响聚合和卷的大小。在规划配置时，您应该了解这些限制。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_azure_9101.html["Azure 中 Cloud Volumes ONTAP 的存储限制"^]
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["Azure 中 Cloud Volumes ONTAP 的存储限制"^]
 
 
 
