@@ -108,3 +108,11 @@ HA 对:: HA 对使用高级页面 Blobs ，这些页面的最大磁盘大小为 
 == RAID 类型
 
 每个 Cloud Volumes ONTAP 聚合的 RAID 类型为 RAID0 （条带化）。不支持其他 RAID 类型。Cloud Volumes ONTAP 依靠云提供商提供磁盘可用性和持久性。
+
+
+
+=== 热备件
+
+RAID0 不支持使用热备件实现冗余。
+
+创建连接到 Cloud Volumes ONTAP 实例的未使用磁盘（热备用磁盘）是不必要的费用，可能会阻止根据需要配置额外空间。因此，不建议这样做。

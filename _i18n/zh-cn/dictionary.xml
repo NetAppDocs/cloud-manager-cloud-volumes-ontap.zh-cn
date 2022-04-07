@@ -3652,4 +3652,7 @@
   <block id="b50c0b33e57b5c9ee115739c46632fb7" category="cell">为卷选择 NFS 版本： NFSv3 或 NFSv4 。</block>
   <block id="18f1f9ca3b7402c1f840aba2c56d18c7" category="cell">启动程序组和 IQN （仅适用于 iSCSI ）</block>
   <block id="7a45d8b3ab8b6621427f532caad57a5f" category="cell">iSCSI 存储目标称为 LUN （逻辑单元），并作为标准块设备提供给主机。启动程序组是包含 iSCSI 主机节点名称的表，用于控制哪些启动程序可以访问哪些 LUN 。iSCSI 目标通过标准以太网网络适配器（ NIC ），带软件启动程序的 TCP 卸载引擎（ TOE ）卡，融合网络适配器（ CNA ）或专用主机总线适配器（ HBA ）连接到网络，并通过 iSCSI 限定名称（ IQN ）进行标识。创建 iSCSI 卷时， Cloud Manager 会自动为您创建 LUN 。我们通过为每个卷仅创建一个 LUN 来简化此过程，因此无需进行管理。创建卷后， <block ref="a56ae12401d3846252ee1d7537583dde" category="inline-link-macro-rx"></block>。</block>
+  <block id="c29624d8ee4ab92b4fe9010d8067a290" category="section-title">热备件</block>
+  <block id="7546f1896fe746593fe39c57ea23bd23" category="paragraph">RAID0 不支持使用热备件实现冗余。</block>
+  <block id="ee9bdabf55f98e793b6a92484c2f5bb5" category="paragraph">创建连接到 Cloud Volumes ONTAP 实例的未使用磁盘（热备用磁盘）是不必要的费用，可能会阻止根据需要配置额外空间。因此，不建议这样做。</block>
 </blocks>
