@@ -25,7 +25,7 @@ summary: 了解 Cloud Manager 中 Cloud Volumes ONTAP 管理的新增功能。
 
 === 为 WORM 存储充电
 
-现在，首发特惠价已过期，您将需要为使用 WORM 存储付费。根据卷的总配置容量，每小时充电一次。此适用场景 新的和现有的 Cloud Volumes ONTAP 系统。
+现在，首发特惠价已过期，您将需要为使用 WORM 存储付费。根据 WORM 卷的总配置容量，每小时进行一次充电。此适用场景 新的和现有的 Cloud Volumes ONTAP 系统。
 
 https://cloud.netapp.com/pricing["了解 WORM 存储的定价"^]。
 

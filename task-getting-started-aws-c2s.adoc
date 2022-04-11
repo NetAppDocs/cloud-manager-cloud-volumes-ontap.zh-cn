@@ -169,6 +169,7 @@ Cloud Manager 不提供任何 NetApp 云服务。
                 "iam:CreateRole",
                 "iam:DeleteRole",
                 "iam:PutRolePolicy",
+                "iam:ListInstanceProfiles",
                 "iam:CreateInstanceProfile",
                 "iam:DeleteRolePolicy",
                 "iam:AddRoleToInstanceProfile",

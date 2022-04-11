@@ -27,7 +27,7 @@ summary: 您可以在 Cloud Volumes ONTAP 系统上激活一次写入、多次�
 
 == 正在充电
 
-根据卷的总配置容量， WORM 存储的费用为每小时一次。
+根据 WORM 卷的总配置容量， WORM 存储的费用为每小时一次。
 
 https://cloud.netapp.com/pricing["了解 WORM 存储的定价"^]。
 
