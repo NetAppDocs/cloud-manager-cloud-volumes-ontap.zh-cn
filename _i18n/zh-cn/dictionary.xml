@@ -3655,4 +3655,18 @@
   <block id="d30ed55a4efaa85c9be23afd54902f99" category="paragraph">每个 Cloud Volumes ONTAP 聚合的 RAID 类型为 RAID0 （条带化）。Cloud Volumes ONTAP 依靠云提供商提供磁盘可用性和持久性。不支持其他 RAID 类型。</block>
   <block id="e85cd480a7048786255eb3e2a749e48d" category="paragraph">根据 WORM 卷的总配置容量， WORM 存储的费用为每小时一次。</block>
   <block id="d87a373c29bad4362e9f6515cb3a6927" category="paragraph">现在，首发特惠价已过期，您将需要为使用 WORM 存储付费。根据 WORM 卷的总配置容量，每小时进行一次充电。此适用场景 新的和现有的 Cloud Volumes ONTAP 系统。</block>
+  <block id="8911c2770edec78a9b5da666d560dd90" category="summary">Cloud Volumes ONTAP 支持 iSCSI ， NFS ， SMB 和 S3 客户端协议。</block>
+  <block id="36f3832717137e178e376fc49ba4e550" category="doc">客户端协议</block>
+  <block id="5494b349161a941df24b2a8abfcb1bc9" category="paragraph">iSCSI 是一种可在标准以太网网络上运行的块协议。大多数客户端操作系统都提供一个通过标准以太网端口运行的软件启动程序。</block>
+  <block id="a506035b6cec6c14b89e2274b8f507fc" category="paragraph">NFS 是 UNIX 和 Linux 系统的传统文件访问协议。客户端可以使用 NFSv3 ， NFSv4 和 NFSv4.1 协议访问 ONTAP 卷中的文件。您可以使用 UNIX 模式的权限， NTFS 模式的权限或两者的混合来控制文件访问。</block>
+  <block id="1ecf939f833364bdd59ce6237b13389d" category="paragraph">客户端可以使用 NFS 和 SMB 协议访问相同的文件。</block>
+  <block id="b4fdd997b1f33e0d4c6964444c2bf399" category="section-title">SMB</block>
+  <block id="11b07e87cde6233c7e410399ad203deb" category="paragraph">SMB 是 Windows 系统的传统文件访问协议。客户端可以使用 SMB 2.0 ， SMB 2.1 ， SMB 3.0 和 SMB 3.1.1 协议访问 ONTAP 卷中的文件。与 NFS 一样，支持混合使用多种权限模式。</block>
+  <block id="e2ab7c65b21ed8cc1c3b642b5e36429e" category="section-title">S3</block>
+  <block id="97d123cf781865da390957834e7dec4a" category="paragraph">Cloud Volumes ONTAP 支持将 S3 作为 Microsoft Azure 中横向扩展存储的一个选项。通过 S3 协议支持，您可以配置 S3 客户端对 SVM 中存储分段中的对象的访问。</block>
+  <block id="ba36d0b77efc9f46158b78a4e8ec9019" category="paragraph">目前， AWS 或 Google Cloud 中的 Cloud Volumes ONTAP 不支持 S3 协议。</block>
+  <block id="6958464059ef304c59d06fcb948ccafd" category="inline-link">了解如何在 ONTAP 中配置和管理 S3 对象存储服务</block>
+  <block id="75081fb4982f7b843e702079b35f0ed4" category="paragraph"><block ref="3fe75f10a35597997861eca633c30fa7" category="inline-link-rx"></block>。</block>
+  <block id="cad02caeb4ee636c87f28b0bb1263080" category="inline-link-macro">了解支持的客户端协议和版本</block>
+  <block id="f0ddee23dd0d83f105bbdaa15ff5d87a" category="paragraph"><block ref="43c09f3d08ec80b50648a2a905bca06c" category="inline-link-macro-rx"></block>。</block>
 </blocks>

@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: concept-client-protocols.html 
+keywords: client protocols, client version, smb version, nfs version, protocol versions, s3, smb, nfs, iscsi, cifs 
+summary: Cloud Volumes ONTAP 支持 iSCSI ， NFS ， SMB 和 S3 客户端协议。 
+---
+= 客户端协议
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP 支持 iSCSI ， NFS ， SMB 和 S3 客户端协议。
+
+
+
+== iSCSI
+
+iSCSI 是一种可在标准以太网网络上运行的块协议。大多数客户端操作系统都提供一个通过标准以太网端口运行的软件启动程序。
+
+
+
+== NFS
+
+NFS 是 UNIX 和 Linux 系统的传统文件访问协议。客户端可以使用 NFSv3 ， NFSv4 和 NFSv4.1 协议访问 ONTAP 卷中的文件。您可以使用 UNIX 模式的权限， NTFS 模式的权限或两者的混合来控制文件访问。
+
+客户端可以使用 NFS 和 SMB 协议访问相同的文件。
+
+
+
+== SMB
+
+SMB 是 Windows 系统的传统文件访问协议。客户端可以使用 SMB 2.0 ， SMB 2.1 ， SMB 3.0 和 SMB 3.1.1 协议访问 ONTAP 卷中的文件。与 NFS 一样，支持混合使用多种权限模式。
+
+
+
+== S3
+
+Cloud Volumes ONTAP 支持将 S3 作为 Microsoft Azure 中横向扩展存储的一个选项。通过 S3 协议支持，您可以配置 S3 客户端对 SVM 中存储分段中的对象的访问。
+
+目前， AWS 或 Google Cloud 中的 Cloud Volumes ONTAP 不支持 S3 协议。
+
+https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["了解如何在 ONTAP 中配置和管理 S3 对象存储服务"^]。

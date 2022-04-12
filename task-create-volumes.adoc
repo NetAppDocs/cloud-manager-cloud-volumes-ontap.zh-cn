@@ -88,6 +88,9 @@ Cloud Manager 提供了多种创建新卷的方法：
 如果您选择 CIFS 但服务器未设置，则在单击 * 下一步 * 后， Cloud Manager 将提示您设置 CIFS 连接。
 
 +
+link:concept-client-protocols.html["了解支持的客户端协议和版本"]。
+
++
 以下各节介绍了可能需要指导的字段。这些说明按协议进行组织。
 
 +

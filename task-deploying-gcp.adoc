@@ -182,6 +182,9 @@ link:concept-data-tiering.html["了解有关数据分层的更多信息。"]。
 
 . * 创建卷 * ：输入新卷的详细信息或单击 * 跳过 * 。
 +
+link:concept-client-protocols.html["了解支持的客户端协议和版本"]。
+
++
 本页中的某些字段是不言自明的。下表介绍了可能需要指导的字段：
 
 +
@@ -375,6 +378,9 @@ link:concept-data-tiering.html["了解有关数据分层的更多信息。"]。
 
 
 . * 创建卷 * ：输入新卷的详细信息或单击 * 跳过 * 。
++
+link:concept-client-protocols.html["了解支持的客户端协议和版本"]。
+
 +
 本页中的某些字段是不言自明的。下表介绍了可能需要指导的字段：
 

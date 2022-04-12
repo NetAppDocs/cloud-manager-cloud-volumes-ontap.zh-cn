@@ -172,6 +172,8 @@ sidebar:
     entries:
     - title: 存储
       entries:
+      - title: 客户端协议
+        url: "/concept-client-protocols.html"
       - title: 磁盘和聚合
         url: "/concept-storage.html"
       - title: 数据分层
