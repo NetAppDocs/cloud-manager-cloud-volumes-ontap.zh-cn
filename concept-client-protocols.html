@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>覆盖 Azure 中 Cloud Volumes ONTAP HA 的 CIFS 锁定 | NetApp Documentation</title>
+  <title>客户端协议 | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="覆盖 Azure 中 Cloud Volumes ONTAP HA 的 CIFS 锁定 | NetApp Documentation" />
+  <meta property="og:title" content="客户端协议 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html" />
-	<meta property="og:description" content="帐户管理员可以在 Cloud Manager 中启用一项设置，以防止在 Azure 维护事件期间出现 Cloud Volumes ONTAP 存储交还问题。启用此设置后， Cloud Volumes ONTAP 将否决 CIFS 锁定并重置活动 CIFS 会话。" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/concept-client-protocols.html" />
+	<meta property="og:description" content="Cloud Volumes ONTAP 支持 iSCSI ， NFS ， SMB 和 S3 客户端协议。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="帐户管理员可以在 Cloud Manager 中启用一项设置，以防止在 Azure 维护事件期间出现 Cloud Volumes ONTAP 存储交还问题。启用此设置后， Cloud Volumes ONTAP 将否决 CIFS 锁定并重置活动 CIFS 会话。">
-  <meta name="keywords" content=" CIFS locks, azure maintenance, maintenance events, cifs sessions, storage failover, storage giveback, giveback"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Volumes ONTAP 支持 iSCSI ， NFS ， SMB 和 S3 客户端协议。">
+  <meta name="keywords" content=" client protocols, client version, smb version, nfs version, protocol versions, s3, smb, nfs, iscsi, cifs"><!-- Icons -->
   <link rel="icon" href="/zh-cn/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/zh-cn/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[覆盖 Azure 中 Cloud Volumes ONTAP HA 的 CIFS 锁定](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-overriding-cifs-locks.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[客户端协议](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/concept-client-protocols.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-client-protocols.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/concept-client-protocols.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-client-protocols.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-client-protocols.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/concept-client-protocols.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -841,15 +841,6 @@
           
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/pages/task-overriding-cifs-locks.pdf" >
-    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -971,6 +962,15 @@
             存储
           </a>
           
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/pages/concept-client-protocols.pdf" >
+    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -1274,7 +1274,7 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-azure-vm.html">
         更改 Azure 虚拟机类型
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html">
         覆盖 CIFS 锁定
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html">
         使用 Azure 专用链路
@@ -1298,7 +1298,7 @@
       <ul><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 存储</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-client-protocols.html">
+      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-client-protocols.html">
         客户端协议
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-storage.html">
         磁盘和聚合
@@ -1402,60 +1402,67 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">覆盖 Azure 中 Cloud Volumes ONTAP HA 的 CIFS 锁定</h1>
+  <h1 class="n-doc__component-detail-heading">客户端协议</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-01 20:46:41 +0000">04/01/2022</time>
+    <time datetime="2022-04-12 17:50:49 +0000">04/12/2022</time>
     
   
 
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>帐户管理员可以在 Cloud Manager 中启用一项设置，以防止在 Azure 维护事件期间出现 Cloud Volumes ONTAP 存储交还问题。启用此设置后， Cloud Volumes ONTAP 将否决 CIFS 锁定并重置活动 CIFS 会话。</p>
+<p>Cloud Volumes ONTAP 支持 iSCSI ， NFS ， SMB 和 S3 客户端协议。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="iscsi">iSCSI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>iSCSI 是一种可在标准以太网网络上运行的块协议。大多数客户端操作系统都提供一个通过标准以太网端口运行的软件启动程序。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nfs">NFS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NFS 是 UNIX 和 Linux 系统的传统文件访问协议。客户端可以使用 NFSv3 ， NFSv4 和 NFSv4.1 协议访问 ONTAP 卷中的文件。您可以使用 UNIX 模式的权限， NTFS 模式的权限或两者的混合来控制文件访问。</p>
 </div>
 <div class="paragraph">
-<p>Microsoft Azure 会在其虚拟机上计划定期维护事件。在 Cloud Volumes ONTAP HA 对上发生维护事件时， HA 对将启动存储接管。如果在此维护事件期间存在活动的 CIFS 会话，则锁定 CIFS 文件可能会阻止存储交还。</p>
+<p>客户端可以使用 NFS 和 SMB 协议访问相同的文件。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="smb">SMB</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>SMB 是 Windows 系统的传统文件访问协议。客户端可以使用 SMB 2.0 ， SMB 2.1 ， SMB 3.0 和 SMB 3.1.1 协议访问 ONTAP 卷中的文件。与 NFS 一样，支持混合使用多种权限模式。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="s3">S3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Volumes ONTAP 支持将 S3 作为 Microsoft Azure 中横向扩展存储的一个选项。通过 S3 协议支持，您可以配置 S3 客户端对 SVM 中存储分段中的对象的访问。</p>
 </div>
 <div class="paragraph">
-<p>如果启用此设置， Cloud Volumes ONTAP 将否决锁定并重置活动的 CIFS 会话。因此， HA 对可以在这些维护事件期间完成存储交还。</p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/caution.svg" alt="注意">
-</td>
-<td class="content">
-此过程可能会对 CIFS 客户端造成中断。未从 CIFS 客户端提交的数据可能会丢失。
-</td>
-</tr>
-</table>
+<p>目前， AWS 或 Google Cloud 中的 Cloud Volumes ONTAP 不支持 S3 协议。</p>
 </div>
 <div class="paragraph">
-<p>您需要先创建 Connector ，然后才能更改 Cloud Manager 设置。 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#how-to-create-a-connector" target="_blank" rel="noopener">"了解如何操作"</a>。</p>
+<p><a href="https://docs.netapp.com/us-en/ontap/object-storage-management/index.html" target="_blank" rel="noopener">"了解如何在 ONTAP 中配置和管理 S3 对象存储服务"</a>。</p>
 </div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>在 Cloud Manager 控制台的右上角，单击设置图标，然后选择 * 连接器设置 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_settings_icon.gif" alt="一个屏幕截图，显示 Cloud Manager 控制台右上角的设置图标。"></span></p>
 </div>
-</li>
-<li>
-<p>在 * Azure * 下，单击 * 适用于 Azure HA 工作环境的 Azure CIFS 锁定 * 。</p>
-</li>
-<li>
-<p>单击复选框以启用此功能，然后单击 * 保存 * 。</p>
-</li>
-</ol>
 </div>
 
     </article>
