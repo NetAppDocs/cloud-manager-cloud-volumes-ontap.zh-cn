@@ -6,6 +6,7 @@ summary: 通过数字电子钱包页面，您可以从一个位置管理 Cloud V
 ---
 = 管理 Keystone Flex 订阅
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

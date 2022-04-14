@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP 支持 iSCSI ， NFS ， SMB 和 S3 客户端协议
 ---
 = 客户端协议
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

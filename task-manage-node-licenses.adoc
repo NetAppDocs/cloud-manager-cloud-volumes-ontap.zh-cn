@@ -6,6 +6,7 @@ summary: 在数字电子钱包中管理基于节点的许可证，以确保每�
 ---
 = 管理基于节点的许可证
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

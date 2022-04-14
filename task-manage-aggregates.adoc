@@ -6,6 +6,7 @@ summary: 您可以通过添加磁盘，查看聚合相关信息以及删除聚�
 ---
 = 管理聚合
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

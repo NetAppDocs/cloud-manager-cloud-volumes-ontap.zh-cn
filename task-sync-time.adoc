@@ -6,6 +6,7 @@ summary: 指定 NTP 服务器可同步网络中各个系统之间的时间，这
 ---
 = 使用 NTP 同步系统时间
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

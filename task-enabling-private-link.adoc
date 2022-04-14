@@ -6,6 +6,7 @@ summary: 默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关�
 ---
 = 将 Azure 专用链路与 Cloud Volumes ONTAP 结合使用
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

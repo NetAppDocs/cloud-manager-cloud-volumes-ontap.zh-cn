@@ -6,6 +6,7 @@ summary: 您可以在 Azure 中启动单个 Cloud Volumes ONTAP 系统、方法�
 ---
 = 在 Azure 中启动 Cloud Volumes ONTAP
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

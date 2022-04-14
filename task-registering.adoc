@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP PAYGO 系统附带 NetApp 提供的支持，但您�
 ---
 = 注册按需购买的系统
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 通过将冷数据自动分层到低成本的对象存储，降低存�
 ---
 = 数据分层概述
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

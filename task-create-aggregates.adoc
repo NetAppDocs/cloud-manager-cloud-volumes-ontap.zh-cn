@@ -6,6 +6,7 @@ summary: 您可以自己创建聚合或让 Cloud Manager 在创建卷时为您�
 ---
 = 创建聚合
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

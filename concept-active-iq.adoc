@@ -6,6 +6,7 @@ summary: ONTAP 的 AutoSupport 组件会收集遥测数据并将其发送以供�
 ---
 = AutoSupport 和 Active IQ 数字顾问
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

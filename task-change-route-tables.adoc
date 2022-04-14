@@ -6,6 +6,7 @@ summary: 您可以修改 AWS 路由表，其中包含部署在多个 AWS 可用�
 ---
 = 更改多个 AZs 中 HA 对的路由表
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

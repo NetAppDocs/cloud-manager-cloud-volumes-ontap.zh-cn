@@ -6,6 +6,7 @@ summary: Cloud Manager 负责为 Cloud Volumes ONTAP 设置网络组件，例如
 ---
 = AWS 中的 Cloud Volumes ONTAP 的网络要求
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

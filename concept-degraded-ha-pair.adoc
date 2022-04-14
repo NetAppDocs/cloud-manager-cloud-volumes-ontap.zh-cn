@@ -6,6 +6,7 @@ summary: 如果 HA 对中的某个节点不可用，则另一个节点将为其�
 ---
 = 接管期间操作不可用
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

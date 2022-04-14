@@ -6,6 +6,7 @@ summary: 了解 Cloud Volumes ONTAP 如何使用云存储可以帮助您了解�
 ---
 = 磁盘和聚合
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

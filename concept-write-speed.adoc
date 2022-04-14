@@ -6,6 +6,7 @@ summary: 您可以通过 Cloud Manager 为 Cloud Volumes ONTAP 选择正常或�
 ---
 = 写入速度
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

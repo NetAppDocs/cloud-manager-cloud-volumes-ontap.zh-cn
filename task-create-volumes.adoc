@@ -6,6 +6,7 @@ summary: 如果在启动初始 Cloud Volumes ONTAP 系统后需要更多存储�
 ---
 = 创建 FlexVol 卷
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

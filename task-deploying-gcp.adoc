@@ -6,6 +6,7 @@ summary: 您可以在单系统配置中启动 Cloud Volumes ONTAP ，也可以�
 ---
 = 在 GCP 中启动 Cloud Volumes ONTAP
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

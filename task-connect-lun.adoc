@@ -6,6 +6,7 @@ summary: 创建 iSCSI 卷时， Cloud Manager 会自动为您创建 LUN 。我�
 ---
 = 将 LUN 连接到主机
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

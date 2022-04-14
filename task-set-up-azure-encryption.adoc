@@ -6,6 +6,7 @@ summary: 在 Azure 中的 Cloud Volumes ONTAP 上使用 Azure 存储服务加密
 ---
 = 设置 Cloud Volumes ONTAP 以在 Azure 中使用客户管理的密钥
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

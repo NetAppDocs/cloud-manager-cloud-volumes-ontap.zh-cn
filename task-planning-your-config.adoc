@@ -6,6 +6,7 @@ summary: 在 AWS 中部署 Cloud Volumes ONTAP 时，您可以选择符合工作
 ---
 = 在 AWS 中规划 Cloud Volumes ONTAP 配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

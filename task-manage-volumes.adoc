@@ -6,6 +6,7 @@ summary: 您可以使用 Cloud Manager 管理卷和 CIFS 服务器。它还会�
 ---
 = 管理现有卷
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

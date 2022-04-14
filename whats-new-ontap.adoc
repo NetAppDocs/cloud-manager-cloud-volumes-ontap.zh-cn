@@ -6,6 +6,7 @@ summary: 《 Cloud Volumes ONTAP 发行说明》提供了特定于版本的信�
 ---
 = 《 Cloud Volumes ONTAP 发行说明》
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

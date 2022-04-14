@@ -6,6 +6,7 @@ summary: 事件管理系统收集并显示有关 ONTAP 系统上发生的事件�
 ---
 = 配置 EMS
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

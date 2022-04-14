@@ -6,6 +6,7 @@ summary: AutoSupport 会主动监控系统的运行状况，并向 NetApp 技术
 ---
 = 验证 AutoSupport 设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

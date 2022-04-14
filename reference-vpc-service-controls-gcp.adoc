@@ -6,6 +6,7 @@ summary: 选择使用 VPC 服务控制锁定 Google 环境时，您应了解 Clo
 ---
 = 在 GCP 中规划 VPC 服务控制
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

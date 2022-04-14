@@ -6,6 +6,7 @@ summary: 只需几步即可开始使用适用于 AWS 的 Cloud Volumes ONTAP 。
 ---
 = 在 AWS 中快速启动 Cloud Volumes ONTAP
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

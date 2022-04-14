@@ -6,6 +6,7 @@ summary: 您可以在单系统配置中启动 Cloud Volumes ONTAP 实例，也�
 ---
 = 在 AWS 中启动 Cloud Volumes ONTAP
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

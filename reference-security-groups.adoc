@@ -6,6 +6,7 @@ summary: Cloud Manager 创建了包含 Cloud Manager 和 Cloud Volumes ONTAP 成
 ---
 = AWS 的安全组规则
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -409,34 +410,7 @@ NOTE: 源 IP 地址是 Connector 主机。
 | 服务 | 协议 | Port | 目标 | 目的 
 
 
-.9+| Active Directory | TCP | 88 | Active Directory 目录林 | Kerberos V 身份验证 
-
-
-| TCP | 139. | Active Directory 目录林 | NetBIOS 服务会话 
-
-
-| TCP | 389. | Active Directory 目录林 | LDAP 
-
-
-| TCP | 445 | Active Directory 目录林 | Microsoft SMB/CIFS over TCP （通过 TCP ）和 NetBIOS 成帧 
-
-
-| TCP | 464. | Active Directory 目录林 | Kerberos V 更改和设置密码（ set_change ） 
-
-
-| TCP | 749 | Active Directory 目录林 | Active Directory Kerberos V 更改和设置密码（ RPCSEC_GSS ） 
-
-
-| UDP | 137. | Active Directory 目录林 | NetBIOS 名称服务 
-
-
-| UDP | 138. | Active Directory 目录林 | NetBIOS 数据报服务 
-
-
-| UDP | 464. | Active Directory 目录林 | Kerberos 密钥管理 
-
-
-| API 调用和 AutoSupport | HTTPS | 443. | 出站 Internet 和 ONTAP 集群管理 LIF | API 调用 AWS 和 ONTAP 、并将 AutoSupport 消息发送到 NetApp 
+| API 调用和 AutoSupport | HTTPS | 443. | 出站 Internet 和 ONTAP 集群管理 LIF | API 调用 AWS 和 ONTAP ，云数据感知，勒索软件服务以及向 NetApp 发送 AutoSupport 消息 
 
 
 .2+| API 调用 | TCP | 3000 | ONTAP HA 调解器 | 与 ONTAP HA 调解器通信 

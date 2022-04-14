@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP 高可用性配置可提供无中断运行和容错
 ---
 = Google Cloud Platform 中的高可用性对
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

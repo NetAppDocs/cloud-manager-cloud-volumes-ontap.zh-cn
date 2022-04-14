@@ -6,6 +6,7 @@ summary: 从数字电子钱包中管理基于容量的许可证，以确保您�
 ---
 = 管理基于容量的许可证
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 以下指南可帮助您开始在 Google Cloud 中使用 Cloud Volumes 
 ---
 = 适用于 Google Cloud 的 Cloud Volumes ONTAP
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

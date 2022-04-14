@@ -6,6 +6,7 @@ summary: 具有基于节点的 BYOL 的每个 Cloud Volumes ONTAP 系统都必�
 ---
 = 基于节点的 BYOL 许可证管理
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 与标准 AWS 区域类似，您可以在 AWS 商用云服务（ C2S �
 ---
 = 开始在 AWS C2S 环境中使用 Cloud Volumes ONTAP
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

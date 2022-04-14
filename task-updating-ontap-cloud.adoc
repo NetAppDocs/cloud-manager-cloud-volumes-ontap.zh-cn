@@ -6,6 +6,7 @@ summary: 从 Cloud Manager 升级 Cloud Volumes ONTAP 以访问最新的新功�
 ---
 = 升级 Cloud Volumes ONTAP 软件
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

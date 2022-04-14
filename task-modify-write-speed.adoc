@@ -6,6 +6,7 @@ summary: '随着存储需求的变化，您可能需要更改 Cloud Volumes ONTA
 ---
 = 修改系统写入速度
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

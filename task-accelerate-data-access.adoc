@@ -6,6 +6,7 @@ summary: FlexCache 卷是一种存储卷，用于缓存原始卷或源卷中的 
 ---
 = 利用 FlexCache 卷加快数据访问速度
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
