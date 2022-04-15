@@ -1425,8 +1425,6 @@
   <block id="82bb5935870011035cbcd473a3789892" category="list-text">创建一个包含以下权限的 IAM 策略。</block>
   <block id="6f7f1463a2a1b8ca4d55b6233107a3fd" category="list-text">将策略附加到为 Cloud Manager 提供权限的 IAM 角色或 IAM 用户。</block>
   <block id="b544b5b880735f9bf39da4d996ceb45b" category="paragraph">以下策略提供了 Cloud Manager 从外部 AWS 帐户使用 CMK 所需的权限。请务必在 " 资源 " 部分中修改区域和帐户 ID 。</block>
-  <block id="c11629c76cb2cf223c1ad3cdd5246200" category="inline-link">AWS 文档：允许外部 AWS 帐户访问 CMK</block>
-  <block id="d71f387349ef382aae2381e384e80734" category="paragraph">有关此过程的其他详细信息，请参见<block ref="e587bf292bcc348620cff97c127107a8" category="inline-link-rx"></block>。</block>
   <block id="c81afb1b84ded76b91ff7f71834201df" category="list-text">如果您使用的是客户管理的 Cloud Volumes ONTAP ，请通过将 CMK 的 IAM 角色添加为 _key user_来 修改 CMK 的密钥策略。</block>
   <block id="0384244b4a5a8a089d8df0c3da87ddc5" category="paragraph">如果您在 Cloud Volumes ONTAP 上启用了数据分层并希望对存储在 S3 存储分段中的数据进行加密，则需要执行此步骤。</block>
   <block id="a5b811aae80c48f2c3219bcc0dc331ec" category="paragraph">部署 Cloud Volumes ONTAP 后，您需要执行此步骤，因为 IAM 角色是在创建工作环境时创建的。（当然，您可以选择使用现有的 Cloud Volumes ONTAP IAM 角色，因此可以先执行此步骤。）</block>
@@ -3714,4 +3712,6 @@
   <block id="bece28b158ab337d9ed24b00d7d02cc7" category="list-text">单击 * 致电我们 * 可查找 NetApp 技术支持的电话号码。</block>
   <block id="efe81cff8e6f47ec59ef94167b76bf5a" category="list-text">单击 * 打开问题描述 * ，选择一个选项，然后单击 * 发送 * 。</block>
   <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">NetApp 代表将审核您的案例，并尽快与您联系。</block>
+  <block id="c2a34cad77f0451e7d0f58a7e0e6e450" category="inline-link">AWS 文档：允许其他帐户中的用户使用 KMS 密钥</block>
+  <block id="21adb1598ef7a554ecf87a6c0bffbd4c" category="paragraph">有关此过程的其他详细信息，请参见<block ref="9601f431d0df2b9877da4b65b53342b6" category="inline-link-rx"></block>。</block>
 </blocks>
