@@ -1409,7 +1409,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:29:47 +0000">04/14/2022</time>
+    <time datetime="2022-04-21 15:27:19 +0000">04/21/2022</time>
     
   
 
@@ -1791,7 +1791,7 @@ Your browser does not support the video tag.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS 主 IP 地址和次 IP 地址</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。如果要配置 Google Managed Active Directory ，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD 。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">要加入的 Active Directory 域</p></td>
@@ -1807,7 +1807,7 @@ Your browser does not support the video tag.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">组织单位</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。要将 Google Managed Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=Cloud* 。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文档： Google Managed Microsoft AD 中的组织单位"^]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS 域</p></td>
@@ -2124,7 +2124,7 @@ Your browser does not support the video tag.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS 主 IP 地址和次 IP 地址</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。如果要配置 Google Managed Active Directory ，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD 。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">要加入的 Active Directory 域</p></td>
@@ -2140,7 +2140,7 @@ Your browser does not support the video tag.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">组织单位</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。要将 Google Managed Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=Cloud* 。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文档： Google Managed Microsoft AD 中的组织单位"^]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS 域</p></td>
