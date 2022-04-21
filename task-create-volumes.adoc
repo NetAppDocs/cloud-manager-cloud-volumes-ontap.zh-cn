@@ -108,14 +108,20 @@ link:concept-client-protocols.html["了解支持的客户端协议和版本"]。
 --
 权限和用户 / 组:: 用于控制用户和组（也称为访问控制列表或 ACL ）对 SMB 共享的访问级别。您可以指定本地或域 Windows 用户或组、 UNIX 用户或组。如果指定域 Windows 用户名、则必须使用域 \ 用户名格式包括用户的域。
 DNS 主 IP 地址和次 IP 地址:: 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。
++
+--
+如果要配置 Google Managed Active Directory ，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD 。
+
+--
 要加入的 Active Directory 域:: 您希望 CIFS 服务器加入的 Active Directory （ AD ）域的 FQDN 。
 授权加入域的凭据:: 具有足够权限将计算机添加到 AD 域中指定组织单位 (OU) 的 Windows 帐户的名称和密码。
 CIFS server NetBIOS name:: 在 AD 域中唯一的 CIFS 服务器名称。
 组织单位:: AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。
 +
 --
-*** 要将 AWS 托管 Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，您应在此字段中输入 * OU=Computers ， OU=corp* 。
-*** 要将 Azure AD 域服务配置为 Cloud Volumes ONTAP 的 AD 服务器，应在此字段中输入 * OU=ADDC Computers * 或 * OU=ADDC Users* 。https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure 文档：在 Azure AD 域服务托管域中创建组织单位（ OU ）"^]
+*** 要将 AWS 托管 Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=corp* 。
+*** 要将 Azure AD 域服务配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=AADDC Computers * 或 * OU=AADDC Users* 。https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure 文档：在 Azure AD 域服务托管域中创建组织单位（ OU ）"^]
+*** 要将 Google Managed Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=Cloud* 。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文档： Google Managed Microsoft AD 中的组织单位"^]
 
 
 --

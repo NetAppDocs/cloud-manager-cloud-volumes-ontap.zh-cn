@@ -681,7 +681,6 @@
   <block id="fd549a6bcd2d53b8accb49a7225fcfa0" category="paragraph">如果您更改了 DNS 服务器或 Active Directory 域、则需要在 Cloud Volumes ONTAP 中修改 CIFS 服务器、以便它可以继续为客户端提供存储。</block>
   <block id="26eb89266cb77257e69e50bb61b2da4e" category="list-text">在工作环境中，单击菜单图标，然后单击 * 高级 &gt; CIFS 设置 * 。</block>
   <block id="47839a059e385e1317a08bc188364e78" category="list-text">指定 CIFS 服务器的设置：</block>
-  <block id="ce8072a497c516b7feafdc7f85189540" category="cell">为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。</block>
   <block id="fb0f1ebb01626c50d4db72222f7f93b8" category="cell">AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。如果将 AWS 托管 Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，则应在此字段中输入 * OU=Computers ， OU=corp* 。</block>
   <block id="d72f7fe99597ed8f22050ed88031cb7e" category="paragraph">Cloud Volumes ONTAP 会根据更改更新 CIFS 服务器。</block>
   <block id="3fa1556429ab2d5c82bf33695eafd79b" category="section-title">移动卷</block>
@@ -1147,8 +1146,6 @@
   <block id="400ffb1399d3b8d7d41dacde44c9a555" category="list-text">权限和用户 / 组</block>
   <block id="5f5586468344265a0b77d8d95679c505" category="list-text">用于控制用户和组（也称为访问控制列表或 ACL ）对 SMB 共享的访问级别。您可以指定本地或域 Windows 用户或组、 UNIX 用户或组。如果指定域 Windows 用户名、则必须使用域 \ 用户名格式包括用户的域。</block>
   <block id="e04aef302973ec752f06497862924bbd" category="list-text">为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。</block>
-  <block id="2859714529b3c97d804c63700416d382" category="list-text">要将 AWS 托管 Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，您应在此字段中输入 * OU=Computers ， OU=corp* 。</block>
-  <block id="0b65283ddb7514110dc1b43564c71fdc" category="list-text">要将 Azure AD 域服务配置为 Cloud Volumes ONTAP 的 AD 服务器，应在此字段中输入 * OU=ADDC Computers * 或 * OU=ADDC Users* 。<block ref="c77116dc5056757dacd34253f40507d7" category="inline-link-rx"></block></block>
   <block id="e4e1c13bb0b14f6cb7608cbecea948ef" category="open-title">iSCSI</block>
   <block id="b26e74ed6e2892c7e2bb95e414d460c6" category="list-text">LUN</block>
   <block id="e27b0c58e0eb09abee401a5c059fae69" category="list-text">iSCSI 存储目标称为 LUN （逻辑单元），并作为标准块设备提供给主机。创建 iSCSI 卷时， Cloud Manager 会自动为您创建 LUN 。我们通过为每个卷仅创建一个 LUN 来简化此过程，因此无需进行管理。创建卷后， <block ref="a56ae12401d3846252ee1d7537583dde" category="inline-link-macro-rx"></block>。</block>
@@ -3714,4 +3711,12 @@
   <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">NetApp 代表将审核您的案例，并尽快与您联系。</block>
   <block id="c2a34cad77f0451e7d0f58a7e0e6e450" category="inline-link">AWS 文档：允许其他帐户中的用户使用 KMS 密钥</block>
   <block id="21adb1598ef7a554ecf87a6c0bffbd4c" category="paragraph">有关此过程的其他详细信息，请参见<block ref="9601f431d0df2b9877da4b65b53342b6" category="inline-link-rx"></block>。</block>
+  <block id="21daef3fadb3dd64defa83d39be31db2" category="paragraph">如果要配置 Google Managed Active Directory ，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD 。</block>
+  <block id="42c3be7fd8f6754b6276a788fafb5c2a" category="list-text">要将 AWS 托管 Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=corp* 。</block>
+  <block id="c6889b0f09506ef266562788f0e045c4" category="list-text">要将 Azure AD 域服务配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=AADDC Computers * 或 * OU=AADDC Users* 。<block ref="c77116dc5056757dacd34253f40507d7" category="inline-link-rx"></block></block>
+  <block id="dd1469e83233ef1220eabf5ed3052e71" category="inline-link">Google Cloud 文档： Google Managed Microsoft AD 中的组织单位</block>
+  <block id="574cb50e267b71a9b98541218b0def7d" category="list-text">要将 Google Managed Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=Cloud* 。<block ref="8e7507132642e39310c024b1b990cf52" category="inline-link-rx"></block></block>
+  <block id="74fcd5478f5518e9bba0d4231bc72033" category="cell">为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。如果要配置 Google Managed Active Directory ，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD 。</block>
+  <block id="61406b1bdfba5a7d3fd5d0089edfe238" category="cell">为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。如果要配置 Google Managed Active Directory ，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD 。</block>
+  <block id="40bf45be09da9df22806f3324816106f" category="cell">AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。要将 Google Managed Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=Cloud* 。<block ref="8e7507132642e39310c024b1b990cf52" category="inline-link-rx"></block></block>
 </blocks>

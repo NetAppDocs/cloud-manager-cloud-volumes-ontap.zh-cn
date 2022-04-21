@@ -136,7 +136,7 @@ NOTE: Cloud Manager 会将卷移动到使用选定磁盘类型并进行分层的
 | 任务 | Action 
 
 
-| DNS 主 IP 地址和次 IP 地址 | 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。 
+| DNS 主 IP 地址和次 IP 地址 | 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含为 CIFS 服务器将加入的域定位 Active Directory LDAP 服务器和域控制器所需的服务位置记录（服务位置记录）。如果要配置 Google Managed Active Directory ，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD 。 
 
 
 | 要加入的 Active Directory 域 | 您希望 CIFS 服务器加入的 Active Directory （ AD ）域的 FQDN 。 
@@ -148,7 +148,14 @@ NOTE: Cloud Manager 会将卷移动到使用选定磁盘类型并进行分层的
 | CIFS server NetBIOS name | 在 AD 域中唯一的 CIFS 服务器名称。 
 
 
-| 组织单位 | AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。如果将 AWS 托管 Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，则应在此字段中输入 * OU=Computers ， OU=corp* 。 
+| 组织单位  a| 
+AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。
+
+** 要将 AWS 托管 Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=corp* 。
+** 要将 Azure AD 域服务配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=AADDC Computers * 或 * OU=AADDC Users* 。https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure 文档：在 Azure AD 域服务托管域中创建组织单位（ OU ）"^]
+** 要将 Google Managed Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=Cloud* 。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文档： Google Managed Microsoft AD 中的组织单位"^]
+
+
 
 
 | DNS 域 | Cloud Volumes ONTAP Storage Virtual Machine （ SVM ）的 DNS 域。在大多数情况下，域与 AD 域相同。 
