@@ -162,7 +162,14 @@ NOTE: 尽管 Cloud Backup 使用 SnapMirror 的实施来创建备份文件（称
 这些步骤介绍了如何将 System Manager 用于版本 9.3 和更高版本。
 
 .步骤
-. link:task-connecting-to-otc.html["登录到系统管理器。"] 从目标系统。
+. 从目标系统登录到 System Manager 。
++
+您可以通过将 Web 浏览器指向集群管理 LIF 的 IP 地址来登录到 System Manager 。您可以在 Cloud Volumes ONTAP 工作环境中找到 IP 地址。
+
++
+
+NOTE: 要从其访问 Cloud Manager 的计算机必须与 Cloud Volumes ONTAP 建立网络连接。例如，您可能需要从云提供商网络中的跳转主机登录到 Cloud Manager 。
+
 . 单击 * 保护 > 关系 * 。
 . 选择关系，然后单击 * 操作 > 暂停 * 。
 
@@ -183,7 +190,6 @@ image:screenshot_aggr_state.gif["屏幕抓图：显示查看聚合信息时的�
 
 . 如果聚合处于脱机状态，请使用 System Manager 使聚合联机：
 +
-.. link:task-connecting-to-otc.html["登录到系统管理器。"]。
 .. 单击 * 存储 > 聚合和磁盘 > 聚合 * 。
 .. 选择聚合，然后单击 * 更多操作 > 状态 > 联机 * 。
 
