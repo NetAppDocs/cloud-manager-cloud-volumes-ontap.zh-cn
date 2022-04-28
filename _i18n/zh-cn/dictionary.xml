@@ -556,10 +556,7 @@
   <block id="bbf8762fd7719517f7567e338ea9aa0b" category="section-title">支持的 Storage VM 数量</block>
   <block id="61a207d9bd50b686e92d93d0f36e5fd4" category="paragraph">所有其他 Cloud Volumes ONTAP 配置均支持一个提供数据的 Storage VM 和一个用于灾难恢复的目标 Storage VM 。如果源 Storage VM 发生中断，您可以激活目标 Storage VM 以进行数据访问。</block>
   <block id="bc2d82be5ce2a751775a44460f5f36ae" category="section-title">在 Azure 中分配 IP 地址</block>
-  <block id="ec1961021d4275205f590654d3717686" category="paragraph">请按照以下步骤对您的配置进行操作：单节点系统，使用 iSCSI 的 HA 对或使用 NFS/SMB 的 HA 对。</block>
   <block id="5aabc9069557be7e4aeff466605cbc75" category="section-title">单个节点</block>
-  <block id="ab446ebd1f851655193779b7c50f3533" category="paragraph">在创建 Storage VM 并分配 LIF 之前，必须在 Azure 中将 IP 地址分配给 nic0 。</block>
-  <block id="19c2f8be3dc9f0749efedd54317e259b" category="paragraph">您需要为数据 LIF 访问创建一个 IP 地址，并为 Storage VM （ SVM ）管理 LIF 创建另一个可选 IP 地址。此管理 LIF 可连接到 SnapCenter 等管理工具。</block>
   <block id="2c1d1f56d207e6b42d7866029b8f4f38" category="list-text">登录到 Azure 门户并打开 * 虚拟机 * 服务。</block>
   <block id="dd5a058a2c46a43106332205c45a30ee" category="list-text">单击 Cloud Volumes ONTAP VM 的名称。</block>
   <block id="e63661b2472f7f4dc8a5b7065ca6d208" category="list-text">单击 * 网络连接 * 。</block>
@@ -571,16 +568,11 @@
   <block id="42986462673b87a9a58e425c4a99bb91" category="paragraph">最好使用静态 IP 地址，因为静态 IP 可确保 IP 地址不会更改，这有助于防止应用程序发生不必要的中断。</block>
   <block id="69aaba68c1c7e074c02079ece294e4ca" category="list-text">如果要创建 SVM 管理 LIF ，请在节点 1 上重复这些步骤。</block>
   <block id="b961dd3512f483e2a3c032644c80c59b" category="paragraph">复制刚刚创建的专用 IP 地址。在为新 Storage VM 创建 LIF 时，您需要指定这些 IP 地址。</block>
-  <block id="db47dc0102741150ae993267c082726b" category="section-title">使用 iSCSI 的 HA 对</block>
   <block id="de6c446eec02722de82f7d7eaffa3970" category="paragraph">在创建 Storage VM 和分配 LIF 之前，必须在 Azure 中将 iSCSI IP 地址分配给 nic0 。iSCSI 的 IP 分配给 nic0 ，而不是负载平衡器，因为 iSCSI 使用 ALUA 进行故障转移。</block>
-  <block id="a29e4df5dd39bde6573cc886acfbaca8" category="paragraph">您需要为从节点 1 访问数据 LIF 创建一个 IP 地址，为从节点 2 访问数据 LIF 创建另一个 IP 地址，并为 Storage VM （ SVM ）管理 LIF 创建另一个可选 IP 地址。此管理 LIF 可连接到 SnapCenter 等管理工具。</block>
   <block id="27f352c696e29cd9fd0f401648ff9862" category="list-text">单击节点 1 的 Cloud Volumes ONTAP VM 的名称。</block>
   <block id="160ff1b01bd06e8151784b706f33a6a1" category="list-text">在节点 2 上重复上述步骤。</block>
-  <block id="de6cbe326eeb24cea97aa8f30df88276" category="section-title">使用 NFS/SMB 的 HA 对</block>
-  <block id="95c5c777456b3e0149069ea5a4c53d2f" category="paragraph">用于 NFS 和 SMB 数据的 IP 地址会在负载平衡器中分配，以便在发生故障转移事件时， IP 地址可以迁移到另一个节点。</block>
   <block id="7be0ecb9e73595d673d5fbaed0cb6378" category="list-text">在 Azure 门户中，打开 * 负载平衡器 * 服务。</block>
   <block id="8097feb21f6c4186704bf26f92131fe0" category="list-text">单击 HA 对的负载平衡器的名称。</block>
-  <block id="2fe0657b31f144216e2ef4d8e54d6344" category="list-text">创建一个前端 IP 配置，用于从节点 1 访问数据 LIF ，另一个前端 IP 配置用于从节点 2 访问数据 LIF （仅限 HA 对），另一个前端 IP 用于 Storage VM （ SVM ）管理 LIF 。</block>
   <block id="91755019ec4f9b4503c2abd1e2018220" category="list-text">在 * 设置 * 下，单击 * 前端 IP 配置 * 。</block>
   <block id="7edcf3b7dac7218c74f45badfcadf54c" category="list-text">输入前端 IP 的名称，为 Cloud Volumes ONTAP HA 对选择子网，并保持选中 * 动态 * 。</block>
   <block id="fde48a87720c7f4a7b3fe579cf70ce21" category="inline-image-macro">在选择了名称和子网的 Azure 门户中添加前端 IP 地址的屏幕截图。</block>
@@ -607,15 +599,10 @@
   <block id="4dfb9365c6db058f009ea80d9ad1d88a" category="paragraph"><block ref="4dfb9365c6db058f009ea80d9ad1d88a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5031fdddd713681aa180d7bfa60b1f72" category="paragraph">确保 Cloud Volumes ONTAP 的网络安全组规则允许负载平衡器为在上述步骤 4 中创建的运行状况探测发送 TCP 探测。请注意，默认情况下允许这样做。</block>
   <block id="a094ded8d387643804f456ad69ef9c4e" category="section-title">创建 Storage VM 和 LIF</block>
-  <block id="559b2da2c29b62b98df683781dd648f8" category="paragraph">以下步骤将在单节点系统或 HA 对上创建新的 Storage VM 。从节点 1 访问数据 LIF 需要一个 IP 地址，从节点 2 访问数据 LIF 需要另一个 IP 地址（仅限 HA 对），并为 Storage VM （ SVM ）管理 LIF 提供另一个可选 IP 地址。此管理 LIF 可连接到 SnapCenter 等管理工具。</block>
-  <block id="892275a45aef630ce148bbe286a635e7" category="paragraph">使用以下与 Storage VM （ NAS 或 iSCSI ）的数据访问协议匹配的命令。</block>
   <block id="9b08db40ecf3304d34c7dadb34a6d2c2" category="list-text">创建 Storage VM 和指向 Storage VM 的路由。</block>
   <block id="120f35ca25d8256725ff2b7eb89df365" category="list-text">创建数据 LIF ：</block>
   <block id="622931dd0b6724a34dfe5a4f99b9a820" category="list-text">使用以下命令在节点 1 上创建 NAS LIF 。</block>
-  <block id="074d9032b933b69b2be3568382166425" category="paragraph">如果这是单节点系统，则应将 -failover-policy 参数的值更改为 _disabled_ 。</block>
-  <block id="a12208fb6f089d35aa483240e3ff8cfa" category="list-text">使用以下命令在节点 2 上创建 NAS LIF （仅适用于 HA 对）。</block>
   <block id="604199268b7709a557c60a09df0624bf" category="list-text">使用以下命令在节点 1 上创建 iSCSI LIF 。</block>
-  <block id="4f8662666e7a1ea48a0773b6ce030409" category="list-text">使用以下命令在节点 2 上创建 iSCSI LIF （仅适用于 HA 对）。</block>
   <block id="67694021a675f2be09781b9b9c744e99" category="list-text">可选：在节点 1 上创建 Storage VM 管理 LIF 。</block>
   <block id="c31f35122f9199d133c6a36e3c7d0875" category="paragraph">在 HA 对上创建 Storage VM 后，最好等待 12 小时，然后再在该 SVM 上配置存储。从 Cloud Volumes ONTAP 9.10.1 版开始， Cloud Manager 会每 12 小时扫描一次 HA 对的负载平衡器设置。如果存在新的 SVM ， Cloud Manager 将启用一个设置，以缩短计划外故障转移时间。</block>
   <block id="8ec18a80b08142a9ee538b8ce4350b54" category="summary">随着存储需求的变化，您可能需要更改 Cloud Volumes ONTAP 系统的配置。例如，您可以在 " 按需购买 " 配置之间进行更改，更改实例或 VM 类型等。</block>
@@ -3594,7 +3581,6 @@
   <block id="b64442e22e4baecde15d6214c922aa65" category="paragraph">请注意，磁盘限制可能会阻止您单独使用磁盘来达到容量限制。您可以通过超出磁盘限制 <block ref="c80d06c6bbd06cbbb7b267be96c5b90c" category="inline-link-macro-rx"></block>。有关磁盘限制的信息，请参见<block ref="02f1a1c120ffb5f37ea9d7c14b5f1158" category="inline-link-rx"></block>。</block>
   <block id="9402e8f13b9c1b7b1bbcad4d4c4eb4a9" category="paragraph"><block ref="9402e8f13b9c1b7b1bbcad4d4c4eb4a9" category="inline-link-rx"></block></block>
   <block id="2dcb300e9b01e5d98962a7e0c6eee87e" category="paragraph"><block ref="2dcb300e9b01e5d98962a7e0c6eee87e" category="inline-link-rx"></block></block>
-  <block id="08115db3513c03dc43fad61ef9de1776" category="paragraph">Azure 中的 Cloud Volumes ONTAP BYOL 支持多个 Storage VM ，并且从 9.9.0 版开始提供附加许可证。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</block>
   <block id="ea03e008412c5794c43fdb2384bcb567" category="paragraph">所有类型的单节点系统均支持高写入速度。在使用特定实例或 VM 类型时， AWS 和 Azure 中的 HA 对也支持此功能。GCP 中的 HA 对不支持高写入速度。<block ref="af635009e2e9e5e8e83bc1e8e043f24c" category="inline-link-rx"></block>。</block>
   <block id="506e74c9262ca17fcd45f9fc1bb03b87" category="paragraph">如果需要调整卷大小，可以通过执行此操作<block ref="bfb8b856b98909d9b8eda9fe0698d61f" category="inline-link-rx"></block>。调整卷大小时，请务必考虑系统的容量限制。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 有关详细信息：</block>
   <block id="3a08b0ef34be7d1bdbd1691c198e8824" category="paragraph">在某些配置下， AWS 和 Azure 中的 Cloud Volumes ONTAP 支持多个 Storage VM 。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</block>
@@ -3615,7 +3601,6 @@
   <block id="95cb432951e690caaf3364033a849ac6" category="paragraph">这些限制特定于 Cloud Manager 中的 Cloud Volumes ONTAP 管理。要查看 Cloud Volumes ONTAP 软件本身的限制，<block ref="70a3d165b5204ef94ef3f2d7b3d098d2" category="inline-link-rx"></block></block>
   <block id="374b69ed8baae6c10fc401a5f23dfabf" category="paragraph"><block ref="374b69ed8baae6c10fc401a5f23dfabf" category="inline-link-rx"></block></block>
   <block id="ce3a671f0219e5e11c7063a6ad822e79" category="paragraph"><block ref="ce3a671f0219e5e11c7063a6ad822e79" category="inline-link-rx"></block></block>
-  <block id="6b41bd25883d4b9d3fc620ddc9e20114" category="paragraph">从 9.7 版开始， AWS 中具有附加许可证的 Cloud Volumes ONTAP BYOL 支持多个 Storage VM 。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</block>
   <block id="46a458ccb12155fe64d1df81ec5ab17f" category="list-text">转到<block ref="39149cc0a92530a12be08de697a6a796" category="inline-link-rx"></block>。</block>
   <block id="986760502c5f72b9233b40b1621b0e4c" category="paragraph"><block ref="986760502c5f72b9233b40b1621b0e4c" category="inline-link-rx"></block></block>
   <block id="28d1200478fccc009b0e5ac11ab32501" category="paragraph"><block ref="28d1200478fccc009b0e5ac11ab32501" category="inline-link-rx"></block></block>
@@ -3723,4 +3708,41 @@
   <block id="249f6fd27ec465f7b6af7dc12178a1ea" category="paragraph">我们已删除先前在 Cloud Volumes ONTAP 工作环境中提供的 System Manager 链接。</block>
   <block id="1979125e36e7d7c49ca297e15301d908" category="inline-link">了解有关连接到 System Manager 的更多信息</block>
   <block id="bbf60c789b26c6dcc40b75262425eac7" category="paragraph">您仍然可以通过在连接到 Cloud Volumes ONTAP 系统的 Web 浏览器中输入集群管理 IP 地址来连接到 System Manager 。<block ref="c343c10570bfa751089c9639f87b6a1f" category="inline-link-rx"></block>。</block>
+  <block id="5e10fd94744d67ee9b4af8576d7d871b" category="paragraph">从 9.9.0 版开始，特定 Cloud Volumes ONTAP 配置支持多个 Storage VM 。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</block>
+  <block id="b06a344c267b8ee73a6d4d78ace617ea" category="paragraph">在创建 Storage VM 和分配 LIF 之前，您需要在 Azure 中分配 IP 地址。</block>
+  <block id="0ecbfe2cb5b1df888639e1751cec905a" category="section-title">单节点系统</block>
+  <block id="49da92f2dba049d8208289b0992f5eea" category="paragraph">在创建 Storage VM 并分配 LIF 之前，必须在 Azure 中将 IP 地址分配给 nic0 。所需的 IP 地址数量取决于存储协议。</block>
+  <block id="0afcee1178b91716c388f1396185ac6f" category="list-text">一个用于 iSCSI 数据 LIF 访问的 IP 地址</block>
+  <block id="d9fa1bba25e264315bb45a5db857089c" category="list-text">Storage VM （ SVM ）管理 LIF 的可选 IP 地址</block>
+  <block id="0212110e6e591f399e46a0a33621323b" category="paragraph">此管理 LIF 可连接到 SnapCenter 等管理工具。</block>
+  <block id="eec85f955016d792db9f5b3484d9ed93" category="list-text">一个用于 NAS 数据 LIF 访问的 IP 地址</block>
+  <block id="6790f564ef647fd6702f6e6f05bf9f56" category="list-text">一个 IP 地址，用于通过 iSCSI LIF 进行 DNS 和 SMB 通信</block>
+  <block id="fffed9c5a0bdaa00d58449115b30129f" category="paragraph">为此，我们使用了 iSCSI LIF ，因为它不会在故障转移时迁移。</block>
+  <block id="59411573b05f8ba9bff2c6ebef3042a6" category="list-text">如果您使用的是 SMB ，请重复这些步骤为 DNS 和 SMB 通信创建其他 IP 地址。</block>
+  <block id="3fc61f795c4036debc9bbee70495f5d3" category="list-text">如果要创建 SVM 管理 LIF ，请重复这些步骤以创建其他 IP 地址。</block>
+  <block id="556696d309aaf81ce29c6a76f8f8a503" category="section-title">HA 对</block>
+  <block id="8ebc8557356a6ebd39c4dd48a6f84931" category="paragraph">如何为 HA 对分配 IP 地址取决于您使用的存储协议。</block>
+  <block id="bd88ed594712224b8e3f79251707158b" category="paragraph">您需要创建以下 IP 地址：</block>
+  <block id="959519864abf23eb751637cd9762312f" category="list-text">一个 IP 地址，用于从节点 1 访问 iSCSI 数据 LIF</block>
+  <block id="72b179a0d02f32caa6ee9d21826a4a30" category="list-text">一个 IP 地址，用于从节点 2 访问 iSCSI 数据 LIF</block>
+  <block id="92e91b161b0371348686cd8b37ca5028" category="paragraph">用于 NFS 的 IP 地址会在负载平衡器中分配，以便在发生故障转移事件时， IP 地址可以迁移到另一个节点。</block>
+  <block id="8560b84a5b55caac8c8ef30051a197e5" category="list-text">一个 IP 地址，用于从节点 1 访问 NAS 数据 LIF</block>
+  <block id="aba6d4795536d5c4e61cf75ce0ddd22c" category="list-text">一个 IP 地址，用于从节点 2 访问 NAS 数据 LIF</block>
+  <block id="7a5be31086b3ad69d1c6b2c5abafcc64" category="list-text">为从节点 1 访问数据 LIF 创建一个前端 IP 配置，为从节点 2 访问数据 LIF 创建另一个前端 IP 配置，并为 Storage VM （ SVM ）管理 LIF 创建另一个可选前端 IP 。</block>
+  <block id="c09d6988bf61135b41e7b195d446e2b9" category="paragraph">用于 SMB 数据的 IP 地址会在负载平衡器中分配，以便在发生故障转移事件时， IP 地址可以迁移到另一个节点。</block>
+  <block id="da253cd0d6c8d87b61a60f7e67560913" category="list-text">节点 1 上 iSCSI LIF 的一个 IP 地址</block>
+  <block id="5aa1fc4c5c5e3c602f89524b94fcaf47" category="list-text">节点 2 上 iSCSI LIF 的一个 IP 地址</block>
+  <block id="d31b2ca2df7d7ec89a597cf3ff166e6d" category="paragraph">DNS 和 SMB 通信需要 iSCSI LIF 。为此，我们使用了 iSCSI LIF ，因为它不会在故障转移时迁移。</block>
+  <block id="ccc2da4a96a5d07ea0b03ab18f4ed608" category="list-text">创建所需数量的前端 IP 配置：</block>
+  <block id="3ad6e3f460248126da5c801e403088c1" category="paragraph">在 Azure 中分配 IP 地址后，您可以在单节点系统或 HA 对上创建新的 Storage VM 。</block>
+  <block id="5683cfda0c67cd1651e904160b0a5460" category="paragraph">如何在单节点系统上创建 Storage VM 和 LIF 取决于所使用的存储协议。</block>
+  <block id="2d376cf045c4838856b9429d7fecf7a5" category="paragraph">按照以下步骤创建新的 Storage VM 以及所需的 LIF 。</block>
+  <block id="070ee68a98b928bc45bc4178848e21da" category="list-text">创建数据 LIF ：</block>
+  <block id="7e0c9dfe920929d81d8d5761b763bb63" category="list-text">创建提供 DNS 和 SMB 通信所需的 iSCSI LIF ：</block>
+  <block id="b41808a70de11f6ad8400c22ebe933f1" category="paragraph">如何在 HA 对上创建 Storage VM 和 LIF 取决于所使用的存储协议。</block>
+  <block id="83871791a7611e5a981ec0b38a662078" category="list-text">使用以下命令在节点 2 上创建 iSCSI LIF 。</block>
+  <block id="0cffe85429bb79552ce3607190d9dbad" category="list-text">使用以下命令在节点 2 上创建 NAS LIF 。</block>
+  <block id="6c6c472de3f0cea0f21c8e31be81490c" category="list-text">创建 NAS 数据 LIF ：</block>
+  <block id="477dc9bfd99f5e3ed09c8dbdc76a2c7c" category="list-text">创建 iSCSI LIF 以提供 DNS 和 SMB 通信：</block>
+  <block id="1d690a933c240dda520f6527f56da475" category="paragraph">从 9.7 版开始，特定 Cloud Volumes ONTAP 配置支持多个 Storage VM 。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</block>
 </blocks>
