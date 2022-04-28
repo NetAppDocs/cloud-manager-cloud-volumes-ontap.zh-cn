@@ -1409,7 +1409,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:29:47 +0000">04/14/2022</time>
+    <time datetime="2022-04-28 18:11:15 +0000">04/28/2022</time>
     
   
 
@@ -1422,12 +1422,16 @@
 <li><a href="#支持的-storage-vm-数量">支持的 Storage VM 数量</a></li>
 <li><a href="#在-azure-中分配-ip-地址">在 Azure 中分配 IP 地址</a>
 <ul class="sectlevel2">
-<li><a href="#单个节点">单个节点</a></li>
-<li><a href="#使用-iscsi-的-ha-对">使用 iSCSI 的 HA 对</a></li>
-<li><a href="#使用-nfssmb-的-ha-对">使用 NFS/SMB 的 HA 对</a></li>
+<li><a href="#单节点系统">单节点系统</a></li>
+<li><a href="#ha-对">HA 对</a></li>
 </ul>
 </li>
-<li><a href="#创建-storage-vm-和-lif">创建 Storage VM 和 LIF</a></li>
+<li><a href="#创建-storage-vm-和-lif">创建 Storage VM 和 LIF</a>
+<ul class="sectlevel2">
+<li><a href="#单节点系统-2">单节点系统</a></li>
+<li><a href="#ha-对-2">HA 对</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div id="preamble">
@@ -1444,7 +1448,7 @@
 <h2 id="支持的-storage-vm-数量">支持的 Storage VM 数量</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Azure 中的 Cloud Volumes ONTAP BYOL 支持多个 Storage VM ，并且从 9.9.0 版开始提供附加许可证。转至 <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html" target="_blank" rel="noopener">"《 Cloud Volumes ONTAP 发行说明》"</a> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</p>
+<p>从 9.9.0 版开始，特定 Cloud Volumes ONTAP 配置支持多个 Storage VM 。转至 <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html" target="_blank" rel="noopener">"《 Cloud Volumes ONTAP 发行说明》"</a> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</p>
 </div>
 <div class="paragraph">
 <p>所有其他 Cloud Volumes ONTAP 配置均支持一个提供数据的 Storage VM 和一个用于灾难恢复的目标 Storage VM 。如果源 Storage VM 发生中断，您可以激活目标 Storage VM 以进行数据访问。</p>
@@ -1455,15 +1459,76 @@
 <h2 id="在-azure-中分配-ip-地址">在 Azure 中分配 IP 地址</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>请按照以下步骤对您的配置进行操作：单节点系统，使用 iSCSI 的 HA 对或使用 NFS/SMB 的 HA 对。</p>
+<p>在创建 Storage VM 和分配 LIF 之前，您需要在 Azure 中分配 IP 地址。</p>
 </div>
 <div class="sect2">
-<h3 id="单个节点">单个节点</h3>
+<h3 id="单节点系统">单节点系统</h3>
 <div class="paragraph">
-<p>在创建 Storage VM 并分配 LIF 之前，必须在 Azure 中将 IP 地址分配给 nic0 。</p>
+<p>在创建 Storage VM 并分配 LIF 之前，必须在 Azure 中将 IP 地址分配给 nic0 。所需的 IP 地址数量取决于存储协议。</p>
 </div>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">iSCSI</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>一个用于 iSCSI 数据 LIF 访问的 IP 地址</p>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF 的可选 IP 地址</p>
 <div class="paragraph">
-<p>您需要为数据 LIF 访问创建一个 IP 地址，并为 Storage VM （ SVM ）管理 LIF 创建另一个可选 IP 地址。此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+<p>此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">NFS</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>一个用于 NAS 数据 LIF 访问的 IP 地址</p>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF 的可选 IP 地址</p>
+<div class="paragraph">
+<p>此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">SMB</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>一个用于 NAS 数据 LIF 访问的 IP 地址</p>
+</li>
+<li>
+<p>一个 IP 地址，用于通过 iSCSI LIF 进行 DNS 和 SMB 通信</p>
+<div class="paragraph">
+<p>为此，我们使用了 iSCSI LIF ，因为它不会在故障转移时迁移。</p>
+</div>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF 的可选 IP 地址</p>
+<div class="paragraph">
+<p>此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
@@ -1496,7 +1561,10 @@
 </div>
 </li>
 <li>
-<p>如果要创建 SVM 管理 LIF ，请在节点 1 上重复这些步骤。</p>
+<p>如果您使用的是 SMB ，请重复这些步骤为 DNS 和 SMB 通信创建其他 IP 地址。</p>
+</li>
+<li>
+<p>如果要创建 SVM 管理 LIF ，请重复这些步骤以创建其他 IP 地址。</p>
 </li>
 </ol>
 </div>
@@ -1505,12 +1573,36 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="使用-iscsi-的-ha-对">使用 iSCSI 的 HA 对</h3>
+<h3 id="ha-对">HA 对</h3>
+<div class="paragraph">
+<p>如何为 HA 对分配 IP 地址取决于您使用的存储协议。</p>
+</div>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">iSCSI</div>
+<div class="content">
 <div class="paragraph">
 <p>在创建 Storage VM 和分配 LIF 之前，必须在 Azure 中将 iSCSI IP 地址分配给 nic0 。iSCSI 的 IP 分配给 nic0 ，而不是负载平衡器，因为 iSCSI 使用 ALUA 进行故障转移。</p>
 </div>
 <div class="paragraph">
-<p>您需要为从节点 1 访问数据 LIF 创建一个 IP 地址，为从节点 2 访问数据 LIF 创建另一个 IP 地址，并为 Storage VM （ SVM ）管理 LIF 创建另一个可选 IP 地址。此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+<p>您需要创建以下 IP 地址：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>一个 IP 地址，用于从节点 1 访问 iSCSI 数据 LIF</p>
+</li>
+<li>
+<p>一个 IP 地址，用于从节点 2 访问 iSCSI 数据 LIF</p>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF 的可选 IP 地址</p>
+<div class="paragraph">
+<p>此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+</div>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
@@ -1550,14 +1642,32 @@
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>复制刚刚创建的专用 IP 地址。在为新 Storage VM 创建 LIF 时，您需要指定这些 IP 地址。</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="使用-nfssmb-的-ha-对">使用 NFS/SMB 的 HA 对</h3>
+<div class="openblock">
+<div class="title">NFS</div>
+<div class="content">
 <div class="paragraph">
-<p>用于 NFS 和 SMB 数据的 IP 地址会在负载平衡器中分配，以便在发生故障转移事件时， IP 地址可以迁移到另一个节点。</p>
+<p>用于 NFS 的 IP 地址会在负载平衡器中分配，以便在发生故障转移事件时， IP 地址可以迁移到另一个节点。</p>
+</div>
+<div class="paragraph">
+<p>您需要创建以下 IP 地址：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>一个 IP 地址，用于从节点 1 访问 NAS 数据 LIF</p>
+</li>
+<li>
+<p>一个 IP 地址，用于从节点 2 访问 NAS 数据 LIF</p>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF 的可选 IP 地址</p>
+<div class="paragraph">
+<p>此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+</div>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
@@ -1569,7 +1679,7 @@
 <p>单击 HA 对的负载平衡器的名称。</p>
 </li>
 <li>
-<p>创建一个前端 IP 配置，用于从节点 1 访问数据 LIF ，另一个前端 IP 配置用于从节点 2 访问数据 LIF （仅限 HA 对），另一个前端 IP 用于 Storage VM （ SVM ）管理 LIF 。</p>
+<p>为从节点 1 访问数据 LIF 创建一个前端 IP 配置，为从节点 2 访问数据 LIF 创建另一个前端 IP 配置，并为 Storage VM （ SVM ）管理 LIF 创建另一个可选前端 IP 。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1659,10 +1769,158 @@
 </ol>
 </div>
 </li>
+<li>
+<p>确保 Cloud Volumes ONTAP 的网络安全组规则允许负载平衡器为在上述步骤 4 中创建的运行状况探测发送 TCP 探测。请注意，默认情况下允许这样做。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">SMB</div>
+<div class="content">
+<div class="paragraph">
+<p>用于 SMB 数据的 IP 地址会在负载平衡器中分配，以便在发生故障转移事件时， IP 地址可以迁移到另一个节点。</p>
+</div>
+<div class="paragraph">
+<p>您需要创建以下 IP 地址：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>一个 IP 地址，用于从节点 1 访问 NAS 数据 LIF</p>
+</li>
+<li>
+<p>一个 IP 地址，用于从节点 2 访问 NAS 数据 LIF</p>
+</li>
+<li>
+<p>节点 1 上 iSCSI LIF 的一个 IP 地址</p>
+</li>
+<li>
+<p>节点 2 上 iSCSI LIF 的一个 IP 地址</p>
+<div class="paragraph">
+<p>DNS 和 SMB 通信需要 iSCSI LIF 。为此，我们使用了 iSCSI LIF ，因为它不会在故障转移时迁移。</p>
+</div>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF 的可选 IP 地址</p>
+<div class="paragraph">
+<p>此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>在 Azure 门户中，打开 * 负载平衡器 * 服务。</p>
+</li>
+<li>
+<p>单击 HA 对的负载平衡器的名称。</p>
+</li>
+<li>
+<p>创建所需数量的前端 IP 配置：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>在 * 设置 * 下，单击 * 前端 IP 配置 * 。</p>
+</li>
+<li>
+<p>单击 * 添加 * 。</p>
+</li>
+<li>
+<p>输入前端 IP 的名称，为 Cloud Volumes ONTAP HA 对选择子网，并保持选中 * 动态 * 。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_frontend_ip.gif" alt="在选择了名称和子网的 Azure 门户中添加前端 IP 地址的屏幕截图。"></span></p>
+</div>
+</li>
+<li>
+<p>单击刚刚创建的前端 IP 配置的名称，将 * 分配 * 更改为 * 静态 * ，然后单击 * 保存 * 。</p>
+<div class="paragraph">
+<p>最好使用静态 IP 地址，因为静态 IP 可确保 IP 地址不会更改，这有助于防止应用程序发生不必要的中断。</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>为刚刚创建的每个前端 IP 添加运行状况探测。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>在负载平衡器的 * 设置 * 下，单击 * 运行状况探针 * 。</p>
+</li>
+<li>
+<p>单击 * 添加 * 。</p>
+</li>
+<li>
+<p>输入运行状况探测的名称，并输入介于 63005 和 65000 之间的端口号。保留其他字段的默认值。</p>
+<div class="paragraph">
+<p>端口号必须介于 63005 和 65000 之间，这一点很重要。例如，如果要创建三个运行状况探测，则可以输入端口号为 63005 ， 63006 和 63007 的探测。</p>
+</div>
+</li>
 </ol>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_health_probe.gif" alt="在输入名称和端口的 Azure 门户中添加运行状况探针的屏幕截图。"></span></p>
+</div>
+</li>
+<li>
+<p>为每个前端 IP 创建新的负载平衡规则。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>在负载平衡器的 * 设置 * 下，单击 * 负载平衡规则 * 。</p>
+</li>
+<li>
+<p>单击 * 添加 * 并输入所需信息：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>* 名称 * ：输入规则的名称。</p>
+</li>
+<li>
+<p>* IP 版本 * ：选择 * IPv4 * 。</p>
+</li>
+<li>
+<p>* 前端 IP 地址 * ：选择刚刚创建的前端 IP 地址之一。</p>
+</li>
+<li>
+<p>* 高可用性端口 * ：启用此选项。</p>
+</li>
+<li>
+<p>* 后端池 * ：保留已选择的默认后端池。</p>
+</li>
+<li>
+<p>* 运行状况探测 * ：选择为选定前端 IP 创建的运行状况探测。</p>
+</li>
+<li>
+<p>* 会话持久性 * ：选择 * 无 * 。</p>
+</li>
+<li>
+<p>* 浮动 IP* ：选择 * 已启用 * 。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_lb_rule.gif" alt="在 Azure 门户中添加负载平衡规则以及上述字段的屏幕截图。"></span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
 <p>确保 Cloud Volumes ONTAP 的网络安全组规则允许负载平衡器为在上述步骤 4 中创建的运行状况探测发送 TCP 探测。请注意，默认情况下允许这样做。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>复制刚刚创建的专用 IP 地址。在为新 Storage VM 创建 LIF 时，您需要指定这些 IP 地址。</p>
 </div>
 </div>
 </div>
@@ -1671,10 +1929,268 @@
 <h2 id="创建-storage-vm-和-lif">创建 Storage VM 和 LIF</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>以下步骤将在单节点系统或 HA 对上创建新的 Storage VM 。从节点 1 访问数据 LIF 需要一个 IP 地址，从节点 2 访问数据 LIF 需要另一个 IP 地址（仅限 HA 对），并为 Storage VM （ SVM ）管理 LIF 提供另一个可选 IP 地址。此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+<p>在 Azure 中分配 IP 地址后，您可以在单节点系统或 HA 对上创建新的 Storage VM 。</p>
+</div>
+<div class="sect2">
+<h3 id="单节点系统-2">单节点系统</h3>
+<div class="paragraph">
+<p>如何在单节点系统上创建 Storage VM 和 LIF 取决于所使用的存储协议。</p>
+</div>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">iSCSI</div>
+<div class="content">
+<div class="paragraph">
+<p>按照以下步骤创建新的 Storage VM 以及所需的 LIF 。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>创建 Storage VM 和指向 Storage VM 的路由。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>创建数据 LIF ：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node1&gt; -data-protocol iscsi</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>可选：创建 Storage VM 管理 LIF 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>将一个或多个聚合分配给 Storage VM 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>使用以下与 Storage VM （ NAS 或 iSCSI ）的数据访问协议匹配的命令。</p>
+<p>之所以需要执行此步骤，是因为新的 Storage VM 需要至少访问一个聚合，然后才能在 Storage VM 上创建卷。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">NFS</div>
+<div class="content">
+<div class="paragraph">
+<p>按照以下步骤创建新的 Storage VM 以及所需的 LIF 。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>创建 Storage VM 和指向 Storage VM 的路由。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>创建数据 LIF ：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs--ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node1&gt; -status-admin up -failover-policy disabled -firewall-policy data -home-port e0a -auto-revert true -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>可选：创建 Storage VM 管理 LIF 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>将一个或多个聚合分配给 Storage VM 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>之所以需要执行此步骤，是因为新的 Storage VM 需要至少访问一个聚合，然后才能在 Storage VM 上创建卷。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">SMB</div>
+<div class="content">
+<div class="paragraph">
+<p>按照以下步骤创建新的 Storage VM 以及所需的 LIF 。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>创建 Storage VM 和指向 Storage VM 的路由。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>创建数据 LIF ：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs--ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node1&gt; -status-admin up -failover-policy disabled -firewall-policy data -home-port e0a -auto-revert true -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>创建提供 DNS 和 SMB 通信所需的 iSCSI LIF ：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node1&gt; -data-protocol iscsi</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>可选：创建 Storage VM 管理 LIF 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>将一个或多个聚合分配给 Storage VM 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>之所以需要执行此步骤，是因为新的 Storage VM 需要至少访问一个聚合，然后才能在 Storage VM 上创建卷。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ha-对-2">HA 对</h3>
+<div class="paragraph">
+<p>如何在 HA 对上创建 Storage VM 和 LIF 取决于所使用的存储协议。</p>
+</div>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">iSCSI</div>
+<div class="content">
+<div class="paragraph">
+<p>按照以下步骤创建新的 Storage VM 以及所需的 LIF 。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>创建 Storage VM 和指向 Storage VM 的路由。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>创建数据 LIF ：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>使用以下命令在节点 1 上创建 iSCSI LIF 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node1&gt; -data-protocol iscsi</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>使用以下命令在节点 2 上创建 iSCSI LIF 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node2&gt; -data-protocol iscsi</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>可选：在节点 1 上创建 Storage VM 管理 LIF 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+</div>
+</li>
+<li>
+<p>将一个或多个聚合分配给 Storage VM 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>之所以需要执行此步骤，是因为新的 Storage VM 需要至少访问一个聚合，然后才能在 Storage VM 上创建卷。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">NFS</div>
+<div class="content">
+<div class="paragraph">
+<p>按照以下步骤创建新的 Storage VM 以及所需的 LIF 。</p>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
@@ -1703,18 +2219,93 @@
 <pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs--ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node1&gt; -status-admin up -failover-policy system-defined -firewall-policy data -home-port e0a -auto-revert true -failover-group Default -probe-port &lt;port-number-for-azure-health-probe1&gt;</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>如果这是单节点系统，则应将 -failover-policy 参数的值更改为 <em>disabled</em> 。</p>
-</div>
 </li>
 <li>
-<p>使用以下命令在节点 2 上创建 NAS LIF （仅适用于 HA 对）。</p>
+<p>使用以下命令在节点 2 上创建 NAS LIF 。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs-cifs-ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node2&gt; -status-admin up -failover-policy system-defined -firewall-policy data -home-port e0a -auto-revert true -failover-group Default -probe-port &lt;port-number-for-azure-health-probe2&gt;</code></pre>
 </div>
 </div>
 </li>
+</ol>
+</div>
+</li>
+<li>
+<p>可选：在节点 1 上创建 Storage VM 管理 LIF 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default -probe-port &lt;port-number-for-azure-health-probe3&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+</div>
+</li>
+<li>
+<p>将一个或多个聚合分配给 Storage VM 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>之所以需要执行此步骤，是因为新的 Storage VM 需要至少访问一个聚合，然后才能在 Storage VM 上创建卷。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">SMB</div>
+<div class="content">
+<div class="paragraph">
+<p>按照以下步骤创建新的 Storage VM 以及所需的 LIF 。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>创建 Storage VM 和指向 Storage VM 的路由。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>创建 NAS 数据 LIF ：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>使用以下命令在节点 1 上创建 NAS LIF 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs--ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node1&gt; -status-admin up -failover-policy system-defined -firewall-policy data -home-port e0a -auto-revert true -failover-group Default -probe-port &lt;port-number-for-azure-health-probe1&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>使用以下命令在节点 2 上创建 NAS LIF 。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs-cifs-ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node2&gt; -status-admin up -failover-policy system-defined -firewall-policy data -home-port e0a -auto-revert true -failover-group Default -probe-port &lt;port-number-for-azure-health-probe2&gt;</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>创建 iSCSI LIF 以提供 DNS 和 SMB 通信：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>使用以下命令在节点 1 上创建 iSCSI LIF 。</p>
 <div class="listingblock">
@@ -1724,7 +2315,7 @@
 </div>
 </li>
 <li>
-<p>使用以下命令在节点 2 上创建 iSCSI LIF （仅适用于 HA 对）。</p>
+<p>使用以下命令在节点 2 上创建 iSCSI LIF 。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node2&gt; -data-protocol iscsi</code></pre>
@@ -1741,6 +2332,9 @@
 <pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default -probe-port &lt;port-number-for-azure-health-probe3&gt;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>此管理 LIF 可连接到 SnapCenter 等管理工具。</p>
+</div>
 </li>
 <li>
 <p>将一个或多个聚合分配给 Storage VM 。</p>
@@ -1755,8 +2349,13 @@
 </li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>在 HA 对上创建 Storage VM 后，最好等待 12 小时，然后再在该 SVM 上配置存储。从 Cloud Volumes ONTAP 9.10.1 版开始， Cloud Manager 会每 12 小时扫描一次 HA 对的负载平衡器设置。如果存在新的 SVM ， Cloud Manager 将启用一个设置，以缩短计划外故障转移时间。</p>
+</div>
 </div>
 </div>
 </div>
