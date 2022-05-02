@@ -1344,7 +1344,6 @@
   <block id="25ecc9395604e745b655dbcb6eed23bc" category="list-text">Cloud Volumes ONTAP 系统使用 _Standard_ 存储类将非活动数据分层到一个 S3 存储分段。Standard 是存储在多个可用性区域中的频繁访问数据的理想选择。</block>
   <block id="b162acd76f83f99ac24045020f8e1c25" category="admonition">Cloud Manager 会为每个工作环境创建一个 S3 存储分段，并将其命名为 fabric-pool-_cluster unique identifier_ 。不会为每个卷创建不同的 S3 存储分段。</block>
   <block id="7672a092783c4348b96b40ea2dcf6681" category="list-text">存储类</block>
-  <block id="6711770262164538f1923cc482f7d399" category="list-text">AWS 中分层数据的默认存储类为 _Standard_ 。如果您不打算访问非活动数据，可以通过将存储类更改为以下类型之一来降低存储成本： _Intelligent Tierage_ ， _one-Zone Inrequent Access_ 或 _Standard-Inrequent Access_ 。更改存储类时，如果 30 天后未访问非活动数据，则非活动数据将从标准存储类开始，并过渡到选定的存储类。</block>
   <block id="20831024dd0b150380212ea26b281613" category="inline-link">了解有关 Amazon S3 存储类的更多信息</block>
   <block id="e401c2b474cb7d11a68d9e90b0a09307" category="paragraph">如果您确实访问数据，访问成本会更高，因此在更改存储类之前，请考虑这一点。<block ref="640a0192f14cf6137ba20e6c02d1ae81" category="inline-link-rx"></block>。</block>
   <block id="31089fb1bcdba9204af0a200bd8dcfab" category="inline-link-macro">将非活动数据分层到低成本对象存储</block>
@@ -3722,4 +3721,5 @@
   <block id="fc4876ca61d1c336e1f17141c7227b6e" category="cell">使用现有防火墙策略</block>
   <block id="7f6be0499fe67271d3c198bd726fe0c0" category="inline-link-macro">了解Cloud Volumes ONTAP 的防火墙规则</block>
   <block id="154e9c61180206ef2d8b605b639fb35f" category="cell">如果您使用现有防火墙策略、请确保该策略包含所需的规则。 <block ref="c3fbed15c1fb154b840fdb8b5504f098" category="inline-link-macro-rx"></block>。</block>
+  <block id="d84251a0fd530f03ffc5b24f87e0f907" category="list-text">AWS 中分层数据的默认存储类为 _Standard_ 。如果您不打算访问非活动数据、可以通过将存储类更改为以下类型之一来降低存储成本：_Intelligent Tiering"、_one-Zone Inrequent Access_、_Standard-Inrequent Access_或_S3 Glacier即时检索_。更改存储类时，如果 30 天后未访问非活动数据，则非活动数据将从标准存储类开始，并过渡到选定的存储类。</block>
 </blocks>
