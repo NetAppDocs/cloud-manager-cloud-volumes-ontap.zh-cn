@@ -99,8 +99,20 @@ Essentials 和 Professional 软件包可用于以下消费模式：
 +
 此许可证不限于单个云提供商。
 
-* 云提供商市场的年度合同（仅限 AWS 和 Google Cloud ）。
 * 云提供商市场的每小时订阅（ PAYGO ）。
+* 云提供商市场的年度合同。
++
+** 在AWS中、可以从AWS市场的公有 产品中获得年度合同。部署Cloud Volumes ONTAP 工作环境时、Cloud Manager会提示您订阅。
+** 在Azure中、您需要与NetApp销售代表合作购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。
++
+在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Azure Marketplace订阅年度计划。
+
+** 在Google Cloud中、您需要与NetApp销售代表合作购买年度合同。此合同在Google Cloud Marketplace中以私人优惠形式提供。
++
+在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Google Cloud Marketplace订阅年度计划。
+
+
+
 
 
 请注意以下事项：

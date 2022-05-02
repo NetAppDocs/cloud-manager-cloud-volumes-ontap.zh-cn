@@ -24,6 +24,16 @@ link:concept-licensing.html["了解有关 Cloud Volumes ONTAP 许可证的更多
 
 
 
+== 如何将许可证添加到数字电子钱包中
+
+从NetApp销售代表购买许可证后、NetApp将向您发送一封电子邮件、其中包含序列号和其他许可详细信息。
+
+同时、Cloud Manager会自动查询NetApp的许可服务、以获取与您的NetApp支持站点帐户关联的许可证的详细信息。如果没有错误、Cloud Manager会自动将许可证添加到Digital Wallet中。
+
+如果Cloud Manager无法添加许可证、您需要手动将其添加到Digital Wallet中。 <<Add purchased licenses to your account,了解如何向您的帐户添加已购买的许可证>>。
+
+
+
 == 查看帐户的容量
 
 按软件包查看许可容量和已配置容量，以确保为数据卷提供足够的空间。
@@ -41,7 +51,7 @@ image:screenshot_capacity-based-licenses.png["屏幕截图显示了专业软件�
 
 == 将已购买的许可证添加到您的帐户
 
-为 NetApp 帐户购买许可证后，您需要将许可证添加到 Cloud Manager 中，以便 Cloud Volumes ONTAP 可以使用此容量。
+如果您在数字电子钱包中看不到已购买的许可证、则需要将这些许可证添加到Cloud Manager中、以便Cloud Volumes ONTAP 可以使用此容量。
 
 .您需要什么？ #8217 ；将需要什么
 * 您需要为 Cloud Manager 提供许可证或许可证文件的序列号。

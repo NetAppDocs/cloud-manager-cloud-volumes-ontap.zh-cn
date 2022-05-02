@@ -449,9 +449,7 @@
   <block id="0b6a93a12e94b586f0634222ff996760" category="inline-link">将 Marketplace 订阅与 GCP 凭据关联</block>
   <block id="c6183bf47ae03a5fca3043b995daf4ad" category="paragraph">以下视频介绍了如何将按需购买的 Marketplace 订阅与您的 GCP 项目相关联：或者，也可以按照中的步骤进行订阅<block ref="1ca5652e3bd427104a4f5f3fa595cbd8" category="inline-link-rx"></block> 部分。</block>
   <block id="440dfcc60c7c21a1c797e881b2dd7646" category="list-text">* 服务 * ：选择要在此系统上使用的服务。要选择 Cloud Backup 或使用分层，您必须已在步骤 3 中指定服务帐户。</block>
-  <block id="d97b17805dcf3cf9f4cf72ede32d7451" category="list-text">* 位置和连接 * ：选择一个位置，选择防火墙策略，然后选中复选框以确认与 Google Cloud 存储的网络连接以进行数据分层。</block>
   <block id="2e5f3aa65f18453c5c51b5ffcf2214d5" category="inline-link">Google Cloud 文档：配置私有 Google Access</block>
-  <block id="0a95fced5ba38d44285304107ca13819" category="paragraph">如果要将冷数据分层到 Google 云存储分段，则必须为 Cloud Volumes ONTAP 所在的子网配置私有 Google 访问。有关说明，请参见<block ref="46bdb5a1fb51df5eb32e2147ea91e6d8" category="inline-link-rx"></block>。</block>
   <block id="189e842cd43a685a483fb378026a9caf" category="list-text"><block ref="3ab5a6c8f366a38af6d09759fc586206" category="inline-link-macro-rx"></block>。</block>
   <block id="c05ba15abbb9e0a060b98aa13dc7640d" category="paragraph"><block ref="c05ba15abbb9e0a060b98aa13dc7640d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f72d7e736d5c07e6650c7c59c1d4beae" category="list-text">* 底层存储资源 * ：选择初始聚合的设置：磁盘类型和每个磁盘的大小。</block>
@@ -942,7 +940,6 @@
   <block id="f085e7d5cf39e2e8b2d0e12e8784718b" category="list-text">在 Cloud Manager 中，使用 API 创建使用密钥的 Cloud Volumes ONTAP 工作环境。</block>
   <block id="25fb98f9fcb3127bfe7be5f0a105ca99" category="inline-link-macro">详细了解这些步骤</block>
   <block id="750fb0c917d909f89ff3aa09a16d9e2e" category="paragraph"><block ref="a8a8a730877a18513c7f6dc517396422" category="inline-link-macro-rx"></block>。</block>
-  <block id="711dc2b1ebcdb25c5e47a2beba0748aa" category="section-title">2021 年 7 月 7 日（连接器 3.2.8 ）</block>
   <block id="438f6ef2e21494cd9b1748584c8803b6" category="section-title">新的充电方法</block>
   <block id="561845a67258d27b2238c95a99e36fe6" category="paragraph">Cloud Volumes ONTAP 提供了新的充电方法。</block>
   <block id="e4641a8086323f3e0769020094c353cc" category="list-text">* 基于容量的 BYOL* ：通过基于容量的许可证，您可以按每 TiB 容量为 Cloud Volumes ONTAP 付费。此许可证与您的 NetApp 帐户关联，只要您的许可证具有足够的容量，您就可以创建多个 Cloud Volumes ONTAP 系统。基于容量的许可以软件包的形式提供，可以是 _Essentials 或 _Professional 。</block>
@@ -977,7 +974,6 @@
   <block id="46e869bc0f7a5fcdc09df010e1f48b25" category="paragraph">新的 Cloud Volumes ONTAP 系统不再支持 custom-4-16384 计算机类型。</block>
   <block id="0e3cb01898d99d0091e2a6f5a7572390" category="paragraph">如果您的现有系统在此计算机类型上运行，则可以继续使用它，但我们建议切换到 n2-standard-4 计算机类型。</block>
   <block id="346b156b62b438feb8aca3c528a7173c" category="inline-link">在 GCP 中查看支持的 Cloud Volumes ONTAP 配置</block>
-  <block id="6a1f13645a93d26a01a89ba45e08d6bb" category="section-title">2021 年 5 月 30 日（连接器 3.3.7 ）</block>
   <block id="29edc853696ed1638805579b54eb4028" category="section-title">AWS 中的新专业软件包</block>
   <block id="e7ef0d5bcd1ca0f8f5763e59e8a0fd1b" category="paragraph">通过新的专业包，您可以使用 AWS Marketplace 提供的年度合同捆绑 Cloud Volumes ONTAP 和 Cloud Backup Service 。按 TiB 支付。此订阅不允许您备份内部数据。</block>
   <block id="1827d61b158ce26d89c3b3ae6638d1a7" category="paragraph">如果选择此付款选项，则可以通过 EBS 磁盘并分层到 S3 对象存储（单节点或 HA ）为每个 Cloud Volumes ONTAP 系统配置最多 2 PiB 的容量。</block>
@@ -1001,7 +997,6 @@
   <block id="910d8975bd41857a0103e9a8657ea7d9" category="section-title">Cloud Volumes ONTAP 9.9.1</block>
   <block id="c863fcd8d7f3278495a83acff7ce4871" category="paragraph">Cloud Manager 现在可以部署和管理 Cloud Volumes ONTAP 9.1.1 。</block>
   <block id="ff5aef392e0c3c8d6643cf958981ad2c" category="paragraph"><block ref="85c91e5c6d1101b81071bd014b8bb2a2" category="inline-link-rx"></block>。</block>
-  <block id="4b9aaec4d7fc7a4db2b3d7d2ec4b06dd" category="section-title">2021 年 4 月 11 日（连接器 3.3.5 ）</block>
   <block id="6b1163e1ffd3116806b1ea3d6e5dd2a6" category="section-title">逻辑空间报告</block>
   <block id="4a58d4cba9d6842c85d3f188f064f33b" category="paragraph">现在， Cloud Manager 可以对为 Cloud Volumes ONTAP 创建的初始 Storage VM 进行逻辑空间报告。</block>
   <block id="996cecdf052a5053c603e4964cacdc77" category="paragraph">如果以逻辑方式报告空间，则 ONTAP 会报告卷空间，以便存储效率功能节省的所有物理空间也会报告为已用空间。</block>
@@ -1013,7 +1008,6 @@
   <block id="46d98c0abb13a137de84cc92dabaf4ee" category="paragraph">Cloud Volumes ONTAP 不再支持冷 HDD （ SC1 ）磁盘。</block>
   <block id="bdbf3117384807375f6bdb241cc66adc" category="section-title">适用于 Azure 存储帐户的 TLS 1.2</block>
   <block id="851eb27d4309b9464287beb296ce1020" category="paragraph">当 Cloud Manager 在 Azure for Cloud Volumes ONTAP 中创建存储帐户时，存储帐户的 TLS 版本现在为 1.2 版。</block>
-  <block id="6fd4f37978967bd89efab5f375c8fada" category="section-title">2021 年 3 月 8 日（连接器 3.0.4 ）</block>
   <block id="4e9e74671f654c298cca727d225f4898" category="section-title">Cloud Volumes ONTAP 9.9.0</block>
   <block id="ab2fea55ae9697fcfeae223bb8d1a161" category="paragraph">Cloud Manager 现在可以部署和管理 Cloud Volumes ONTAP 9.0.0 。</block>
   <block id="b38d7682cd8a88f280fda1c1ba685832" category="paragraph"><block ref="c246253b93a97e012810d343101490b9" category="inline-link-rx"></block>。</block>
@@ -1036,7 +1030,6 @@
   <block id="933d399c3cb0f03992675d49630ab818" category="paragraph">现在，在 Google Cloud 中部署 Cloud Volumes ONTAP HA 对时，您可以为 VPC-1 ， VPC-2 和 VPC-3 选择共享 VPC 。以前，只有 VPC-0 可以是共享 VPC 。Cloud Volumes ONTAP 9.8 及更高版本支持此更改。</block>
   <block id="fcc0572bd798a75498f99e20a8093f04" category="inline-link-macro">了解有关 Google Cloud 网络连接要求的更多信息</block>
   <block id="99fa02269259e5dcef8a656b05035f0b" category="paragraph"><block ref="d1535c614e0b55f0efec64a1451d07fb" category="inline-link-macro-rx"></block>。</block>
-  <block id="8444e6334bc020a2ff837421babf8f42" category="section-title">2021 年 1 月 4 日（连接器 3.0.2 ）</block>
   <block id="712a05ea9972d967387ea5a160a19a21" category="section-title">AWS 前哨</block>
   <block id="cfdb898195dcd98defc426026e35f8d1" category="paragraph">几个月前，我们宣布 Cloud Volumes ONTAP 已获得 Amazon Web Services （ AWS ）前台就绪称号。今天，我们很高兴地宣布，我们已经通过 AWS 前台验证了 Cloud Manager 和 Cloud Volumes ONTAP 。</block>
   <block id="996af92ade7f6e5af3be3c265f31fd2c" category="paragraph">如果您有 AWS 前台，则可以通过在 " 工作环境 " 向导中选择前台 VPC 来在该前台部署 Cloud Volumes ONTAP 。体验与 AWS 中的任何其他 VPC 相同。请注意，您需要先在 AWS 前台部署 Connector 。</block>
@@ -1060,7 +1053,6 @@
   <block id="1ac4c5bf1cc05cf3d4aa859843ec87b4" category="list-text">n2-standard-4 ，具有 Explore 许可证和 BYOL</block>
   <block id="e73d4d7c476b6b18ed15adb41d3ea1b2" category="list-text">n2-standard-8 ，具有标准许可证和 BYOL</block>
   <block id="08ce51aefda2c98505d3ef29ab430caf" category="list-text">n2-standard-32 ，具有高级许可证和 BYOL</block>
-  <block id="97ac4a7ecac7dd41000ad4cf105adf24" category="section-title">2020 年 11 月 3 日（连接器 3.0.0 ）</block>
   <block id="d9bdad4a2680b0998135ed5fd46e50e3" category="section-title">适用于 Cloud Volumes ONTAP 的 Azure 专用链路</block>
   <block id="5645ab0bc464340b6b63fb2195594856" category="paragraph">默认情况下， Cloud Manager 现在可在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全。</block>
   <block id="8f7830ddfb4c3be4f076516f4856d257" category="inline-link">了解有关 Azure 专用链接的更多信息</block>
@@ -1199,7 +1191,6 @@
   <block id="b50c158eaf466db16b58f00ceffdc6e1" category="cell">在特定聚合上创建卷</block>
   <block id="90f1a1f2730a3abc2245b4a979df10f4" category="cell">选择一个聚合并单击 * 创建卷 * 。</block>
   <block id="ee1ffb740641bd768beada794d582fc1" category="cell">将磁盘添加到聚合</block>
-  <block id="5f5aff78d8d23e3085886222de09d89c" category="list-text">选择一个聚合，然后单击 * 添加 AWS 磁盘 * 或 * 添加 Azure 磁盘 * 。</block>
   <block id="b98fc1f56f56b03e2525b90a45df7e45" category="list-text">选择要添加的磁盘数，然后单击 * 添加 * 。</block>
   <block id="8ce62ed0fdfe7abb736c3597956922c2" category="cell">删除聚合</block>
   <block id="55acf40831b2a6bbebbb0948c51c7dad" category="list-text">选择不包含任何卷的聚合，然后单击 * 删除 * 。</block>
@@ -1208,100 +1199,7 @@
   <block id="ae72beb81d5834d2f01cddc522f75aab" category="paragraph">事件管理系统（ EMS ）收集并显示有关 ONTAP 系统上发生的事件的信息。要接收事件通知、您可以为特定事件严重性设置事件目标（电子邮件地址、 SNMP 陷阱主机或系统日志服务器）和事件路由。</block>
   <block id="46925fd4c2b4930c3863c62cca684413" category="inline-link">ONTAP 文档： EMS 配置概述</block>
   <block id="bdc1026c750da5883d7bee46c7156d32" category="paragraph">您可以使用 CLI 配置 EMS 。有关说明，请参见<block ref="cfa65ffd4dc12651fc66d20e17906b5f" category="inline-link-rx"></block>。</block>
-  <block id="92ccf06142dc33dc8b3944ae9fcd513b" category="summary">Cloud Manager 可以在 Kubernetes 集群上自动部署 NetApp Trident ，以便将 Cloud Volumes ONTAP 用作容器的永久性存储。</block>
-  <block id="181f8947596130f543a8812355a5a792" category="doc">使用 Cloud Volumes ONTAP 作为 Kubernetes 的永久性存储</block>
-  <block id="0cdf65a4b95cd749c412fd640f01dade" category="admonition">此功能已弃用，将在未来版本中删除。它已被替换为可以将受管 Kubernetes 集群添加到 Canvas 中，作为高级数据管理的工作环境。<block ref="1738d64f5d1a42ad206025a23cfcf284" category="inline-link-rx"></block>。</block>
-  <block id="d202d8021b40bfbe11235a5a65c0fe8c" category="inline-link">了解有关 Trident 的更多信息</block>
-  <block id="4272c70c15d6dbaad262853f7847bead" category="paragraph">Trident 是由 NetApp 维护的一个受全面支持的开源项目。Trident 与 Kubernetes 及其永久性卷框架本机集成，可从运行 NetApp 存储平台任意组合的系统无缝配置和管理卷。<block ref="8f1593831c6eb1f5af4cabdfeaa8b8ff" category="inline-link-rx"></block>。</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="section-title">快速入门</block>
-  <block id="2433628c53fed80ea9d352a1bcd9ce45" category="paragraph">按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。</block>
-  <block id="259ae55ab8dda4624f19d41ec0f1fb11" category="inline-xref">请参见完整列表</block>
-  <block id="862dc153087687c59f8f0e5557334a93" category="paragraph">确保您的环境可以满足以下前提条件： Kubernetes 集群和 Cloud Volumes ONTAP 之间的连接， Kubernetes 集群和 Connector 之间的连接，最低 Kubernetes 版本 1.14 ，集群中至少有一个工作节点等。 <block ref="b4daa5ef39b091baf7fa2ac3acaf6a75" category="inline-xref-macro-rx"></block>。</block>
-  <block id="24e1cdb2e707aca4c4fb386a0f2584fd" category="paragraph">在 Cloud Manager 中，单击 * 。 K8* 并直接从云提供商的托管服务发现集群，或者通过提供 kubeconfig 文件导入集群。</block>
-  <block id="ed10e82b70c8870cbc66e299150d450b" category="paragraph">添加 Kubernetes 集群后，单击 * 连接到工作环境 * 将集群连接到一个或多个 Cloud Volumes ONTAP 系统。</block>
-  <block id="c5ea1d5f2f35adec1d872ec686a8c040" category="paragraph">使用原生 Kubernetes 接口和构造请求和管理永久性卷。Cloud Manager 可创建 NFS 和 iSCSI 存储类，您可以在配置永久性卷时使用这些存储类。</block>
-  <block id="02cc5fd16c59479a0130566a88ade673" category="inline-link">了解有关使用适用于 Kubernetes 的 Trident 配置第一个卷的更多信息</block>
-  <block id="b74e632fe213e6a2cd41d58fc6a3f9f4" category="paragraph"><block ref="d2c3102c16ee7ee6f7e5a01248fa7b5b" category="inline-link-rx"></block>。</block>
-  <block id="636fc171536ff74e5a90b2da701bb09c" category="section-title">查看前提条件</block>
-  <block id="f698522e1acd0964c9baa1030aa59100" category="paragraph">开始之前，请确保 Kubernetes 集群和 Connector 满足特定要求。</block>
-  <block id="722cdb9316b3fa8ce17714d9c3e2710c" category="section-title">Kubernetes 集群要求</block>
-  <block id="27a7f5bc233512b000e9c0890f8a0da7" category="list-text">Kubernetes 集群和 Connector 之间以及 Kubernetes 集群和 Cloud Volumes ONTAP 之间需要网络连接。</block>
-  <block id="69e0c439fc36ae7c7c9d2e14aaac95c1" category="paragraph">Connector 和 Cloud Volumes ONTAP 都需要连接到 Kubernetes API 端点：</block>
-  <block id="9b0f7f6d454dc3a3fda124ad8c64ddae" category="list-text">对于受管集群，请在集群的 VPC 与连接器和 Cloud Volumes ONTAP 所在的 VPC 之间设置路由。</block>
-  <block id="f44a520984d104f448a4dfa65c732c6b" category="list-text">对于其他集群， Connector 和 Cloud Volumes ONTAP 必须能够访问主节点或负载平衡器的 IP 地址（如 kubeconfig 文件中所示），并且必须提供有效的 TLS 证书。</block>
-  <block id="17c0f0477410148b22df11cc699e514d" category="list-text">Kubernetes 集群可以位于具有上述网络连接的任何位置。</block>
-  <block id="bdd9fcbc22d0c897febfda2780343126" category="list-text">Kubernetes 集群必须至少运行 1.14 版。</block>
-  <block id="22e5cf36be220d8185438465670c10a0" category="inline-link">单击此处可查看支持的 Kubernetes 最大版本</block>
-  <block id="919344d59d5a54d3e0edd39f3ade1826" category="paragraph">支持的最大版本由 Trident 定义。<block ref="4364b9b5a569c1974ecbe79919415242" category="inline-link-rx"></block>。</block>
-  <block id="78568f626fe7e8947b59df3d51633e2a" category="list-text">Kubernetes 集群必须至少具有一个工作节点。</block>
-  <block id="7b2aaa17eab1dc7832e079d7ff34fcaf" category="list-text">对于在 Amazon Elastic Kubernetes Service （ Amazon EKS ）中运行的集群，每个集群都需要添加一个 IAM 角色才能解决权限错误。添加集群后， Cloud Manager 将使用可解决此错误的确切 eksctl 命令提示您。</block>
-  <block id="131e86a2d96d1eb234979b9344f13721" category="inline-link">了解 IAM 权限边界</block>
-  <block id="ebc07db5d40d8568356aa7f0703d09dd" category="paragraph"><block ref="77373c7491963fa088f4a02cadd051c0" category="inline-link-rx"></block>。</block>
-  <block id="b0c3cef04e70448818bc54ce1d6a7781" category="list-text">对于在 Azure Kubernetes Service （ AKS ）中运行的集群，必须为这些集群分配 _Azure Kubernetes Service RBAC Cluster Admin_ 角色。这是 Cloud Manager 在集群上安装 Trident 和配置存储类所必需的。</block>
-  <block id="608448c2576128ccc8c2f959d59e20b4" category="section-title">连接器要求</block>
-  <block id="657016ad1736f3daa19cd41340165309" category="paragraph">确保已为 Connector 设置以下权限。</block>
-  <block id="ccfb5c2209f6688e8d0f7cbcdbf89f70" category="section-title">发现和管理 EKS 集群所需的权限</block>
-  <block id="df0867f3b310e032813f995525ba12e6" category="paragraph">Connector 需要管理员权限才能发现和管理在 Amazon Elastic Kubernetes Service （ EKS ）中运行的 Kubernetes 集群：</block>
-  <block id="9dc5a9b1a6d7bcb89b68a5b8af2f3d9d" category="section-title">发现和管理 GKE- 集群所需的权限</block>
-  <block id="94b91905ef6393459229709e2831b933" category="paragraph">Connector 需要以下权限才能发现和管理在 Google Kubernetes Engine （ GKE） 中运行的 Kubernetes 集群：</block>
-  <block id="3ee2de4187bbc3464c963e80daa5d7c0" category="section-title">示例设置</block>
-  <block id="95d48eaf4f096975a232f030f62bb786" category="paragraph">下图显示了在 Amazon Elastic Kubernetes Service （ Amazon EKS ）中运行的 Kubernetes 集群及其与 Connector 和 Cloud Volumes ONTAP 的连接的示例。在此示例中， VPC 对等关系可在 EKS 集群的 VPC 与连接器和 Cloud Volumes ONTAP 的 VPC 之间提供连接。</block>
-  <block id="1547099886e6b7ac1281503829845612" category="inline-image-macro">在 AWS 中运行的 Kubernetes 集群的架构图，以及与在 AWS 中运行的连接程序和 Cloud Volumes ONTAP 的连接。</block>
-  <block id="87fe77f64de696c0dc8c282dc7e7e04c" category="paragraph"><block ref="87fe77f64de696c0dc8c282dc7e7e04c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="63893b71ff0d8c47377febdd8dcc5da0" category="section-title">正在添加 Kubernetes 集群</block>
-  <block id="9b7b2efefef41ff1632789719a7a7ac4" category="paragraph">通过发现云提供商托管的 Kubernetes 服务中运行的集群或导入集群的 kubeconfig 文件，将 Kubernetes 集群添加到 Cloud Manager 中。</block>
-  <block id="4909cd680231b3ced986709e54382764" category="list-text">在 Cloud Manager 顶部，单击 * 。 K8s* 。</block>
-  <block id="8ed2e6681098ba3e585ceb37b3ee1e15" category="list-text">单击 * 添加集群 * 。</block>
-  <block id="59772cd45fd7de7bdf8d9834ebca71e7" category="list-text">选择一个可用选项：</block>
-  <block id="e179189d03e54c4446ccc4f03c6ac563" category="list-text">单击 * 发现集群 * 以根据您为 Connector 提供的权限发现 Cloud Manager 有权访问的受管集群。</block>
-  <block id="4009608ddd522abfa96007d9d542ccb3" category="paragraph">例如，如果您的 Connector 在 Google Cloud 中运行，则 Cloud Manager 将使用 Connector 服务帐户中的权限来发现在 Google Kubernetes Engine （ GKE） 中运行的集群。</block>
-  <block id="263232c5b7e9eb99df6b8475d43e1d45" category="list-text">单击 * 导入集群 * 以使用 kubeconfig 文件导入集群。</block>
-  <block id="02aa04882d788b791f659f307169bfd8" category="paragraph">上传文件后， Cloud Manager 会验证与集群的连接，并保存 kubeconfig 文件的加密副本。</block>
-  <block id="170a4a52938ac79f65200c3bf0e6b51d" category="paragraph">Cloud Manager 将添加 Kubernetes 集群。现在，您可以将集群连接到 Cloud Volumes ONTAP 。</block>
-  <block id="e8f0429464762c99303852d0ee48f1b3" category="section-title">将集群连接到 Cloud Volumes ONTAP</block>
-  <block id="f68c9a3a74a9fa83b27a0710eb1fafe6" category="paragraph">将 Kubernetes 集群连接到 Cloud Volumes ONTAP ，以便将 Cloud Volumes ONTAP 用作容器的永久性存储。</block>
-  <block id="96ba100b561ad23be57aa3635bb7602b" category="list-text">单击刚刚添加的集群的 * 连接到工作环境 * 。</block>
-  <block id="a3e58e2bca9be24eec570bef9d888cb1" category="inline-image-macro">Kubernetes 集群列表的屏幕截图，您可以在其中单击 Connect to Working Environment 。</block>
-  <block id="006930634d18e565776e96ff250efdf8" category="paragraph"><block ref="006930634d18e565776e96ff250efdf8" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a9d20280cbf615f86652a6adad41aa55" category="list-text">选择一个工作环境，然后单击 * 继续 * 。</block>
-  <block id="526684efa2ce983db145c21e9f793888" category="list-text">选择要用作 Kubernetes 集群默认存储类的 NetApp 存储类，然后单击 * 继续 * 。</block>
-  <block id="8f80c033c31a319fe853bbcc49c27274" category="paragraph">默认情况下，当用户创建永久性卷时， Kubernetes 集群可以使用此存储类作为后端存储。</block>
-  <block id="24df9f89b31b8b338f662e0c4cc03d09" category="list-text">选择是否使用默认自动导出策略或是否添加自定义 CIDR 块。</block>
-  <block id="63452910f38ddb716c4708b06e106754" category="inline-image-macro">确认页面的屏幕截图，您可以在此查看选项并设置导出策略。</block>
-  <block id="36d07b5aa552d4c36c07ba7e9d1e47d2" category="paragraph"><block ref="36d07b5aa552d4c36c07ba7e9d1e47d2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="aa8af91e5428a9ebec0674a12beb38a8" category="list-text">单击 * 添加工作环境 * 。</block>
-  <block id="5632ca30e37d3f1b4ef0b734696bb85f" category="paragraph">Cloud Manager 可将工作环境连接到集群，最长可能需要 15 分钟。</block>
-  <block id="2fe3de53fc0542a06cd444e7e344be33" category="section-title">管理集群</block>
-  <block id="db8c0eeed2b6b581825366136b98d00f" category="paragraph">通过 Cloud Manager ，您可以通过更改默认存储类，升级 Trident 等来管理 Kubernetes 集群。</block>
-  <block id="afe72a6bd36ba1c83fc3766b009712a5" category="section-title">更改默认存储类</block>
-  <block id="4b316065292525e254f85ac3cb9db3bd" category="paragraph">确保已将 Cloud Volumes ONTAP 存储类设置为默认存储类，以便集群使用 Cloud Volumes ONTAP 作为后端存储。</block>
-  <block id="8654d56365a2d6f47ae9ff5fe3d1b69b" category="list-text">单击 Kubernetes 集群的名称。</block>
-  <block id="d2d9870f04bbe86aed068815b8e92d55" category="list-text">在 * 存储类 * 表中，单击最右侧要设置为默认值的存储类的 "Actions" 菜单。</block>
-  <block id="24bf9701de1dfdca35fbf35d5ffc17c8" category="inline-image-macro">存储类表的屏幕截图，您可以在其中单击操作菜单并选择设置为默认值。</block>
-  <block id="a6736a58e0776f13ed249272461eb3ec" category="paragraph"><block ref="a6736a58e0776f13ed249272461eb3ec" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="29b1fd86a1f06a011446b6f139180d87" category="list-text">单击 * 设置为默认值 * 。</block>
-  <block id="3d7bae662f9623856b864b9abd8c6209" category="section-title">升级 Trident</block>
-  <block id="a352215b3bd79d7212670c889f8a249b" category="paragraph">如果有新版本的 Trident ，您可以从 Cloud Manager 升级 Trident 。</block>
-  <block id="70770d071d7d3de1517023000c04d130" category="list-text">如果有新版本，请单击 Trident 版本旁边的 * 升级 * 。</block>
-  <block id="1aae0005ec065145d40df2a8d0419b60" category="inline-image-macro">集群详细信息页面的屏幕截图，其中 Trident 版本旁边会显示升级按钮。</block>
-  <block id="c638f47ea43bc7f031634bbdee3e4698" category="paragraph"><block ref="c638f47ea43bc7f031634bbdee3e4698" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c4324414a07d4ce4fb535de4690f73bc" category="section-title">正在更新 kubeconfig 文件</block>
-  <block id="e717e40bc576bfd8f162b06a88d7c317" category="paragraph">如果您通过导入 kubeconfig 文件将集群添加到 Cloud Manager ，则可以随时将最新的 kubeconfig 文件上传到 Cloud Manager 。如果您已更新凭据，更改了用户或角色，或者发生了影响集群，用户，命名空间或身份验证的更改，则可以执行此操作。</block>
-  <block id="8fd4aa22d14532c76b8a6154e52df218" category="list-text">单击 * 更新 Kubeconfig* 。</block>
-  <block id="d58eb5e3571f6d5f008dac27a893fdd4" category="list-text">当 Web 浏览器出现提示时，选择更新后的 kubeconfig 文件，然后单击 * 打开 * 。</block>
-  <block id="4140cbb72b17c31e98eb9b6b9d0403bf" category="paragraph">Cloud Manager 会根据最新的 kubeconfig 文件更新 Kubernetes 集群的相关信息。</block>
-  <block id="9f3764322ceddf8766334f86e8205f59" category="section-title">断开集群连接</block>
-  <block id="f3baf7beaa9acfc76c643519adb50555" category="paragraph">当您从 Cloud Volumes ONTAP 断开集群连接时，不能再将该 Cloud Volumes ONTAP 系统用作容器的永久性存储。不会删除现有永久性卷。</block>
-  <block id="2e868662ef9beee6c1ee4282bb85af84" category="list-text">在 * 工作环境 * 表中，单击最右侧要断开连接的工作环境的 "Actions" 菜单。</block>
-  <block id="e2a1129a39f1ab16784a827a64ecdeaf" category="inline-image-macro">单击工作环境表最右侧的菜单后，将显示断开连接操作的工作环境表屏幕截图。</block>
-  <block id="4010305b0fe8e3ef71301229c58c9c33" category="paragraph"><block ref="4010305b0fe8e3ef71301229c58c9c33" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3a1413ccffadd023b736396892fc3e82" category="list-text">单击 * 断开连接 * 。</block>
-  <block id="24ac0a83d210afd70856200fa1a3bf1b" category="paragraph">Cloud Manager 会断开集群与 Cloud Volumes ONTAP 系统的连接。</block>
-  <block id="563e32f468bf8948056b1be1d7251e20" category="section-title">删除集群</block>
-  <block id="33537c19debe9015654dca47bd7ca179" category="paragraph">在断开所有工作环境与集群的连接后，从 Cloud Manager 中删除已停用的集群。</block>
-  <block id="a7ab6ac831e4d397740d4a05915674a5" category="list-text">单击 * 删除集群 * 。</block>
-  <block id="47475fc9b052eeb295cfa73500f8dc4f" category="inline-image-macro">集群详细信息页面顶部显示的删除集群按钮的屏幕截图。</block>
-  <block id="a5db9739febaffad0d71bf0b522e2e63" category="paragraph"><block ref="a5db9739febaffad0d71bf0b522e2e63" category="inline-image-macro-rx" type="image"></block></block>
   <block id="627dbb600651aad7173ae13133dfe740" category="summary">Cloud Volumes ONTAP PAYGO 系统附带 NetApp 提供的支持，但您必须先向 NetApp 注册这些系统以激活支持。</block>
   <block id="a37ea04c3e1568f7c0e8e6abc9104d40" category="doc">注册按需购买的系统</block>
   <block id="969ea14c5bc8e5c519f2569d0b7e4ead" category="inline-link-macro">本页介绍</block>
@@ -2437,7 +2335,6 @@
   <block id="a67c1e3fa166897e8cc4f860ff4aa0c5" category="paragraph"><block ref="a67c1e3fa166897e8cc4f860ff4aa0c5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dce5019f9c2e14a57d05767b06b4b81a" category="list-text">如果需要，请购买额外的许可容量，然后将许可证添加到您的帐户中。</block>
   <block id="b2dfe525c9a6bec7392826fba889fe07" category="section-title">将已购买的许可证添加到您的帐户</block>
-  <block id="9b0a940130596000d45be341e6c1b0ec" category="paragraph">为 NetApp 帐户购买许可证后，您需要将许可证添加到 Cloud Manager 中，以便 Cloud Volumes ONTAP 可以使用此容量。</block>
   <block id="a2426434bd2755150443a72dbf29878b" category="list-text">您需要为 Cloud Manager 提供许可证或许可证文件的序列号。</block>
   <block id="eb1c981bc4eb3233c26c34546542d338" category="inline-link">将您的 NetApp 支持站点帐户添加到 Cloud Manager</block>
   <block id="f16ff9a2f29f3126c120ed27df35ef94" category="list-text">如果要输入序列号，首先需要输入<block ref="c470c70606743035aa91358ee6f57b26" category="inline-link-rx"></block>。这是有权访问序列号的 NetApp 支持站点帐户。</block>
@@ -2910,7 +2807,6 @@
   <block id="3cc132ecf0523f86195d2baf263bfdba" category="paragraph">Essentials 和 Professional 软件包可用于以下消费模式：</block>
   <block id="f0c74524bf1dcc2586975c7d2fab30aa" category="list-text">从 NetApp 购买的一种许可证（ BYOL ），可用于在任何云提供商中部署 Cloud Volumes ONTAP 。</block>
   <block id="c603e0cd8afdb5636238d7d652481a08" category="paragraph">此许可证不限于单个云提供商。</block>
-  <block id="0a042d8bd5f070de6995ada78bbc5818" category="list-text">云提供商市场的年度合同（仅限 AWS 和 Google Cloud ）。</block>
   <block id="f28f2c679b3208af9d5fe292ad6356b8" category="list-text">云提供商市场的每小时订阅（ PAYGO ）。</block>
   <block id="743cd9f94465042cc1367604dce1ec22" category="list-text">如果您从 NetApp （ BYOL ）购买许可证，则还需要从云提供商的市场订阅 PAYGO 产品。</block>
   <block id="0956d25698d6ea6e452e1cd574ab1eea" category="paragraph">您的许可证始终会先付费，但在以下情况下，您将从市场上的每小时费率中扣除费用：</block>
@@ -3041,9 +2937,7 @@
   <block id="fe49f2913a4b13b0a1c8c251eba351ed" category="paragraph">Cloud Manager 可创建包含 Cloud Volumes ONTAP 成功运行所需入站和出站规则的 GCP 防火墙规则。您可能需要参考端口进行测试，或者如果您希望使用自己的防火墙规则。</block>
   <block id="4907f0fb8777892173f7e34fa56bfcdb" category="paragraph">Cloud Volumes ONTAP 的防火墙规则需要入站和出站规则。</block>
   <block id="bcf66fd73f27e271725271d68f4723a9" category="paragraph">如果要部署 HA 配置，这些是 VPC-0 中 Cloud Volumes ONTAP 的防火墙规则。</block>
-  <block id="1acde187c6f2fd217dac5eaa58444173" category="paragraph">预定义防火墙中的入站规则源为 0.0.0.0/0 。</block>
   <block id="1147a9bceab35dc98b14493a462a8f27" category="inline-link">Google Cloud 文档：负载平衡器防火墙规则</block>
-  <block id="4922e003940e56d05842b6e74ae211fb" category="paragraph">要创建您自己的防火墙，请确保添加需要与 Cloud Volumes ONTAP 通信的所有网络，同时还要确保同时添加两个地址范围，以使内部 Google 负载平衡器正常运行。这些地址为 130.11.0.0/22 和 35.191.0.0/16 。有关详细信息，请参见<block ref="ec02114a2c39456710780c7d788390e7" category="inline-link-rx"></block>。</block>
   <block id="1395d3dc336eac468612e7bbe8281f7a" category="cell">63001-63050</block>
   <block id="06fb5a0f91eb3d073524ac0c7e590c54" category="cell">负载平衡探测端口，用于确定哪个节点运行状况良好（仅 HA 对需要）</block>
   <block id="9fda35946418ee004d3cdc93c12473b4" category="section-title">VPC-1 ， VPC-2 和 VPC-3 的防火墙规则</block>
@@ -3051,12 +2945,6 @@
   <block id="8ab03e4616af1a81bd7e097e2a865c29" category="paragraph">在 GCP 中， HA 配置部署在四个 VPC 上。VPC-0 中的 HA 配置所需的防火墙规则为 <block ref="6696339384f87dfedda2136f4a028ff0" category="inline-xref-macro-rx"></block>。</block>
   <block id="9b215825e4e7c346c52a957a68adf4cb" category="paragraph">同时， Cloud Manager 为 VPC-1 ， VPC-2 和 VPC-3 中的实例创建的预定义防火墙规则可通过 _all_ 协议和端口进行传入通信。这些规则允许 HA 节点之间进行通信。</block>
   <block id="e83b31d42852ca12480d330a3385214f" category="paragraph">从 HA 节点到 HA 调解器的通信通过端口 3260 （ iSCSI ）进行。</block>
-  <block id="1008a7e5067aee5eb98176fc494fab20" category="section-title">对 VPC 1-3 使用您自己的防火墙规则</block>
-  <block id="77f479b49565633ac18fea920ecad0e6" category="paragraph">创建 HA 对时， Cloud Manager 允许您选择使用预定义的防火墙规则或对每个 VPC 使用现有规则。如果您对 VPC 1-3 使用自己的防火墙规则，并且要跨多个 Google Cloud 区域部署 HA 对，则必须为此防火墙规则设置一个 _target 标记 _ 。如果不设置目标标记，则在部署期间会出现错误。</block>
-  <block id="3a196fb0b8644eb4705060d601f3190f" category="list-text">在 Google Cloud 中创建防火墙规则时，转到 * 目标 * 字段，选择 * 指定目标标记 * ，然后输入标记。</block>
-  <block id="ea2f0986a422e2e7716f25e393e93d2f" category="paragraph">该值可以是您想要的任何文本字符串。</block>
-  <block id="f96a45994fa9c7f93941593f44593807" category="list-text">在 Cloud Manager 中创建 HA 对时，请在 * 连接 * 页面上选择现有防火墙规则。</block>
-  <block id="7b8bae0470d950ff06ed48ecc057a3dd" category="paragraph">将防火墙规则附加到 Cloud Volumes ONTAP 后，目标标记会自动作为 _network tags_添加 到 Cloud Volumes ONTAP 节点中。</block>
   <block id="fa6661c729382092acdf9b6930de105e" category="section-title">Connector 的防火墙规则</block>
   <block id="5ea521a799e1cf043cd101ec326044f6" category="paragraph">Connector 的防火墙规则需要入站和出站规则。</block>
   <block id="aa414a57d6f1347fc5212beb06655a8e" category="paragraph">连接器的预定义防火墙规则会打开所有出站流量。如果可以接受，请遵循基本出站规则。如果您需要更严格的规则、请使用高级出站规则。</block>
@@ -3492,7 +3380,6 @@
   <block id="1c27e11c5e65b93611e6f5ce640f8184" category="sidebar">创建卷</block>
   <block id="a30f8bec41e1f3d9a742515da10df16c" category="sidebar">将非活动数据分层到对象存储</block>
   <block id="70bcbcd32eaaac8441910e5d4e5f5a79" category="sidebar">借助 FlexCache 加快数据访问速度</block>
-  <block id="a2dddf94fc6ecd8f3d07cc5247fc6781" category="sidebar">使用 ONTAP 作为永久性存储</block>
   <block id="ef30733ef9c11950550b941e42eb12ee" category="sidebar">聚合管理</block>
   <block id="a3b2fca1fd4e5f7a29fc618d28e362b5" category="sidebar">管理现有聚合</block>
   <block id="bf36a77b5166293d07ef75b2861c69ad" category="sidebar">Storage VM 管理</block>
@@ -3558,17 +3445,11 @@
   <block id="0f132f66e81cbab588044405a33dc058" category="section-title">为 WORM 存储充电</block>
   <block id="10142c9d88b9419ee393574e858e86c8" category="inline-link">了解 WORM 存储的定价</block>
   <block id="074dbf8cc93ccd34e86e3e2e8f2a1e3a" category="paragraph"><block ref="38aefad2ca205e663da97b7fdd932dcf" category="inline-link-rx"></block>。</block>
-  <block id="32215461c426d2e6cd125109ca715d8f" category="section-title">2022 年 2 月 27 日（连接器 3.9.16 ）</block>
   <block id="1c6f86b67d4150db2b816bc084d4c069" category="paragraph"><block ref="525dd47105081fbda31ba7a2793ca879" category="inline-link-rx"></block>。</block>
   <block id="17fc50243c5a80f407e83d268bcab18e" category="section-title">2022 年 2 月 9 日</block>
   <block id="41fe6a9591d04d2b5dc40ba59fd15df9" category="paragraph"><block ref="e22d1e33878d70a72f20edc19056d016" category="inline-link-rx"></block>。</block>
   <block id="5c46bd67ae4b5c23f9c243b5f396c088" category="section-title">2022 年 2 月 6 日</block>
   <block id="e186d5095e3d6d1b5247bef6646ae005" category="paragraph"><block ref="ef3979f2f1932fd482bb464a3e7d984f" category="inline-link-rx"></block>。</block>
-  <block id="2b9fafb77808b816392633fe1036ceb4" category="section-title">2022 年 1 月 30 日（连接器 3.9.15 ）</block>
-  <block id="305f98fa0d49873a77484c14f71bfec4" category="section-title">2022 年 1 月 2 日（连接器 3.9.14 ）</block>
-  <block id="35e4cbbe7120f5a106048c84199b5c38" category="section-title">2021 年 11 月 28 日（连接器 3.9.13 ）</block>
-  <block id="01b6222a6fdfe753189cb7e0753ef51a" category="section-title">2021 年 10 月 4 日（连接器 3.9.11 ）</block>
-  <block id="2e88f3ae6e50f5f0bbc46ea8158b71ea" category="section-title">2021 年 9 月 2 日（连接器 3.9.10 ）</block>
   <block id="96ce026f2bc7496743369db3f0e33981" category="section-title">选择现有 Azure 资源组</block>
   <block id="96b2257b99d74387ccf906445ab11df4" category="paragraph">请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。在创建 CIFS 服务器后，它不可配置。</block>
   <block id="ee095a2fd0990ba785c303c6524d8145" category="list-text">对于其他提供数据的 Storage VM （ SVM ），无需额外的许可成本，但每个提供数据的 SVM 的最低容量费用为 4 TiB 。</block>
@@ -3745,4 +3626,100 @@
   <block id="6c6c472de3f0cea0f21c8e31be81490c" category="list-text">创建 NAS 数据 LIF ：</block>
   <block id="477dc9bfd99f5e3ed09c8dbdc76a2c7c" category="list-text">创建 iSCSI LIF 以提供 DNS 和 SMB 通信：</block>
   <block id="1d690a933c240dda520f6527f56da475" category="paragraph">从 9.7 版开始，特定 Cloud Volumes ONTAP 配置支持多个 Storage VM 。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</block>
+  <block id="7c631216018c939fdeeed5e8807fc718" category="paragraph">对于HA对、预定义的防火墙策略中入站流量的源筛选器为0.0.0.0/0。</block>
+  <block id="cd2edcd7e3c4d8236b1a1ff235d1b803" category="paragraph">对于单节点系统、您可以在部署期间为预定义的防火墙策略选择源筛选器：</block>
+  <block id="62978cf670cdcd284392400fa0cb70a9" category="list-text">*仅选定VPC*：入站流量的源筛选器是Cloud Volumes ONTAP 系统VPC的子网范围以及连接器所在VPC的子网范围。这是建议的选项。</block>
+  <block id="ba2e1bf50371835f50d77c05a977d80c" category="list-text">所有VPC*：入站流量的源筛选器为0.0.0.0/0 IP范围。</block>
+  <block id="4fa4c5ae842db9adb7911d016ca19362" category="paragraph">如果您使用自己的防火墙策略、请确保添加需要与Cloud Volumes ONTAP 通信的所有网络、但同时确保同时添加两个地址范围、以使内部Google负载平衡器正常运行。这些地址为 130.11.0.0/22 和 35.191.0.0/16 。有关详细信息，请参见<block ref="ec02114a2c39456710780c7d788390e7" category="inline-link-rx"></block>。</block>
+  <block id="612b1fa388e719e990cb953520986784" category="list-text">云提供商市场的年度合同。</block>
+  <block id="7012cf86c42fb3eec6343900832f1d08" category="list-text">在AWS中、可以从AWS市场的公有 产品中获得年度合同。部署Cloud Volumes ONTAP 工作环境时、Cloud Manager会提示您订阅。</block>
+  <block id="1ce7e5f92b8c11b96a7b6fea0435803d" category="list-text">在Azure中、您需要与NetApp销售代表合作购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。</block>
+  <block id="51606c7b614cdc7ab9e0489981838dfa" category="paragraph">在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Azure Marketplace订阅年度计划。</block>
+  <block id="d3ef010be2a71bc188b8cf2beb05ac32" category="list-text">在Google Cloud中、您需要与NetApp销售代表合作购买年度合同。此合同在Google Cloud Marketplace中以私人优惠形式提供。</block>
+  <block id="f96723ecb29e40ca9b9fb042ab6ff4ef" category="paragraph">在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Google Cloud Marketplace订阅年度计划。</block>
+  <block id="49644953fd4e9612a9842d17bef5e79b" category="section-title">2022年5月2日</block>
+  <block id="e76164b285bb635d604e86db0ddefffb" category="paragraph">连接器3.9.18版引入了以下变更。</block>
+  <block id="44521137c9499dbef6a006058d0d9127" category="section-title">Cloud Volumes ONTAP 9.11.0</block>
+  <block id="f5820273186d8dafc3fd2a4b4a00f3ab" category="paragraph">Cloud Manager现在可以部署和管理Cloud Volumes ONTAP 9.11.0。</block>
+  <block id="a0834297e8b28b9a51d59500441c7351" category="section-title">调解器升级增强功能</block>
+  <block id="b1001d52fd68a717e647b035c7ba64fe" category="paragraph">当Cloud Manager升级HA对的调解器时、它现在会先验证新的调解器映像是否可用、然后再删除启动磁盘。此更改可确保调解器在升级过程失败时能够继续成功运行。</block>
+  <block id="e6e5b99786bfefd88e32c940b7547ab3" category="section-title">已删除K8s选项卡</block>
+  <block id="6eb7d1343cce33ec7d31b57edd9f3aef" category="paragraph">先前已弃用K8s选项卡、现已将其删除。如果要将Kubernetes与Cloud Volumes ONTAP 结合使用、可以将受管Kubernetes集群添加到Canvas中、作为一个用于高级数据管理的工作环境。</block>
+  <block id="75b200b4f9a63bca2792f985693a22c8" category="inline-link">了解Cloud Manager中的Kubernetes数据管理</block>
+  <block id="97bbe1f6bede29b64e2101d03c2362cb" category="paragraph"><block ref="97bbe1f6bede29b64e2101d03c2362cb" category="inline-link-rx"></block></block>
+  <block id="7475abfb4039c00bb03fd05d6d792b3d" category="section-title">Azure中的年度合同</block>
+  <block id="52b398f13b1acf3e73584a9cb106e989" category="paragraph">Essentials和Professional软件包现在可通过一份年度合同在Azure中提供。您可以联系NetApp销售代表购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。</block>
+  <block id="ba089edca33f314482ad946ae680f1eb" category="inline-link">了解有关许可的更多信息</block>
+  <block id="bd2a7f63a398b5af0c64c2d07409b38c" category="paragraph"><block ref="fa67dcc1253d6ef7da36dd244bfe620f" category="inline-link-rx"></block>。</block>
+  <block id="57ae56f77d278076fb394799067eb3ef" category="section-title">S3 Glacier即时检索</block>
+  <block id="465771d8890531f2527e09ef3f1b4f68" category="paragraph">现在、您可以将分层数据存储在Amazon S3 Glacier即时检索存储类中。</block>
+  <block id="6d4822148bad6fb79e6d92864dde8771" category="inline-link">了解如何更改分层数据的存储类</block>
+  <block id="e6eb181abe02ab22f2df966da6c0669d" category="paragraph"><block ref="5ae2503a0985d77718c9fe3da8dbc989" category="inline-link-rx"></block>。</block>
+  <block id="ef8e1d8f242a7ee4d109deb44db1b252" category="section-title">Connector需要新的AWS权限</block>
+  <block id="bfd761a70b5f9cd277ef7c878344df38" category="paragraph">现在、在单个可用性区域(AZ)中部署HA对时、创建AWS分布放置组需要以下权限：</block>
+  <block id="0080f4096e51a12d4256890c125c5c46" category="paragraph">现在、要优化Cloud Manager创建布局组的方式、需要这些权限。</block>
+  <block id="26dd25d183752a9f37249174f3d3ff89" category="paragraph">请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。您可以在上找到最新的权限列表<block ref="0e92ab1ca454f31f07a6e5fba6519a3a" category="inline-link-rx"></block>。</block>
+  <block id="81ad4f0de90ee8a7305d0fd7751df796" category="section-title">全新Google Cloud区域支持</block>
+  <block id="6b071f4257d8badb0aeb96e6b0547800" category="paragraph">从9.10.1版开始、以下Google Cloud地区现在支持Cloud Volumes ONTAP ：</block>
+  <block id="b11df59ba05c25c3a8734d54b7501ae7" category="list-text">新德里(亚洲-南2)</block>
+  <block id="68fb6cfeb81e52feef062b88d7037b7e" category="list-text">墨尔本(澳大利亚南部2)</block>
+  <block id="986ef6cfb21ad2831a7ae053e3f0506e" category="list-text">米兰(欧洲-西部8)—仅限单节点</block>
+  <block id="00f803da9ac7d98ccbfd2178a95625ee" category="list-text">圣地亚哥(南美洲-西1)—仅限单节点</block>
+  <block id="d1ce20099e22fd96c2217da218a20a9e" category="inline-link">查看Cloud Volumes ONTAP 支持的区域的完整列表</block>
+  <block id="efb1786cdf88244f9480e15cb039f942" category="paragraph"><block ref="efb1786cdf88244f9480e15cb039f942" category="inline-link-rx"></block></block>
+  <block id="8184a89f6d67aafd228ddc002e159ce5" category="section-title">在Google Cloud中支持n2-standard-16</block>
+  <block id="86a3a073b385c5ae85e4523282be3124" category="paragraph">从9.10.1版开始、Google Cloud中的Cloud Volumes ONTAP 现在支持n2-standard-16计算机类型。</block>
+  <block id="4994b2bf1bd5c0153c9dc0077a84b5a7" category="inline-link">在Google Cloud中查看支持的Cloud Volumes ONTAP 配置</block>
+  <block id="528aaaafbacf255285f844e94403a43f" category="paragraph"><block ref="528aaaafbacf255285f844e94403a43f" category="inline-link-rx"></block></block>
+  <block id="291a5c22c8cb78fe8ec363d61830f63e" category="section-title">Google Cloud防火墙策略增强功能</block>
+  <block id="73d44bfa5f20953f5799b7072e1f9dc7" category="list-text">在Google Cloud中创建Cloud Volumes ONTAP HA对时、Cloud Manager现在将在VPC中显示所有现有防火墙策略。</block>
+  <block id="5e1082179426bea32e466fe447cc5f2e" category="paragraph">以前、Cloud Manager不会在VPC-1、VPC-2或VPC-3中显示任何没有目标标记的策略。</block>
+  <block id="880f67f103405f29628ff848182ca330" category="list-text">在Google Cloud中创建Cloud Volumes ONTAP 单节点系统时、您现在可以选择是希望预定义的防火墙策略仅允许选定VPC (建议)内的流量、还是允许所有VPC内的流量。</block>
+  <block id="5c4a95a56d4b5bfef734aeab388618c0" category="section-title">Google Cloud服务帐户增强功能</block>
+  <block id="06fa5bb865f711b645e1f86dd8711d63" category="paragraph">当您选择要与Cloud Volumes ONTAP 结合使用的Google云服务帐户时、Cloud Manager现在会显示与每个服务帐户关联的电子邮件地址。通过查看电子邮件地址、可以更轻松地区分同名服务帐户。</block>
+  <block id="898d465c80c6b6783418f6fa71db0946" category="inline-image-macro">服务帐户字段的屏幕截图</block>
+  <block id="92a991ca375ee56317f82c3a30f16fff" category="paragraph"><block ref="92a991ca375ee56317f82c3a30f16fff" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ba26e4556a0f160834687982b0479336" category="section-title">2022 年 2 月 27 日</block>
+  <block id="eb1bf021e05707d1f69722b4d550c310" category="paragraph">连接器3.9.16版引入了以下更改。</block>
+  <block id="3ac47455b10c6fb4061a70a91fdbfde2" category="section-title">2022 年 1 月 30 日</block>
+  <block id="e1a7ea4670ce179c62807533bd08ccae" category="paragraph">连接器3.9.15版引入了以下更改。</block>
+  <block id="586301717819197e24001cac47efdaaa" category="section-title">2022 年 1 月 2 日</block>
+  <block id="424543ac82fbe709685dcec8b007bf63" category="paragraph">连接器3.9.14版引入了以下变更。</block>
+  <block id="f61163b681442ac500a8018c87241770" category="section-title">2021 年 11 月 28 日</block>
+  <block id="d10c1ac2edf70d0711330d4a227b70de" category="paragraph">连接器3.9.13版引入了以下更改。</block>
+  <block id="d1c47d8bf748c203ff983262e6c108cb" category="section-title">2021 年 10 月 4 日</block>
+  <block id="190323ddb2d35098aa0adb62b3b4fb4c" category="paragraph">连接器3.9.11版引入了以下更改。</block>
+  <block id="d798cbf5a08fbeb9fdd3652e5b00bb4c" category="section-title">2021 年 9 月 2 日</block>
+  <block id="d1ef4823428a4819165321552b0897ec" category="paragraph">连接器3.9.10版引入了以下更改。</block>
+  <block id="916678dfdf53de83f6afdf8fca563fb3" category="section-title">2021 年 7 月 7 日</block>
+  <block id="5378cd3122f1a8d3bcbde490c71a0f72" category="paragraph">连接器3.9.8版引入了以下变更。</block>
+  <block id="84e52d98abcbe81e8699e5833406f2e8" category="section-title">2021年5月30日</block>
+  <block id="356b234ec5c21cc28a1a5ae1dd7d3d5f" category="paragraph">连接器3.9.7版引入了以下变更。</block>
+  <block id="13c380d451c296cda1d1289b9dc25114" category="section-title">2021 年 4 月 11 日</block>
+  <block id="46a093bac120f76470b6d910e374e3fe" category="paragraph">连接器3.9.5版引入了以下更改。</block>
+  <block id="1758589feb07955b2d0a7b0b09d739c8" category="section-title">2021 年 3 月 8 日</block>
+  <block id="2d1fda237e9c9e24215e9d1450991976" category="paragraph">连接器3.9.4版引入了以下更改。</block>
+  <block id="450eec7ccd07d2edbfc01a9a848e5c25" category="section-title">2021年1月4日</block>
+  <block id="5a93c02f6d4fbb65f4f91aed3ecc5f9a" category="paragraph">连接器3.9.2版引入了以下更改。</block>
+  <block id="998eefc7687a412e9a842ebf95b04347" category="section-title">2020年11月3日</block>
+  <block id="908acbbcae243fd1f200e44e637db120" category="paragraph">连接器3.9.0版引入了以下变更。</block>
+  <block id="3b293ff829865b6388ad03ef6b96c846" category="cell">9.11.0</block>
+  <block id="331320477ecac4cca1b63e686d99f8d3" category="section-title">如何将许可证添加到数字电子钱包中</block>
+  <block id="792eeb7f686f2ad37b664f6478d40bed" category="paragraph">从NetApp销售代表购买许可证后、NetApp将向您发送一封电子邮件、其中包含序列号和其他许可详细信息。</block>
+  <block id="4e85798464067990a260920303c6ad56" category="paragraph">同时、Cloud Manager会自动查询NetApp的许可服务、以获取与您的NetApp支持站点帐户关联的许可证的详细信息。如果没有错误、Cloud Manager会自动将许可证添加到Digital Wallet中。</block>
+  <block id="ad0be4bc913a8026a3f5e42fc7656d23" category="inline-xref">了解如何向您的帐户添加已购买的许可证</block>
+  <block id="7d2ae233484b0c37afe70cfe2db6a56b" category="paragraph">如果Cloud Manager无法添加许可证、您需要手动将其添加到Digital Wallet中。 <block ref="2b377ff52574668221716136185f8476" category="inline-xref-macro-rx"></block>。</block>
+  <block id="59278e406900d98dfbf804d3447c186c" category="paragraph">如果您在数字电子钱包中看不到已购买的许可证、则需要将这些许可证添加到Cloud Manager中、以便Cloud Volumes ONTAP 可以使用此容量。</block>
+  <block id="0558557eddde3c400b73684dfb49fdbb" category="list-text">选择一个聚合、然后单击*添加磁盘*。</block>
+  <block id="3e385957b42bff8380e99a914d474fb1" category="list-text">*详细信息和凭据*：选择项目、指定集群名称、选择服务帐户、添加标签并指定凭据。</block>
+  <block id="1adb02ac235ed181f81480b00aa116f6" category="list-text">*位置和连接*：选择一个位置、选择防火墙策略并确认与Google Cloud存储的网络连接以进行数据分层。</block>
+  <block id="3450bc9327f985ff43682b683cb1eee9" category="cell">连接验证</block>
+  <block id="13b0618617ce48b8c5ef64094a5be02f" category="cell">要将冷数据分层到Google云存储分段、必须为Cloud Volumes ONTAP 所在的子网配置私有Google访问。有关说明，请参见<block ref="46bdb5a1fb51df5eb32e2147ea91e6d8" category="inline-link-rx"></block>。</block>
+  <block id="433aa0e54183d61d7dbfe714eebbe532" category="cell">已生成防火墙策略</block>
+  <block id="44b71ba9f3984ca3e3fbc4f874ed6e55" category="paragraph">如果您让Cloud Manager为您生成防火墙策略、则需要选择允许流量的方式：</block>
+  <block id="537e6055fd3e93e23e2cb903ef1297e5" category="list-text">如果选择*仅选定VPC *、则入站流量的源筛选器是选定VPC的子网范围以及Connector所在VPC的子网范围。这是建议的选项。</block>
+  <block id="32a5902f8095b03e8e2060198dc00577" category="list-text">如果选择*所有VPC*、则入站流量的源筛选器为0.0.0.0/0 IP范围。</block>
+  <block id="fc4876ca61d1c336e1f17141c7227b6e" category="cell">使用现有防火墙策略</block>
+  <block id="7f6be0499fe67271d3c198bd726fe0c0" category="inline-link-macro">了解Cloud Volumes ONTAP 的防火墙规则</block>
+  <block id="154e9c61180206ef2d8b605b639fb35f" category="cell">如果您使用现有防火墙策略、请确保该策略包含所需的规则。 <block ref="c3fbed15c1fb154b840fdb8b5504f098" category="inline-link-macro-rx"></block>。</block>
 </blocks>

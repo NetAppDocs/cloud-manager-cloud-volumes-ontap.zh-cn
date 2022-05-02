@@ -78,7 +78,7 @@ summary: 您可以在单系统配置中启动 Cloud Volumes ONTAP ，也可以�
 . 【订阅】在 " 画布 " 页面上，单击 * 添加工作环境 * 并按照提示进行操作。
 . * 选择一个位置 * ：选择 * Google Cloud* 和 * Cloud Volumes ONTAP * 。
 . 如果出现提示， https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["创建连接器"^]。
-. * 详细信息和凭据 * ：选择项目，指定集群名称，选择服务帐户，添加标签并指定凭据。
+. *详细信息和凭据*：选择项目、指定集群名称、选择服务帐户、添加标签并指定凭据。
 +
 下表介绍了可能需要指导的字段：
 
@@ -119,10 +119,30 @@ NOTE: 这是您为 Cloud Manager 设置的服务帐户， link:task-creating-gcp
 +
 video::video_subscribing_gcp.mp4[width=848,height=480]
 . * 服务 * ：选择要在此系统上使用的服务。要选择 Cloud Backup 或使用分层，您必须已在步骤 3 中指定服务帐户。
-. * 位置和连接 * ：选择一个位置，选择防火墙策略，然后选中复选框以确认与 Google Cloud 存储的网络连接以进行数据分层。
+. *位置和连接*：选择一个位置、选择防火墙策略并确认与Google Cloud存储的网络连接以进行数据分层。
 +
-如果要将冷数据分层到 Google 云存储分段，则必须为 Cloud Volumes ONTAP 所在的子网配置私有 Google 访问。有关说明，请参见 https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud 文档：配置私有 Google Access"^]。
+下表介绍了可能需要指导的字段：
 
++
+[cols="25,75"]
+|===
+| 字段 | Description 
+
+
+| 连接验证 | 要将冷数据分层到Google云存储分段、必须为Cloud Volumes ONTAP 所在的子网配置私有Google访问。有关说明，请参见 https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud 文档：配置私有 Google Access"^]。 
+
+
+| 已生成防火墙策略  a| 
+如果您让Cloud Manager为您生成防火墙策略、则需要选择允许流量的方式：
+
+** 如果选择*仅选定VPC *、则入站流量的源筛选器是选定VPC的子网范围以及Connector所在VPC的子网范围。这是建议的选项。
+** 如果选择*所有VPC*、则入站流量的源筛选器为0.0.0.0/0 IP范围。
+
+
+
+
+| 使用现有防火墙策略 | 如果您使用现有防火墙策略、请确保该策略包含所需的规则。 link:reference-networking-gcp.html#firewall-rules-for-cloud-volumes-ontap["了解Cloud Volumes ONTAP 的防火墙规则"]。 
+|===
 . * 充电方法和 NSS 帐户 * ：指定要在此系统中使用的充电选项，然后指定 NetApp 支持站点帐户。
 +
 ** link:concept-licensing.html["了解这些充电方法"]。

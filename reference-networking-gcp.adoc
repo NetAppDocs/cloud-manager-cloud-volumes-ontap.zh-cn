@@ -218,9 +218,15 @@ Cloud Volumes ONTAP 的防火墙规则需要入站和出站规则。
 
 === 入站规则
 
-预定义防火墙中的入站规则源为 0.0.0.0/0 。
+对于HA对、预定义的防火墙策略中入站流量的源筛选器为0.0.0.0/0。
 
-要创建您自己的防火墙，请确保添加需要与 Cloud Volumes ONTAP 通信的所有网络，同时还要确保同时添加两个地址范围，以使内部 Google 负载平衡器正常运行。这些地址为 130.11.0.0/22 和 35.191.0.0/16 。有关详细信息，请参见 https://cloud.google.com/load-balancing/docs/tcp#firewall_rules["Google Cloud 文档：负载平衡器防火墙规则"^]。
+对于单节点系统、您可以在部署期间为预定义的防火墙策略选择源筛选器：
+
+* *仅选定VPC*：入站流量的源筛选器是Cloud Volumes ONTAP 系统VPC的子网范围以及连接器所在VPC的子网范围。这是建议的选项。
+* 所有VPC*：入站流量的源筛选器为0.0.0.0/0 IP范围。
+
+
+如果您使用自己的防火墙策略、请确保添加需要与Cloud Volumes ONTAP 通信的所有网络、但同时确保同时添加两个地址范围、以使内部Google负载平衡器正常运行。这些地址为 130.11.0.0/22 和 35.191.0.0/16 。有关详细信息，请参见 https://cloud.google.com/load-balancing/docs/tcp#firewall_rules["Google Cloud 文档：负载平衡器防火墙规则"^]。
 
 [cols="10,10,80"]
 |===
@@ -444,22 +450,6 @@ NOTE: 源是 Cloud Volumes ONTAP 系统上的接口（ IP 地址）。
 同时， Cloud Manager 为 VPC-1 ， VPC-2 和 VPC-3 中的实例创建的预定义防火墙规则可通过 _all_ 协议和端口进行传入通信。这些规则允许 HA 节点之间进行通信。
 
 从 HA 节点到 HA 调解器的通信通过端口 3260 （ iSCSI ）进行。
-
-
-
-=== 对 VPC 1-3 使用您自己的防火墙规则
-
-创建 HA 对时， Cloud Manager 允许您选择使用预定义的防火墙规则或对每个 VPC 使用现有规则。如果您对 VPC 1-3 使用自己的防火墙规则，并且要跨多个 Google Cloud 区域部署 HA 对，则必须为此防火墙规则设置一个 _target 标记 _ 。如果不设置目标标记，则在部署期间会出现错误。
-
-. 在 Google Cloud 中创建防火墙规则时，转到 * 目标 * 字段，选择 * 指定目标标记 * ，然后输入标记。
-+
-该值可以是您想要的任何文本字符串。
-
-. 在 Cloud Manager 中创建 HA 对时，请在 * 连接 * 页面上选择现有防火墙规则。
-+
-将防火墙规则附加到 Cloud Volumes ONTAP 后，目标标记会自动作为 _network tags_添加 到 Cloud Volumes ONTAP 节点中。
-
-
 
 
 

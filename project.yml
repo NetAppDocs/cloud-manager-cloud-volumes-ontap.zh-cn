@@ -96,8 +96,6 @@ sidebar:
         url: "/task-connect-lun.html"
       - title: 借助 FlexCache 加快数据访问速度
         url: "/task-accelerate-data-access.html"
-      - title: 使用 ONTAP 作为永久性存储
-        url: "/task-connecting-kubernetes.html"
     - title: 聚合管理
       entries:
       - title: 创建聚合
