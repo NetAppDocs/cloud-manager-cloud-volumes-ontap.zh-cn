@@ -643,8 +643,6 @@
 
 
 
-
-
           
         </li>
       </ul>
@@ -1211,8 +1209,6 @@
         将 LUN 连接到主机
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-accelerate-data-access.html">
         借助 FlexCache 加快数据访问速度
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-connecting-kubernetes.html">
-        使用 ONTAP 作为永久性存储
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 聚合管理</div>
       </a>
@@ -1409,7 +1405,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-27 16:09:47 +0000">04/27/2022</time>
+    <time datetime="2022-05-03 00:02:10 +0000">05/03/2022</time>
     
   
 
@@ -1423,6 +1419,136 @@
 </div>
 <div class="paragraph">
 <p>此页面上介绍的增强功能专用于支持 Cloud Volumes ONTAP 管理的 Cloud Manager 功能。要了解 Cloud Volumes ONTAP 软件本身的新增功能， <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html" target="_blank" rel="noopener">"转至《 Cloud Volumes ONTAP 发行说明》"</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2022年5月2日">2022年5月2日</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.18版引入了以下变更。</p>
+</div>
+<div class="sect2">
+<h3 id="cloud-volumes-ontap-9-11-0">Cloud Volumes ONTAP 9.11.0</h3>
+<div class="paragraph">
+<p>Cloud Manager现在可以部署和管理Cloud Volumes ONTAP 9.11.0。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes" target="_blank" rel="noopener">"了解此版本 Cloud Volumes ONTAP 中的新增功能"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="调解器升级增强功能">调解器升级增强功能</h3>
+<div class="paragraph">
+<p>当Cloud Manager升级HA对的调解器时、它现在会先验证新的调解器映像是否可用、然后再删除启动磁盘。此更改可确保调解器在升级过程失败时能够继续成功运行。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="已删除k8s选项卡">已删除K8s选项卡</h3>
+<div class="paragraph">
+<p>先前已弃用K8s选项卡、现已将其删除。如果要将Kubernetes与Cloud Volumes ONTAP 结合使用、可以将受管Kubernetes集群添加到Canvas中、作为一个用于高级数据管理的工作环境。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-kubernetes/concept-kubernetes.html" target="_blank" rel="noopener">"了解Cloud Manager中的Kubernetes数据管理"</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="azure中的年度合同">Azure中的年度合同</h3>
+<div class="paragraph">
+<p>Essentials和Professional软件包现在可通过一份年度合同在Azure中提供。您可以联系NetApp销售代表购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。</p>
+</div>
+<div class="paragraph">
+<p>在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Azure Marketplace订阅年度计划。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html">"了解有关许可的更多信息"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="s3-glacier即时检索">S3 Glacier即时检索</h3>
+<div class="paragraph">
+<p>现在、您可以将分层数据存储在Amazon S3 Glacier即时检索存储类中。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html#changing-the-storage-class-for-tiered-data">"了解如何更改分层数据的存储类"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="connector需要新的aws权限">Connector需要新的AWS权限</h3>
+<div class="paragraph">
+<p>现在、在单个可用性区域(AZ)中部署HA对时、创建AWS分布放置组需要以下权限：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"ec2:DescribePlacementGroups",
+"iam:GetRolePolicy",</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>现在、要优化Cloud Manager创建布局组的方式、需要这些权限。</p>
+</div>
+<div class="paragraph">
+<p>请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。您可以在上找到最新的权限列表 <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager 策略页面"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="全新google-cloud区域支持">全新Google Cloud区域支持</h3>
+<div class="paragraph">
+<p>从9.10.1版开始、以下Google Cloud地区现在支持Cloud Volumes ONTAP ：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>新德里(亚洲-南2)</p>
+</li>
+<li>
+<p>墨尔本(澳大利亚南部2)</p>
+</li>
+<li>
+<p>米兰(欧洲-西部8)—仅限单节点</p>
+</li>
+<li>
+<p>圣地亚哥(南美洲-西1)—仅限单节点</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"查看Cloud Volumes ONTAP 支持的区域的完整列表"</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="在google-cloud中支持n2-standard-16">在Google Cloud中支持n2-standard-16</h3>
+<div class="paragraph">
+<p>从9.10.1版开始、Google Cloud中的Cloud Volumes ONTAP 现在支持n2-standard-16计算机类型。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html" target="_blank" rel="noopener">"在Google Cloud中查看支持的Cloud Volumes ONTAP 配置"</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="google-cloud防火墙策略增强功能">Google Cloud防火墙策略增强功能</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>在Google Cloud中创建Cloud Volumes ONTAP HA对时、Cloud Manager现在将在VPC中显示所有现有防火墙策略。</p>
+<div class="paragraph">
+<p>以前、Cloud Manager不会在VPC-1、VPC-2或VPC-3中显示任何没有目标标记的策略。</p>
+</div>
+</li>
+<li>
+<p>在Google Cloud中创建Cloud Volumes ONTAP 单节点系统时、您现在可以选择是希望预定义的防火墙策略仅允许选定VPC (建议)内的流量、还是允许所有VPC内的流量。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="google-cloud服务帐户增强功能">Google Cloud服务帐户增强功能</h3>
+<div class="paragraph">
+<p>当您选择要与Cloud Volumes ONTAP 结合使用的Google云服务帐户时、Cloud Manager现在会显示与每个服务帐户关联的电子邮件地址。通过查看电子邮件地址、可以更轻松地区分同名服务帐户。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/main/media/screenshot-google-cloud-service-account.png" alt="服务帐户字段的屏幕截图"></span></p>
+</div>
 </div>
 </div>
 </div>
@@ -1450,8 +1576,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2022-年-2-月-27-日连接器-3-9-16">2022 年 2 月 27 日（连接器 3.9.16 ）</h2>
+<h2 id="2022-年-2-月-27-日">2022 年 2 月 27 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.16版引入了以下更改。</p>
+</div>
 <div class="sect2">
 <h3 id="重新设计的卷向导">重新设计的卷向导</h3>
 <div class="paragraph">
@@ -1514,8 +1643,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2022-年-1-月-30-日连接器-3-9-15">2022 年 1 月 30 日（连接器 3.9.15 ）</h2>
+<h2 id="2022-年-1-月-30-日">2022 年 1 月 30 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.15版引入了以下更改。</p>
+</div>
 <div class="sect2">
 <h3 id="重新设计的许可选择">重新设计的许可选择</h3>
 <div class="paragraph">
@@ -1546,8 +1678,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2022-年-1-月-2-日连接器-3-9-14">2022 年 1 月 2 日（连接器 3.9.14 ）</h2>
+<h2 id="2022-年-1-月-2-日">2022 年 1 月 2 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.14版引入了以下变更。</p>
+</div>
 <div class="sect2">
 <h3 id="支持其他-vm-类型">支持其他 VM 类型</h3>
 <div class="paragraph">
@@ -1622,8 +1757,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-11-月-28-日连接器-3-9-13">2021 年 11 月 28 日（连接器 3.9.13 ）</h2>
+<h2 id="2021-年-11-月-28-日">2021 年 11 月 28 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.13版引入了以下更改。</p>
+</div>
 <div class="sect2">
 <h3 id="cloud-volumes-ontap-9-10-1">Cloud Volumes ONTAP 9.10.1</h3>
 <div class="paragraph">
@@ -1673,8 +1811,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-10-月-4-日连接器-3-9-11">2021 年 10 月 4 日（连接器 3.9.11 ）</h2>
+<h2 id="2021-年-10-月-4-日">2021 年 10 月 4 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.11版引入了以下更改。</p>
+</div>
 <div class="sect2">
 <h3 id="cloud-volumes-ontap-9-10-0">Cloud Volumes ONTAP 9.10.0</h3>
 <div class="paragraph">
@@ -1693,8 +1834,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-9-月-2-日连接器-3-9-10">2021 年 9 月 2 日（连接器 3.9.10 ）</h2>
+<h2 id="2021-年-9-月-2-日">2021 年 9 月 2 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.10版引入了以下更改。</p>
+</div>
 <div class="sect2">
 <h3 id="azure-中由客户管理的加密密钥">Azure 中由客户管理的加密密钥</h3>
 <div class="paragraph">
@@ -1717,8 +1861,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-7-月-7-日连接器-3-2-8">2021 年 7 月 7 日（连接器 3.2.8 ）</h2>
+<h2 id="2021-年-7-月-7-日">2021 年 7 月 7 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.8版引入了以下变更。</p>
+</div>
 <div class="sect2">
 <h3 id="新的充电方法">新的充电方法</h3>
 <div class="paragraph">
@@ -1822,8 +1969,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-5-月-30-日连接器-3-3-7">2021 年 5 月 30 日（连接器 3.3.7 ）</h2>
+<h2 id="2021年5月30日">2021年5月30日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.7版引入了以下变更。</p>
+</div>
 <div class="sect2">
 <h3 id="aws-中的新专业软件包">AWS 中的新专业软件包</h3>
 <div class="paragraph">
@@ -1894,8 +2044,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-4-月-11-日连接器-3-3-5">2021 年 4 月 11 日（连接器 3.3.5 ）</h2>
+<h2 id="2021-年-4-月-11-日">2021 年 4 月 11 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.5版引入了以下更改。</p>
+</div>
 <div class="sect2">
 <h3 id="逻辑空间报告">逻辑空间报告</h3>
 <div class="paragraph">
@@ -1929,8 +2082,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-3-月-8-日连接器-3-0-4">2021 年 3 月 8 日（连接器 3.0.4 ）</h2>
+<h2 id="2021-年-3-月-8-日">2021 年 3 月 8 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.4版引入了以下更改。</p>
+</div>
 <div class="sect2">
 <h3 id="cloud-volumes-ontap-9-9-0">Cloud Volumes ONTAP 9.9.0</h3>
 <div class="paragraph">
@@ -1988,8 +2144,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-1-月-4-日连接器-3-0-2">2021 年 1 月 4 日（连接器 3.0.2 ）</h2>
+<h2 id="2021年1月4日">2021年1月4日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.2版引入了以下更改。</p>
+</div>
 <div class="sect2">
 <h3 id="aws-前哨">AWS 前哨</h3>
 <div class="paragraph">
@@ -2073,8 +2232,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2020-年-11-月-3-日连接器-3-0-0">2020 年 11 月 3 日（连接器 3.0.0 ）</h2>
+<h2 id="2020年11月3日">2020年11月3日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>连接器3.9.0版引入了以下变更。</p>
+</div>
 <div class="sect2">
 <h3 id="适用于-cloud-volumes-ontap-的-azure-专用链路">适用于 Cloud Volumes ONTAP 的 Azure 专用链路</h3>
 <div class="paragraph">

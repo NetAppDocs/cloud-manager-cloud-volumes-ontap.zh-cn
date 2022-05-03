@@ -643,8 +643,6 @@
 
 
 
-
-
           
         </li>
       </ul>
@@ -1211,8 +1209,6 @@
         将 LUN 连接到主机
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-accelerate-data-access.html">
         借助 FlexCache 加快数据访问速度
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-connecting-kubernetes.html">
-        使用 ONTAP 作为永久性存储
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 聚合管理</div>
       </a>
@@ -1409,7 +1405,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-21 15:27:19 +0000">04/21/2022</time>
+    <time datetime="2022-05-03 00:02:10 +0000">05/03/2022</time>
     
   
 
@@ -1549,7 +1545,7 @@
 <p>如果出现提示， <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html" target="_blank" rel="noopener">"创建连接器"</a>。</p>
 </li>
 <li>
-<p>* 详细信息和凭据 * ：选择项目，指定集群名称，选择服务帐户，添加标签并指定凭据。</p>
+<p><strong>详细信息和凭据</strong>：选择项目、指定集群名称、选择服务帐户、添加标签并指定凭据。</p>
 <div class="paragraph">
 <p>下表介绍了可能需要指导的字段：</p>
 </div>
@@ -1625,10 +1621,48 @@ Your browser does not support the video tag.
 <p>* 服务 * ：选择要在此系统上使用的服务。要选择 Cloud Backup 或使用分层，您必须已在步骤 3 中指定服务帐户。</p>
 </li>
 <li>
-<p>* 位置和连接 * ：选择一个位置，选择防火墙策略，然后选中复选框以确认与 Google Cloud 存储的网络连接以进行数据分层。</p>
+<p><strong>位置和连接</strong>：选择一个位置、选择防火墙策略并确认与Google Cloud存储的网络连接以进行数据分层。</p>
 <div class="paragraph">
-<p>如果要将冷数据分层到 Google 云存储分段，则必须为 Cloud Volumes ONTAP 所在的子网配置私有 Google 访问。有关说明，请参见 <a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">"Google Cloud 文档：配置私有 Google Access"</a>。</p>
+<p>下表介绍了可能需要指导的字段：</p>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">字段</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">连接验证</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">要将冷数据分层到Google云存储分段、必须为Cloud Volumes ONTAP 所在的子网配置私有Google访问。有关说明，请参见 <a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">"Google Cloud 文档：配置私有 Google Access"</a>。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">已生成防火墙策略</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>如果您让Cloud Manager为您生成防火墙策略、则需要选择允许流量的方式：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>如果选择*仅选定VPC *、则入站流量的源筛选器是选定VPC的子网范围以及Connector所在VPC的子网范围。这是建议的选项。</p>
+</li>
+<li>
+<p>如果选择*所有VPC*、则入站流量的源筛选器为0.0.0.0/0 IP范围。</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">使用现有防火墙策略</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">如果您使用现有防火墙策略、请确保该策略包含所需的规则。 <a href="reference-networking-gcp.html#firewall-rules-for-cloud-volumes-ontap">"了解Cloud Volumes ONTAP 的防火墙规则"</a>。</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p>* 充电方法和 NSS 帐户 * ：指定要在此系统中使用的充电选项，然后指定 NetApp 支持站点帐户。</p>
