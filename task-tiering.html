@@ -17,7 +17,7 @@
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="通过将热数据的 SSD 或 HDD 性能层与非活动数据的对象存储容量层相结合，您可以降低 Cloud Volumes ONTAP 的存储成本。数据分层由 FabricPool 技术提供支持。">
-  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, azure tiering, blob tiering, azure blob, container, inactive, gcp, tiering in gcp, tiering requirements"><!-- Icons -->
+  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, blob tiering, container, inactive, tiering requirements"><!-- Icons -->
   <link rel="icon" href="/zh-cn/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/zh-cn/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[将非活动数据分层到低成本对象存储](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-tiering.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-tiering.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/task-tiering.html">
+  
+  <div class="custom-dropdown-select unselected" title="所有云提供商">
+    <label>云提供商</label>
+    <span>所有云提供商</span>
+    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-tiering.html">
+      <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/gcp/task-tiering.html">
+      <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-tiering.html">
+      <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[将非活动数据分层到低成本对象存储](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-tiering.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-tiering.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:29:47 +0000">04/14/2022</time>
+    <time datetime="2022-05-09 15:41:39 +0000">05/09/2022</time>
     
   
 
@@ -1425,8 +1457,7 @@
 <div class="paragraph quick-margin-para">
 <p>支持大多数配置。如果您的 Cloud Volumes ONTAP 系统运行的是最新版本，则最好继续操作。 <a href="task-tiering.html#configurations-that-support-data-tiering">"了解更多信息。"</a>。</p>
 </div>
-<div class="ulist">
-<div class="title">跨度 class="image&gt;&lt;img src="<a href="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"" class="bare">https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"</a> Alt+twe"&gt;&lt;/span&gt; 确保 Cloud Volumes ONTAP 与对象存储之间的连接</div>
+<div class="ulist quick-margin-list">
 <ul>
 <li>
 <p>对于 AWS ， S3 需要一个 VPC 端点。 <a href="#Requirements to tier cold data to AWS S3">了解更多信息。</a>。</p>
@@ -1435,7 +1466,7 @@
 <p>对于 Azure ，只要 Cloud Manager 具有所需权限，您就无需执行任何操作。 <a href="#Requirements to tier cold data to Azure Blob storage">了解更多信息。</a>。</p>
 </li>
 <li>
-<p>对于 GCP ，您需要为 Private Google Access 配置子网并设置服务帐户。 <a href="#Requirements to tier cold data to a Google Cloud Storage bucket">了解更多信息。</a>。</p>
+<p>对于Google Cloud、您需要为专用Google Access配置子网并设置服务帐户。 <a href="#Requirements to tier cold data to a Google Cloud Storage bucket">了解更多信息。</a>。</p>
 </li>
 </ul>
 </div>
@@ -1469,7 +1500,7 @@
 <p>您无需安装功能许可证即可启用数据分层。</p>
 </li>
 <li>
-<p>您无需创建容量层（ S3 存储分段， Azure Blob 容器或 GCP 存储分段）。云管理器可以为您提供这种功能。</p>
+<p>您无需为容量层创建对象存储。云管理器可以为您提供这种功能。</p>
 </li>
 <li>
 <p>您无需在系统级别启用数据分层。</p>
@@ -1489,31 +1520,17 @@
 <h2 id="支持数据分层的配置">支持数据分层的配置</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>您可以在使用特定配置和功能时启用数据分层：</p>
+<p>您可以在使用特定配置和功能时启用数据分层。</p>
 </div>
+<div class="sect2">
+<h3 id="aws支持">AWS支持</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>从以下版本开始， Cloud Volumes ONTAP 支持数据分层：</p>
-<div class="ulist">
-<ul>
-<li>
-<p>AWS 中的 9.2 版</p>
+<p>从Cloud Volumes ONTAP 9.2开始、AWS支持数据分层。</p>
 </li>
 <li>
-<p>采用单节点系统的 Azure 中的 9.4 版</p>
-</li>
-<li>
-<p>使用 HA 对的 Azure 中的 9.6 版</p>
-</li>
-<li>
-<p>GCP 中的 9.6 版</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>在 AWS 中，性能层可以是通用 SSD （ GP3 或 GP2 ）或配置的 IOPS SSD （ IO1 ）。</p>
+<p>性能层可以是通用 SSD （ GP3 或 GP2 ）或配置的 IOPS SSD （ IO1 ）。</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1527,12 +1544,49 @@
 </table>
 </div>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="支持-azure">支持 Azure</h3>
+<div class="ulist">
+<ul>
 <li>
-<p>在 Azure 中，性能层可以是高级 SSD 受管磁盘，标准 SSD 受管磁盘或标准 HDD 受管磁盘。</p>
+<p>Azure支持数据分层、如下所示：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>使用单节点系统时为9.4版</p>
 </li>
 <li>
-<p>在 GCP 中，性能层可以是 SSD 永久性磁盘，平衡永久性磁盘或标准永久性磁盘。</p>
+<p>使用HA对的9.6版</p>
 </li>
+</ul>
+</div>
+</li>
+<li>
+<p>性能层可以是高级SSD受管磁盘、标准SSD受管磁盘或标准HDD受管磁盘。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="支持google-cloud">支持Google Cloud</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>从Cloud Volumes ONTAP 9.6开始、Google Cloud支持数据分层。</p>
+</li>
+<li>
+<p>性能层可以是 SSD 永久性磁盘，平衡永久性磁盘或标准永久性磁盘。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="功能互操作性">功能互操作性</h3>
+<div class="ulist">
+<ul>
 <li>
 <p>加密技术支持数据分层。</p>
 </li>
@@ -1540,6 +1594,7 @@
 <p>必须在卷上启用精简配置。</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>

@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[新增功能](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/whats-new.html">
+  
+  <div class="custom-dropdown-select unselected" title="所有云提供商">
+    <label>云提供商</label>
+    <span>所有云提供商</span>
+    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/whats-new.html">
+      <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/gcp/whats-new.html">
+      <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/whats-new.html">
+      <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[新增功能](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 00:02:10 +0000">05/03/2022</time>
+    <time datetime="2022-05-09 15:41:39 +0000">05/09/2022</time>
     
   
 
@@ -1602,7 +1634,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>现在， AWS 和 Google Cloud MarketPlaces 中提供了 Essentials 软件包和 Professional 软件包。</p>
+<p>现在、所有云提供商市场均可提供Essentials软件包和专业软件包。</p>
 <div class="paragraph">
 <p>通过这些按容量付费方法，您可以按小时付费，也可以直接从云提供商购买年度合同。您仍然可以选择直接从 NetApp 购买按容量许可证。</p>
 </div>
@@ -1614,7 +1646,7 @@
 </div>
 </li>
 <li>
-<p>已弃用通过 AWS 和 Google Cloud MarketPlaces 进行的节点间许可，新订阅者将无法再使用此许可。其中包括年度合同和每小时订阅（ Explore ， Standard 和 Premium ）。</p>
+<p>所有云提供商市场的逐节点许可均已弃用、不再适用于新订阅者。其中包括年度合同和每小时订阅（ Explore ， Standard 和 Premium ）。</p>
 <div class="paragraph">
 <p>现有订阅有效的客户仍可使用此收费方法。</p>
 </div>
@@ -1686,7 +1718,7 @@
 <p>连接器3.9.14版引入了以下变更。</p>
 </div>
 <div class="sect2">
-<h3 id="支持其他-vm-类型">支持其他 VM 类型</h3>
+<h3 id="支持其他azure-vm类型">支持其他Azure VM类型</h3>
 <div class="paragraph">
 <p>从 9.10.1 版开始， Microsoft Azure 中的以下 VM 类型现在支持 Cloud Volumes ONTAP ：</p>
 </div>
@@ -1827,12 +1859,6 @@
 <p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-9100-relnotes" target="_blank" rel="noopener">"了解此版本 Cloud Volumes ONTAP 中的新增功能"</a>。</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="缩短部署时间">缩短部署时间</h3>
-<div class="paragraph">
-<p>启用正常写入速度后，我们缩短了在 Microsoft Azure 或 Google Cloud 中部署 Cloud Volumes ONTAP 工作环境所需的时间。现在，部署时间平均缩短 3-4 分钟。</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1884,7 +1910,7 @@
 <p><a href="concept-licensing.html">"详细了解这些许可选项"</a>。</p>
 </div>
 <div class="paragraph">
-<p>下面是在 Azure 中部署新 Cloud Volumes ONTAP 系统时可以选择的充电方法示例：</p>
+<p>下面是一个可以选择的充电方法示例：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_cvo_charging_methods.png" alt="Cloud Volumes ONTAP 工作环境向导的屏幕截图，您可以在其中选择充电方法。"></span></p>
