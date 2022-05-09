@@ -18,9 +18,8 @@ summary: 了解默认情况下如何配置 Cloud Volumes ONTAP 可以帮助您�
 
 
 
-== 默认值
+== 默认设置
 
-* Cloud Volumes ONTAP 在 AWS ， Azure 和 GCP 中以单节点系统和 HA 对的形式提供。
 * Cloud Manager 在部署 Cloud Volumes ONTAP 时会创建一个提供数据的 Storage VM 。某些配置支持额外的 Storage VM 。 link:task-managing-svms.html["了解有关管理 Storage VM 的更多信息"]。
 +
 从 Cloud Manager 3.9.5 版开始，将在初始 Storage VM 上启用逻辑空间报告。如果以逻辑方式报告空间，则 ONTAP 会报告卷空间，以便存储效率功能节省的所有物理空间也会报告为已用空间。
@@ -42,21 +41,52 @@ summary: 了解默认情况下如何配置 Cloud Volumes ONTAP 可以帮助您�
 +
 ** 集群管理 LIF
 ** 集群间 LIF
-** Azure 和 GCP 中的 HA 系统， AWS 中的单节点系统以及多个 AWS 可用性区域中的 HA 系统上的一个 SVM 管理 LIF
-** 节点管理 LIF （在 GCP 中，此 LIF 与集群间 LIF 结合使用）
-** iSCSI 数据 LIF
-** CIFS 和 NFS 数据 LIF
+
+
+
+
+ifdef::azure[]
+
+* Azure中HA系统上的SVM管理LIF
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Google Cloud中HA系统上的SVM管理LIF
+
+
+endif::gcp[]
+
+ifdef::aws[]
+
+* AWS中单节点系统上的SVM管理LIF
+
+
+endif::aws[]
+
+* 节点管理 LIF
+
+
+ifdef::gcp[]
+
++在Google Cloud中、此LIF与集群间LIF结合使用。
+
+endif::gcp[]
+
+* iSCSI 数据 LIF
+* CIFS 和 NFS 数据 LIF
 +
 
-NOTE: 由于 EC2 要求，默认情况下，对于 Cloud Volumes ONTAP 禁用 LIF 故障转移。将 LIF 迁移到另一个端口会中断实例上 IP 地址和网络接口之间的外部映射、从而使 LIF 无法访问。
+NOTE: 由于云提供商的要求、Cloud Volumes ONTAP 默认禁用LIF故障转移。将 LIF 迁移到另一个端口会中断实例上 IP 地址和网络接口之间的外部映射、从而使 LIF 无法访问。
 
-
-
-* Cloud Volumes ONTAP 使用 HTTPS 将配置备份发送到连接器。
++
+** Cloud Volumes ONTAP 使用 HTTPS 将配置备份发送到连接器。
 +
 可从访问这些备份 https://ipaddress/occm/offboxconfig/[] 其中 _ipaddress_ 是 Connector 主机的 IP 地址。
 
-* 与其他管理工具（例如 System Manager 或 CLI ）不同、 Cloud Manager 设置了几个卷属性。
+** 与其他管理工具（例如 System Manager 或 CLI ）不同、 Cloud Manager 设置了几个卷属性。
 +
 下表列出了 Cloud Manager 设置的与默认设置不同的卷属性：
 
@@ -92,9 +122,13 @@ NOTE: 帐户管理员可以从 " 设置 " 页面修改此值。
 
 
 
+
+
 == 用于系统数据的内部磁盘
 
 除了用户数据存储之外， Cloud Manager 还为系统数据购买云存储。
+
+ifdef::aws[]
 
 
 
@@ -109,10 +143,15 @@ NOTE: 帐户管理员可以从 " 设置 " 页面修改此值。
 
 * 每个引导磁盘和根磁盘一个 EBS 快照
 * 对于 HA 对，为调解器实例配置一个 EBS 卷，大约为 8 GiB
+* 如果您在 AWS 中使用密钥管理服务（ KMS ）启用数据加密，则 Cloud Volumes ONTAP 的启动磁盘和根磁盘也会进行加密。这包括 HA 对中调解器实例的启动磁盘。磁盘将使用您在创建工作环境时选择的 CMK 进行加密。
 
 
 
 TIP: 在 AWS 中， NVRAM 位于启动磁盘上。
+
+endif::aws[]
+
+ifdef::azure[]
 
 
 
@@ -130,6 +169,7 @@ TIP: 在 AWS 中， NVRAM 位于启动磁盘上。
 
 * 一个 1024 GiB 标准 HDD 磁盘，用于节省核心
 * 每个引导磁盘和根磁盘一个 Azure 快照
+* 默认情况下、启动磁盘和根磁盘会进行加密。
 
 
 
@@ -141,7 +181,12 @@ TIP: 在 AWS 中， NVRAM 位于启动磁盘上。
 * 两个 1024 GiB 标准 HDD 磁盘，用于节省核心（每个节点一个）
 * 两个用于 NVRAM 的 512 GiB 高级 SSD 磁盘（每个节点一个）
 * 每个引导磁盘和根磁盘一个 Azure 快照
+* 默认情况下、启动磁盘和根磁盘会进行加密。
 
+
+endif::azure[]
+
+ifdef::gcp[]
 
 
 
@@ -152,6 +197,7 @@ TIP: 在 AWS 中， NVRAM 位于启动磁盘上。
 * 一个用于 NVRAM 的 500 GiB SSD 永久性磁盘
 * 一个 315 GiB 标准永久性磁盘，用于节省核心
 * 用于启动和根数据的快照
+* 默认情况下、启动磁盘和根磁盘会进行加密。
 
 
 
@@ -164,7 +210,10 @@ TIP: 在 AWS 中， NVRAM 位于启动磁盘上。
 * 两个用于节省核心的 315GiB 标准永久性磁盘
 * 一个用于调解器数据的 10 GiB 标准永久性磁盘
 * 用于启动和根数据的快照
+* 默认情况下、启动磁盘和根磁盘会进行加密。
 
+
+endif::gcp[]
 
 
 
@@ -180,11 +229,3 @@ Cloud Manager 将存储布局如下：
 * 存储虚拟机（ SVM ）根卷驻留在 aggr1 中。
 * 数据卷也驻留在 aggr1 中。
 
-
-
-
-=== 加密
-
-启动和根磁盘在 Azure 和 Google Cloud Platform 中始终加密，因为默认情况下，这些云提供商会启用加密。
-
-如果您在 AWS 中使用密钥管理服务（ KMS ）启用数据加密，则 Cloud Volumes ONTAP 的启动磁盘和根磁盘也会进行加密。这包括 HA 对中调解器实例的启动磁盘。磁盘将使用您在创建工作环境时选择的 CMK 进行加密。

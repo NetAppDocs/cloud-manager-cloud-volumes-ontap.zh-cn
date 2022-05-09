@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-configure-ems.html 
-keywords: ems, event management system, ems notifications, notifications, 
+keywords: ems, event management system, ems notifications, notifications 
 summary: 事件管理系统收集并显示有关 ONTAP 系统上发生的事件的信息。要接收事件通知，您可以为特定事件严重性设置事件目标和事件路由。 
 ---
 = 配置 EMS

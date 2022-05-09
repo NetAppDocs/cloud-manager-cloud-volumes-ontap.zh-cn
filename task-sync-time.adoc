@@ -16,8 +16,4 @@ summary: 指定 NTP 服务器可同步网络中各个系统之间的时间，这
 [role="lead"]
 指定 NTP 服务器可同步网络中各个系统之间的时间，这有助于防止因时间差异而出现问题。
 
-使用指定 NTP 服务器 https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager API"^] 或者从用户界面执行此操作 link:task-create-volumes.html#create-a-volume["创建 CIFS 服务器"]。
-
-例如，下面是 AWS 中单节点系统的 API ：
-
-image:screenshot_ntp_server_api.gif["Swagger 界面的屏幕截图，其中显示了 NTP API 调用。"]
+使用指定 NTP 服务器 https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html["Cloud Manager API"^] 或者从用户界面执行此操作 link:task-create-volumes.html#create-a-volume["创建 CIFS 服务器"]。

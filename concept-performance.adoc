@@ -20,19 +20,35 @@ summary: 您可以查看性能结果、帮助您确定哪些工作负载适合 C
 
 == 性能技术报告
 
+ifdef::aws[]
+
 * 适用于 AWS 的 Cloud Volumes ONTAP
 +
-https://www.netapp.com/us/media/tr-4383.pdf["NetApp 技术报告 4383 ：使用应用程序工作负载在 Amazon Web Services 中对 Cloud Volumes ONTAP 进行性能特征描述"^]。
+https://www.netapp.com/us/media/tr-4383.pdf["NetApp 技术报告 4383 ：使用应用程序工作负载在 Amazon Web Services 中对 Cloud Volumes ONTAP 进行性能特征描述"^]
+
+
+
+endif::aws[]
+
+ifdef::azure[]
 
 * 适用于 Microsoft Azure 的 Cloud Volumes ONTAP
 +
-https://www.netapp.com/us/media/tr-4671.pdf["NetApp 技术报告 4671 ： Azure 中的 Cloud Volumes ONTAP 的性能特征与应用程序工作负载"^]。
+https://www.netapp.com/us/media/tr-4671.pdf["NetApp 技术报告 4671 ： Azure 中的 Cloud Volumes ONTAP 的性能特征与应用程序工作负载"^]
+
+
+
+endif::azure[]
+
+ifdef::gcp[]
 
 * 适用于 Google Cloud 的 Cloud Volumes ONTAP
 +
-https://www.netapp.com/us/media/tr-4816.pdf["NetApp 技术报告 4816 ：《适用于 Google Cloud 的 Cloud Volumes ONTAP 性能特征》"^]。
+https://www.netapp.com/us/media/tr-4816.pdf["NetApp 技术报告 4816 ：《适用于 Google Cloud 的 Cloud Volumes ONTAP 性能特征》"^]
 
 
+
+endif::gcp[]
 
 
 
@@ -40,4 +56,4 @@ https://www.netapp.com/us/media/tr-4816.pdf["NetApp 技术报告 4816 ：《适�
 
 从您的云提供商的监控工具中可以看到 Cloud Volumes ONTAP 节点利用率很高（超过 90% ）。这是因为 ONTAP 会保留提供给虚拟机的所有 vCPU ，以便在需要时可用。
 
-https://docs.netapp.com/us-en/cloud-manager-monitoring/concept-monitoring.html["了解如何监控 Cloud Volumes ONTAP 性能"^]或查看此信息 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Monitoring_CPU_utilization_before_an_ONTAP_upgrade["有关如何使用命令行界面监控 ONTAP CPU 利用率的 NetApp 知识库文章"^]。
+https://docs.netapp.com/us-en/cloud-manager-monitoring/concept-monitoring.html["了解如何监控 Cloud Volumes ONTAP 性能"^]或查看此信息 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Monitoring_CPU_utilization_before_an_ONTAP_upgrade["有关如何使用命令行界面监控 ONTAP CPU 利用率的 NetApp 知识库文章"^]

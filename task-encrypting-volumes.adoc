@@ -19,7 +19,15 @@ summary: Cloud Volumes ONTAP 通过外部密钥管理器同时支持 NetApp 卷�
 [role="lead"]
 Cloud Volumes ONTAP 支持 NetApp 卷加密（ NVE ）和 NetApp 聚合加密（ NAE ）。NVE 和 NAE 是基于软件的解决方案，支持（ FIPS ） 140-2 合规的卷空闲数据加密。 link:concept-security.html["详细了解这些加密解决方案"]。
 
-外部密钥管理器支持 NVE 和 NAE 。如果您使用 NVE ，则可以选择使用 Azure 密钥存储（ AKV ）或 Google 云密钥管理服务来保护 ONTAP 加密密钥。
+外部密钥管理器支持 NVE 和 NAE 。
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
 
 在设置外部密钥管理器后，新聚合将默认启用 NAE 。默认情况下，不属于 NAE 聚合的新卷将启用 NVE （例如，如果您有在设置外部密钥管理器之前创建的现有聚合）。
 

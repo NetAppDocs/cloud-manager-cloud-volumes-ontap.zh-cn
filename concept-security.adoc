@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-security.html 
-keywords: security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, aws, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, ransomware, fpolicy, snapshots 
+keywords: security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, ransomware, fpolicy, snapshots 
 summary: Cloud Volumes ONTAP 支持数据加密，并提供防病毒和勒索软件保护。 
 ---
 = 安全性
@@ -23,12 +23,30 @@ Cloud Volumes ONTAP 支持数据加密，并提供防病毒和勒索软件保护
 Cloud Volumes ONTAP 支持以下加密技术：
 
 * NetApp 加密解决方案（ NVE 和 NAE ）
+
+
+ifdef::aws[]
+
 * AWS 密钥管理服务
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * Azure 存储服务加密
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * Google Cloud Platform 默认加密
 
 
-您可以使用采用 AWS ， Azure 或 GCP 原生加密的 NetApp 加密解决方案，在虚拟机管理程序级别对数据进行加密。这样做会提供双重加密，这对于非常敏感的数据可能是理想的选择。访问加密数据时，加密数据会进行两次未加密，一次在虚拟机管理程序级别（使用云提供商的密钥），然后再次使用 NetApp 加密解决方案（使用外部密钥管理器的密钥）。
+endif::gcp[]
+
+您可以使用云提供商提供的采用原生 加密的NetApp加密解决方案、在虚拟机管理程序级别对数据进行加密。这样做会提供双重加密，这对于非常敏感的数据可能是理想的选择。访问加密数据时，加密数据会进行两次未加密，一次在虚拟机管理程序级别（使用云提供商的密钥），然后再次使用 NetApp 加密解决方案（使用外部密钥管理器的密钥）。
 
 
 
@@ -40,11 +58,21 @@ Cloud Volumes ONTAP 支持 https://www.netapp.com/us/media/ds-3899.pdf["NetApp �
 * NAE 是 NVE 的扩展—它对每个卷的数据进行加密，并且这些卷在聚合中共享一个密钥。NAE 还允许对聚合中所有卷之间的公用块进行重复数据删除。
 
 
-外部密钥管理器支持 NVE 和 NAE 。如果您使用 NVE ，则可以选择使用 Azure 密钥存储（ AKV ）或 Google 云密钥管理服务来保护 ONTAP 加密密钥。
+外部密钥管理器支持 NVE 和 NAE 。
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
 
 在设置外部密钥管理器后，新聚合会默认启用 NetApp 聚合加密（ NAE ）。默认情况下，不属于 NAE 聚合的新卷将启用 NetApp 卷加密（ NVE ）（例如，如果您有在设置外部密钥管理器之前创建的现有聚合）。
 
 设置受支持的密钥管理器是唯一必需的步骤。有关设置说明，请参见 link:task-encrypting-volumes.html["使用 NetApp 加密解决方案对卷进行加密"]。
+
+ifdef::aws[]
 
 
 
@@ -57,6 +85,10 @@ TIP: 创建 Cloud Volumes ONTAP 系统后，您无法更改 AWS 数据加密方�
 
 如果要使用此加密选项，则必须确保正确设置 AWS KMS 。有关详细信息，请参见 link:task-setting-up-kms.html["设置 AWS KMS"]。
 
+endif::aws[]
+
+ifdef::azure[]
+
 
 
 === Azure 存储服务加密
@@ -65,6 +97,10 @@ TIP: 创建 Cloud Volumes ONTAP 系统后，您无法更改 AWS 数据加密方�
 
 如果愿意，您可以使用自己的加密密钥。 link:task-set-up-azure-encryption.html["了解如何设置 Cloud Volumes ONTAP 以在 Azure 中使用客户管理的密钥"]。
 
+endif::azure[]
+
+ifdef::gcp[]
+
 
 
 === Google Cloud Platform 默认加密
@@ -72,6 +108,8 @@ TIP: 创建 Cloud Volumes ONTAP 系统后，您无法更改 AWS 数据加密方�
 https://cloud.google.com/security/encryption-at-rest/["Google Cloud Platform 空闲数据加密"^] 默认情况下， Cloud Volumes ONTAP 处于启用状态。无需设置。
 
 虽然 Google Cloud Storage 始终会在数据写入磁盘之前对数据进行加密，但您可以使用 Cloud Manager API 创建使用 _customer-managed encryption keys_ 的 Cloud Volumes ONTAP 系统。这些密钥可通过云密钥管理服务在 GCP 中生成和管理。 link:task-setting-up-gcp-encryption.html["了解更多信息。"]。
+
+endif::gcp[]
 
 
 

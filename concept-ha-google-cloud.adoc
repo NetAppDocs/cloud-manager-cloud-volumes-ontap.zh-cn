@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: concept-ha-google-cloud.html 
 keywords: high availability, HA, mediator, concepts, understanding, overview, takeover, giveback, rpo, rto, nondisruptive, ha pairs, node, nodes, synchronous, resync, recovery point objective, recovery time objective, failover, mount, remount, failure, data access, access, ip address, performance, gcp, gcp ha, google cloud ha, ha in google cloud 
-summary: Cloud Volumes ONTAP 高可用性配置可提供无中断运行和容错功能。在 Google Cloud Platform 中，数据会在两个节点之间同步镜像。 
+summary: Cloud Volumes ONTAP 高可用性配置可提供无中断运行和容错功能。在Google Cloud中、数据会在两个节点之间同步镜像。 
 ---
-= Google Cloud Platform 中的高可用性对
+= Google Cloud 中的高可用性对
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,13 @@ summary: Cloud Volumes ONTAP 高可用性配置可提供无中断运行和容错
 
 
 [role="lead"]
-Cloud Volumes ONTAP High Availability （ HA ）配置提供无中断操作和容错功能。在 Google Cloud Platform 中，数据会在两个节点之间同步镜像。
+Cloud Volumes ONTAP High Availability （ HA ）配置提供无中断操作和容错功能。在Google Cloud中、数据会在两个节点之间同步镜像。
 
 
 
 == HA 组件
 
-GCP 中的 Cloud Volumes ONTAP HA 配置包括以下组件：
+Google Cloud中的Cloud Volumes ONTAP HA配置包括以下组件：
 
 * 两个 Cloud Volumes ONTAP 节点之间的数据同步镜像。
 * 一种调解器实例，在节点之间提供通信通道以帮助存储接管和恢复过程。

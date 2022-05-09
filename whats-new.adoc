@@ -46,6 +46,8 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["了解此版本 Clou
 
 https://docs.netapp.com/us-en/cloud-manager-kubernetes/concept-kubernetes.html["了解Cloud Manager中的Kubernetes数据管理"^]
 
+ifdef::azure[]
+
 
 
 === Azure中的年度合同
@@ -55,6 +57,10 @@ Essentials和Professional软件包现在可通过一份年度合同在Azure中�
 在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Azure Marketplace订阅年度计划。
 
 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html["了解有关许可的更多信息"]。
+
+endif::azure[]
+
+ifdef::aws[]
 
 
 
@@ -78,6 +84,10 @@ https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.htm
 现在、要优化Cloud Manager创建布局组的方式、需要这些权限。
 
 请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。您可以在上找到最新的权限列表 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
+
+endif::aws[]
+
+ifdef::gcp[]
 
 
 
@@ -119,6 +129,8 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp
 当您选择要与Cloud Volumes ONTAP 结合使用的Google云服务帐户时、Cloud Manager现在会显示与每个服务帐户关联的电子邮件地址。通过查看电子邮件地址、可以更轻松地区分同名服务帐户。
 
 image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/main/media/screenshot-google-cloud-service-account.png["服务帐户字段的屏幕截图"]
+
+endif::gcp[]
 
 
 
@@ -162,7 +174,7 @@ https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-create-volu
 
 === 市场更新
 
-* 现在， AWS 和 Google Cloud MarketPlaces 中提供了 Essentials 软件包和 Professional 软件包。
+* 现在、所有云提供商市场均可提供Essentials软件包和专业软件包。
 +
 通过这些按容量付费方法，您可以按小时付费，也可以直接从云提供商购买年度合同。您仍然可以选择直接从 NetApp 购买按容量许可证。
 
@@ -172,7 +184,7 @@ https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-create-volu
 +
 如果您是新客户， Cloud Manager 将在您创建新的工作环境时提示您订阅。
 
-* 已弃用通过 AWS 和 Google Cloud MarketPlaces 进行的节点间许可，新订阅者将无法再使用此许可。其中包括年度合同和每小时订阅（ Explore ， Standard 和 Premium ）。
+* 所有云提供商市场的逐节点许可均已弃用、不再适用于新订阅者。其中包括年度合同和每小时订阅（ Explore ， Standard 和 Premium ）。
 +
 现有订阅有效的客户仍可使用此收费方法。
 
@@ -230,9 +242,11 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.
 
 连接器3.9.14版引入了以下变更。
 
+ifdef::azure[]
 
 
-=== 支持其他 VM 类型
+
+=== 支持其他Azure VM类型
 
 从 9.10.1 版开始， Microsoft Azure 中的以下 VM 类型现在支持 Cloud Volumes ONTAP ：
 
@@ -243,6 +257,8 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.
 
 
 转至 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["《 Cloud Volumes ONTAP 发行说明》"^] 有关支持的配置的更多详细信息。
+
+endif::azure[]
 
 
 
@@ -307,11 +323,17 @@ Keystone Flex 订阅是一种按需购买，基于订阅的服务，可为优先
 * link:task-manage-keystone.html["了解如何在 Cloud Manager 中开始使用 Keystone Flex 订阅"]。
 
 
+ifdef::aws[]
+
 
 
 === 新增 AWS 区域支持
 
 现在， AWS 亚太地区（日本）（亚太地区（日本）（亚太地区，日本）（亚太地区）（亚太地区）（亚太地区） 3 支持 Cloud Volumes ONTAP 。
+
+endif::aws[]
+
+ifdef::azure[]
 
 
 
@@ -320,6 +342,8 @@ Keystone Flex 订阅是一种按需购买，基于订阅的服务，可为优先
 对于单节点系统和 HA 对， Azure 中的 Cloud Volumes ONTAP 系统不再打开端口 8023 和 49000 。
 
 此操作会从连接器 3.9.13 版开始更改适用场景 _new_ Cloud Volumes ONTAP 系统。
+
+endif::azure[]
 
 
 
@@ -335,11 +359,7 @@ Cloud Manager 现在可以部署和管理 Cloud Volumes ONTAP 9.10.0 。
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-9100-relnotes["了解此版本 Cloud Volumes ONTAP 中的新增功能"^]。
 
-
-
-=== 缩短部署时间
-
-启用正常写入速度后，我们缩短了在 Microsoft Azure 或 Google Cloud 中部署 Cloud Volumes ONTAP 工作环境所需的时间。现在，部署时间平均缩短 3-4 分钟。
+ifdef::azure[]
 
 
 
@@ -359,6 +379,8 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-9100-relnotes["了解此版本
 
 link:task-set-up-azure-encryption.html["详细了解这些步骤"]。
 
+endif::azure[]
+
 
 
 == 2021 年 7 月 7 日
@@ -377,7 +399,7 @@ Cloud Volumes ONTAP 提供了新的充电方法。
 link:concept-licensing.html["详细了解这些许可选项"]。
 
 +
-下面是在 Azure 中部署新 Cloud Volumes ONTAP 系统时可以选择的充电方法示例：
+下面是一个可以选择的充电方法示例：
 
 +
 image:screenshot_cvo_charging_methods.png["Cloud Volumes ONTAP 工作环境向导的屏幕截图，您可以在其中选择充电方法。"]
@@ -390,6 +412,8 @@ image:screenshot_cvo_charging_methods.png["Cloud Volumes ONTAP 工作环境向�
 
 一次写入，多次读取（ Write Once ， Read Many ， WORM ）存储不再处于预览状态，现在可用于 Cloud Volumes ONTAP 。 link:concept-worm.html["了解有关 WORM 存储的更多信息。"]。
 
+ifdef::aws[]
+
 
 
 === 在 AWS 中支持 m5dn.24xlarge
@@ -397,6 +421,10 @@ image:screenshot_cvo_charging_methods.png["Cloud Volumes ONTAP 工作环境向�
 从 9.9.1 版开始， Cloud Volumes ONTAP 现在支持采用以下充电方法的 m5dn.24xlarge 实例类型： PAYGO Premium ，自带许可证（ BYOL ）和 Freemium 。
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["查看 AWS 中支持的 Cloud Volumes ONTAP 配置"^]。
+
+endif::aws[]
+
+ifdef::azure[]
 
 
 
@@ -431,6 +459,10 @@ image:screenshot_azure_resource_group.png["创建工作环境向导的屏幕截�
 
 link:task-enabling-private-link.html["了解有关将 Azure 专用链路与 Cloud Volumes ONTAP 结合使用的更多信息"]。
 
+endif::azure[]
+
+ifdef::gcp[]
+
 
 
 === Google Cloud 中的平衡持久性磁盘
@@ -449,11 +481,15 @@ link:task-enabling-private-link.html["了解有关将 Azure 专用链路与 Clou
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["在 GCP 中查看支持的 Cloud Volumes ONTAP 配置"^]。
 
+endif::gcp[]
+
 
 
 == 2021年5月30日
 
 连接器3.9.7版引入了以下变更。
+
+ifdef::aws[]
 
 
 
@@ -472,6 +508,8 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp
 现在， Cloud Manager 可在创建新的 Cloud Volumes ONTAP 工作环境时向 EBS 卷添加标记。这些标记先前是在部署 Cloud Volumes ONTAP 后创建的。
 
 如果您的组织使用服务控制策略（ Service Control Policies ， SCP ）来管理权限，此更改将很有帮助。
+
+endif::aws[]
 
 
 
@@ -495,12 +533,16 @@ link:task-tiering.html#changing-the-cooling-period-for-the-auto-tiering-policy["
 
 此增强功能可通过删除不再需要的快照来帮助降低云提供商成本。
 
+ifdef::azure[]
+
 请注意， Connector 需要新的权限才能删除 Azure 快照。 https://mysupport.netapp.com/site/info/cloud-manager-policies["查看 Azure 的最新 Cloud Manager 策略"^]。
 
 [source, json]
 ----
 "Microsoft.Compute/snapshots/delete"
 ----
+endif::azure[]
+
 
 
 == 2021 年 5 月 24 日
@@ -527,6 +569,8 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-991-relnotes["了解此版本 
 
 如果以逻辑方式报告空间，则 ONTAP 会报告卷空间，以便存储效率功能节省的所有物理空间也会报告为已用空间。
 
+ifdef::aws[]
+
 
 
 === 支持 AWS 中的 GP3 磁盘
@@ -541,11 +585,17 @@ link:task-planning-your-config.html#sizing-your-system-in-aws["了解有关将 G
 
 Cloud Volumes ONTAP 不再支持冷 HDD （ SC1 ）磁盘。
 
+endif::aws[]
+
+ifdef::azure[]
+
 
 
 === 适用于 Azure 存储帐户的 TLS 1.2
 
 当 Cloud Manager 在 Azure for Cloud Volumes ONTAP 中创建存储帐户时，存储帐户的 TLS 版本现在为 1.2 版。
+
+endif::azure[]
 
 
 
@@ -560,6 +610,8 @@ Cloud Volumes ONTAP 不再支持冷 HDD （ SC1 ）磁盘。
 Cloud Manager 现在可以部署和管理 Cloud Volumes ONTAP 9.0.0 。
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-990-relnotes["了解此版本 Cloud Volumes ONTAP 中的新增功能"^]。
+
+ifdef::aws[]
 
 
 
@@ -579,11 +631,19 @@ Cloud Manager 始终支持您使用 AWS 密钥管理服务（ KMS ）对 Cloud V
 
 link:task-setting-up-kms.html["了解有关使用 Cloud Volumes ONTAP 设置 AWS KMS 的更多信息"]。
 
+endif::aws[]
+
+ifdef::azure[]
+
 
 
 === 支持 Azure DoD
 
 现在，您可以在 Azure 国防部（ DoD ）影响级别 6 （ IL6 ）中部署 Cloud Volumes ONTAP 9.8 。
+
+endif::azure[]
+
+ifdef::gcp[]
 
 
 
@@ -601,11 +661,15 @@ link:reference-networking-gcp.html#requirements-for-cloud-volumes-ontap["在 Goo
 
 link:reference-networking-gcp.html["了解有关 Google Cloud 网络连接要求的更多信息"]。
 
+endif::gcp[]
+
 
 
 == 2021年1月4日
 
 连接器3.9.2版引入了以下更改。
+
+ifdef::aws[]
 
 
 
@@ -622,6 +686,10 @@ link:reference-networking-gcp.html["了解有关 Google Cloud 网络连接要求
 * 目前仅支持通用 SSD （ GP2 ）
 
 
+endif::aws[]
+
+ifdef::azure[]
+
 
 
 === 支持的 Azure 区域中的超高 SSD VNVRAM
@@ -637,6 +705,10 @@ VNVRAM 可提高写入性能。
 现在，您可以选择要在其中部署单节点 Cloud Volumes ONTAP 系统的可用性区域。如果不选择 AZ ， Cloud Manager 将为您选择一个。
 
 image:screenshot_azure_az.gif["选择区域后提供的可用性区域下拉列表的屏幕截图。"]
+
+endif::azure[]
+
+ifdef::gcp[]
 
 
 
@@ -658,6 +730,10 @@ Cloud Volumes ONTAP 现在支持以下计算机类型：
 * n2-standard-32 ，具有高级许可证和 BYOL
 
 
+endif::gcp[]
+
+ifdef::azure[]
+
 
 
 == 2020年11月3日
@@ -673,3 +749,5 @@ Cloud Volumes ONTAP 现在支持以下计算机类型：
 * https://docs.microsoft.com/en-us/azure/private-link/private-link-overview["了解有关 Azure 专用链接的更多信息"^]
 * link:task-enabling-private-link.html["了解有关将 Azure 专用链路与 Cloud Volumes ONTAP 结合使用的更多信息"]
 
+
+endif::azure[]

@@ -86,7 +86,7 @@ link:task-enabling-private-link.html["了解有关将 Azure 专用链路与 Clou
 
 === 连接到其他 ONTAP 系统
 
-要在 Azure 和 ONTAP 系统中的 Cloud Volumes ONTAP 系统之间复制数据、您必须在 Azure VNet 和其他网络之间建立 VPN 连接—例如 AWS VPC 或您的公司网络。
+要在Azure中的Cloud Volumes ONTAP 系统与其他网络中的ONTAP 系统之间复制数据、您必须在Azure vNet与其他网络(例如您的企业网络)之间建立VPN连接。
 
 有关说明，请参见 https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal["Microsoft Azure 文档：在 Azure 门户中创建站点到站点连接"^]。
 
@@ -465,7 +465,7 @@ NOTE: 源 IP 地址是 Connector 主机。
 | 服务 | Port | 协议 | 目标 | 目的 
 
 
-| API 调用和 AutoSupport | 443. | HTTPS | 出站 Internet 和 ONTAP 集群管理 LIF | API 调用 AWS 和 ONTAP ，云数据感知，勒索软件服务以及向 NetApp 发送 AutoSupport 消息 
+| API 调用和 AutoSupport | 443. | HTTPS | 出站 Internet 和 ONTAP 集群管理 LIF | API调用Azure和ONTAP 、云数据感知、勒索软件服务以及向NetApp发送AutoSupport 消息 
 
 
 | DNS | 53. | UDP | DNS | 用于云管理器进行 DNS 解析 

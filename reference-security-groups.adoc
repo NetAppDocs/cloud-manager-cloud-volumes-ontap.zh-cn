@@ -318,9 +318,11 @@ NOTE: 您可以创建从目标子网到 AWS EC2 服务的接口 VPC 端点，而
 
 
 
-== HA 调解器内部安全组的规则
+== HA配置内部安全组的规则
 
-为 Cloud Volumes ONTAP HA 调解器预定义的内部安全组包括以下规则。Cloud Manager 始终会创建此安全组。您没有使用自己的选项。
+为Cloud Volumes ONTAP HA配置预定义的内部安全组包括以下规则。通过此安全组、可以在HA节点之间以及调解器与节点之间进行通信。
+
+Cloud Manager 始终会创建此安全组。您没有使用自己的选项。
 
 
 

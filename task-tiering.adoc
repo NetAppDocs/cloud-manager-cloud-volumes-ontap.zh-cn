@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-tiering.html 
-keywords: tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, azure tiering, blob tiering, azure blob, container, inactive, gcp, tiering in gcp, tiering requirements 
+keywords: tier, tiering, cold data, hot data, storage tiering, data tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, blob tiering, container, inactive, tiering requirements 
 summary: 通过将热数据的 SSD 或 HDD 性能层与非活动数据的对象存储容量层相结合，您可以降低 Cloud Volumes ONTAP 的存储成本。数据分层由 FabricPool 技术提供支持。 
 ---
 = 将非活动数据分层到低成本对象存储
@@ -21,11 +21,27 @@ summary: 通过将热数据的 SSD 或 HDD 性能层与非活动数据的对象�
 [role="quick-margin-para"]
 支持大多数配置。如果您的 Cloud Volumes ONTAP 系统运行的是最新版本，则最好继续操作。 link:task-tiering.html#configurations-that-support-data-tiering["了解更多信息。"]。
 
-.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt+twe"></span> 确保 Cloud Volumes ONTAP 与对象存储之间的连接
-* 对于 AWS ， S3 需要一个 VPC 端点。 <<Requirements to tier cold data to AWS S3,了解更多信息。>>。
-* 对于 Azure ，只要 Cloud Manager 具有所需权限，您就无需执行任何操作。 <<Requirements to tier cold data to Azure Blob storage,了解更多信息。>>。
-* 对于 GCP ，您需要为 Private Google Access 配置子网并设置服务帐户。 <<Requirements to tier cold data to a Google Cloud Storage bucket,了解更多信息。>>。
+[role="quick-margin-list"]
+ifdef::aws[]
 
+* 对于 AWS ， S3 需要一个 VPC 端点。 <<Requirements to tier cold data to AWS S3,了解更多信息。>>。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* 对于 Azure ，只要 Cloud Manager 具有所需权限，您就无需执行任何操作。 <<Requirements to tier cold data to Azure Blob storage,了解更多信息。>>。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* 对于Google Cloud、您需要为专用Google Access配置子网并设置服务帐户。 <<Requirements to tier cold data to a Google Cloud Storage bucket,了解更多信息。>>。
+
+
+endif::gcp[]
 
 [role="quick-margin-para"]
 必须在聚合上启用数据分层，才能在卷上启用数据分层。您应了解新卷和现有卷的要求。 <<Ensuring that tiering is enabled on aggregates,了解更多信息。>>。
@@ -41,7 +57,7 @@ summary: 通过将热数据的 SSD 或 HDD 性能层与非活动数据的对象�
 .数据分层不需要什么？
 ====
 * 您无需安装功能许可证即可启用数据分层。
-* 您无需创建容量层（ S3 存储分段， Azure Blob 容器或 GCP 存储分段）。云管理器可以为您提供这种功能。
+* 您无需为容量层创建对象存储。云管理器可以为您提供这种功能。
 * 您无需在系统级别启用数据分层。
 +
 Cloud Manager 会在创建系统时为冷数据创建一个对象存储， <<Enabling data tiering after implementing the requirements,只要没有连接或权限问题>>。之后，您只需在卷上启用数据分层（在某些情况下， <<Ensuring that tiering is enabled on aggregates,在聚合上>>）。
@@ -53,23 +69,57 @@ Cloud Manager 会在创建系统时为冷数据创建一个对象存储， <<Ena
 
 == 支持数据分层的配置
 
-您可以在使用特定配置和功能时启用数据分层：
+您可以在使用特定配置和功能时启用数据分层。
 
-* 从以下版本开始， Cloud Volumes ONTAP 支持数据分层：
-+
-** AWS 中的 9.2 版
-** 采用单节点系统的 Azure 中的 9.4 版
-** 使用 HA 对的 Azure 中的 9.6 版
-** GCP 中的 9.6 版
+ifdef::aws[]
 
 
-* 在 AWS 中，性能层可以是通用 SSD （ GP3 或 GP2 ）或配置的 IOPS SSD （ IO1 ）。
+
+=== AWS支持
+
+* 从Cloud Volumes ONTAP 9.2开始、AWS支持数据分层。
+* 性能层可以是通用 SSD （ GP3 或 GP2 ）或配置的 IOPS SSD （ IO1 ）。
 +
 
 NOTE: 使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到对象存储。
 
-* 在 Azure 中，性能层可以是高级 SSD 受管磁盘，标准 SSD 受管磁盘或标准 HDD 受管磁盘。
-* 在 GCP 中，性能层可以是 SSD 永久性磁盘，平衡永久性磁盘或标准永久性磁盘。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== 支持 Azure
+
+* Azure支持数据分层、如下所示：
++
+** 使用单节点系统时为9.4版
+** 使用HA对的9.6版
+
+
+* 性能层可以是高级SSD受管磁盘、标准SSD受管磁盘或标准HDD受管磁盘。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== 支持Google Cloud
+
+* 从Cloud Volumes ONTAP 9.6开始、Google Cloud支持数据分层。
+* 性能层可以是 SSD 永久性磁盘，平衡永久性磁盘或标准永久性磁盘。
+
+
+endif::gcp[]
+
+
+
+=== 功能互操作性
+
 * 加密技术支持数据分层。
 * 必须在卷上启用精简配置。
 
@@ -80,6 +130,8 @@ NOTE: 使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到�
 
 根据您的云提供商，必须设置某些连接和权限，以便 Cloud Volumes ONTAP 可以将冷数据分层到对象存储。
 
+ifdef::aws[]
+
 
 
 === 将冷数据分层到 AWS S3 的要求
@@ -89,6 +141,10 @@ NOTE: 使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到�
 创建 VPC 端点时，请确保选择与 Cloud Volumes ONTAP 实例对应的区域、 VPC 和路由表。您还必须修改安全组才能添加出站 HTTPS 规则、该规则允许通信到 S3 端点。否则， Cloud Volumes ONTAP 无法连接到 S3 服务。
 
 如果遇到任何问题，请参见 https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["AWS 支持知识中心：为什么我无法使用网关 VPC 端点连接到 S3 存储分段？"^]。
+
+endif::aws[]
+
+ifdef::azure[]
 
 
 
@@ -102,6 +158,10 @@ NOTE: 使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到�
 "Microsoft.Network/routeTables/join/action",
 ----
 权限包含在最新版本中 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"]。
+
+endif::azure[]
+
+ifdef::gcp[]
 
 
 
@@ -122,6 +182,8 @@ link:task-setting-up-gcp-encryption.html["了解如何在 Cloud Volumes ONTAP �
 
 
 
+
+endif::gcp[]
 
 
 

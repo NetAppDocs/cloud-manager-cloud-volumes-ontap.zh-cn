@@ -30,7 +30,7 @@ link:concept-licensing.html["了解有关 Cloud Volumes ONTAP 许可证的更多
 
 同时、Cloud Manager会自动查询NetApp的许可服务、以获取与您的NetApp支持站点帐户关联的许可证的详细信息。如果没有错误、Cloud Manager会自动将许可证添加到Digital Wallet中。
 
-如果Cloud Manager无法添加许可证、您需要手动将其添加到Digital Wallet中。 <<Add purchased licenses to your account,了解如何向您的帐户添加已购买的许可证>>。
+如果Cloud Manager无法添加许可证、您需要手动将其添加到Digital Wallet中。例如、如果Connector安装在无法访问Internet的位置、则您需要自己添加许可证。 <<Add purchased licenses to your account,了解如何向您的帐户添加已购买的许可证>>。
 
 
 

@@ -14,9 +14,7 @@ summary: 您可以通过 Cloud Manager 为 Cloud Volumes ONTAP 选择正常或�
 
 
 [role="lead"]
-您可以通过 Cloud Manager 为 Cloud Volumes ONTAP 选择正常或高写入速度。在选择写入速度之前、您应该了解正常和高设置之间的差异、以及使用高速写入速度时的风险和建议。
-
-所有类型的单节点系统均支持高写入速度。在使用特定实例或 VM 类型时， AWS 和 Azure 中的 HA 对也支持此功能（有关受支持实例和 VM 类型的列表，请参见以下各节）。GCP 中的 HA 对不支持高写入速度。
+您可以通过Cloud Manager为大多数Cloud Volumes ONTAP 配置选择正常或高写入速度。在选择写入速度之前、您应该了解正常和高设置之间的差异、以及使用高速写入速度时的风险和建议。
 
 
 
@@ -46,6 +44,8 @@ summary: 您可以通过 Cloud Manager 为 Cloud Volumes ONTAP 选择正常或�
 
 如果启用了高写入速度，则应确保在应用程序层提供写入保护，或者应用程序可以承受数据丢失。
 
+ifdef::aws[]
+
 
 
 === 在 AWS 中使用 HA 对时写入速度较快
@@ -54,11 +54,15 @@ summary: 您可以通过 Cloud Manager 为 Cloud Volumes ONTAP 选择正常或�
 
 link:concept-ha.html["详细了解 AWS 中的 HA 对"]。
 
+endif::aws[]
+
 
 
 === 支持高写入速度的配置
 
 并非所有 Cloud Volumes ONTAP 配置都支持高写入速度。默认情况下，这些配置使用正常写入速度。
+
+ifdef::aws[]
 
 
 
@@ -70,6 +74,10 @@ link:concept-ha.html["详细了解 AWS 中的 HA 对"]。
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["详细了解 Cloud Volumes ONTAP 支持的 Amazon EC2 实例"^]。
 
+endif::aws[]
+
+ifdef::azure[]
+
 
 
 ==== Azure 酒店
@@ -77,6 +85,10 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws
 如果使用单节点系统，则 Cloud Volumes ONTAP 支持对所有 VM 类型使用高写入速度。
 
 如果使用 HA 对，则从 9.8 版开始， Cloud Volumes ONTAP 支持对多种 VM 类型使用高写入速度。转至 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["《 Cloud Volumes ONTAP 发行说明》"^] 可查看支持高写入速度的 VM 类型。
+
+endif::azure[]
+
+ifdef::gcp[]
 
 
 
@@ -87,6 +99,8 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws
 Cloud Volumes ONTAP 不支持在 Google Cloud 中对 HA 对使用高写入速度。
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["详细了解 Cloud Volumes ONTAP 支持的 Google Cloud 计算机类型"^]。
+
+endif::gcp[]
 
 
 

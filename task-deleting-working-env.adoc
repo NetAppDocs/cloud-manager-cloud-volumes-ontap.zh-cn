@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-deleting-working-env.html 
-keywords: terminate, delete, working environment, remove, cloudformation, terminate working environment, terminate instance, delete cloud volumes ontap, delete instance, delete working environment, delete backups 
+keywords: terminate, delete, working environment, remove, terminate working environment, terminate instance, delete cloud volumes ontap, delete instance, delete working environment, delete backups 
 summary: 您应始终从 Cloud Manager 中删除 Cloud Volumes ONTAP 系统，而不是从云提供商的控制台删除。例如，如果您从云提供商终止了已获得许可的 Cloud Volumes ONTAP 实例，则不能将此许可证密钥用于其他实例。您必须从 Cloud Manager 中删除工作环境才能发布许可证。 
 ---
 = 删除 Cloud Volumes ONTAP 系统

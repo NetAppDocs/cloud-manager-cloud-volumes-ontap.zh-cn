@@ -123,7 +123,7 @@ TIP: 未注册支持的系统仍会收到 Cloud Manager 中显示的软件更新
 
 === 升级 HA 调解器
 
-对于 AWS 或 Google Cloud 中的 HA 系统， Cloud Manager 还会在 Cloud Volumes ONTAP 升级过程中根据需要更新调解器实例。
+Cloud Manager还会在Cloud Volumes ONTAP 升级过程中根据需要更新调解器实例。
 
 
 
@@ -279,6 +279,8 @@ Cloud Manager 将启动软件更新。软件更新完成后，您可以在工作
 
 如果暂停了 SnapMirror 传输、请使用 System Manager 恢复传输。
 
+ifdef::gcp[]
+
 
 
 == 修复使用 Google Cloud NAT 网关时的下载失败问题
@@ -300,3 +302,5 @@ maxDownloadSessions_ 的值可以是 1 或大于 1 的任意整数。如果值�
 请注意， 32 是一个示例值。应使用的值取决于 NAT 配置以及可以同时拥有的会话数。
 
 https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html#occmconfig["了解有关 /ocem/config API 调用的更多信息"^]。
+
+endif::gcp[]

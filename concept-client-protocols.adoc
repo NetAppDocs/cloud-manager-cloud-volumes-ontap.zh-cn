@@ -36,12 +36,14 @@ NFS 是 UNIX 和 Linux 系统的传统文件访问协议。客户端可以使用
 
 SMB 是 Windows 系统的传统文件访问协议。客户端可以使用 SMB 2.0 ， SMB 2.1 ， SMB 3.0 和 SMB 3.1.1 协议访问 ONTAP 卷中的文件。与 NFS 一样，支持混合使用多种权限模式。
 
+ifdef::azure[]
+
 
 
 == S3
 
-Cloud Volumes ONTAP 支持将 S3 作为 Microsoft Azure 中横向扩展存储的一个选项。通过 S3 协议支持，您可以配置 S3 客户端对 SVM 中存储分段中的对象的访问。
-
-目前， AWS 或 Google Cloud 中的 Cloud Volumes ONTAP 不支持 S3 协议。
+Cloud Volumes ONTAP 仅支持在Microsoft Azure中使用S3作为横向扩展存储的选项。通过 S3 协议支持，您可以配置 S3 客户端对 SVM 中存储分段中的对象的访问。
 
 https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["了解如何在 ONTAP 中配置和管理 S3 对象存储服务"^]。
+
+endif::azure[]

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-storage.html 
-keywords: storage, capacity, volumes, aggregates, raw capacity, usable capacity, aws, azure 
+keywords: storage, capacity, volumes, aggregates, raw capacity, usable capacity 
 summary: 了解 Cloud Volumes ONTAP 如何使用云存储可以帮助您了解存储成本。 
 ---
 = 磁盘和聚合
@@ -32,6 +32,8 @@ image:diagram_storage.png["此图显示了由磁盘组成的聚合以及 Cloud V
 
 TIP: 从云提供商购买的存储总量为 _raw capacity_ 。可用容量 _ 较小，因为预留给 Cloud Volumes ONTAP 使用的开销约为 12 到 14% 。例如，如果 Cloud Manager 创建了一个 500 GiB 聚合、则可用容量为 442.94 GiB 。
 
+ifdef::aws[]
+
 
 
 == AWS 存储
@@ -57,6 +59,10 @@ NOTE: 使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到�
 * https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html["查看 AWS 中 Cloud Volumes ONTAP 的存储限制"^]
 * http://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["查看 AWS 中支持的 Cloud Volumes ONTAP 配置"^]
 
+
+endif::aws[]
+
+ifdef::azure[]
 
 
 
@@ -90,19 +96,25 @@ HA 对:: HA 对使用高级页面 Blobs ，这些页面的最大磁盘大小为 
 * https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["查看 Azure 中 Cloud Volumes ONTAP 的存储限制"^]
 
 
+endif::azure[]
+
+ifdef::gcp[]
 
 
-== GCP 存储
 
-在 GCP 中，一个聚合最多可以包含 6 个大小相同的磁盘。最大磁盘大小为 64 TiB 。
+== Google Cloud存储
+
+在Google Cloud中、一个聚合最多可以包含6个大小相同的磁盘。最大磁盘大小为 64 TiB 。
 
 磁盘类型可以是 _zonal SSD persistent disks_、 _zonal balanced_persistent disks_或 _zonal standard persistent disks_。您可以将永久性磁盘与 Google 存储分段配对 link:concept-data-tiering.html["将非活动数据分层到低成本对象存储"]。
 
 * 相关链接 *
 
-* https://cloud.google.com/compute/docs/disks/["Google Cloud Platform 文档：存储选项"^]
-* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html["查看 GCP 中 Cloud Volumes ONTAP 的存储限制"^]
+* https://cloud.google.com/compute/docs/disks/["Google Cloud文档：存储选项"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html["查看Google Cloud中Cloud Volumes ONTAP 的存储限制"^]
 
+
+endif::gcp[]
 
 
 

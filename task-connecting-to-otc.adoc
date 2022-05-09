@@ -23,8 +23,12 @@ summary: 如果您需要对 Cloud Volumes ONTAP 执行高级管理、则可以�
 
 要从其访问 Cloud Manager 的计算机必须与 Cloud Volumes ONTAP 建立网络连接。例如，您可能需要从云提供商网络中的跳转主机登录到 Cloud Manager 。
 
+ifdef::aws[]
+
 
 NOTE: 在多个 AWS 可用性区域中部署时、 Cloud Volumes ONTAP HA 配置将浮动 IP 地址用于集群管理界面、这意味着外部路由不可用。您必须从属于同一路由域的主机进行连接。
+
+endif::aws[]
 
 .步骤
 . 在 " 画布 " 中，选择 Cloud Volumes ONTAP 工作环境。
@@ -44,10 +48,14 @@ image:screenshot-cvo-info.png["Cloud Volumes ONTAP 工作环境的 \" 画布 \" 
 
 Cloud Volumes ONTAP 命令行界面可用于运行所有管理命令，也是执行高级任务或使用命令行界面更自如的理想选择。您可以使用 Secure Shell （ SSH ）连接到 CLI 。
 
-使用 SSH 连接到 Cloud Volumes ONTAP 的主机必须与 Cloud Volumes ONTAP 建立网络连接。例如，您可能需要从 AWS 或 Azure 中的跳转主机使用 SSH 。
+使用 SSH 连接到 Cloud Volumes ONTAP 的主机必须与 Cloud Volumes ONTAP 建立网络连接。例如、您可能需要从云提供商网络中的跳转主机进行SSH。
+
+ifdef::aws[]
 
 
 NOTE: 当部署在多个 Azs 中时、 Cloud Volumes ONTAP HA 配置将浮动 IP 地址用于集群管理界面、这意味着外部路由不可用。您必须从属于同一路由域的主机进行连接。
+
+endif::aws[]
 
 .步骤
 . 在 Cloud Manager 中，确定集群管理界面的 IP 地址：

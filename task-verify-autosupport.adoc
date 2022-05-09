@@ -20,9 +20,25 @@ AutoSupport 会主动监控系统的运行状况，并向 NetApp 技术支持发
 
 唯一需要的配置步骤是，确保 Cloud Volumes ONTAP 通过 NAT 实例或您环境的代理服务建立出站 Internet 连接。有关详细信息，请参阅云提供商的网络要求。
 
+ifdef::aws[]
+
 * link:reference-networking-aws.html["AWS 网络要求"]
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * link:reference-networking-azure.html["Azure 网络要求"]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * link:reference-networking-gcp.html["Google Cloud 网络连接要求"]
 
+
+endif::gcp[]
 
 确认出站 Internet 访问可用后，您可以测试 AutoSupport 以确保它可以发送消息。有关说明，请参见 https://docs.netapp.com/us-en/ontap/system-admin/setup-autosupport-task.html["ONTAP 文档：设置 AutoSupport"^]。

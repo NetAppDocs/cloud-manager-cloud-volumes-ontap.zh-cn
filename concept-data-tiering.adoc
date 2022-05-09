@@ -18,10 +18,12 @@ summary: 通过将冷数据自动分层到低成本的对象存储，降低存�
 
 image:diagram_data_tiering.png["这是一个概念图像，显示了流向 EBS 存储的热数据以及流向 S3 存储的非活动数据。"]
 
-Cloud Volumes ONTAP 支持在 AWS ， Azure 和 Google 云平台中进行数据分层。数据分层由 FabricPool 技术提供支持。
+数据分层由 FabricPool 技术提供支持。
 
 
 NOTE: 您无需安装功能许可证即可启用数据分层（ FabricPool ）。
+
+ifdef::aws[]
 
 
 
@@ -55,6 +57,10 @@ NOTE: Cloud Manager 会为每个工作环境创建一个 S3 存储分段，并�
 --
 
 
+endif::aws[]
+
+ifdef::azure[]
+
 
 
 == Azure 中的数据分层
@@ -81,11 +87,15 @@ NOTE: Cloud Manager 会为每个 Cloud Volumes ONTAP 工作环境创建一个新
 --
 
 
+endif::azure[]
+
+ifdef::gcp[]
 
 
-== GCP 中的数据分层
 
-在 GCP 中启用数据分层时， Cloud Volumes ONTAP 会使用永久性磁盘作为热数据的性能层，并使用 Google 云存储分段作为非活动数据的容量层。
+== Google Cloud中的数据分层
+
+在Google Cloud中启用数据分层时、Cloud Volumes ONTAP 会将永久性磁盘用作热数据的性能层、并将Google Cloud存储分段用作非活动数据的容量层。
 
 性能层:: 性能层可以是 SSD 永久性磁盘，平衡永久性磁盘或标准永久性磁盘。
 Capacity tier:: Cloud Volumes ONTAP 系统使用 _Region_ 存储类将非活动数据分层到一个 Google Cloud 存储分段。
@@ -106,6 +116,8 @@ NOTE: Cloud Manager 会为每个工作环境创建一个分段，并将其命名
 
 --
 
+
+endif::gcp[]
 
 
 

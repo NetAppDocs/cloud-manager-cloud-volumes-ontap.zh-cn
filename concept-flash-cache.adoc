@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: concept-flash-cache.html 
-keywords: cloud volumes ontap, aws, ec2, flash cache, read-intensive, read, random, databases, email, file services, c5d.4xlarge, c5d.9xlarge, r5d.2xlarge, compression, performance, azure, nvme, standard, l8s, vm type, virtual machine, m5d.8xlarge, m5d.12xlarge, c5d.18xlarge 
-summary: AWS 和 Azure 中的某些 Cloud Volumes ONTAP 配置包括本地 NVMe 存储， Cloud Volumes ONTAP 将其用作 Flash Cache 以提高性能。 
+keywords: cloud volumes ontap, flash cache, read-intensive, read, random, databases, email, file services, compression, performance, nvme 
+summary: 某些Cloud Volumes ONTAP 配置包括本地NVMe存储、Cloud Volumes ONTAP 将其用作Flash Cache以提高性能。 
 ---
 = Flash Cache
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: AWS 和 Azure 中的某些 Cloud Volumes ONTAP 配置包括本地 NVMe 
 
 
 [role="lead"]
-AWS 和 Azure 中的某些 Cloud Volumes ONTAP 配置包括本地 NVMe 存储， Cloud Volumes ONTAP 使用这些存储作为 _Flash Cache_ 来提高性能。
+某些Cloud Volumes ONTAP 配置包括本地NVMe存储、Cloud Volumes ONTAP 使用此存储作为_Flash Cache_来提高性能。
 
 
 
@@ -24,23 +24,9 @@ Flash Cache 通过实时智能缓存最近读取的用户数据和 NetApp 元数
 
 
 
-== AWS 中支持的实例
+== 支持的配置
 
-使用新的或现有的 Cloud Volumes ONTAP 高级版或 BYOL 系统选择以下 EC2 实例类型之一：
-
-* c5d.4xlarge
-* c5d.9x 大型
-* c5d.18x 大型
-* m5d.8xlarge
-* m5d.12 x 大型
-* r5d.2xlarge
-
-
-
-
-== Azure 中支持的 VM 类型
-
-在 Azure 中选择具有单节点 Cloud Volumes ONTAP BYOL 系统的 Standard_L8s_v2 VM 类型。
+特定Cloud Volumes ONTAP 配置支持Flash Cache。在中查看支持的配置 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["《 Cloud Volumes ONTAP 发行说明》"^]
 
 
 
