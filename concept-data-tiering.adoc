@@ -34,20 +34,30 @@ ifdef::aws[]
 性能层:: 性能层可以是通用 SSD （ GP3 或 GP2 ）或配置的 IOPS SSD （ IO1 ）。
 +
 --
-
-NOTE: 使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到对象存储。
+使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到对象存储。
 
 --
-Capacity tier:: Cloud Volumes ONTAP 系统使用 _Standard_ 存储类将非活动数据分层到一个 S3 存储分段。Standard 是存储在多个可用性区域中的频繁访问数据的理想选择。
+Capacity tier:: Cloud Volumes ONTAP 系统会将非活动数据分层到一个S3存储分段。
 +
 --
+Cloud Manager 会为每个工作环境创建一个 S3 存储分段，并将其命名为 fabric-pool-_cluster unique identifier_ 。不会为每个卷创建不同的 S3 存储分段。
 
-NOTE: Cloud Manager 会为每个工作环境创建一个 S3 存储分段，并将其命名为 fabric-pool-_cluster unique identifier_ 。不会为每个卷创建不同的 S3 存储分段。
+当Cloud Manager创建S3存储分段时、它会使用以下默认设置：
+
+* 存储类：标准
+* 默认加密：已禁用
+* Block公有 access：阻止所有公有 访问
+* 对象所有权：已启用ACL
+* 存储分段版本控制：已禁用
+* 对象锁定：已禁用
+
 
 --
-存储类:: AWS 中分层数据的默认存储类为 _Standard_ 。如果您不打算访问非活动数据、可以通过将存储类更改为以下类型之一来降低存储成本：_Intelligent Tiering"、_one-Zone Inrequent Access_、_Standard-Inrequent Access_或_S3 Glacier即时检索_。更改存储类时，如果 30 天后未访问非活动数据，则非活动数据将从标准存储类开始，并过渡到选定的存储类。
+存储类:: AWS 中分层数据的默认存储类为 _Standard_ 。Standard 是存储在多个可用性区域中的频繁访问数据的理想选择。
 +
 --
+如果您不打算访问非活动数据、可以通过将存储类更改为以下类型之一来降低存储成本：_Intelligent Tiering"、_one-Zone Inrequent Access_、_Standard-Inrequent Access_或_S3 Glacier即时检索_。更改存储类时，如果 30 天后未访问非活动数据，则非活动数据将从标准存储类开始，并过渡到选定的存储类。
+
 如果您确实访问数据，访问成本会更高，因此在更改存储类之前，请考虑这一点。 https://aws.amazon.com/s3/storage-classes["了解有关 Amazon S3 存储类的更多信息"^]。
 
 您可以在创建工作环境时选择一个存储类，之后可以随时对其进行更改。有关更改存储类的详细信息，请参见 link:task-tiering.html["将非活动数据分层到低成本对象存储"]。
@@ -68,16 +78,29 @@ ifdef::azure[]
 在 Azure 中启用数据分层后， Cloud Volumes ONTAP 会将 Azure 托管磁盘用作热数据的性能层，并将 Azure Blob 存储用作非活动数据的容量层。
 
 性能层:: 性能层可以是 SSD 或 HDD 。
-Capacity tier:: Cloud Volumes ONTAP 系统会使用 Azure _hot_ 存储层将非活动数据分层到一个 Blob 容器中。热层非常适合经常访问的数据。
+Capacity tier:: Cloud Volumes ONTAP 系统会将非活动数据分层到一个Blob容器中。
 +
 --
+Cloud Manager会为每个Cloud Volumes ONTAP 工作环境创建一个包含容器的新存储帐户。存储帐户的名称是随机的。不会为每个卷创建不同的容器。
 
-NOTE: Cloud Manager 会为每个 Cloud Volumes ONTAP 工作环境创建一个新的存储帐户，其中包含一个容器。存储帐户的名称是随机的。不会为每个卷创建不同的容器。
+Cloud Manager将使用以下设置创建存储帐户：
+
+* 访问层：热
+* 性能：标准
+* 冗余：本地冗余存储(LRS)
+* 帐户：StorageV2 (通用v2)
+* Require secure transfer for REST API operations：enabled
+* 存储帐户密钥访问：已启用
+* 最低TLS版本：1.2
+* 基础架构加密：已禁用
+
 
 --
-存储访问层:: Azure 中分层数据的默认存储访问层为 _hot_ 层。如果您不打算访问非活动数据，可以通过更改为 _cool_ 存储层来降低存储成本。更改存储层时，如果 30 天后未访问非活动数据，则非活动数据将从热存储层开始，并过渡到冷存储层。
+存储访问层:: Azure 中分层数据的默认存储访问层为 _hot_ 层。热层非常适合经常访问的数据。
 +
 --
+如果您不打算访问非活动数据，可以通过更改为 _cool_ 存储层来降低存储成本。更改存储层时，如果 30 天后未访问非活动数据，则非活动数据将从热存储层开始，并过渡到冷存储层。
+
 如果您确实访问数据，访问成本会更高，因此在更改存储层之前，请考虑这一点。 https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers["详细了解 Azure Blob 存储访问层"^]。
 
 您可以在创建工作环境时选择一个存储层，之后可以随时对其进行更改。有关更改存储层的详细信息，请参见 link:task-tiering.html["将非活动数据分层到低成本对象存储"]。
@@ -98,11 +121,20 @@ ifdef::gcp[]
 在Google Cloud中启用数据分层时、Cloud Volumes ONTAP 会将永久性磁盘用作热数据的性能层、并将Google Cloud存储分段用作非活动数据的容量层。
 
 性能层:: 性能层可以是 SSD 永久性磁盘，平衡永久性磁盘或标准永久性磁盘。
-Capacity tier:: Cloud Volumes ONTAP 系统使用 _Region_ 存储类将非活动数据分层到一个 Google Cloud 存储分段。
+Capacity tier:: Cloud Volumes ONTAP 系统将非活动数据分层到一个Google云存储分段。
 +
 --
+Cloud Manager会为每个工作环境创建一个分段、并将其命名为fabric-pool-_cluster unique identifier_。不会为每个卷创建不同的存储分段。
 
-NOTE: Cloud Manager 会为每个工作环境创建一个分段，并将其命名为 fabric-pool-_cluster unique identifier_ 。不会为每个卷创建不同的存储分段。
+Cloud Manager创建存储分段时、将使用以下默认设置：
+
+* 位置类型：区域
+* 存储类：标准
+* 公有 访问：受对象ACL限制
+* 访问控制：细化
+* 保护：无
+* 数据加密：Google管理的密钥
+
 
 --
 存储类:: 分层数据的默认存储类为 _Standard Storage_ 类。如果数据不常访问，您可以通过更改为 _Nearline Storage_ 或 _Coldline Storage_ 来降低存储成本。更改存储类时，如果 30 天后未访问非活动数据，则非活动数据将从标准存储类开始，并过渡到选定的存储类。
