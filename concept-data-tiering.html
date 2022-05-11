@@ -1439,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:41:39 +0000">05/09/2022</time>
+    <time datetime="2022-05-11 22:56:21 +0000">05/11/2022</time>
     
   
 
@@ -1484,46 +1484,56 @@
 <p>性能层可以是通用 SSD （ GP3 或 GP2 ）或配置的 IOPS SSD （ IO1 ）。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注">
-</td>
-<td class="content">
-使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到对象存储。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到对象存储。</p>
 </div>
 </div>
 </div>
 </dd>
 <dt class="hdlist1">Capacity tier</dt>
 <dd>
-<p>Cloud Volumes ONTAP 系统使用 <em>Standard</em> 存储类将非活动数据分层到一个 S3 存储分段。Standard 是存储在多个可用性区域中的频繁访问数据的理想选择。</p>
+<p>Cloud Volumes ONTAP 系统会将非活动数据分层到一个S3存储分段。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注">
-</td>
-<td class="content">
-Cloud Manager 会为每个工作环境创建一个 S3 存储分段，并将其命名为 fabric-pool-<em>cluster unique identifier</em> 。不会为每个卷创建不同的 S3 存储分段。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Cloud Manager 会为每个工作环境创建一个 S3 存储分段，并将其命名为 fabric-pool-<em>cluster unique identifier</em> 。不会为每个卷创建不同的 S3 存储分段。</p>
+</div>
+<div class="paragraph">
+<p>当Cloud Manager创建S3存储分段时、它会使用以下默认设置：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>存储类：标准</p>
+</li>
+<li>
+<p>默认加密：已禁用</p>
+</li>
+<li>
+<p>Block公有 access：阻止所有公有 访问</p>
+</li>
+<li>
+<p>对象所有权：已启用ACL</p>
+</li>
+<li>
+<p>存储分段版本控制：已禁用</p>
+</li>
+<li>
+<p>对象锁定：已禁用</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </dd>
 <dt class="hdlist1">存储类</dt>
 <dd>
-<p>AWS 中分层数据的默认存储类为 <em>Standard</em> 。如果您不打算访问非活动数据、可以通过将存储类更改为以下类型之一来降低存储成本：<em>Intelligent Tiering"、_one-Zone Inrequent Access</em>、<em>Standard-Inrequent Access_或_S3 Glacier即时检索</em>。更改存储类时，如果 30 天后未访问非活动数据，则非活动数据将从标准存储类开始，并过渡到选定的存储类。</p>
+<p>AWS 中分层数据的默认存储类为 <em>Standard</em> 。Standard 是存储在多个可用性区域中的频繁访问数据的理想选择。</p>
 <div class="openblock">
 <div class="content">
+<div class="paragraph">
+<p>如果您不打算访问非活动数据、可以通过将存储类更改为以下类型之一来降低存储成本：<em>Intelligent Tiering"、_one-Zone Inrequent Access</em>、<em>Standard-Inrequent Access_或_S3 Glacier即时检索</em>。更改存储类时，如果 30 天后未访问非活动数据，则非活动数据将从标准存储类开始，并过渡到选定的存储类。</p>
+</div>
 <div class="paragraph">
 <p>如果您确实访问数据，访问成本会更高，因此在更改存储类之前，请考虑这一点。 <a href="https://aws.amazon.com/s3/storage-classes" target="_blank" rel="noopener">"了解有关 Amazon S3 存储类的更多信息"</a>。</p>
 </div>
@@ -1554,29 +1564,54 @@ Cloud Manager 会为每个工作环境创建一个 S3 存储分段，并将其�
 </dd>
 <dt class="hdlist1">Capacity tier</dt>
 <dd>
-<p>Cloud Volumes ONTAP 系统会使用 Azure <em>hot</em> 存储层将非活动数据分层到一个 Blob 容器中。热层非常适合经常访问的数据。</p>
+<p>Cloud Volumes ONTAP 系统会将非活动数据分层到一个Blob容器中。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注">
-</td>
-<td class="content">
-Cloud Manager 会为每个 Cloud Volumes ONTAP 工作环境创建一个新的存储帐户，其中包含一个容器。存储帐户的名称是随机的。不会为每个卷创建不同的容器。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Cloud Manager会为每个Cloud Volumes ONTAP 工作环境创建一个包含容器的新存储帐户。存储帐户的名称是随机的。不会为每个卷创建不同的容器。</p>
+</div>
+<div class="paragraph">
+<p>Cloud Manager将使用以下设置创建存储帐户：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>访问层：热</p>
+</li>
+<li>
+<p>性能：标准</p>
+</li>
+<li>
+<p>冗余：本地冗余存储(LRS)</p>
+</li>
+<li>
+<p>帐户：StorageV2 (通用v2)</p>
+</li>
+<li>
+<p>Require secure transfer for REST API operations：enabled</p>
+</li>
+<li>
+<p>存储帐户密钥访问：已启用</p>
+</li>
+<li>
+<p>最低TLS版本：1.2</p>
+</li>
+<li>
+<p>基础架构加密：已禁用</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </dd>
 <dt class="hdlist1">存储访问层</dt>
 <dd>
-<p>Azure 中分层数据的默认存储访问层为 <em>hot</em> 层。如果您不打算访问非活动数据，可以通过更改为 <em>cool</em> 存储层来降低存储成本。更改存储层时，如果 30 天后未访问非活动数据，则非活动数据将从热存储层开始，并过渡到冷存储层。</p>
+<p>Azure 中分层数据的默认存储访问层为 <em>hot</em> 层。热层非常适合经常访问的数据。</p>
 <div class="openblock">
 <div class="content">
+<div class="paragraph">
+<p>如果您不打算访问非活动数据，可以通过更改为 <em>cool</em> 存储层来降低存储成本。更改存储层时，如果 30 天后未访问非活动数据，则非活动数据将从热存储层开始，并过渡到冷存储层。</p>
+</div>
 <div class="paragraph">
 <p>如果您确实访问数据，访问成本会更高，因此在更改存储层之前，请考虑这一点。 <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers" target="_blank" rel="noopener">"详细了解 Azure Blob 存储访问层"</a>。</p>
 </div>
@@ -1607,20 +1642,36 @@ Cloud Manager 会为每个 Cloud Volumes ONTAP 工作环境创建一个新的存
 </dd>
 <dt class="hdlist1">Capacity tier</dt>
 <dd>
-<p>Cloud Volumes ONTAP 系统使用 <em>Region</em> 存储类将非活动数据分层到一个 Google Cloud 存储分段。</p>
+<p>Cloud Volumes ONTAP 系统将非活动数据分层到一个Google云存储分段。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注">
-</td>
-<td class="content">
-Cloud Manager 会为每个工作环境创建一个分段，并将其命名为 fabric-pool-<em>cluster unique identifier</em> 。不会为每个卷创建不同的存储分段。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Cloud Manager会为每个工作环境创建一个分段、并将其命名为fabric-pool-<em>cluster unique identifier</em>。不会为每个卷创建不同的存储分段。</p>
+</div>
+<div class="paragraph">
+<p>Cloud Manager创建存储分段时、将使用以下默认设置：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>位置类型：区域</p>
+</li>
+<li>
+<p>存储类：标准</p>
+</li>
+<li>
+<p>公有 访问：受对象ACL限制</p>
+</li>
+<li>
+<p>访问控制：细化</p>
+</li>
+<li>
+<p>保护：无</p>
+</li>
+<li>
+<p>数据加密：Google管理的密钥</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
