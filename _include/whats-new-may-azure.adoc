@@ -1,0 +1,13 @@
+= Azure中的年度合同
+:allow-uri-read: 
+
+
+
+
+=== Azure中的年度合同
+
+Essentials和Professional软件包现在可通过一份年度合同在Azure中提供。您可以联系NetApp销售代表购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。
+
+在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Azure Marketplace订阅年度计划。
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html["了解有关许可的更多信息"]。

@@ -1,0 +1,25 @@
+= Cloud Volumes ONTAP 9.11.0
+:allow-uri-read: 
+
+
+
+
+=== Cloud Volumes ONTAP 9.11.0
+
+Cloud Manager现在可以部署和管理Cloud Volumes ONTAP 9.11.0。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["了解此版本 Cloud Volumes ONTAP 中的新增功能"^]。
+
+
+
+=== 调解器升级增强功能
+
+当Cloud Manager升级HA对的调解器时、它现在会先验证新的调解器映像是否可用、然后再删除启动磁盘。此更改可确保调解器在升级过程失败时能够继续成功运行。
+
+
+
+=== 已删除K8s选项卡
+
+先前已弃用K8s选项卡、现已将其删除。如果要将Kubernetes与Cloud Volumes ONTAP 结合使用、可以将受管Kubernetes集群添加到Canvas中、作为一个用于高级数据管理的工作环境。
+
+https://docs.netapp.com/us-en/cloud-manager-kubernetes/concept-kubernetes.html["了解Cloud Manager中的Kubernetes数据管理"^]

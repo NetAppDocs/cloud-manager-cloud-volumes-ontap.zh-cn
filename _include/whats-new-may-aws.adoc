@@ -1,0 +1,26 @@
+= S3 Glacier即时检索
+:allow-uri-read: 
+
+
+
+
+=== S3 Glacier即时检索
+
+现在、您可以将分层数据存储在Amazon S3 Glacier即时检索存储类中。
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html#changing-the-storage-class-for-tiered-data["了解如何更改分层数据的存储类"]。
+
+
+
+=== Connector需要新的AWS权限
+
+现在、在单个可用性区域(AZ)中部署HA对时、创建AWS分布放置组需要以下权限：
+
+[source, json]
+----
+"ec2:DescribePlacementGroups",
+"iam:GetRolePolicy",
+----
+现在、要优化Cloud Manager创建布局组的方式、需要这些权限。
+
+请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。您可以在上找到最新的权限列表 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。

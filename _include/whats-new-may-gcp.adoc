@@ -1,0 +1,44 @@
+= 全新Google Cloud区域支持
+:allow-uri-read: 
+
+
+
+
+=== 全新Google Cloud区域支持
+
+从9.10.1版开始、以下Google Cloud地区现在支持Cloud Volumes ONTAP ：
+
+* 新德里(亚洲-南2)
+* 墨尔本(澳大利亚南部2)
+* 米兰(欧洲-西部8)—仅限单节点
+* 圣地亚哥(南美洲-西1)—仅限单节点
+
+
+https://cloud.netapp.com/cloud-volumes-global-regions["查看Cloud Volumes ONTAP 支持的区域的完整列表"^]
+
+
+
+=== 在Google Cloud中支持n2-standard-16
+
+从9.10.1版开始、Google Cloud中的Cloud Volumes ONTAP 现在支持n2-standard-16计算机类型。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["在Google Cloud中查看支持的Cloud Volumes ONTAP 配置"^]
+
+
+
+=== Google Cloud防火墙策略增强功能
+
+* 在Google Cloud中创建Cloud Volumes ONTAP HA对时、Cloud Manager现在将在VPC中显示所有现有防火墙策略。
++
+以前、Cloud Manager不会在VPC-1、VPC-2或VPC-3中显示任何没有目标标记的策略。
+
+* 在Google Cloud中创建Cloud Volumes ONTAP 单节点系统时、您现在可以选择是希望预定义的防火墙策略仅允许选定VPC (建议)内的流量、还是允许所有VPC内的流量。
+
+
+
+
+=== Google Cloud服务帐户增强功能
+
+当您选择要与Cloud Volumes ONTAP 结合使用的Google云服务帐户时、Cloud Manager现在会显示与每个服务帐户关联的电子邮件地址。通过查看电子邮件地址、可以更轻松地区分同名服务帐户。
+
+image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/main/media/screenshot-google-cloud-service-account.png["服务帐户字段的屏幕截图"]
