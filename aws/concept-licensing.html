@@ -508,6 +508,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -543,6 +545,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -567,6 +571,8 @@
             开始使用 Google Cloud
           </a>
           
+
+
 
 
 
@@ -983,6 +989,17 @@
             概念
           </a>
           
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/pages/concept-licensing.pdf" >
+    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
 
     
       <ul class="subfolders" style="display:none;">
@@ -1052,17 +1069,6 @@
       </ul>
     
 
-  
-
-
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/pages/concept-licensing.pdf" >
-    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
   
 
 
@@ -1189,8 +1195,10 @@
         AWS 的安全组规则
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-setting-up-kms.html">
         设置 AWS KMS
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-set-up-licensing-aws.html">
+        设置许可
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-deploying-otc-aws.html">
-        在 AWS 中启动系统
+        在 AWS 中监控 Cloud Volumes ONTAP
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-getting-started-aws-c2s.html">
         AWS C2S 入门
       </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
@@ -1284,7 +1292,9 @@
       </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 概念</div>
       </a>
-      <ul><li class="subfolders "><a href="#">
+      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-licensing.html">
+        许可
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 存储</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-client-protocols.html">
@@ -1308,14 +1318,12 @@
         AWS 中的 HA 对
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-degraded-ha-pair.html">
         存储接管期间的操作
-      </a></li></ul></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-licensing.html">
-        许可
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-license-management.html">
-        管理基于节点的 BYOL
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-security.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-security.html">
         安全性
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-performance.html">
         性能
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-license-management.html">
+        管理基于节点的 BYOL
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-active-iq.html">
         AutoSupport 和 Active IQ 数字顾问
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/reference-default-configs.html">
@@ -1361,6 +1369,10 @@
         
 
         
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-family/">Cloud Manager</a>
+        </li>
+        
 
         <li class="n-breadcrumb__list-item">
           <a href="/zh-cn/cloud-manager-cloud-volumes-ontap/">Cloud&nbsp;Volumes&nbsp;ONTAP</a>
@@ -1394,7 +1406,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:41:39 +0000">05/09/2022</time>
+    <time datetime="2022-05-16 17:02:14 +0000">05/16/2022</time>
     
   
 
@@ -1471,12 +1483,12 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>要开始使用免费提供的产品，请创建一个新的 Cloud Volumes ONTAP 工作环境，并在系统提示您选择充电方法时选择 * 免费 * 。</p>
+<p>了解如何开始使用免费提供的产品：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="task-deploying-otc-aws.html">"在 AWS 中启动 Cloud Volumes ONTAP"</a></p>
+<p><a href="task-set-up-licensing-aws.html">"在AWS中为Cloud Volumes ONTAP 设置许可"</a></p>
 </li>
 </ul>
 </div>
@@ -1564,9 +1576,6 @@
 <li>
 <p>云提供商市场的年度合同。</p>
 </li>
-<li>
-<p>在AWS中、可以从AWS市场的公有 产品中获得年度合同。部署Cloud Volumes ONTAP 工作环境时、Cloud Manager会提示您从"详细信息和凭据"页面订阅。</p>
-</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -1612,6 +1621,18 @@
 </div>
 <div class="paragraph">
 <p>Cloud Volumes ONTAP 无需每小时支付软件许可证费用、但云提供商提供的基础架构费用仍然适用。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+免费试用开始、剩余7天以及剩余1天时、您将在Cloud Manager中收到通知。例如：<span class="image"><img src="./media/screenshot-free-trial-notification.png" alt="Cloud Manager界面中通知的屏幕截图、指出免费试用只剩7天。"></span>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1659,25 +1680,15 @@
 </div>
 <div class="sect2">
 <h3 id="如何开始使用">如何开始使用</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="https://cloud.netapp.com/contact-cds" target="_blank" rel="noopener">"要获取许可证，请联系 NetApp 销售人员"</a></p>
-</li>
-<li>
-<p><a href="task-manage-capacity-licenses.html">"将许可证添加到 Cloud Manager"</a></p>
-</li>
-<li>
-<p>创建 Cloud Volumes ONTAP 系统时，请选择基于容量的 BYOL 充电方法</p>
+<div class="paragraph">
+<p>了解如何开始使用基于容量的许可：</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="task-deploying-otc-aws.html">"在 AWS 中启动 Cloud Volumes ONTAP"</a></p>
+<p><a href="task-set-up-licensing-aws.html">"在AWS中为Cloud Volumes ONTAP 设置许可"</a></p>
 </li>
 </ul>
-</div>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -1711,28 +1722,15 @@
 </div>
 <div class="sect2">
 <h3 id="如何开始使用-2">如何开始使用</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>如果您还没有订阅， <a href="https://www.netapp.com/forms/keystone-sales-contact/" target="_blank" rel="noopener">"请联系 NetApp"</a>。</p>
-</li>
-<li>
-<p>mailto ： <a href="mailto:ng-keystone-success@netapp.com">ng-keystone-success@netapp.com</a> （联系 NetApp ）授权您的 Cloud Manager 用户帐户订阅一个或多个 Keystone Flex 订阅。</p>
-</li>
-<li>
-<p>在 NetApp 授权您的帐户后， <a href="task-manage-keystone.html#link-a-subscription">"链接您的订阅以用于 Cloud Volumes ONTAP"</a>。</p>
-</li>
-<li>
-<p>创建 Cloud Volumes ONTAP 系统时，请选择 Keystone Flex 订阅收费方法。</p>
+<div class="paragraph">
+<p>了解如何开始使用Keystone Flex订阅：</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="task-deploying-otc-aws.html">"在 AWS 中启动 Cloud Volumes ONTAP"</a></p>
+<p><a href="task-set-up-licensing-aws.html">"在AWS中为Cloud Volumes ONTAP 设置许可"</a></p>
 </li>
 </ul>
-</div>
-</li>
-</ol>
 </div>
 </div>
 </div>
