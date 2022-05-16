@@ -59,14 +59,14 @@ endif::aws[]
 
 ifdef::azure[]
 
-* link:task-set-up-licensing-aws.html["在Azure中为Cloud Volumes ONTAP 设置许可"]
+* link:task-set-up-licensing-azure.html["在Azure中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-set-up-licensing-aws.html["在Google Cloud中为Cloud Volumes ONTAP 设置许可"]
+* link:task-set-up-licensing-google.html["在Google Cloud中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::gcp[]
@@ -194,14 +194,14 @@ endif::aws[]
 
 ifdef::azure[]
 
-* link:task-set-up-licensing-aws.html["在Azure中为Cloud Volumes ONTAP 设置许可"]
+* link:task-set-up-licensing-azure.html["在Azure中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-set-up-licensing-aws.html["在Google Cloud中为Cloud Volumes ONTAP 设置许可"]
+* link:task-set-up-licensing-google.html["在Google Cloud中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::gcp[]
@@ -245,14 +245,14 @@ endif::aws[]
 
 ifdef::azure[]
 
-* link:task-set-up-licensing-aws.html["在Azure中为Cloud Volumes ONTAP 设置许可"]
+* link:task-set-up-licensing-azure.html["在Azure中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-set-up-licensing-aws.html["在Google Cloud中为Cloud Volumes ONTAP 设置许可"]
+* link:task-set-up-licensing-google.html["在Google Cloud中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::gcp[]
