@@ -34,29 +34,10 @@ summary: 您可以在单系统配置中启动 Cloud Volumes ONTAP ，也可以�
 +
 您应该已准备好选择配置并从管理员处获取 GCP 网络信息。有关详细信息，请参见 link:task-planning-your-config-gcp.html["规划 Cloud Volumes ONTAP 配置"]。
 
-* 了解在添加工作环境向导中选择特定许可选项所需的条件。 link:concept-licensing.html["了解有关 Cloud Volumes ONTAP 许可的更多信息"]。
+* 了解为Cloud Volumes ONTAP 设置许可所需的条件。
 +
-[cols="20,40,40"]
-|===
-| 许可选项 | 要求 | 如何满足要求 
+link:task-set-up-licensing-gcp.html["了解如何设置许可"]。
 
-
-| 免费 | 需要提供 Marketplace 订阅或 NetApp 支持站点（ NSS ）帐户。 | 您可以从 * 详细信息和凭据 * 页面订阅云提供商的市场。您可以在 * 充电方法和 NSS 帐户 * 页面上输入 NSS 帐户。 
-
-
-| 专业或基本软件包 | 需要 Marketplace 订阅或基于容量的许可证（ BYOL ）。如果您的帐户没有有效的基于容量的许可证，或者您配置的容量超过许可容量，则建议使用 Marketplace 订阅进行基于容量的收费。 | 您可以从 * 详细信息和凭据 * 页面订阅云提供商的市场。如果要使用从 NetApp 购买的基于容量的许可证（ BYOL ），必须先将其添加到 * 数字电子钱包 * 中。 link:task-manage-capacity-licenses.html["了解如何添加基于容量的 BYOL 许可证"]。 
-
-
-| Keystone Flex 订阅 | 您的帐户必须获得授权，并且必须启用订阅才能在 Cloud Volumes ONTAP 中使用。  a| 
-.. mailto ： ng-keystone-success@netapp.com （联系 NetApp ）授权您的 Cloud Manager 用户帐户订阅一个或多个 Keystone Flex 订阅。
-.. 在 NetApp 授权您的帐户后， link:task-manage-keystone.html#link-a-subscription["链接您的订阅以用于 Cloud Volumes ONTAP"]。
-.. 创建 Cloud Volumes ONTAP HA 对时，请选择 Keystone Flex 订阅收费方法。
-
-
-
-
-| 按节点许可 | 需要订阅 Marketplace ，或者您需要自带许可证（ BYOL ）。具有现有订阅或现有许可证的客户可以使用此选项。它不适用于新客户。 | 如果要使用从 NetApp 购买的基于节点的许可证（ BYOL ），必须先将其添加到 * 数字电子钱包 * 中。 link:task-manage-node-licenses.html#obtain-a-system-license-file["了解如何添加基于节点的 BYOL 许可证"]。您可以在 * 充电方法和 NSS 帐户 * 页面上输入 NSS 帐户。 
-|===
 * Google Cloud API 应为 https://cloud.google.com/apis/docs/getting-started#enabling_apis["已在项目中启用"^]：
 +
 ** Cloud Deployment Manager V2 API
@@ -145,8 +126,8 @@ video::video_subscribing_gcp.mp4[width=848,height=480]
 |===
 . * 充电方法和 NSS 帐户 * ：指定要在此系统中使用的充电选项，然后指定 NetApp 支持站点帐户。
 +
-** link:concept-licensing.html["了解这些充电方法"]。
-** link:task-deploying-gcp.html#licensing["在向导中了解要使用的许可方法的要求"]。
+** link:concept-licensing.html["了解 Cloud Volumes ONTAP 的许可选项"]。
+** link:task-set-up-licensing-gcp.html["了解如何设置许可"]。
 
 
 . * 预配置软件包 * ：选择一个软件包以快速部署 Cloud Volumes ONTAP 系统，或者单击 * 创建自己的配置 * 。
@@ -352,8 +333,8 @@ link:reference-networking-gcp.html["详细了解网络要求"]。
 
 . * 充电方法和 NSS 帐户 * ：指定要在此系统中使用的充电选项，然后指定 NetApp 支持站点帐户。
 +
-** link:concept-licensing.html["了解这些充电方法"]。
-** link:task-deploying-gcp.html#licensing["在向导中了解要使用的许可方法的要求"]。
+** link:concept-licensing.html["了解 Cloud Volumes ONTAP 的许可选项"]。
+** link:task-set-up-licensing-gcp.html["了解如何设置许可"]。
 
 
 . * 预配置软件包 * ：选择一个软件包以快速部署 Cloud Volumes ONTAP 系统，或者单击 * 创建自己的配置 * 。

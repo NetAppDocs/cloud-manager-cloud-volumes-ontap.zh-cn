@@ -56,7 +56,9 @@ sidebar:
           url: "/reference-security-groups.html"
       - title: 设置 AWS KMS
         url: "/task-setting-up-kms.html"
-      - title: 在 AWS 中启动系统
+      - title: 设置许可
+        url: "/task-set-up-licensing-aws.html"
+      - title: 在 AWS 中监控 Cloud Volumes ONTAP
         url: "/task-deploying-otc-aws.html"
       - title: AWS C2S 入门
         url: "/task-getting-started-aws-c2s.html"
@@ -71,7 +73,9 @@ sidebar:
         url: "/reference-networking-azure.html"
       - title: 使用密钥设置加密
         url: "/task-set-up-azure-encryption.html"
-      - title: 在 Azure 中启动系统
+      - title: 设置许可
+        url: "/task-set-up-licensing-azure.html"
+      - title: 在 Azure 中启动 Cloud Volumes ONTAP
         url: "/task-deploying-otc-azure.html"
     - title: 开始使用 Google Cloud
       flavor: gcp
@@ -88,7 +92,9 @@ sidebar:
         url: "/task-creating-gcp-service-account.html"
       - title: 使用客户管理的加密密钥
         url: "/task-setting-up-gcp-encryption.html"
-      - title: 在 GCP 中启动系统
+      - title: 设置许可
+        url: "/task-set-up-licensing-google.html"
+      - title: 在Google Cloud中启动Cloud Volumes ONTAP
         url: "/task-deploying-gcp.html"
   - title: 使用 Cloud Volumes ONTAP
     entries:
@@ -189,6 +195,8 @@ sidebar:
         url: "/task-configure-ems.html"
   - title: 概念
     entries:
+    - title: 许可
+      url: "/concept-licensing.html"
     - title: 存储
       entries:
       - title: 客户端协议
@@ -218,14 +226,12 @@ sidebar:
         url: "/concept-ha-google-cloud.html"
       - title: 存储接管期间的操作
         url: "/concept-degraded-ha-pair.html"
-    - title: 许可
-      url: "/concept-licensing.html"
-    - title: 管理基于节点的 BYOL
-      url: "/concept-license-management.html"
     - title: 安全性
       url: "/concept-security.html"
     - title: 性能
       url: "/concept-performance.html"
+    - title: 管理基于节点的 BYOL
+      url: "/concept-license-management.html"
     - title: AutoSupport 和 Active IQ 数字顾问
       url: "/concept-active-iq.html"
     - title: 默认配置
@@ -311,4 +317,6 @@ homepage:
       url: https://cloud.netapp.com/blog/topic/cloud-volumes-ontap
     - title: 云网络研讨会
       url: https://cloud.netapp.com/events
-product-family: {}
+product-family:
+  name: Cloud Manager
+  repo: cloud-manager-family

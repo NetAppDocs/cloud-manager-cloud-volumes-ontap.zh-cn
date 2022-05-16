@@ -4,7 +4,7 @@ permalink: task-planning-your-config.html
 keywords: license, disk, ebs, storage, size, write speed, volume usage, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, disk types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, use profile, thin provisioning, deduplication, compression, shared instance, dedicated instance, write speed, high write speed, normal write speed, network information, worksheet, limit, limits, storage limits, volume limit, aggregate limit, maximum volume size, maximum aggregate size, supported instances, instances, instances supported, supported ec2 instances, supported instance, aws outpost, outpost, outposts, deploy in outpost, deploy in aws outpost 
 summary: 在 AWS 中部署 Cloud Volumes ONTAP 时，您可以选择符合工作负载要求的预配置系统，也可以创建自己的配置。如果您选择自己的配置、则应了解可用的选项。 
 ---
-= 在 AWS 中规划 Cloud Volumes ONTAP 配置
+= 在AWS中规划Cloud Volumes ONTAP 配置
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -18,17 +18,21 @@ summary: 在 AWS 中部署 Cloud Volumes ONTAP 时，您可以选择符合工作
 
 
 
-== 查看支持的区域
+== 选择Cloud Volumes ONTAP 许可证
+
+Cloud Volumes ONTAP 提供了多种许可选项。每个选项都允许您选择一种满足您需求的消费模式。
+
+* link:concept-licensing.html["了解 Cloud Volumes ONTAP 的许可选项"]
+* link:task-set-up-licensing-aws.html["了解如何设置许可"]
+
+
+
+
+== 选择支持的区域
 
 大多数 AWS 地区均支持 Cloud Volumes ONTAP 。 https://cloud.netapp.com/cloud-volumes-global-regions["查看支持的区域的完整列表"^]。
 
 必须先启用较新的 AWS 区域，然后才能在这些区域中创建和管理资源。 https://docs.aws.amazon.com/general/latest/gr/rande-manage.html["了解如何启用区域"^]。
-
-
-
-== 选择许可证
-
-Cloud Volumes ONTAP 提供了多种许可选项。每个选项都允许您选择一种满足您需求的消费模式。 link:concept-licensing.html["了解 Cloud Volumes ONTAP 的许可选项"]。
 
 
 
@@ -40,12 +44,6 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws
 
 
 
-== 选择支持 Flash Cache 的配置
-
-AWS 中的某些 Cloud Volumes ONTAP 配置包括本地 NVMe 存储， Cloud Volumes ONTAP 使用此存储作为 _Flash Cache_ 来提高性能。 link:concept-flash-cache.html["了解有关 Flash Cache 的更多信息"]。
-
-
-
 == 了解存储限制
 
 Cloud Volumes ONTAP 系统的原始容量限制与许可证相关。附加限制会影响聚合和卷的大小。在规划配置时，您应该了解这些限制。
@@ -54,7 +52,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.
 
 
 
-== 在 AWS 中估算系统规模
+== 在AWS中调整系统大小
 
 对 Cloud Volumes ONTAP 系统进行规模估算有助于满足性能和容量要求。在选择实例类型，磁盘类型和磁盘大小时，应注意以下要点：
 
@@ -120,7 +118,7 @@ TIP: 此连接器还需要一个系统磁盘。 https://docs.netapp.com/us-en/cl
 
 
 
-== 准备在 AWS 前台部署 Cloud Volumes ONTAP
+== 准备在AWS前台部署Cloud Volumes ONTAP
 
 如果您有 AWS 前台，则可以通过在 " 工作环境 " 向导中选择前台 VPC 来在该前台部署 Cloud Volumes ONTAP 。体验与 AWS 中的任何其他 VPC 相同。请注意，您需要先在 AWS 前台部署 Connector 。
 
@@ -133,13 +131,13 @@ TIP: 此连接器还需要一个系统磁盘。 https://docs.netapp.com/us-en/cl
 
 
 
-== AWS 网络信息工作表
+== 收集网络信息
 
 在 AWS 中启动 Cloud Volumes ONTAP 时，需要指定有关 VPC 网络的详细信息。您可以使用工作表从管理员收集信息。
 
 
 
-=== Cloud Volumes ONTAP 的网络信息
+=== 单个AZ中的单节点或HA对
 
 [cols="30,70"]
 |===
@@ -159,7 +157,7 @@ TIP: 此连接器还需要一个系统磁盘。 https://docs.netapp.com/us-en/cl
 |===
 
 
-=== 多个 AWS 中 HA 对的网络信息
+=== HA对位于多个AZs中
 
 [cols="30,70"]
 |===

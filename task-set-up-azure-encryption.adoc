@@ -112,7 +112,8 @@ HA 对::
 ----
 您可以在上找到最新的权限列表 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
 
-HA 对不需要这些权限。
+
+NOTE: HA对不需要前三个权限。
 
 .步骤
 . 使用以下 Cloud Manager API 调用获取 Azure 订阅中的密钥存储列表。

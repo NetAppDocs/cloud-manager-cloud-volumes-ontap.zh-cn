@@ -4,7 +4,7 @@ permalink: task-planning-your-config-azure.html
 keywords: license, disk, storage, size, write speed, volume usage, byol, capacity, limit, configurations, virtual machine, vm, regions, supported disks, disk types, premium storage, standard storage, use profile, thin provisioning, deduplication, compression, shared instance, dedicated instance, write speed, high write speed, normal write speed, network information, worksheet, limit, limits, storage limits, volume limit, aggregate limit, maximum volume size, maximum aggregate size, supported vm type, supported virtual machines, supported virtual machine types, supported instances, space, size, azure, disk size 
 summary: 在 Azure 中部署 Cloud Volumes ONTAP 时，您可以选择符合工作负载要求的预配置系统，也可以创建自己的配置。如果您选择自己的配置、则应了解可用的选项。 
 ---
-= 在 Azure 中规划 Cloud Volumes ONTAP 配置
+= 在Azure中规划Cloud Volumes ONTAP 配置
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -18,19 +18,23 @@ summary: 在 Azure 中部署 Cloud Volumes ONTAP 时，您可以选择符合工�
 
 
 
-== 查看支持的区域
+== 选择Cloud Volumes ONTAP 许可证
+
+Cloud Volumes ONTAP 提供了多种许可选项。每个选项都允许您选择一种满足您需求的消费模式。
+
+* link:concept-licensing.html["了解 Cloud Volumes ONTAP 的许可选项"]
+* link:task-set-up-licensing-azure.html["了解如何设置许可"]
+
+
+
+
+== 选择支持的区域
 
 大多数 Microsoft Azure 地区均支持 Cloud Volumes ONTAP 。 https://cloud.netapp.com/cloud-volumes-global-regions["查看支持的区域的完整列表"^]。
 
 
 
-== 选择许可证
-
-Cloud Volumes ONTAP 提供了多种许可选项。每个选项都允许您选择一种满足您需求的消费模式。 link:concept-licensing.html["了解 Cloud Volumes ONTAP 的许可选项"]。
-
-
-
-== 支持的 VM 类型
+== 选择支持的VM类型
 
 Cloud Volumes ONTAP 支持多种 VM 类型，具体取决于您选择的许可证类型。
 
@@ -46,7 +50,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azur
 
 
 
-== 在 Azure 中估算系统规模
+== 在Azure中调整系统大小
 
 对 Cloud Volumes ONTAP 系统进行规模估算有助于满足性能和容量要求。在选择虚拟机类型，磁盘类型和磁盘大小时，您应注意几个要点：
 
@@ -95,12 +99,6 @@ Azure 高级存储的性能取决于磁盘大小。更大的磁盘可提供更�
 
 
 
-== 选择支持 Flash Cache 的配置
-
-Azure 中的 Cloud Volumes ONTAP 配置包括本地 NVMe 存储， Cloud Volumes ONTAP 使用此存储作为 _Flash Cache_ 来提高性能。 link:concept-flash-cache.html["了解有关 Flash Cache 的更多信息"]。
-
-
-
 == 查看默认系统磁盘
 
 除了用户数据存储之外， Cloud Manager 还为 Cloud Volumes ONTAP 系统数据（启动数据，根数据，核心数据和 NVRAM ）购买云存储。出于规划目的，在部署 Cloud Volumes ONTAP 之前查看这些详细信息可能会有所帮助。
@@ -112,7 +110,7 @@ TIP: 此连接器还需要一个系统磁盘。 https://docs.netapp.com/us-en/cl
 
 
 
-== Azure 网络信息工作表
+== 收集网络信息
 
 在 Azure 中部署 Cloud Volumes ONTAP 时，需要指定有关虚拟网络的详细信息。您可以使用工作表从管理员收集信息。
 

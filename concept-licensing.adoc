@@ -48,25 +48,25 @@ Keystone Flex 订阅:: 基于订阅的按需购买服务，可为 HA 对提供�
 
 
 
-要开始使用免费提供的产品，请创建一个新的 Cloud Volumes ONTAP 工作环境，并在系统提示您选择充电方法时选择 * 免费 * 。
+了解如何开始使用免费提供的产品：
 
 ifdef::aws[]
 
-* link:task-deploying-otc-aws.html["在 AWS 中启动 Cloud Volumes ONTAP"]
+* link:task-set-up-licensing-aws.html["在AWS中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* link:task-deploying-otc-azure.html["在 Azure 中启动 Cloud Volumes ONTAP"]
+* link:task-set-up-licensing-aws.html["在Azure中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-deploying-gcp.html["在 Google Cloud 中启动 Cloud Volumes ONTAP"]
+* link:task-set-up-licensing-aws.html["在Google Cloud中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::gcp[]
@@ -119,33 +119,6 @@ Essentials 和 Professional 软件包可用于以下消费模式：
 * 云提供商市场的年度合同。
 
 
-ifdef::aws[]
-
-* 在AWS中、可以从AWS市场的公有 产品中获得年度合同。部署Cloud Volumes ONTAP 工作环境时、Cloud Manager会提示您从"详细信息和凭据"页面订阅。
-
-
-endif::aws[]
-
-ifdef::azure[]
-
-* 在Azure中、您需要与NetApp销售代表合作购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。
-+
-在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Azure Marketplace订阅年度计划。
-
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-* 在Google Cloud中、您需要与NetApp销售代表合作购买年度合同。此合同在Google Cloud Marketplace中以私人优惠形式提供。
-+
-在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Google Cloud Marketplace订阅年度计划。
-
-
-
-endif::gcp[]
-
 请注意以下事项：
 
 * 如果您从 NetApp （ BYOL ）购买许可证，则还需要从云提供商的市场订阅 PAYGO 产品。
@@ -175,6 +148,9 @@ endif::gcp[]
 不存在实例或容量限制。您可以根据需要部署任意数量的Cloud Volumes ONTAP 系统、并根据需要免费分配30天的容量。30天后、免费试用将自动转换为按小时付费的订阅。
 
 Cloud Volumes ONTAP 无需每小时支付软件许可证费用、但云提供商提供的基础架构费用仍然适用。
+
+
+TIP: 免费试用开始、剩余7天以及剩余1天时、您将在Cloud Manager中收到通知。例如：image:screenshot-free-trial-notification.png["Cloud Manager界面中通知的屏幕截图、指出免费试用只剩7天。"]
 
 
 
@@ -207,30 +183,25 @@ Cloud Volumes ONTAP 9.7 及更高版本提供了基于容量的许可包。
 
 === 如何开始使用
 
-. https://cloud.netapp.com/contact-cds["要获取许可证，请联系 NetApp 销售人员"^]
-. link:task-manage-capacity-licenses.html["将许可证添加到 Cloud Manager"]
-. 创建 Cloud Volumes ONTAP 系统时，请选择基于容量的 BYOL 充电方法
-+
+了解如何开始使用基于容量的许可：
+
 ifdef::aws[]
 
-+
-** link:task-deploying-otc-aws.html["在 AWS 中启动 Cloud Volumes ONTAP"]
-
-
+* link:task-set-up-licensing-aws.html["在AWS中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* link:task-deploying-otc-azure.html["在 Azure 中启动 Cloud Volumes ONTAP"]
+* link:task-set-up-licensing-aws.html["在Azure中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-deploying-gcp.html["在 Google Cloud 中启动 Cloud Volumes ONTAP"]
+* link:task-set-up-licensing-aws.html["在Google Cloud中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::gcp[]
@@ -263,31 +234,25 @@ HA 对支持 Keystone Flex 订阅。目前，单节点系统不支持此许可�
 
 === 如何开始使用
 
-. 如果您还没有订阅， https://www.netapp.com/forms/keystone-sales-contact/["请联系 NetApp"^]。
-. mailto ： ng-keystone-success@netapp.com （联系 NetApp ）授权您的 Cloud Manager 用户帐户订阅一个或多个 Keystone Flex 订阅。
-. 在 NetApp 授权您的帐户后， link:task-manage-keystone.html#link-a-subscription["链接您的订阅以用于 Cloud Volumes ONTAP"]。
-. 创建 Cloud Volumes ONTAP 系统时，请选择 Keystone Flex 订阅收费方法。
-+
+了解如何开始使用Keystone Flex订阅：
+
 ifdef::aws[]
 
-+
-** link:task-deploying-otc-aws.html["在 AWS 中启动 Cloud Volumes ONTAP"]
-
-
+* link:task-set-up-licensing-aws.html["在AWS中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* link:task-deploying-otc-azure.html["在 Azure 中启动 Cloud Volumes ONTAP"]
+* link:task-set-up-licensing-aws.html["在Azure中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-deploying-gcp.html["在 Google Cloud 中启动 Cloud Volumes ONTAP"]
+* link:task-set-up-licensing-aws.html["在Google Cloud中为Cloud Volumes ONTAP 设置许可"]
 
 
 endif::gcp[]
