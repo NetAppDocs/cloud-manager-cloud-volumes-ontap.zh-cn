@@ -1395,7 +1395,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 00:02:10 +0000">05/03/2022</time>
+    <time datetime="2022-05-19 13:00:33 +0000">05/19/2022</time>
     
   
 
@@ -2157,46 +2157,47 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">集群间通信（仅限 Cloud Volumes ONTAP HA ）</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">68</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">节点管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">首次设置 DHCP 客户端</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">67</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">节点管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DHCP 服务器</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">53.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">节点管理 LIF 和数据 LIF （ NFS 、 CIFS ）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">18600 – 18699</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">节点管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">目标服务器</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NDMP 副本</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SMTP</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMTP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">25.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">节点管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">邮件服务器</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SMTP 警报、可用于 AutoSupport</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">SNMP</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">161.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">节点管理 LIF</p></td>
@@ -2223,9 +2224,9 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">节点管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">监控服务器</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">通过 SNMP 陷阱进行监控</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">SnapMirror</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">11104.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">集群间 LIF</p></td>
@@ -2238,7 +2239,14 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">集群间 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 集群间 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SnapMirror 数据传输</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">系统日志</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">514.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">节点管理 LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">系统日志服务器</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">系统日志转发消息</p></td>
 </tr>
 </tbody>
 </table>
