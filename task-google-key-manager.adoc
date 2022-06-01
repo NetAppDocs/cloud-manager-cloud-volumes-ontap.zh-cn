@@ -13,44 +13,51 @@ summary: 将Azure密钥存储用于第三方密钥管理服务。
 
 您可以使用 link:https://cloud.google.com/kms/docs["Google Cloud Platform 的密钥管理服务（ Cloud KMS ）"^] 在部署了Google Cloud Platform的应用程序中保护ONTAP 加密密钥。
 
-可以使用命令行界面或ONTAP REST API启用密钥管理云KMS。要为Cloud Volumes ONTAP 配置Cloud KMS、必须首先
+可以使用命令行界面或ONTAP REST API启用Cloud KMS的密钥管理。
 
 使用Cloud KMS时、请注意、默认情况下、数据SVM LIF用于与云密钥管理端点进行通信。节点管理网络用于与云提供商的身份验证服务(oauth2.googleapis.com)进行通信。如果集群网络配置不正确，集群将无法正确利用密钥管理服务。
 
 .前提条件
-* Cloud Volumes ONTAP 集群的节点必须支持NVE
+* Cloud Volumes ONTAP 必须运行9.10.1或更高版本
 * 已安装卷加密（ VE ）许可证
 * 已安装多租户加密密钥管理（ MTEKM ）许可证
 * 您必须是集群管理员或SVM管理员
-
-
-.限制
-* Cloud Volumes ONTAP 必须运行9.10.1或更高版本
-* Cloud KMS不适用于NSE和NAE。
-* Cloud KMS不适用于MetroCluster 配置。
-* 只能在数据SVM上配置Cloud KMS
 * 有效的Google Cloud Platform订阅
 
 
-.-enable
-. 在Google Cloud环境中：
+.限制
+* 只能在数据SVM上配置Cloud KMS
+
+
+
+
+== Configuration
+
+.Google Cloud
+. 在Google Cloud环境中、 link:https://cloud.google.com/kms/docs/creating-keys["创建对称GCP密钥环和密钥"^]。
+. 为Cloud Volumes ONTAP 服务帐户创建自定义角色。
 +
-.. 创建对称GCP密钥环和密钥：
-.. 为Cloud Volumes ONTAP 服务帐户创建自定义角色：`` gcloud iam roles create kmsCustomRole -project=_project_id_-title=_kms_custom_role_name_-description=_custom_role_description_-permission=cloudkms.CryptoKeyVersions.get、cloudkms.CryptoKeyVersions.list、cloudkms.cryptoKeyVersions.useToDecrypt,cloudkms.cryptoKeyVersions.useToEncrypt,cloudkms.cryptoKeys.get,cloudkms.keyRings.get,cloudkms.locations.get,cloudkms.locations.list,resourcemanager.projects.get
-.. 将自定义角色分配给云KMS密钥和Cloud Volumes ONTAP 服务帐户：`` gcloud kms keys add-iam-policy-binding $｛_key_name_｝-keyring $｛_key_ring_name_｝-location $｛_key_location_｝-member serviceAccount：$｛_service_account_Name_｝-role/customid_custom_roles/kms_role_
-.. 下载服务帐户JSON密钥：`gcloud iam service-accounts keys create key-file -iam-account=_sa-name_@_project-id_.iam.gserviceaccount.com`
+[listing]
+----
+gcloud iam roles create kmsCustomRole
+    --project=<project_id>
+    --title=<kms_custom_role_name>
+    --description=<custom_role_description>
+    --permissions=cloudkms.cryptoKeyVersions.get,cloudkms.cryptoKeyVersions.list,cloudkms.cryptoKeyVersions.useToDecrypt,cloudkms.cryptoKeyVersions.useToEncrypt,cloudkms.cryptoKeys.get,cloudkms.keyRings.get,cloudkms.locations.get,cloudkms.locations.list,resourcemanager.projects.get
+    --stage=GA
+----
+. 将自定义角色分配给云KMS密钥和Cloud Volumes ONTAP 服务帐户：`gcloud kms keys add-iam-policy-binding _key_name_-keyring _key_ring_name_-location _key_location_-member serviceAccount：_service_account_Name_-role projects_custom_id_/role/kmsRole`
+. 下载服务帐户JSON密钥：`gcloud iam service-accounts keys create key-file -iam-account=_sa-name_@_project-id_.iam.gserviceaccount.com`
 
 
-. 切换到Cloud Volumes ONTAP 环境：
-+
-.. 切换到高级权限级别：`set -privilege advanced`
-.. 为数据SVM创建DNS。`dns create -domains c_<<project>>_.internal -name-servers _server_address_-vserver _svm_name_`
-.. 创建CMEE条目：`security key-manager external gcp enable -vserver _svm_name_-project-id _project_-key-ring-name _key_ring_name_-key-ring-location _key_ring_location_-key-name _key_name_`
-.. 出现提示时、输入GCP帐户中的服务帐户JSON密钥。
-.. 确认已启用的过程成功：`security key-manager external GCP check -vserver _svm_name_`
-.. 可选：创建一个卷以测试加密`vol create _volume_name_>-aggregate _aggregate_-vserver _vserver_name_-size 10G`
-
-
+.Cloud Volumes ONTAP
+. 使用首选SSH客户端连接到集群管理LIF。
+. 切换到高级权限级别：`set -privilege advanced`
+. 为数据SVM创建DNS。`dns create -domains C._<project>_.internal -name-servers _server_address_-vserver _svm_name_`
+. 创建CMEE条目：`security key-manager external gcp enable -vserver _svm_name_-project-id _project_-key-ring-name _key_ring_name_-key-ring-location _key_ring_location_-key-name _key_name_`
+. 出现提示时、输入GCP帐户中的服务帐户JSON密钥。
+. 确认已启用的过程成功：`security key-manager external GCP check -vserver _svm_name_`
+. 可选：创建一个卷以测试加密`vol create _volume_name_-aggregate _aggregate_-vserver _vserver_name_-size 10G`
 
 
 

@@ -1935,7 +1935,6 @@
   <block id="80d50e51e1ababfa4d2d5826b8482855" category="list-text"><block ref="80d50e51e1ababfa4d2d5826b8482855" category="inline-link-macro-rx"></block></block>
   <block id="d8fe61fe121132ae71b6616d52f15f56" category="summary">Cloud Volumes ONTAP 通过外部密钥管理器同时支持 NetApp 卷加密（ NVE ）和 NetApp 聚合加密（ NAE ）。如果设置了外部密钥管理器，则默认情况下会启用 NVE 和 NAE 。</block>
   <block id="9472acffdb6a585b24d4317169bbc868" category="inline-link-macro">详细了解这些加密解决方案</block>
-  <block id="d1fa55aabe6476f6bb7c6b9bdb3ab04c" category="paragraph">Cloud Volumes ONTAP 支持 NetApp 卷加密（ NVE ）和 NetApp 聚合加密（ NAE ）。NVE 和 NAE 是基于软件的解决方案，支持（ FIPS ） 140-2 合规的卷空闲数据加密。 <block ref="d36456219fc3d98cd4133816e30fd33f" category="inline-link-macro-rx"></block>。</block>
   <block id="1be198b136be79973c11820713c00b26" category="paragraph">在设置外部密钥管理器后，新聚合将默认启用 NAE 。默认情况下，不属于 NAE 聚合的新卷将启用 NVE （例如，如果您有在设置外部密钥管理器之前创建的现有聚合）。</block>
   <block id="d43f2f210545a0ed495aab9f6633e453" category="paragraph">Cloud Volumes ONTAP 不支持板载密钥管理。</block>
   <block id="0df0b10ec6b2374f12bc928912e0e165" category="paragraph">您的 Cloud Volumes ONTAP 系统应向 NetApp 支持部门注册。向 NetApp 支持部门注册的每个 Cloud Volumes ONTAP 系统都会自动安装 NetApp 卷加密许可证。</block>
@@ -1948,8 +1947,6 @@
   <block id="1de6a60059bfa3554a0fdce87d051073" category="inline-link-macro">连接到 Cloud Volumes ONTAP 命令行界面</block>
   <block id="29d9a993720ee20b5810ae4a968304ca" category="list-text"><block ref="088a226dfa45520beac98dc7ae15a28a" category="inline-link-macro-rx"></block>。</block>
   <block id="48a052340f9e5c18b43a0cbab831db99" category="list-text">配置外部密钥管理。</block>
-  <block id="fd821d5714ebcc986157929dd866f41c" category="inline-link">有关说明，请参见 ONTAP 文档</block>
-  <block id="9d29aa56ea67ce2797cb1f0308225ae2" category="paragraph"><block ref="77f171337e8a9fae360a289a38558a31" category="inline-link-rx"></block>。</block>
   <block id="45ddc58d1297027037d3c08b53916d6d" category="summary">Active IQ 数字顾问集成在 Cloud Manager UI 中，因此您可以在一个管理平台中优化 ONTAP 集群的操作，安全性和性能。</block>
   <block id="4aea138a21bb343e460b0084ce3eb8d8" category="doc">使用 Active IQ 数字顾问优化 Cloud Volumes ONTAP 系统</block>
   <block id="dab2edf9eaac3950e92c281ce358af01" category="inline-link">Active IQ 数字顾问</block>
@@ -3804,21 +3801,16 @@
   <block id="35b16ddf568bd70f42e0bcb19f2a533c" category="inline-link-macro">Azure 密钥存储（ AKV ）</block>
   <block id="2f8fe9f0bb3ca6b63c1111b1fd670f9e" category="paragraph">您可以使用 <block ref="9061d13c3fae693003c080b827f91c1c" category="inline-link-macro-rx"></block> 保护Azure部署应用程序中的ONTAP 加密密钥。</block>
   <block id="4294aa58822f061e77d8da0c76ebf94d" category="inline-link-macro">NetApp 卷加密（ NVE ）密钥</block>
-  <block id="b60a27a8ca201f4faf5778905a1e1105" category="paragraph">可以使用 AKV 和 Cloud KMS 进行保护 <block ref="ce6d7ffd7c6719de501e205deb3bb075" category="inline-link-macro-rx"></block> 仅适用于数据SVM。</block>
   <block id="b80b61bef9c57d9979c8a0a11310d79b" category="paragraph">可以使用命令行界面或ONTAP REST API启用使用AKV的密钥管理。</block>
   <block id="e99dab450e193aa16ab181a9cbb70701" category="paragraph">使用AKV时、请注意、默认情况下、数据SVM LIF用于与云密钥管理端点进行通信。节点管理网络用于与云提供商的身份验证服务(login.microsoftonline.com)进行通信。如果集群网络配置不正确，集群将无法正确利用密钥管理服务。</block>
   <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="list-title">前提条件</block>
   <block id="0dbc3b305b67f45cc077782f1bde33be" category="list-text">Cloud Volumes ONTAP 必须运行9.10.1或更高版本</block>
-  <block id="80175ad1c15d028f67b3376a45b8e3c0" category="list-text">Cloud Volumes ONTAP 集群的节点必须支持NVE</block>
   <block id="3db7729c3f93b51e237e9f64f77736ce" category="list-text">已安装卷加密（ VE ）许可证</block>
   <block id="1343117a59836c5996c8be9e9914ce4b" category="list-text">已安装多租户加密密钥管理（ MTEKM ）许可证</block>
   <block id="941d09f50e1c95a1d21454ff759fc757" category="list-text">您必须是集群管理员或SVM管理员</block>
   <block id="4da5254130066f3f3262c3aa07f10759" category="list-text">Active Azure订阅</block>
-  <block id="88f2fb0102e3b959940686651a664a37" category="list-text">对于NSE和NAE密钥、无法使用AKV</block>
-  <block id="7db8ff26e5e9d7fc031772044154257b" category="list-text">MetroCluster 配置不支持AKV。</block>
   <block id="0c7af18d6ac0bf65ef1d6aec6f629263" category="list-text">只能在数据SVM上配置AKV</block>
   <block id="72bf37dc916a5b7107e5555c05e6deba" category="section-title">配置过程</block>
-  <block id="0353522b39b87d54d40d3f09ec668851" category="list-title">ONTAP 配置</block>
   <block id="29c35caadd576a358e25cf276cf3f5c4" category="list-text">使用首选SSH客户端连接到集群管理LIF。</block>
   <block id="04cf2d7d95d7d1c9ab9dbd7dbf46710c" category="list-text">在ONTAP 中进入高级权限模式：`set advanced -con off``</block>
   <block id="d25bc3e2f3cccb27b01b1088c349f1eb" category="list-text">确定所需的数据SVM并验证其DNS配置：`vserver services name-service dns show`</block>
@@ -3828,32 +3820,85 @@
   <block id="5ac6ffb19ceb9619fe5f2fb10414c629" category="list-text">验证密钥管理器配置：`security key-manager external azure show`</block>
   <block id="68f0035d3c55f26e0ec12ed454908a6e" category="list-text">检查密钥管理器的状态：`security key-manager external azure check` The output will look like：</block>
   <block id="558f8f17a0bbaa44eeaadc7095d4ec67" category="paragraph">如果`sservice_reachability` status为not `OK`、则SVM无法使用所有必需的连接和权限访问Azure密钥存储服务。在初始配置时、`kms_Wraped_key_status`将报告`unknown`。对第一个卷加密后、其状态将更改为`OK`。</block>
-  <block id="9b613c987763946434ad3660edb163a2" category="list-text">可选：创建测试卷以验证AKV的功能。`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`如果配置正确、ONTAP 将自动创建卷并启用卷加密。</block>
   <block id="776c67d51f3f1c503c9062c9d812c2b7" category="list-text">确认卷已正确创建和加密。如果是、则` is-encrypted`参数将显示为`true`。`vol show -vserver _svm_name_-fields is-encrypted`</block>
   <block id="0741b6c1237f126924ebdaa3fe6dbc4e" category="doc">使用Google的云密钥管理服务管理密钥</block>
   <block id="0dbdff8ed1ef0e78c4dc84ace48205d6" category="inline-link-macro">Google Cloud Platform 的密钥管理服务（ Cloud KMS ）</block>
   <block id="2f7905ac71167519792d73f964942175" category="paragraph">您可以使用 <block ref="4ef7b266bd9680469191a283388836d8" category="inline-link-macro-rx"></block> 在部署了Google Cloud Platform的应用程序中保护ONTAP 加密密钥。</block>
-  <block id="129c939af8813551a6b88e23f4048ae2" category="paragraph">可以使用命令行界面或ONTAP REST API启用密钥管理云KMS。要为Cloud Volumes ONTAP 配置Cloud KMS、必须首先</block>
   <block id="effd05555235b0681857f0aff356bf2f" category="paragraph">使用Cloud KMS时、请注意、默认情况下、数据SVM LIF用于与云密钥管理端点进行通信。节点管理网络用于与云提供商的身份验证服务(oauth2.googleapis.com)进行通信。如果集群网络配置不正确，集群将无法正确利用密钥管理服务。</block>
-  <block id="724742e5865d00ce8408ff6e4aa5aef6" category="list-text">Cloud KMS不适用于NSE和NAE。</block>
-  <block id="375e2f9b2984ac77600d156b668dda93" category="list-text">Cloud KMS不适用于MetroCluster 配置。</block>
   <block id="41a2c826f6f02a44a93533524c99b84e" category="list-text">只能在数据SVM上配置Cloud KMS</block>
   <block id="105e3d12938c631bc5d8ab6f6b628e1c" category="list-text">有效的Google Cloud Platform订阅</block>
-  <block id="2faec1f9f8cc7f8f40d521c4dd574f49" category="list-title">-enable</block>
-  <block id="b5413d5b20431bb65856ee65caf2f8e8" category="list-text">在Google Cloud环境中：</block>
-  <block id="a956ae27fe26e73f40b74bac5ab8d818" category="list-text">创建对称GCP密钥环和密钥：</block>
-  <block id="fb3ec58b16a722e2682f46b80c3f11e8" category="list-text">为Cloud Volumes ONTAP 服务帐户创建自定义角色：`` gcloud iam roles create kmsCustomRole -project=_project_id_-title=_kms_custom_role_name_-description=_custom_role_description_-permission=cloudkms.CryptoKeyVersions.get、cloudkms.CryptoKeyVersions.list、cloudkms.cryptoKeyVersions.useToDecrypt,cloudkms.cryptoKeyVersions.useToEncrypt,cloudkms.cryptoKeys.get,cloudkms.keyRings.get,cloudkms.locations.get,cloudkms.locations.list,resourcemanager.projects.get</block>
-  <block id="35257e0a7fdf990e79516f14d54b9688" category="list-text">将自定义角色分配给云KMS密钥和Cloud Volumes ONTAP 服务帐户：`` gcloud kms keys add-iam-policy-binding $｛_key_name_｝-keyring $｛_key_ring_name_｝-location $｛_key_location_｝-member serviceAccount：$｛_service_account_Name_｝-role/customid_custom_roles/kms_role_</block>
   <block id="d21cbe89c10e8cddec31594493146dcf" category="list-text">下载服务帐户JSON密钥：`gcloud iam service-accounts keys create key-file -iam-account=_sa-name_@_project-id_.iam.gserviceaccount.com`</block>
-  <block id="43db0fe1ea4bbf51b29da7ede3c389c8" category="list-text">切换到Cloud Volumes ONTAP 环境：</block>
   <block id="82e39d2f55f4956d1929bbcff0b210aa" category="list-text">切换到高级权限级别：`set -privilege advanced`</block>
-  <block id="a035687f65cfa8cf7e7c82084b7e145b" category="list-text">为数据SVM创建DNS。`dns create -domains c_<block ref="03b54379e1d996c88e31bd360eab170a" category="inline-xref-macro-rx"></block>_.internal -name-servers _server_address_-vserver _svm_name_`</block>
   <block id="6deefebfd83493611afe8675c6d1ce7b" category="list-text">创建CMEE条目：`security key-manager external gcp enable -vserver _svm_name_-project-id _project_-key-ring-name _key_ring_name_-key-ring-location _key_ring_location_-key-name _key_name_`</block>
   <block id="53521a13e927a2d5286f3433c692ed71" category="list-text">出现提示时、输入GCP帐户中的服务帐户JSON密钥。</block>
   <block id="b20c482c85ecfd221cc2a8a8ac33d883" category="list-text">确认已启用的过程成功：`security key-manager external GCP check -vserver _svm_name_`</block>
-  <block id="43272767051c3ae3332c7d5065d40829" category="list-text">可选：创建一个卷以测试加密`vol create _volume_name_&gt;-aggregate _aggregate_-vserver _vserver_name_-size 10G`</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="section-title">故障排除</block>
   <block id="6a81e96ba72f086fbc1fce60f448b1bb" category="paragraph">如果需要进行故障排除、可以在上述最后两个步骤中结束原始REST API日志：。`set d`.`systemshell -node _node_-command tail -f /mroot/etc/log/mlog/kmip2_client.log`</block>
   <block id="90ffa83e68ae5e0cbf95a61d80d4f2bc" category="sidebar">启用Azure密钥存储</block>
   <block id="ea549d1febacd44f10ba966e5d89a261" category="sidebar">启用Google Cloud Key Manager服务</block>
+  <block id="46653d32d1199a88497ad4000ed4e7b3" category="paragraph">可使用AKV进行保护 <block ref="8531e852e621158c599cbd603b309c10" category="inline-link-macro-rx"></block> 仅适用于数据SVM。</block>
+  <block id="0ea3f714b377b93b473407aa072f783d" category="list-text">已安装卷加密(VE)许可证(NetApp卷加密许可证会自动安装在已向NetApp支持注册的每个Cloud Volumes ONTAP 系统上。)</block>
+  <block id="92d7c08c21ef73fa595de6c26658ae13" category="paragraph">概述的步骤将介绍如何向Azure注册Cloud Volumes ONTAP 配置以及如何创建Azure密钥存储和密钥。如果您已完成这些步骤、请确保配置设置正确、尤其是在中 <block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block>、然后继续 <block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block>。* <block ref="cdef42bd73f4820f7c1e1f3c23ba776b" category="inline-xref-macro-rx"></block>* <block ref="2a43cfee4c27fd40bae74d4018b95bd1" category="inline-xref-macro-rx"></block>* <block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block>* <block ref="eef1aa206d5a44d4bc4f9df01004949c" category="inline-xref-macro-rx"></block>* <block ref="dc960527a9d200faf5b1d4aabb43c442" category="inline-xref-macro-rx"></block>* <block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block></block>
+  <block id="0e62debe1968d8a9992becc4fb3a303b" category="list-title">Azure应用程序注册</block>
+  <block id="7f7d612d5f09a474aa8522e2022e503d" category="list-text">您必须先在希望Cloud Volumes ONTAP 用于访问Azure密钥存储的Azure订阅中注册应用程序。在Azure门户中、选择"*应用注册"。</block>
+  <block id="fe03672d5cebda78f425cc339ac0425f" category="list-text">选择"*新建注册"*。</block>
+  <block id="0a3c1ea98015fea252076643a7006949" category="list-text">请为您的应用程序提供一个名称、然后选择支持的应用程序类型。默认的单个租户足以使用Azure密钥存储。选择"*注册"*。</block>
+  <block id="1d409f5854c728f2ea49e519f12e2ff8" category="list-text">在Azure概述窗口中、选择已注册的应用程序。将**应用程序(客户端) ID*和*目录(租户) ID*复制到安全位置。注册过程稍后将需要这些许可证。</block>
+  <block id="4466def91ac19af993030eff5c4ea4ef" category="list-title">创建Azure客户端密钥</block>
+  <block id="138447381f65d7de53d276300e34ace2" category="list-text">在Cloud Volumes ONTAP 应用程序的Azure门户中、选择"证明 和机密"窗格。</block>
+  <block id="0d11323c8a6d694cbd738f596a517d2f" category="list-text">选择"*新客户端密钥"*输入一个有意义的客户端密钥名称。NetApp建议使用24个月的到期期限、但您的特定云监管策略可能需要其他设置。</block>
+  <block id="1fb1736b61369abce475039d7f448214" category="list-text">选择"*添加"以保存客户端密钥。立即复制该机密的"*值"、并将其存储在安全的位置、以供将来配置时使用。离开此页面后、不会显示此机密值。</block>
+  <block id="2c1f18e5f9ee7d42406022e9ffe5854d" category="list-title">创建Azure密钥存储</block>
+  <block id="19238aa3b8371b577668244b3228880e" category="list-text">如果您已有Azure密钥存储、则可以将其连接到Cloud Volumes ONTAP 配置、但您必须根据此过程中的设置调整访问策略。</block>
+  <block id="b52e3778af65d886ba32b1fd67fdfb1b" category="list-text">在Azure门户中、导航到"*密钥存储"部分。</block>
+  <block id="92ffcbcc7fa86b0c7d82367345872f5a" category="list-text">选择"*创建"*。输入所需信息、包括资源组、区域和定价层、并选择保留已删除存储的天数以及是否启用了清除保护。对于此配置、默认值足以满足要求、但您的特定云监管策略可能需要不同的设置。</block>
+  <block id="5806c7463c14b44dd17992a1c031fa0f" category="list-text">选择"*下一步"以选择访问策略。</block>
+  <block id="a15b840e857b0be5423560edc5346ef6" category="list-text">对于卷加密选项、请选择"** Azure磁盘加密"；对于权限模型、请选择"*。存储访问策略"。</block>
+  <block id="1f34b5f3ab0226f052fc177239cc4f91" category="list-text">选择"*添加访问策略"*。</block>
+  <block id="68cd8db76e0574e7adc41824f92f13bf" category="list-text">选择"**从模板配置(可选)"*字段旁边的插入项。然后、选择"*密钥"、"机密"和"认证管理"</block>
+  <block id="e4bff652065888d52fed75044894f9e7" category="list-text">选择每个下拉权限菜单(密钥、密钥、证书)、然后选择菜单列表顶部的"**全选"*以选择所有可用权限。您应具备：</block>
+  <block id="527f287f763d308ba075a4aecc220dbe" category="list-text">"*关键权限"*：已选择19个</block>
+  <block id="71a8ddee35e94c488b23ac9ba055bb79" category="list-text">"**机密权限"*：已选择8个</block>
+  <block id="fee9a8fdd6aff1a6048d3ccee4f385a3" category="list-text">"**证书权限"*：已选择16个</block>
+  <block id="a158ec2c7b6ac237a382adc4fdd76141" category="list-text">选择"*添加"以创建访问策略。</block>
+  <block id="93856c87f5f709c2bb22415396d9f2a6" category="list-text">选择"*下一步"*以进入"*网络连接"*选项。</block>
+  <block id="f10e4cb8be9ad6f896cadded4bf18cee" category="list-text">选择适当的网络访问方法或选择"**所有网络"*和"*查看+创建"*以创建密钥存储。(网络访问方法可能由监管策略或您的企业云安全团队规定。)</block>
+  <block id="37e7091aa36439837070742f8d6bc7e9" category="list-text">记录密钥存储URI：在您创建的密钥存储中、导航到概述菜单并从右侧列复制"*存储URI"。您将在后续步骤中使用此功能。</block>
+  <block id="8925f0e46ff47371441124c2df44a2a3" category="list-title">创建加密密钥</block>
+  <block id="76f551dd2c984e558a618de45d9222ae" category="list-text">在为Cloud Volumes ONTAP 创建的密钥存储的菜单中、导航到"*密钥"选项。</block>
+  <block id="4e6b60602e4345dfe01d9d28c342518e" category="list-text">选择"*生成/导入"*以创建新密钥。</block>
+  <block id="56576804b88df5feda2dd35232fb2733" category="list-text">将默认选项设置为"*生成"。</block>
+  <block id="13c1455885d16af64f1bb96c4e48680a" category="list-text">请提供以下信息：</block>
+  <block id="5c2685fc4d5b3fa9e5718f23acaeb6ac" category="list-text">加密密钥名称</block>
+  <block id="a879c9ae69f23082894931a6ec418273" category="list-text">密钥类型：RSA</block>
+  <block id="8cda0713a1c543d49bc4d57c19f53fc9" category="list-text">RSA密钥大小：2048</block>
+  <block id="7203bac3edcdfe6a3a2785cc7cf9a737" category="list-text">Enabled：是</block>
+  <block id="aa5aef83169e0b9d9d46f0ca4ad0325f" category="list-text">选择"**创建"以创建加密密钥。</block>
+  <block id="6c777acc0b5710ba812bd761d96193fe" category="list-text">返回到"**密钥"菜单、然后选择刚刚创建的密钥。</block>
+  <block id="148a8c69d28b781487e6e1d682a63574" category="list-text">在"*当前版本"下选择密钥ID以查看密钥属性。</block>
+  <block id="39350c9bb5d1944335ad3eb997bf08f1" category="list-text">找到"*密钥标识符"*字段。将此URI复制到、但不包括十六进制字符串。</block>
+  <block id="90e3ef3b69667e2803197d86851432d3" category="list-title">创建Azure Active Directory端点(仅限HA)</block>
+  <block id="093e34e61123baceb7c92fc665dcaba1" category="list-text">只有在为HA Cloud Volumes ONTAP 工作环境配置Azure密钥存储时、才需要执行此过程。</block>
+  <block id="a9f595a9e965e7fd1b0c9296a00dc089" category="list-text">在Azure门户中、导航到"**虚拟网络"。</block>
+  <block id="82a6e0886c87dc5bc69074249df4aa58" category="list-text">选择部署Cloud Volumes ONTAP 工作环境的虚拟网络、然后选择页面左侧的"*子网"*菜单。</block>
+  <block id="d90b291a12c60639bd85c4fafde4ea97" category="list-text">从列表中选择Cloud Volumes ONTAP 部署的子网名称。</block>
+  <block id="c1c335737025d8b2354cceafcdabea4e" category="list-text">导航到"**服务端点"*标题。在下拉菜单中、从列表中选择"4.microsoft.AzureActiveDirectory"。</block>
+  <block id="23b8cf63899cafd6a9d0b32fbdc5c6e8" category="list-text">选择"*保存"*以捕获设置。</block>
+  <block id="5bfda0e2440a8346cbb089805c29d898" category="list-title">Cloud Volumes ONTAP 配置</block>
+  <block id="293327de56819bbcc6bac1b0f0d39eb5" category="list-text">可选：创建测试卷以验证AKV的功能。`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`</block>
+  <block id="89fe433ed203b193e97ffc51ade125be" category="paragraph">如果配置正确、Cloud Volumes ONTAP 将自动创建卷并启用卷加密。</block>
+  <block id="2f88a80d163d0a89ca5ecdf817af1f14" category="list-text">C2S环境不支持免费许可证。</block>
+  <block id="5e31f4e44c9ec2b42878b12dff64c9fb" category="paragraph">可以使用命令行界面或ONTAP REST API启用Cloud KMS的密钥管理。</block>
+  <block id="254f642527b45bc260048e30704edb39" category="section-title">Configuration</block>
+  <block id="d8cc118193ca8f7de894de3aa3760c8b" category="inline-link-macro">创建对称GCP密钥环和密钥</block>
+  <block id="f510135977c794727163a8e714df5b99" category="list-text">在Google Cloud环境中、 <block ref="7ea8c432087c9eb8393041b63739b4b6" category="inline-link-macro-rx"></block>。</block>
+  <block id="43b2c0508e829808a52d205609043890" category="list-text">为Cloud Volumes ONTAP 服务帐户创建自定义角色。</block>
+  <block id="df877e8ddc7d9aae543dcf9650ab2c34" category="list-text">将自定义角色分配给云KMS密钥和Cloud Volumes ONTAP 服务帐户：`gcloud kms keys add-iam-policy-binding _key_name_-keyring _key_ring_name_-location _key_location_-member serviceAccount：_service_account_Name_-role projects_custom_id_/role/kmsRole`</block>
+  <block id="d8787bda3ae35a469afc376610816a6a" category="list-text">为数据SVM创建DNS。`dns create -domains C._&lt;project&gt;_.internal -name-servers _server_address_-vserver _svm_name_`</block>
+  <block id="1601dadf3d75da8ab487484480cbf4ef" category="list-text">可选：创建一个卷以测试加密`vol create _volume_name_-aggregate _aggregate_-vserver _vserver_name_-size 10G`</block>
+  <block id="401a8aaa330fe64d45395192c047e1ed" category="paragraph">Cloud Volumes ONTAP 支持 NetApp 卷加密（ NVE ）和 NetApp 聚合加密（ NAE ）。NVE和NAE是基于软件的解决方案、支持FIPS 140-2合规的卷空闲数据加密。 <block ref="d36456219fc3d98cd4133816e30fd33f" category="inline-link-macro-rx"></block>。</block>
+  <block id="a8e451d7a52ebee36c6527d684d09cd7" category="list-text"><block ref="a8e451d7a52ebee36c6527d684d09cd7" category="inline-link-macro-rx"></block></block>
+  <block id="f0daa22edb6ee8b88bae0e5a21b552ec" category="inline-link-macro">Google Cloud密钥管理服务</block>
+  <block id="7cf27d24396a294ecbe07a4a35a715e6" category="list-text"><block ref="7cf27d24396a294ecbe07a4a35a715e6" category="inline-link-macro-rx"></block></block>
+  <block id="bce3985c06cad9c2c4fca6ec2afb69c3" category="sidebar">使用Google Cloud Key Manager Service管理密钥</block>
 </blocks>

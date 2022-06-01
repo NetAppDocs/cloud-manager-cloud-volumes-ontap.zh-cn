@@ -13,7 +13,7 @@ summary: 将Azure密钥存储用于第三方密钥管理服务。
 
 您可以使用 link:https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts["Azure 密钥存储（ AKV ）"^] 保护Azure部署应用程序中的ONTAP 加密密钥。
 
-可以使用 AKV 和 Cloud KMS 进行保护 link:configure-netapp-volume-encryption-concept.html["NetApp 卷加密（ NVE ）密钥"] 仅适用于数据SVM。
+可使用AKV进行保护 link:https://docs.netapp.com/us-en/ontap/configure-netapp-volume-encryption-concept.html["NetApp 卷加密（ NVE ）密钥"^] 仅适用于数据SVM。
 
 可以使用命令行界面或ONTAP REST API启用使用AKV的密钥管理。
 
@@ -21,16 +21,13 @@ summary: 将Azure密钥存储用于第三方密钥管理服务。
 
 .前提条件
 * Cloud Volumes ONTAP 必须运行9.10.1或更高版本
-* Cloud Volumes ONTAP 集群的节点必须支持NVE
-* 已安装卷加密（ VE ）许可证
+* 已安装卷加密(VE)许可证(NetApp卷加密许可证会自动安装在已向NetApp支持注册的每个Cloud Volumes ONTAP 系统上。)
 * 已安装多租户加密密钥管理（ MTEKM ）许可证
 * 您必须是集群管理员或SVM管理员
 * Active Azure订阅
 
 
 .限制
-* 对于NSE和NAE密钥、无法使用AKV
-* MetroCluster 配置不支持AKV。
 * 只能在数据SVM上配置AKV
 
 
@@ -38,7 +35,76 @@ summary: 将Azure密钥存储用于第三方密钥管理服务。
 
 == 配置过程
 
-.ONTAP 配置
+概述的步骤将介绍如何向Azure注册Cloud Volumes ONTAP 配置以及如何创建Azure密钥存储和密钥。如果您已完成这些步骤、请确保配置设置正确、尤其是在中 <<create-akv>>、然后继续 <<ontap>>。* <<azure-app>>* <<secret>>* <<create-akv>>* <<key>>* <<AAD>>* <<ontap>>
+
+[[azure-app]]
+.Azure应用程序注册
+. 您必须先在希望Cloud Volumes ONTAP 用于访问Azure密钥存储的Azure订阅中注册应用程序。在Azure门户中、选择"*应用注册"。
+. 选择"*新建注册"*。
+. 请为您的应用程序提供一个名称、然后选择支持的应用程序类型。默认的单个租户足以使用Azure密钥存储。选择"*注册"*。
+. 在Azure概述窗口中、选择已注册的应用程序。将**应用程序(客户端) ID*和*目录(租户) ID*复制到安全位置。注册过程稍后将需要这些许可证。
+
+
+[[secret]]
+.创建Azure客户端密钥
+. 在Cloud Volumes ONTAP 应用程序的Azure门户中、选择"证明 和机密"窗格。
+. 选择"*新客户端密钥"*输入一个有意义的客户端密钥名称。NetApp建议使用24个月的到期期限、但您的特定云监管策略可能需要其他设置。
+. 选择"*添加"以保存客户端密钥。立即复制该机密的"*值"、并将其存储在安全的位置、以供将来配置时使用。离开此页面后、不会显示此机密值。
+
+
+[[create-akv]]
+.创建Azure密钥存储
+. 如果您已有Azure密钥存储、则可以将其连接到Cloud Volumes ONTAP 配置、但您必须根据此过程中的设置调整访问策略。
+. 在Azure门户中、导航到"*密钥存储"部分。
+. 选择"*创建"*。输入所需信息、包括资源组、区域和定价层、并选择保留已删除存储的天数以及是否启用了清除保护。对于此配置、默认值足以满足要求、但您的特定云监管策略可能需要不同的设置。
+. 选择"*下一步"以选择访问策略。
+. 对于卷加密选项、请选择"** Azure磁盘加密"；对于权限模型、请选择"*。存储访问策略"。
+. 选择"*添加访问策略"*。
+. 选择"**从模板配置(可选)"*字段旁边的插入项。然后、选择"*密钥"、"机密"和"认证管理"
+. 选择每个下拉权限菜单(密钥、密钥、证书)、然后选择菜单列表顶部的"**全选"*以选择所有可用权限。您应具备：
++
+** "*关键权限"*：已选择19个
+** "**机密权限"*：已选择8个
+** "**证书权限"*：已选择16个
+
+
+. 选择"*添加"以创建访问策略。
+. 选择"*下一步"*以进入"*网络连接"*选项。
+. 选择适当的网络访问方法或选择"**所有网络"*和"*查看+创建"*以创建密钥存储。(网络访问方法可能由监管策略或您的企业云安全团队规定。)
+. 记录密钥存储URI：在您创建的密钥存储中、导航到概述菜单并从右侧列复制"*存储URI"。您将在后续步骤中使用此功能。
+
+
+[[key]]
+.创建加密密钥
+. 在为Cloud Volumes ONTAP 创建的密钥存储的菜单中、导航到"*密钥"选项。
+. 选择"*生成/导入"*以创建新密钥。
+. 将默认选项设置为"*生成"。
+. 请提供以下信息：
++
+** 加密密钥名称
+** 密钥类型：RSA
+** RSA密钥大小：2048
+** Enabled：是
+
+
+. 选择"**创建"以创建加密密钥。
+. 返回到"**密钥"菜单、然后选择刚刚创建的密钥。
+. 在"*当前版本"下选择密钥ID以查看密钥属性。
+. 找到"*密钥标识符"*字段。将此URI复制到、但不包括十六进制字符串。
+
+
+[[AAD]]
+.创建Azure Active Directory端点(仅限HA)
+. 只有在为HA Cloud Volumes ONTAP 工作环境配置Azure密钥存储时、才需要执行此过程。
+. 在Azure门户中、导航到"**虚拟网络"。
+. 选择部署Cloud Volumes ONTAP 工作环境的虚拟网络、然后选择页面左侧的"*子网"*菜单。
+. 从列表中选择Cloud Volumes ONTAP 部署的子网名称。
+. 导航到"**服务端点"*标题。在下拉菜单中、从列表中选择"4.microsoft.AzureActiveDirectory"。
+. 选择"*保存"*以捕获设置。
+
+
+[[ontap]]
+.Cloud Volumes ONTAP 配置
 . 使用首选SSH客户端连接到集群管理LIF。
 . 在ONTAP 中进入高级权限模式：`set advanced -con off``
 . 确定所需的数据SVM并验证其DNS配置：`vserver services name-service dns show`
@@ -73,6 +139,10 @@ Category: kms_wrapped_key_status
 +
 如果`sservice_reachability` status为not `OK`、则SVM无法使用所有必需的连接和权限访问Azure密钥存储服务。在初始配置时、`kms_Wraped_key_status`将报告`unknown`。对第一个卷加密后、其状态将更改为`OK`。
 
-. 可选：创建测试卷以验证AKV的功能。`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`如果配置正确、ONTAP 将自动创建卷并启用卷加密。
+. 可选：创建测试卷以验证AKV的功能。`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`
+
+
+如果配置正确、Cloud Volumes ONTAP 将自动创建卷并启用卷加密。
+
 . 确认卷已正确创建和加密。如果是、则` is-encrypted`参数将显示为`true`。`vol show -vserver _svm_name_-fields is-encrypted`
 

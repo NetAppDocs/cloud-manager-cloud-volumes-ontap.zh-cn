@@ -35,14 +35,16 @@ C2S 中的 Cloud Volumes ONTAP 也支持将数据分层到 S3 。
 
 == 限制
 
-Cloud Manager 不提供任何 NetApp 云服务。
+* Cloud Manager 不提供任何 NetApp 云服务。
+* 由于 C2S 环境中无法访问 Internet ，因此以下功能也不可用：
++
+** 与 NetApp Cloud Central 集成
+** 从 Cloud Manager 自动升级软件
+** NetApp AutoSupport
+** Cloud Volumes ONTAP 资源的 AWS 成本信息
 
-由于 C2S 环境中无法访问 Internet ，因此以下功能也不可用：
 
-* 与 NetApp Cloud Central 集成
-* 从 Cloud Manager 自动升级软件
-* NetApp AutoSupport
-* Cloud Volumes ONTAP 资源的 AWS 成本信息
+* C2S环境不支持免费许可证。
 
 
 

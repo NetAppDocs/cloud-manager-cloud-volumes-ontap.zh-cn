@@ -138,6 +138,12 @@ sidebar:
       entries:
       - title: 使用 NetApp 加密对卷进行加密
         url: "/task-encrypting-volumes.html"
+      - title: 使用Azure密钥存储管理密钥
+        flavor: azure
+        url: "/task-azure-key-vault.html"
+      - title: 使用Google Cloud Key Manager Service管理密钥
+        flavor: gcp
+        url: "/task-google-key-manager.html"
       - title: 改进勒索软件保护
         url: "/task-protecting-ransomware.html"
       - title: 启用Azure密钥存储
