@@ -781,6 +781,10 @@
 
 
 
+
+
+
+
           
         </li>
       </ul>
@@ -1240,6 +1244,8 @@
       </a>
       <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-encrypting-volumes.html">
         使用 NetApp 加密对卷进行加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-azure-key-vault.html">
+        使用Azure密钥存储管理密钥
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-protecting-ransomware.html">
         改进勒索软件保护
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-azure-key-vault.html">
@@ -1405,7 +1411,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:41:39 +0000">05/09/2022</time>
+    <time datetime="2022-06-01 16:16:51 +0000">06/01/2022</time>
     
   
 
@@ -1413,7 +1419,7 @@
 </p>
 
 <div class="paragraph lead">
-<p>Cloud Volumes ONTAP 支持 NetApp 卷加密（ NVE ）和 NetApp 聚合加密（ NAE ）。NVE 和 NAE 是基于软件的解决方案，支持（ FIPS ） 140-2 合规的卷空闲数据加密。 <a href="concept-security.html">"详细了解这些加密解决方案"</a>。</p>
+<p>Cloud Volumes ONTAP 支持 NetApp 卷加密（ NVE ）和 NetApp 聚合加密（ NAE ）。NVE和NAE是基于软件的解决方案、支持FIPS 140-2合规的卷空闲数据加密。 <a href="concept-security.html">"详细了解这些加密解决方案"</a>。</p>
 </div>
 <div class="paragraph">
 <p>外部密钥管理器支持 NVE 和 NAE 。</p>
@@ -1472,8 +1478,12 @@ Cloud Manager 不会在位于中国地区的系统上安装 NVE 许可证。
 </li>
 <li>
 <p>配置外部密钥管理。</p>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-external-key-management-overview-concept.html" target="_blank" rel="noopener">"有关说明，请参见 ONTAP 文档"</a>。</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="task-azure-key-vault.html">"Azure 密钥存储（ AKV ）"</a></p>
+</li>
+</ul>
 </div>
 </li>
 </ol>

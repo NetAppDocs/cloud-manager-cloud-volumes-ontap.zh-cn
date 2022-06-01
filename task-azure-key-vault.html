@@ -182,13 +182,13 @@
   <ul class="custom-dropdown-menu">
     
     
-    <li data-value="aws" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-azure-key-vault.html">
+    <li data-value="aws" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/aws">
       <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
     </li>
     
     
     
-    <li data-value="gcp" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/gcp/task-azure-key-vault.html">
+    <li data-value="gcp" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/gcp">
       <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
     </li>
     
@@ -760,6 +760,19 @@
           
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/pages/task-azure-key-vault.pdf" >
+    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
@@ -1280,6 +1293,10 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-encrypting-volumes.html">
         使用 NetApp 加密对卷进行加密
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-azure-key-vault.html">
+        使用Azure密钥存储管理密钥
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-google-key-manager.html">
+        使用Google Cloud Key Manager Service管理密钥
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-protecting-ransomware.html">
         改进勒索软件保护
       </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-azure-key-vault.html">
@@ -1463,7 +1480,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 15:31:23 +0000">06/01/2022</time>
+    <time datetime="2022-06-01 16:16:51 +0000">06/01/2022</time>
     
   
 
@@ -1476,7 +1493,7 @@
 <p>您可以使用 <a href="https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts" target="_blank" rel="noopener">"Azure 密钥存储（ AKV ）"</a> 保护Azure部署应用程序中的ONTAP 加密密钥。</p>
 </div>
 <div class="paragraph">
-<p>可以使用 AKV 和 Cloud KMS 进行保护 <a href="configure-netapp-volume-encryption-concept.html">"NetApp 卷加密（ NVE ）密钥"</a> 仅适用于数据SVM。</p>
+<p>可使用AKV进行保护 <a href="https://docs.netapp.com/us-en/ontap/configure-netapp-volume-encryption-concept.html" target="_blank" rel="noopener">"NetApp 卷加密（ NVE ）密钥"</a> 仅适用于数据SVM。</p>
 </div>
 <div class="paragraph">
 <p>可以使用命令行界面或ONTAP REST API启用使用AKV的密钥管理。</p>
@@ -1491,10 +1508,7 @@
 <p>Cloud Volumes ONTAP 必须运行9.10.1或更高版本</p>
 </li>
 <li>
-<p>Cloud Volumes ONTAP 集群的节点必须支持NVE</p>
-</li>
-<li>
-<p>已安装卷加密（ VE ）许可证</p>
+<p>已安装卷加密(VE)许可证(NetApp卷加密许可证会自动安装在已向NetApp支持注册的每个Cloud Volumes ONTAP 系统上。)</p>
 </li>
 <li>
 <p>已安装多租户加密密钥管理（ MTEKM ）许可证</p>
@@ -1511,12 +1525,6 @@
 <div class="title">限制</div>
 <ul>
 <li>
-<p>对于NSE和NAE密钥、无法使用AKV</p>
-</li>
-<li>
-<p>MetroCluster 配置不支持AKV。</p>
-</li>
-<li>
 <p>只能在数据SVM上配置AKV</p>
 </li>
 </ul>
@@ -1526,8 +1534,164 @@
 <div class="sect1">
 <h2 id="配置过程">配置过程</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<div class="title">ONTAP 配置</div>
+<div class="paragraph">
+<p>概述的步骤将介绍如何向Azure注册Cloud Volumes ONTAP 配置以及如何创建Azure密钥存储和密钥。如果您已完成这些步骤、请确保配置设置正确、尤其是在中 <a href="#create-akv">创建Azure密钥存储</a>、然后继续 <a href="#ontap">Cloud Volumes ONTAP 配置</a>。* <a href="#azure-app">Azure应用程序注册</a>* <a href="#secret">创建Azure客户端密钥</a>* <a href="#create-akv">创建Azure密钥存储</a>* <a href="#key">创建加密密钥</a>* <a href="#AAD">创建Azure Active Directory端点(仅限HA)</a>* <a href="#ontap">Cloud Volumes ONTAP 配置</a></p>
+</div>
+<div id="azure-app" class="olist arabic">
+<div class="title">Azure应用程序注册</div>
+<ol class="arabic">
+<li>
+<p>您必须先在希望Cloud Volumes ONTAP 用于访问Azure密钥存储的Azure订阅中注册应用程序。在Azure门户中、选择"*应用注册"。</p>
+</li>
+<li>
+<p>选择"<strong>新建注册"</strong>。</p>
+</li>
+<li>
+<p>请为您的应用程序提供一个名称、然后选择支持的应用程序类型。默认的单个租户足以使用Azure密钥存储。选择"<strong>注册"</strong>。</p>
+</li>
+<li>
+<p>在Azure概述窗口中、选择已注册的应用程序。将**应用程序(客户端) ID*和*目录(租户) ID*复制到安全位置。注册过程稍后将需要这些许可证。</p>
+</li>
+</ol>
+</div>
+<div id="secret" class="olist arabic">
+<div class="title">创建Azure客户端密钥</div>
+<ol class="arabic">
+<li>
+<p>在Cloud Volumes ONTAP 应用程序的Azure门户中、选择"证明 和机密"窗格。</p>
+</li>
+<li>
+<p>选择"*新客户端密钥"*输入一个有意义的客户端密钥名称。NetApp建议使用24个月的到期期限、但您的特定云监管策略可能需要其他设置。</p>
+</li>
+<li>
+<p>选择"*添加"以保存客户端密钥。立即复制该机密的"*值"、并将其存储在安全的位置、以供将来配置时使用。离开此页面后、不会显示此机密值。</p>
+</li>
+</ol>
+</div>
+<div id="create-akv" class="olist arabic">
+<div class="title">创建Azure密钥存储</div>
+<ol class="arabic">
+<li>
+<p>如果您已有Azure密钥存储、则可以将其连接到Cloud Volumes ONTAP 配置、但您必须根据此过程中的设置调整访问策略。</p>
+</li>
+<li>
+<p>在Azure门户中、导航到"*密钥存储"部分。</p>
+</li>
+<li>
+<p>选择"<strong>创建"</strong>。输入所需信息、包括资源组、区域和定价层、并选择保留已删除存储的天数以及是否启用了清除保护。对于此配置、默认值足以满足要求、但您的特定云监管策略可能需要不同的设置。</p>
+</li>
+<li>
+<p>选择"*下一步"以选择访问策略。</p>
+</li>
+<li>
+<p>对于卷加密选项、请选择"<strong>* Azure磁盘加密"；对于权限模型、请选择"</strong>。存储访问策略"。</p>
+</li>
+<li>
+<p>选择"<strong>添加访问策略"</strong>。</p>
+</li>
+<li>
+<p>选择"**从模板配置(可选)"*字段旁边的插入项。然后、选择"*密钥"、"机密"和"认证管理"</p>
+</li>
+<li>
+<p>选择每个下拉权限菜单(密钥、密钥、证书)、然后选择菜单列表顶部的"**全选"*以选择所有可用权限。您应具备：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"<strong>关键权限"</strong>：已选择19个</p>
+</li>
+<li>
+<p>"<strong>*机密权限"</strong>：已选择8个</p>
+</li>
+<li>
+<p>"<strong>*证书权限"</strong>：已选择16个</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>选择"*添加"以创建访问策略。</p>
+</li>
+<li>
+<p>选择"*下一步"*以进入"*网络连接"*选项。</p>
+</li>
+<li>
+<p>选择适当的网络访问方法或选择"**所有网络"*和"*查看+创建"*以创建密钥存储。(网络访问方法可能由监管策略或您的企业云安全团队规定。)</p>
+</li>
+<li>
+<p>记录密钥存储URI：在您创建的密钥存储中、导航到概述菜单并从右侧列复制"*存储URI"。您将在后续步骤中使用此功能。</p>
+</li>
+</ol>
+</div>
+<div id="key" class="olist arabic">
+<div class="title">创建加密密钥</div>
+<ol class="arabic">
+<li>
+<p>在为Cloud Volumes ONTAP 创建的密钥存储的菜单中、导航到"*密钥"选项。</p>
+</li>
+<li>
+<p>选择"*生成/导入"*以创建新密钥。</p>
+</li>
+<li>
+<p>将默认选项设置为"*生成"。</p>
+</li>
+<li>
+<p>请提供以下信息：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>加密密钥名称</p>
+</li>
+<li>
+<p>密钥类型：RSA</p>
+</li>
+<li>
+<p>RSA密钥大小：2048</p>
+</li>
+<li>
+<p>Enabled：是</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>选择"**创建"以创建加密密钥。</p>
+</li>
+<li>
+<p>返回到"**密钥"菜单、然后选择刚刚创建的密钥。</p>
+</li>
+<li>
+<p>在"*当前版本"下选择密钥ID以查看密钥属性。</p>
+</li>
+<li>
+<p>找到"*密钥标识符"*字段。将此URI复制到、但不包括十六进制字符串。</p>
+</li>
+</ol>
+</div>
+<div id="AAD" class="olist arabic">
+<div class="title">创建Azure Active Directory端点(仅限HA)</div>
+<ol class="arabic">
+<li>
+<p>只有在为HA Cloud Volumes ONTAP 工作环境配置Azure密钥存储时、才需要执行此过程。</p>
+</li>
+<li>
+<p>在Azure门户中、导航到"**虚拟网络"。</p>
+</li>
+<li>
+<p>选择部署Cloud Volumes ONTAP 工作环境的虚拟网络、然后选择页面左侧的"*子网"*菜单。</p>
+</li>
+<li>
+<p>从列表中选择Cloud Volumes ONTAP 部署的子网名称。</p>
+</li>
+<li>
+<p>导航到"**服务端点"*标题。在下拉菜单中、从列表中选择"4.microsoft.AzureActiveDirectory"。</p>
+</li>
+<li>
+<p>选择"*保存"*以捕获设置。</p>
+</li>
+</ol>
+</div>
+<div id="ontap" class="olist arabic">
+<div class="title">Cloud Volumes ONTAP 配置</div>
 <ol class="arabic">
 <li>
 <p>使用首选SSH客户端连接到集群管理LIF。</p>
@@ -1581,8 +1745,15 @@ Category: kms_wrapped_key_status
 </div>
 </li>
 <li>
-<p>可选：创建测试卷以验证AKV的功能。`vol create -vserver <em>svm_name</em>-volume <em>volume_name</em>-aggregate <em>aggr</em>-size <em>size</em>-state online -policy default`如果配置正确、ONTAP 将自动创建卷并启用卷加密。</p>
+<p>可选：创建测试卷以验证AKV的功能。<code>vol create -vserver <em>svm_name</em>-volume <em>volume_name</em>-aggregate <em>aggr</em>-size <em>size</em>-state online -policy default</code></p>
 </li>
+</ol>
+</div>
+<div class="paragraph">
+<p>如果配置正确、Cloud Volumes ONTAP 将自动创建卷并启用卷加密。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>确认卷已正确创建和加密。如果是、则` is-encrypted`参数将显示为`true`。<code>vol show -vserver <em>svm_name</em>-fields is-encrypted</code></p>
 </li>
