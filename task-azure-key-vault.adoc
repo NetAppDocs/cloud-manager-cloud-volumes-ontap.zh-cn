@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: task-azure-key-vault.html 
+keywords: azure, encryption, NVE, NetApp volume encryption, KMIP, azure key vault 
+summary: 将Azure密钥存储用于第三方密钥管理服务。 
+---
+= 使用Azure密钥存储管理密钥
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+您可以使用 link:https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts["Azure 密钥存储（ AKV ）"^] 保护Azure部署应用程序中的ONTAP 加密密钥。
+
+可以使用 AKV 和 Cloud KMS 进行保护 link:configure-netapp-volume-encryption-concept.html["NetApp 卷加密（ NVE ）密钥"] 仅适用于数据SVM。
+
+可以使用命令行界面或ONTAP REST API启用使用AKV的密钥管理。
+
+使用AKV时、请注意、默认情况下、数据SVM LIF用于与云密钥管理端点进行通信。节点管理网络用于与云提供商的身份验证服务(login.microsoftonline.com)进行通信。如果集群网络配置不正确，集群将无法正确利用密钥管理服务。
+
+.前提条件
+* Cloud Volumes ONTAP 必须运行9.10.1或更高版本
+* Cloud Volumes ONTAP 集群的节点必须支持NVE
+* 已安装卷加密（ VE ）许可证
+* 已安装多租户加密密钥管理（ MTEKM ）许可证
+* 您必须是集群管理员或SVM管理员
+* Active Azure订阅
+
+
+.限制
+* 对于NSE和NAE密钥、无法使用AKV
+* MetroCluster 配置不支持AKV。
+* 只能在数据SVM上配置AKV
+
+
+
+
+== 配置过程
+
+.ONTAP 配置
+. 使用首选SSH客户端连接到集群管理LIF。
+. 在ONTAP 中进入高级权限模式：`set advanced -con off``
+. 确定所需的数据SVM并验证其DNS配置：`vserver services name-service dns show`
++
+.. 如果所需数据SVM的DNS条目存在、并且其中包含Azure DNS的条目、则无需执行任何操作。如果不支持、请为指向Azure DNS、专用DNS或内部部署服务器的数据SVM添加DNS服务器条目。这应与集群管理SVM的条目匹配：`vserver services name-service dns create -vserver _svm_name_-domains _domain_-name-servers _ip_address_`
+.. 验证是否已为数据SVM创建DNS服务：`vserver services name-service dns show`
+
+
+. 使用应用程序注册后保存的客户端ID和租户ID启用Azure密钥存储：`security key-manager external azure enable -vserver _svm_name_-client-id _Azure_client_ID_-tenant-id _Azure_tenant_ID_-name _Azure_key_name_-key-id _Azure_key_ID_`
+. 验证密钥管理器配置：`security key-manager external azure show`
+. 检查密钥管理器的状态：`security key-manager external azure check` The output will look like：
++
+[source]
+----
+::*> security key-manager external azure check
+
+Vserver: data_svm_name
+Node: akvlab01-01
+
+Category: service_reachability
+    Status: OK
+
+Category: ekmip_server
+    Status: OK
+
+Category: kms_wrapped_key_status
+    Status: UNKNOWN
+    Details: No volumes created yet for the vserver. Wrapped KEK status will be available after creating encrypted volumes.
+
+3 entries were displayed.
+----
++
+如果`sservice_reachability` status为not `OK`、则SVM无法使用所有必需的连接和权限访问Azure密钥存储服务。在初始配置时、`kms_Wraped_key_status`将报告`unknown`。对第一个卷加密后、其状态将更改为`OK`。
+
+. 可选：创建测试卷以验证AKV的功能。`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`如果配置正确、ONTAP 将自动创建卷并启用卷加密。
+. 确认卷已正确创建和加密。如果是、则` is-encrypted`参数将显示为`true`。`vol show -vserver _svm_name_-fields is-encrypted`
+

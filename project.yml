@@ -140,6 +140,10 @@ sidebar:
         url: "/task-encrypting-volumes.html"
       - title: 改进勒索软件保护
         url: "/task-protecting-ransomware.html"
+      - title: 启用Azure密钥存储
+        url: "/task-azure-key-vault.html"
+      - title: 启用Google Cloud Key Manager服务
+        url: "/task-google-key-manager.html"
     - title: 系统管理
       entries:
       - title: 升级 Cloud Volumes ONTAP

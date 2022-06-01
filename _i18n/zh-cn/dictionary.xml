@@ -3799,4 +3799,61 @@
   <block id="45d5eeea4210bb57cc495f10379b4966" category="sidebar">默认配置</block>
   <block id="7f8900b9e3a03c9f7c08ccd4062c4d03" category="list-text"><block ref="7f8900b9e3a03c9f7c08ccd4062c4d03" category="inline-link-macro-rx"></block></block>
   <block id="1455e8ac365afc8611ea8516bddd1769" category="list-text"><block ref="1455e8ac365afc8611ea8516bddd1769" category="inline-link-macro-rx"></block></block>
+  <block id="7ed9c1f7193f7727cfac5a7b6f0c1266" category="summary">将Azure密钥存储用于第三方密钥管理服务。</block>
+  <block id="d3c0e82fe05c62b621815b706b024e29" category="doc">使用Azure密钥存储管理密钥</block>
+  <block id="35b16ddf568bd70f42e0bcb19f2a533c" category="inline-link-macro">Azure 密钥存储（ AKV ）</block>
+  <block id="2f8fe9f0bb3ca6b63c1111b1fd670f9e" category="paragraph">您可以使用 <block ref="9061d13c3fae693003c080b827f91c1c" category="inline-link-macro-rx"></block> 保护Azure部署应用程序中的ONTAP 加密密钥。</block>
+  <block id="4294aa58822f061e77d8da0c76ebf94d" category="inline-link-macro">NetApp 卷加密（ NVE ）密钥</block>
+  <block id="b60a27a8ca201f4faf5778905a1e1105" category="paragraph">可以使用 AKV 和 Cloud KMS 进行保护 <block ref="ce6d7ffd7c6719de501e205deb3bb075" category="inline-link-macro-rx"></block> 仅适用于数据SVM。</block>
+  <block id="b80b61bef9c57d9979c8a0a11310d79b" category="paragraph">可以使用命令行界面或ONTAP REST API启用使用AKV的密钥管理。</block>
+  <block id="e99dab450e193aa16ab181a9cbb70701" category="paragraph">使用AKV时、请注意、默认情况下、数据SVM LIF用于与云密钥管理端点进行通信。节点管理网络用于与云提供商的身份验证服务(login.microsoftonline.com)进行通信。如果集群网络配置不正确，集群将无法正确利用密钥管理服务。</block>
+  <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="list-title">前提条件</block>
+  <block id="0dbc3b305b67f45cc077782f1bde33be" category="list-text">Cloud Volumes ONTAP 必须运行9.10.1或更高版本</block>
+  <block id="80175ad1c15d028f67b3376a45b8e3c0" category="list-text">Cloud Volumes ONTAP 集群的节点必须支持NVE</block>
+  <block id="3db7729c3f93b51e237e9f64f77736ce" category="list-text">已安装卷加密（ VE ）许可证</block>
+  <block id="1343117a59836c5996c8be9e9914ce4b" category="list-text">已安装多租户加密密钥管理（ MTEKM ）许可证</block>
+  <block id="941d09f50e1c95a1d21454ff759fc757" category="list-text">您必须是集群管理员或SVM管理员</block>
+  <block id="4da5254130066f3f3262c3aa07f10759" category="list-text">Active Azure订阅</block>
+  <block id="88f2fb0102e3b959940686651a664a37" category="list-text">对于NSE和NAE密钥、无法使用AKV</block>
+  <block id="7db8ff26e5e9d7fc031772044154257b" category="list-text">MetroCluster 配置不支持AKV。</block>
+  <block id="0c7af18d6ac0bf65ef1d6aec6f629263" category="list-text">只能在数据SVM上配置AKV</block>
+  <block id="72bf37dc916a5b7107e5555c05e6deba" category="section-title">配置过程</block>
+  <block id="0353522b39b87d54d40d3f09ec668851" category="list-title">ONTAP 配置</block>
+  <block id="29c35caadd576a358e25cf276cf3f5c4" category="list-text">使用首选SSH客户端连接到集群管理LIF。</block>
+  <block id="04cf2d7d95d7d1c9ab9dbd7dbf46710c" category="list-text">在ONTAP 中进入高级权限模式：`set advanced -con off``</block>
+  <block id="d25bc3e2f3cccb27b01b1088c349f1eb" category="list-text">确定所需的数据SVM并验证其DNS配置：`vserver services name-service dns show`</block>
+  <block id="fe0e659383af9bbfb75708c240c256f8" category="list-text">如果所需数据SVM的DNS条目存在、并且其中包含Azure DNS的条目、则无需执行任何操作。如果不支持、请为指向Azure DNS、专用DNS或内部部署服务器的数据SVM添加DNS服务器条目。这应与集群管理SVM的条目匹配：`vserver services name-service dns create -vserver _svm_name_-domains _domain_-name-servers _ip_address_`</block>
+  <block id="e4919e440eb9972cf98c256c8354da12" category="list-text">验证是否已为数据SVM创建DNS服务：`vserver services name-service dns show`</block>
+  <block id="9d98aca60e70c6f5397deb1970b8afc4" category="list-text">使用应用程序注册后保存的客户端ID和租户ID启用Azure密钥存储：`security key-manager external azure enable -vserver _svm_name_-client-id _Azure_client_ID_-tenant-id _Azure_tenant_ID_-name _Azure_key_name_-key-id _Azure_key_ID_`</block>
+  <block id="5ac6ffb19ceb9619fe5f2fb10414c629" category="list-text">验证密钥管理器配置：`security key-manager external azure show`</block>
+  <block id="68f0035d3c55f26e0ec12ed454908a6e" category="list-text">检查密钥管理器的状态：`security key-manager external azure check` The output will look like：</block>
+  <block id="558f8f17a0bbaa44eeaadc7095d4ec67" category="paragraph">如果`sservice_reachability` status为not `OK`、则SVM无法使用所有必需的连接和权限访问Azure密钥存储服务。在初始配置时、`kms_Wraped_key_status`将报告`unknown`。对第一个卷加密后、其状态将更改为`OK`。</block>
+  <block id="9b613c987763946434ad3660edb163a2" category="list-text">可选：创建测试卷以验证AKV的功能。`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`如果配置正确、ONTAP 将自动创建卷并启用卷加密。</block>
+  <block id="776c67d51f3f1c503c9062c9d812c2b7" category="list-text">确认卷已正确创建和加密。如果是、则` is-encrypted`参数将显示为`true`。`vol show -vserver _svm_name_-fields is-encrypted`</block>
+  <block id="0741b6c1237f126924ebdaa3fe6dbc4e" category="doc">使用Google的云密钥管理服务管理密钥</block>
+  <block id="0dbdff8ed1ef0e78c4dc84ace48205d6" category="inline-link-macro">Google Cloud Platform 的密钥管理服务（ Cloud KMS ）</block>
+  <block id="2f7905ac71167519792d73f964942175" category="paragraph">您可以使用 <block ref="4ef7b266bd9680469191a283388836d8" category="inline-link-macro-rx"></block> 在部署了Google Cloud Platform的应用程序中保护ONTAP 加密密钥。</block>
+  <block id="129c939af8813551a6b88e23f4048ae2" category="paragraph">可以使用命令行界面或ONTAP REST API启用密钥管理云KMS。要为Cloud Volumes ONTAP 配置Cloud KMS、必须首先</block>
+  <block id="effd05555235b0681857f0aff356bf2f" category="paragraph">使用Cloud KMS时、请注意、默认情况下、数据SVM LIF用于与云密钥管理端点进行通信。节点管理网络用于与云提供商的身份验证服务(oauth2.googleapis.com)进行通信。如果集群网络配置不正确，集群将无法正确利用密钥管理服务。</block>
+  <block id="724742e5865d00ce8408ff6e4aa5aef6" category="list-text">Cloud KMS不适用于NSE和NAE。</block>
+  <block id="375e2f9b2984ac77600d156b668dda93" category="list-text">Cloud KMS不适用于MetroCluster 配置。</block>
+  <block id="41a2c826f6f02a44a93533524c99b84e" category="list-text">只能在数据SVM上配置Cloud KMS</block>
+  <block id="105e3d12938c631bc5d8ab6f6b628e1c" category="list-text">有效的Google Cloud Platform订阅</block>
+  <block id="2faec1f9f8cc7f8f40d521c4dd574f49" category="list-title">-enable</block>
+  <block id="b5413d5b20431bb65856ee65caf2f8e8" category="list-text">在Google Cloud环境中：</block>
+  <block id="a956ae27fe26e73f40b74bac5ab8d818" category="list-text">创建对称GCP密钥环和密钥：</block>
+  <block id="fb3ec58b16a722e2682f46b80c3f11e8" category="list-text">为Cloud Volumes ONTAP 服务帐户创建自定义角色：`` gcloud iam roles create kmsCustomRole -project=_project_id_-title=_kms_custom_role_name_-description=_custom_role_description_-permission=cloudkms.CryptoKeyVersions.get、cloudkms.CryptoKeyVersions.list、cloudkms.cryptoKeyVersions.useToDecrypt,cloudkms.cryptoKeyVersions.useToEncrypt,cloudkms.cryptoKeys.get,cloudkms.keyRings.get,cloudkms.locations.get,cloudkms.locations.list,resourcemanager.projects.get</block>
+  <block id="35257e0a7fdf990e79516f14d54b9688" category="list-text">将自定义角色分配给云KMS密钥和Cloud Volumes ONTAP 服务帐户：`` gcloud kms keys add-iam-policy-binding $｛_key_name_｝-keyring $｛_key_ring_name_｝-location $｛_key_location_｝-member serviceAccount：$｛_service_account_Name_｝-role/customid_custom_roles/kms_role_</block>
+  <block id="d21cbe89c10e8cddec31594493146dcf" category="list-text">下载服务帐户JSON密钥：`gcloud iam service-accounts keys create key-file -iam-account=_sa-name_@_project-id_.iam.gserviceaccount.com`</block>
+  <block id="43db0fe1ea4bbf51b29da7ede3c389c8" category="list-text">切换到Cloud Volumes ONTAP 环境：</block>
+  <block id="82e39d2f55f4956d1929bbcff0b210aa" category="list-text">切换到高级权限级别：`set -privilege advanced`</block>
+  <block id="a035687f65cfa8cf7e7c82084b7e145b" category="list-text">为数据SVM创建DNS。`dns create -domains c_<block ref="03b54379e1d996c88e31bd360eab170a" category="inline-xref-macro-rx"></block>_.internal -name-servers _server_address_-vserver _svm_name_`</block>
+  <block id="6deefebfd83493611afe8675c6d1ce7b" category="list-text">创建CMEE条目：`security key-manager external gcp enable -vserver _svm_name_-project-id _project_-key-ring-name _key_ring_name_-key-ring-location _key_ring_location_-key-name _key_name_`</block>
+  <block id="53521a13e927a2d5286f3433c692ed71" category="list-text">出现提示时、输入GCP帐户中的服务帐户JSON密钥。</block>
+  <block id="b20c482c85ecfd221cc2a8a8ac33d883" category="list-text">确认已启用的过程成功：`security key-manager external GCP check -vserver _svm_name_`</block>
+  <block id="43272767051c3ae3332c7d5065d40829" category="list-text">可选：创建一个卷以测试加密`vol create _volume_name_&gt;-aggregate _aggregate_-vserver _vserver_name_-size 10G`</block>
+  <block id="d60c463bb4096f3ed4bd1618626dfe10" category="section-title">故障排除</block>
+  <block id="6a81e96ba72f086fbc1fce60f448b1bb" category="paragraph">如果需要进行故障排除、可以在上述最后两个步骤中结束原始REST API日志：。`set d`.`systemshell -node _node_-command tail -f /mroot/etc/log/mlog/kmip2_client.log`</block>
+  <block id="90ffa83e68ae5e0cbf95a61d80d4f2bc" category="sidebar">启用Azure密钥存储</block>
+  <block id="ea549d1febacd44f10ba966e5d89a261" category="sidebar">启用Google Cloud Key Manager服务</block>
 </blocks>
