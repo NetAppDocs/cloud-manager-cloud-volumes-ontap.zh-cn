@@ -64,4 +64,8 @@ gcloud iam roles create kmsCustomRole
 
 == 故障排除
 
-如果需要进行故障排除、可以在上述最后两个步骤中结束原始REST API日志：。`set d`.`systemshell -node _node_-command tail -f /mroot/etc/log/mlog/kmip2_client.log`
+如果您需要进行故障排除、可以在上述最后两个步骤中结束原始REST API日志：
+
+. `set d`
+. `systemshell -node _node_-command tail -f /mroot/etc/log/mlog/kmip2_client.log`
+

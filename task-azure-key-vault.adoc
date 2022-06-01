@@ -21,7 +21,7 @@ summary: 将Azure密钥存储用于第三方密钥管理服务。
 
 .前提条件
 * Cloud Volumes ONTAP 必须运行9.10.1或更高版本
-* 已安装卷加密(VE)许可证(NetApp卷加密许可证会自动安装在已向NetApp支持注册的每个Cloud Volumes ONTAP 系统上。)
+* 已安装卷加密(VE)许可证(已向NetApp支持部门注册的每个Cloud Volumes ONTAP 系统会自动安装NetApp卷加密许可证)
 * 已安装多租户加密密钥管理（ MTEKM ）许可证
 * 您必须是集群管理员或SVM管理员
 * Active Azure订阅
@@ -35,7 +35,15 @@ summary: 将Azure密钥存储用于第三方密钥管理服务。
 
 == 配置过程
 
-概述的步骤将介绍如何向Azure注册Cloud Volumes ONTAP 配置以及如何创建Azure密钥存储和密钥。如果您已完成这些步骤、请确保配置设置正确、尤其是在中 <<create-akv>>、然后继续 <<ontap>>。* <<azure-app>>* <<secret>>* <<create-akv>>* <<key>>* <<AAD>>* <<ontap>>
+概述的步骤将介绍如何向Azure注册Cloud Volumes ONTAP 配置以及如何创建Azure密钥存储和密钥。如果您已完成这些步骤、请确保配置设置正确、尤其是在中 <<create-akv>>、然后继续 <<ontap>>。
+
+* <<azure-app>>
+* <<secret>>
+* <<create-akv>>
+* <<key>>
+* <<AAD>>
+* <<ontap>>
+
 
 [[azure-app]]
 .Azure应用程序注册
@@ -140,8 +148,7 @@ Category: kms_wrapped_key_status
 如果`sservice_reachability` status为not `OK`、则SVM无法使用所有必需的连接和权限访问Azure密钥存储服务。在初始配置时、`kms_Wraped_key_status`将报告`unknown`。对第一个卷加密后、其状态将更改为`OK`。
 
 . 可选：创建测试卷以验证AKV的功能。`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`
-
-
++
 如果配置正确、Cloud Volumes ONTAP 将自动创建卷并启用卷加密。
 
 . 确认卷已正确创建和加密。如果是、则` is-encrypted`参数将显示为`true`。`vol show -vserver _svm_name_-fields is-encrypted`

@@ -3833,12 +3833,7 @@
   <block id="53521a13e927a2d5286f3433c692ed71" category="list-text">出现提示时、输入GCP帐户中的服务帐户JSON密钥。</block>
   <block id="b20c482c85ecfd221cc2a8a8ac33d883" category="list-text">确认已启用的过程成功：`security key-manager external GCP check -vserver _svm_name_`</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="section-title">故障排除</block>
-  <block id="6a81e96ba72f086fbc1fce60f448b1bb" category="paragraph">如果需要进行故障排除、可以在上述最后两个步骤中结束原始REST API日志：。`set d`.`systemshell -node _node_-command tail -f /mroot/etc/log/mlog/kmip2_client.log`</block>
-  <block id="90ffa83e68ae5e0cbf95a61d80d4f2bc" category="sidebar">启用Azure密钥存储</block>
-  <block id="ea549d1febacd44f10ba966e5d89a261" category="sidebar">启用Google Cloud Key Manager服务</block>
   <block id="46653d32d1199a88497ad4000ed4e7b3" category="paragraph">可使用AKV进行保护 <block ref="8531e852e621158c599cbd603b309c10" category="inline-link-macro-rx"></block> 仅适用于数据SVM。</block>
-  <block id="0ea3f714b377b93b473407aa072f783d" category="list-text">已安装卷加密(VE)许可证(NetApp卷加密许可证会自动安装在已向NetApp支持注册的每个Cloud Volumes ONTAP 系统上。)</block>
-  <block id="92d7c08c21ef73fa595de6c26658ae13" category="paragraph">概述的步骤将介绍如何向Azure注册Cloud Volumes ONTAP 配置以及如何创建Azure密钥存储和密钥。如果您已完成这些步骤、请确保配置设置正确、尤其是在中 <block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block>、然后继续 <block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block>。* <block ref="cdef42bd73f4820f7c1e1f3c23ba776b" category="inline-xref-macro-rx"></block>* <block ref="2a43cfee4c27fd40bae74d4018b95bd1" category="inline-xref-macro-rx"></block>* <block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block>* <block ref="eef1aa206d5a44d4bc4f9df01004949c" category="inline-xref-macro-rx"></block>* <block ref="dc960527a9d200faf5b1d4aabb43c442" category="inline-xref-macro-rx"></block>* <block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block></block>
   <block id="0e62debe1968d8a9992becc4fb3a303b" category="list-title">Azure应用程序注册</block>
   <block id="7f7d612d5f09a474aa8522e2022e503d" category="list-text">您必须先在希望Cloud Volumes ONTAP 用于访问Azure密钥存储的Azure订阅中注册应用程序。在Azure门户中、选择"*应用注册"。</block>
   <block id="fe03672d5cebda78f425cc339ac0425f" category="list-text">选择"*新建注册"*。</block>
@@ -3900,5 +3895,16 @@
   <block id="a8e451d7a52ebee36c6527d684d09cd7" category="list-text"><block ref="a8e451d7a52ebee36c6527d684d09cd7" category="inline-link-macro-rx"></block></block>
   <block id="f0daa22edb6ee8b88bae0e5a21b552ec" category="inline-link-macro">Google Cloud密钥管理服务</block>
   <block id="7cf27d24396a294ecbe07a4a35a715e6" category="list-text"><block ref="7cf27d24396a294ecbe07a4a35a715e6" category="inline-link-macro-rx"></block></block>
-  <block id="bce3985c06cad9c2c4fca6ec2afb69c3" category="sidebar">使用Google Cloud Key Manager Service管理密钥</block>
+  <block id="8c01e5151cb74437e444454be784333c" category="list-text">已安装卷加密(VE)许可证(已向NetApp支持部门注册的每个Cloud Volumes ONTAP 系统会自动安装NetApp卷加密许可证)</block>
+  <block id="8c2e4fec68d3b8906dcb334bbfe418bf" category="paragraph">概述的步骤将介绍如何向Azure注册Cloud Volumes ONTAP 配置以及如何创建Azure密钥存储和密钥。如果您已完成这些步骤、请确保配置设置正确、尤其是在中 <block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block>、然后继续 <block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block>。</block>
+  <block id="04b2bf8e8c9915aa61da3721f209d407" category="list-text"><block ref="cdef42bd73f4820f7c1e1f3c23ba776b" category="inline-xref-macro-rx"></block></block>
+  <block id="8d21503e09c6059c51a0f4e1bbf19622" category="list-text"><block ref="2a43cfee4c27fd40bae74d4018b95bd1" category="inline-xref-macro-rx"></block></block>
+  <block id="17a5af936da60d900f5414c57549845c" category="list-text"><block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block></block>
+  <block id="6ef7ba6caa8df5a2d98f31ec9bcee6a9" category="list-text"><block ref="eef1aa206d5a44d4bc4f9df01004949c" category="inline-xref-macro-rx"></block></block>
+  <block id="bf239af651be1f2e2d8c6d9c36aa28ad" category="list-text"><block ref="dc960527a9d200faf5b1d4aabb43c442" category="inline-xref-macro-rx"></block></block>
+  <block id="1ee5f64602b6b550966ffda0ef455a60" category="list-text"><block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block></block>
+  <block id="006b2aa0002e5883e312baeb8fee588e" category="paragraph">如果您需要进行故障排除、可以在上述最后两个步骤中结束原始REST API日志：</block>
+  <block id="54d3d71e00eff1d12a7498874b5be642" category="list-text">`set d`</block>
+  <block id="c616900ae748d4dd41ba80df7406dd9b" category="list-text">`systemshell -node _node_-command tail -f /mroot/etc/log/mlog/kmip2_client.log`</block>
+  <block id="397841d9dc0e87fae94bd33b988bf92f" category="sidebar">使用Google Cloud KMS管理密钥</block>
 </blocks>

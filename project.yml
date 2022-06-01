@@ -141,15 +141,11 @@ sidebar:
       - title: 使用Azure密钥存储管理密钥
         flavor: azure
         url: "/task-azure-key-vault.html"
-      - title: 使用Google Cloud Key Manager Service管理密钥
+      - title: 使用Google Cloud KMS管理密钥
         flavor: gcp
         url: "/task-google-key-manager.html"
       - title: 改进勒索软件保护
         url: "/task-protecting-ransomware.html"
-      - title: 启用Azure密钥存储
-        url: "/task-azure-key-vault.html"
-      - title: 启用Google Cloud Key Manager服务
-        url: "/task-google-key-manager.html"
     - title: 系统管理
       entries:
       - title: 升级 Cloud Volumes ONTAP
