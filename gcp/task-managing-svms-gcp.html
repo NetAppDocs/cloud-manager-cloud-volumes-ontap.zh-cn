@@ -1403,7 +1403,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:55:53 +0000">06/07/2022</time>
+    <time datetime="2022-06-07 22:02:34 +0000">06/07/2022</time>
     
   
 
@@ -1450,12 +1450,12 @@
 <h2 id="创建storage-vm">创建Storage VM</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>您可以在单节点系统或HA对上创建多个Storage VM。请注意、您必须使用Cloud Manager API在HA对上创建Storage VM、而可以使用CLI或System Manager在单节点系统上创建Storage VM。</p>
+<p>如果许可证支持、您可以在单节点系统或HA对上创建多个Storage VM。请注意、您必须使用Cloud Manager API在HA对上创建Storage VM、而可以使用CLI或System Manager在单节点系统上创建Storage VM。</p>
 </div>
 <div class="sect2">
 <h3 id="单节点系统">单节点系统</h3>
 <div class="paragraph">
-<p>以下步骤将使用命令行界面在单节点系统上创建新的Storage VM。创建 NAS LIF 需要一个专用 IP 地址，如果要创建管理 LIF ，则需要另一个可选专用 IP 地址。</p>
+<p>以下步骤将使用命令行界面在单节点系统上创建新的Storage VM。创建数据LIF需要一个专用IP地址、如果要创建管理LIF、则需要另一个可选专用IP地址。</p>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
@@ -1524,7 +1524,7 @@
 <p>将一个或多个聚合分配给 Storage VM 。</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver &lt;svm-name&gt; -aggregates &lt;aggr1,aggr2&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1580,7 +1580,7 @@
 <h2 id="管理ha对上的storage-vm">管理HA对上的Storage VM</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Manager API还支持重命名和删除Storage VM。</p>
+<p>Cloud Manager API还支持重命名和删除HA对上的Storage VM。</p>
 </div>
 <div class="sect2">
 <h3 id="重命名storage-vm">重命名Storage VM</h3>
