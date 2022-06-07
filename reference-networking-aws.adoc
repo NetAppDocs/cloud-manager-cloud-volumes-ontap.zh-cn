@@ -184,6 +184,14 @@ DNS 服务器必须为 Active Directory 环境提供名称解析服务。您可�
 
 
 
+=== VPC共享
+
+从9.11.1版开始、具有VPC共享的AWS支持Cloud Volumes ONTAP HA对。通过VPC共享、您的组织可以与其他AWS帐户共享子网。要使用此配置、您必须设置AWS环境、然后使用API部署HA对。
+
+link:task-deploy-aws-shared-vpc.html["了解如何在共享子网中部署HA对"]。
+
+
+
 == 多个 AZs 中 HA 对的要求
 
 其他 AWS 网络要求适用于使用多可用性区域（ Azs ）的 Cloud Volumes ONTAP HA 配置。在启动 HA 对之前，您应查看这些要求，因为在创建工作环境时，您必须在 Cloud Manager 中输入网络详细信息。

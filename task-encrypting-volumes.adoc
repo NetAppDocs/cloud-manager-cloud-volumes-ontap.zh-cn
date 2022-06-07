@@ -51,19 +51,26 @@ TIP: 搜索 * 密钥管理器 * 解决方案。
 . link:task-connecting-to-otc.html["连接到 Cloud Volumes ONTAP 命令行界面"^]。
 . 配置外部密钥管理。
 +
-ifdef::azure[]
+ifdef::aws[]
 
 +
-** link:task-azure-key-vault.html["Azure 密钥存储（ AKV ）"]
+** AWS https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-external-key-management-overview-concept.html["有关说明，请参见 ONTAP 文档"^]
 
 
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Azure 酒店 link:task-azure-key-vault.html["Azure 密钥存储（ AKV ）"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-google-key-manager.html["Google Cloud密钥管理服务"]
+* Google Cloud link:task-google-key-manager.html["Google Cloud密钥管理服务"]
 
 
 endif::gcp[]

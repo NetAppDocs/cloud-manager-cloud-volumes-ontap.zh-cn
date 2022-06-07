@@ -31,13 +31,13 @@ Storage VM 是在 ONTAP 中运行的虚拟机，可为客户端提供存储和�
 
 == 创建Storage VM
 
-您可以在单节点系统或HA对上创建多个Storage VM。请注意、您必须使用Cloud Manager API在HA对上创建Storage VM、而可以使用CLI或System Manager在单节点系统上创建Storage VM。
+如果许可证支持、您可以在单节点系统或HA对上创建多个Storage VM。请注意、您必须使用Cloud Manager API在HA对上创建Storage VM、而可以使用CLI或System Manager在单节点系统上创建Storage VM。
 
 
 
 === 单节点系统
 
-以下步骤将使用命令行界面在单节点系统上创建新的Storage VM。创建 NAS LIF 需要一个专用 IP 地址，如果要创建管理 LIF ，则需要另一个可选专用 IP 地址。
+以下步骤将使用命令行界面在单节点系统上创建新的Storage VM。创建数据LIF需要一个专用IP地址、如果要创建管理LIF、则需要另一个可选专用IP地址。
 
 .步骤
 . 在Google Cloud中、转至Cloud Volumes ONTAP 实例、并为每个LIF添加一个IP范围至nic0。
@@ -90,7 +90,7 @@ network interface create -vserver <svm-name> -lif <lif-name> -role data -data-pr
 +
 [source, cli]
 ----
-vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2
+vserver add-aggregates -vserver <svm-name> -aggregates <aggr1,aggr2>
 ----
 +
 之所以需要执行此步骤，是因为新的 Storage VM 需要至少访问一个聚合，然后才能在 Storage VM 上创建卷。
@@ -133,7 +133,7 @@ vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2
 
 == 管理HA对上的Storage VM
 
-Cloud Manager API还支持重命名和删除Storage VM。
+Cloud Manager API还支持重命名和删除HA对上的Storage VM。
 
 
 
