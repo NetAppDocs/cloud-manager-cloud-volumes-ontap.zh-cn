@@ -309,35 +309,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">简体中文</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">简体中文</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -392,8 +384,6 @@
         
         <a target="_blank" href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/fullsite-sidebar/Cloud_Volumes_ONTAP_文档.pdf" >
           <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
-
-
 
 
 
@@ -490,6 +480,8 @@
             设置网络
           </a>
           
+
+
 
 
 
@@ -743,6 +735,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -852,11 +846,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/AWS_中的管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/AWS管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            AWS 中的管理
+            AWS管理
           </a>
           
 
@@ -883,11 +877,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Azure_中的管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Azure管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Azure 中的管理
+            Azure管理
           </a>
           
 
@@ -914,11 +908,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Google_Cloud_中的管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Google_Cloud管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Google Cloud 中的管理
+            Google Cloud管理
           </a>
           
 
@@ -930,6 +924,8 @@
     
 
   
+
+
 
 
 
@@ -1015,6 +1011,8 @@
             存储
           </a>
           
+
+
 
 
 
@@ -1157,10 +1155,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        所有 Cloud Manager 文档
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/zh-cn/cloud-manager-family/"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/index.html">
         Cloud Volumes ONTAP 文档
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 发行说明</div>
@@ -1190,6 +1188,8 @@
         网络要求
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-setting-up-transit-gateway.html">
         设置 AWS 传输网关
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-deploy-aws-shared-vpc.html">
+        在共享子网中部署HA对
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/reference-security-groups.html">
         AWS 的安全组规则
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html">
@@ -1275,6 +1275,8 @@
         在 AWS 中创建 Storage VM
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html">
         在 Azure 中创建 Storage VM
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-managing-svms-gcp.html">
+        在Google Cloud中创建Storage VM
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 安全性和数据加密</div>
       </a>
@@ -1311,7 +1313,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-deleting-working-env.html">
         删除系统
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> AWS 中的管理</div>
+        <div class="na-navbar-padding"> AWS管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-ec2-instance.html">
         更改 EC2 实例类型
@@ -1320,7 +1322,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-monitoring-costs.html">
         监控 AWS 成本
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> Azure 中的管理</div>
+        <div class="na-navbar-padding"> Azure管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-azure-vm.html">
         更改 Azure 虚拟机类型
@@ -1329,12 +1331,14 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html">
         使用 Azure 专用链路
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> Google Cloud 中的管理</div>
+        <div class="na-navbar-padding"> Google Cloud管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-gcp-machine.html">
         更改计算机类型
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html">
-        通过 System Manager 或 CLI 进行管理
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html">
+        通过System Manager进行管理
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html">
+        通过CLI进行管理
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 系统运行状况和事件</div>
       </a>
@@ -1354,6 +1358,8 @@
         客户端协议
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-storage.html">
         磁盘和聚合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-aws-elastic-volumes.html">
+        AWS中的弹性卷
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html">
         数据分层
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-storage-management.html">
@@ -1463,7 +1469,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-16 17:02:14 +0000">05/16/2022</time>
+    <time datetime="2022-06-07 20:55:53 +0000">06/07/2022</time>
     
   
 
@@ -1578,12 +1584,18 @@
 <div class="paragraph">
 <p>选择 GP3 磁盘时， Cloud Manager 会填充默认 IOPS 和吞吐量值，这些值可根据选定磁盘大小提供与 GP2 磁盘等效的性能。您可以通过增加这些值来以更高的成本获得更高的性能，但我们不支持使用较低的值，因为它可能会导致性能下降。简而言之，请坚持使用默认值或增加默认值。请勿降低。 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type" target="_blank" rel="noopener">"详细了解 GP3 磁盘及其性能"</a>。</p>
 </div>
+<div class="paragraph">
+<p>请注意、Cloud Volumes ONTAP 支持使用GP3磁盘的Amazon EBS弹性卷功能。 <a href="concept-aws-elastic-volumes.html">"了解有关Elastic Volumes支持的更多信息"</a>。</p>
+</div>
 </li>
 <li>
 <p>通用 SSD （ GP2 ） _ 磁盘可平衡各种工作负载的成本和性能。性能是根据 IOPS 来定义的。</p>
 </li>
 <li>
 <p>_Provisioned IOPS SSD （ IO1 ） _ 磁盘适用于需要以较高成本获得最高性能的关键应用程序。</p>
+<div class="paragraph">
+<p>请注意、Cloud Volumes ONTAP 支持使用IO1磁盘的Amazon EBS弹性卷功能。 <a href="concept-aws-elastic-volumes.html">"了解有关Elastic Volumes支持的更多信息"</a>。</p>
+</div>
 </li>
 <li>
 <p>_Throughput Optimized HDD （ st1 ） _ 磁盘适用于需要以更低价格实现快速一致吞吐量的频繁访问的工作负载。</p>
@@ -1607,7 +1619,7 @@
 </dd>
 <dt class="hdlist1">EBS 磁盘大小</dt>
 <dd>
-<p>启动 Cloud Volumes ONTAP 系统时，您需要选择初始磁盘大小。之后，您可以 <a href="concept-storage-management.html">"让 Cloud Manager 为您管理系统的容量"</a>，但如果需要 <a href="task-create-aggregates.html">"自行创建聚合"</a>，请注意以下事项：</p>
+<p>如果您选择的配置不支持 <a href="concept-aws-elastic-volumes.html">"Amazon EBS弹性卷功能"</a>、然后、您需要在启动Cloud Volumes ONTAP 系统时选择初始磁盘大小。之后，您可以 <a href="concept-storage-management.html">"让 Cloud Manager 为您管理系统的容量"</a>，但如果需要 <a href="task-create-aggregates.html">"自行创建聚合"</a>，请注意以下事项：</p>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1625,6 +1637,9 @@
 <p>即使您选择了更大的磁盘（例如六个 4 TiB 磁盘）、但由于 EC2 实例可以达到其带宽限制，因此您可能无法获得全部 IOPS 。</p>
 <div class="paragraph">
 <p>有关 EBS 磁盘性能的详细信息，请参见 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" target="_blank" rel="noopener">"AWS 文档： EBS 卷类型"</a>。</p>
+</div>
+<div class="paragraph">
+<p>如上所述、支持Amazon EBS弹性卷功能的Cloud Volumes ONTAP 配置不支持选择磁盘大小。 <a href="concept-aws-elastic-volumes.html">"了解有关Elastic Volumes支持的更多信息"</a>。</p>
 </div>
 </li>
 </ul>
@@ -1986,4 +2001,5 @@
     </script>
     <script src='/zh-cn/cloud-manager-cloud-volumes-ontap/js/www-ntap.js'></script>
     <script src='/zh-cn/cloud-manager-cloud-volumes-ontap/js/tabbed-blocks.js'></script>
+    <script src='/zh-cn/cloud-manager-cloud-volumes-ontap/js/sidebar.js'></script>
   </body></html>
