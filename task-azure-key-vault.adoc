@@ -147,7 +147,10 @@ Category: kms_wrapped_key_status
 +
 如果`sservice_reachability` status为not `OK`、则SVM无法使用所有必需的连接和权限访问Azure密钥存储服务。在初始配置时、`kms_Wraped_key_status`将报告`unknown`。对第一个卷加密后、其状态将更改为`OK`。
 
-. 可选：创建测试卷以验证AKV的功能。`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`
+. 可选：创建测试卷以验证NVE的功能。
++
+`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`
+
 +
 如果配置正确、Cloud Volumes ONTAP 将自动创建卷并启用卷加密。
 

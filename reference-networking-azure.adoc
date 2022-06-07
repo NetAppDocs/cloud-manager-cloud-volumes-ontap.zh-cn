@@ -76,7 +76,7 @@ Cloud Manager 可设置一个 vNet 服务端点和一个 Azure 专用链路端�
 
 
 
-==== 私有端点
+==== 专用链路
 
 默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全，并可提供性能优势。在大多数情况下，您无需执行任何操作— Cloud Manager 为您管理 Azure 专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。如果需要，您还可以禁用专用链路连接。
 

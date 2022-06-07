@@ -39,45 +39,10 @@ Storage VM 是在 ONTAP 中运行的虚拟机，可为客户端提供存储和�
 
 === 单节点系统
 
-在创建 Storage VM 并分配 LIF 之前，必须在 Azure 中将 IP 地址分配给 nic0 。所需的 IP 地址数量取决于存储协议。
+在创建 Storage VM 并分配 LIF 之前，必须在 Azure 中将 IP 地址分配给 nic0 。
 
-[role="tabbed-block"]
-====
-.iSCSI
---
-* 一个用于 iSCSI 数据 LIF 访问的 IP 地址
-* Storage VM （ SVM ）管理 LIF 的可选 IP 地址
-+
-此管理 LIF 可连接到 SnapCenter 等管理工具。
+您需要为数据 LIF 访问创建一个 IP 地址，并为 Storage VM （ SVM ）管理 LIF 创建另一个可选 IP 地址。此管理 LIF 可连接到 SnapCenter 等管理工具。
 
-
-
---
-.NFS
---
-* 一个用于 NAS 数据 LIF 访问的 IP 地址
-* Storage VM （ SVM ）管理 LIF 的可选 IP 地址
-+
-此管理 LIF 可连接到 SnapCenter 等管理工具。
-
-
-
---
-.SMB
---
-* 一个用于 NAS 数据 LIF 访问的 IP 地址
-* 一个 IP 地址，用于通过 iSCSI LIF 进行 DNS 和 SMB 通信
-+
-为此，我们使用了 iSCSI LIF ，因为它不会在故障转移时迁移。
-
-* Storage VM （ SVM ）管理 LIF 的可选 IP 地址
-+
-此管理 LIF 可连接到 SnapCenter 等管理工具。
-
-
-
---
-====
 .步骤
 . 登录到 Azure 门户并打开 * 虚拟机 * 服务。
 . 单击 Cloud Volumes ONTAP VM 的名称。
@@ -90,9 +55,9 @@ Storage VM 是在 ONTAP 中运行的虚拟机，可为客户端提供存储和�
 +
 最好使用静态 IP 地址，因为静态 IP 可确保 IP 地址不会更改，这有助于防止应用程序发生不必要的中断。
 
-. 如果您使用的是 SMB ，请重复这些步骤为 DNS 和 SMB 通信创建其他 IP 地址。
-. 如果要创建 SVM 管理 LIF ，请重复这些步骤以创建其他 IP 地址。
 
+
+如果要创建 SVM 管理 LIF ，请重复这些步骤以创建其他 IP 地址。
 
 复制刚刚创建的专用 IP 地址。在为新 Storage VM 创建 LIF 时，您需要指定这些 IP 地址。
 
@@ -395,12 +360,6 @@ network route create -destination 0.0.0.0/0 -vserver <svm-name> -gateway <ip-of-
 ----
 network interface create -vserver <svm-name> -lif <lif-name> -role data -data-protocol cifs,nfs -address <nfs--ip-address> -netmask-length <length> -home-node <name-of-node1> -status-admin up -failover-policy disabled -firewall-policy data -home-port e0a -auto-revert true -failover-group Default
 ----
-. 创建提供 DNS 和 SMB 通信所需的 iSCSI LIF ：
-+
-[source, cli]
-----
-network interface create -vserver <svm-name> -home-port e0a -address <iscsi-ip-address> -lif <lif-name> -home-node <name-of-node1> -data-protocol iscsi
-----
 . 可选：创建 Storage VM 管理 LIF 。
 +
 [source, cli]
@@ -478,6 +437,29 @@ vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2
 +
 之所以需要执行此步骤，是因为新的 Storage VM 需要至少访问一个聚合，然后才能在 Storage VM 上创建卷。
 
+. 如果您运行的是Cloud Volumes ONTAP 9.11.1或更高版本、请修改此Storage VM的网络服务策略。
++
+需要修改服务、因为它可以确保Cloud Volumes ONTAP 可以使用iSCSI LIF进行出站管理连接。
+
++
+[source, cli]
+----
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service data-fpolicy-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ad-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-dns-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ldap-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-nis-client
+----
 
 
 --
@@ -531,6 +513,29 @@ vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2
 +
 之所以需要执行此步骤，是因为新的 Storage VM 需要至少访问一个聚合，然后才能在 Storage VM 上创建卷。
 
+. 如果您运行的是Cloud Volumes ONTAP 9.11.1或更高版本、请修改此Storage VM的网络服务策略。
++
+需要修改服务、因为它可以确保Cloud Volumes ONTAP 可以使用iSCSI LIF进行出站管理连接。
+
++
+[source, cli]
+----
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service data-fpolicy-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ad-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-dns-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ldap-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-nis-client
+----
 
 
 --
@@ -600,6 +605,29 @@ vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2
 +
 之所以需要执行此步骤，是因为新的 Storage VM 需要至少访问一个聚合，然后才能在 Storage VM 上创建卷。
 
+. 如果您运行的是Cloud Volumes ONTAP 9.11.1或更高版本、请修改此Storage VM的网络服务策略。
++
+需要修改服务、因为它可以确保Cloud Volumes ONTAP 可以使用iSCSI LIF进行出站管理连接。
+
++
+[source, cli]
+----
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service data-fpolicy-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ad-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-dns-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-ldap-client
+network interface service-policy remove-service -vserver <svm-name> -policy default-data-files -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver <svm-name> -policy default-data-iscsi -service management-nis-client
+----
 
 
 --

@@ -37,6 +37,7 @@ Cloud Manager 提供了多种创建新卷的方法：
 ifdef::aws[]
 
 * 如果要在 AWS 中使用 CIFS 、则必须设置 DNS 和 Active Directory 。有关详细信息，请参见 link:reference-networking-aws.html["Cloud Volumes ONTAP for AWS 的网络要求"]。
+* 如果您的Cloud Volumes ONTAP 配置支持Amazon EBS弹性卷功能、则可能需要 link:concept-aws-elastic-volumes.html["详细了解创建卷时会发生什么情况"]。
 
 
 endif::aws[]

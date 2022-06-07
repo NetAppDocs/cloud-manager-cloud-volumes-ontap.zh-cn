@@ -20,6 +20,96 @@ summary: 了解 Cloud Manager 中 Cloud Volumes ONTAP 管理的新增功能。
 
 
 
+== 2022年6月7日
+
+连接器3.9.19版引入了以下更改。
+
+
+
+=== Cloud Volumes ONTAP 9.11.1
+
+Cloud Manager现在可以部署和管理Cloud Volumes ONTAP 9.11.1、其中包括对新功能的支持以及其他云提供商区域的支持。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["了解此版本 Cloud Volumes ONTAP 中的新增功能"^]
+
+
+
+=== 新建高级视图
+
+如果您需要对Cloud Volumes ONTAP 执行高级管理、可以使用ONTAP 系统管理器来执行此操作、该管理器是随ONTAP 系统提供的一个管理界面。我们直接在Cloud Manager中提供了System Manager界面、因此您无需离开Cloud Manager进行高级管理。
+
+此高级视图可作为Cloud Volumes ONTAP 9.10.0及更高版本的预览版提供。我们计划改进此体验、并在即将发布的版本中添加增强功能。请通过产品内聊天向我们发送反馈。
+
+link:task-administer-advanced-view.html["了解有关高级视图的更多信息"]。
+
+ifdef::aws[]
+
+
+
+=== 支持Amazon EBS弹性卷
+
+Cloud Volumes ONTAP 聚合支持Amazon EBS弹性卷功能、可提高性能并增加容量、同时支持Cloud Manager根据需要自动增加底层磁盘容量。
+
+从_new_ Cloud Volumes ONTAP 9.11.0系统以及GP3和IO1 EBS磁盘类型开始、可支持弹性卷。
+
+link:concept-aws-elastic-volumes.html["了解有关支持弹性卷的更多信息"]。
+
+请注意、要支持弹性卷、需要为Connector提供新的AWS权限：
+
+[source, json]
+----
+"ec2:DescribeVolumesModifications",
+"ec2:ModifyVolume",
+----
+请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。您可以在上找到最新的权限列表 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
+
+
+
+=== 支持在共享AWS子网中部署HA对
+
+Cloud Volumes ONTAP 9.11.1支持AWS VPC共享。通过此版本的Connector、您可以在使用API时在AWS共享子网中部署HA对。
+
+link:task-deploy-aws-shared-vpc.html["了解如何在共享子网中部署HA对"]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== 使用服务端点时网络访问受限
+
+现在、当使用vNet服务端点在Cloud Volumes ONTAP 和存储帐户之间建立连接时、Cloud Manager会限制网络访问。如果禁用Azure Private Link连接、Cloud Manager将使用服务端点。
+
+link:task-enabling-private-link.html["了解有关使用Cloud Volumes ONTAP 连接Azure专用链路的更多信息"]。
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== 支持在Google Cloud中创建Storage VM
+
+从9.11.1版开始、Google Cloud中的Cloud Volumes ONTAP 现在支持多个Storage VM。从此版本的Connector开始、您可以通过Cloud Manager使用API在Google Cloud中的Cloud Volumes ONTAP HA对上创建Storage VM。
+
+要支持创建Storage VM、需要为Connector提供新的Google Cloud权限：
+
+[source, yaml]
+----
+- compute.instanceGroups.get
+- compute.addresses.get
+----
+请注意、您必须使用ONTAP 命令行界面或系统管理器在单节点系统上创建Storage VM。
+
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html#storage-vm-limits["详细了解Google Cloud中的Storage VM限制"^]
+* link:task-managing-svms-gcp.html["了解如何在Google Cloud中为Cloud Volumes ONTAP 创建提供数据的Storage VM"]
+
+
+endif::gcp[]
+
+
+
 == 2022年5月2日
 
 连接器3.9.18版引入了以下变更。

@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: task-deploy-aws-shared-vpc.html 
+keywords: shared vpc, aws shared vpc, vpc sharing, shared subnet, deploy shared vpc, assume role 
+summary: 具有VPC共享的AWS支持Cloud Volumes ONTAP HA对。通过VPC共享、您的组织可以与其他AWS帐户共享子网。要使用此配置、您必须设置AWS环境、然后使用API部署HA对。 
+---
+= 在共享子网中部署HA对
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+具有VPC共享的AWS支持Cloud Volumes ONTAP HA对。通过VPC共享、您的组织可以与其他AWS帐户共享子网。要使用此配置、您必须设置AWS环境、然后使用API部署HA对。
+
+使用 https://aws.amazon.com/blogs/networking-and-content-delivery/vpc-sharing-a-new-approach-to-multiple-accounts-and-vpc-management/["VPC共享"^]、一个Cloud Volumes ONTAP HA配置分布在两个帐户中：
+
+* 拥有网络(VPC、子网和路由表)的VPC所有者帐户
+* 参与者帐户、其中EC2实例部署在共享子网中(包括两个HA节点和调解器)
+
+
+如果Cloud Volumes ONTAP HA配置部署在多个可用性区域中、则HA调解器需要特定的权限来写入VPC所有者帐户中的路由表。您需要通过设置调解器可以承担的IAM角色来提供这些权限。
+
+.步骤
+. 创建IAM角色。
++
+.. 转到参与者帐户中要为Cloud Volumes ONTAP 部署EC2实例的IAM控制台。
+.. 在访问管理下，单击 * 角色 > 创建角色 * ，然后按照步骤创建角色。
++
+请务必执行以下操作：
+
++
+*** 在 * 可信实体类型 * 下，选择 * AWS 帐户 * 。
+*** 选择*其他AWS帐户*并输入VPC所有者帐户的ID。
+*** 使用 Cloud Manager IAM 策略创建策略，该策略可从获得 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
+
+
+.. 复制IAM角色的角色ARN、以便在部署HA对时将其粘贴到API请求中。
+
+
+. 与参与者帐户共享VPC所有者帐户中的子网。
++
+要在共享子网中部署HA对、需要执行此步骤。
+
++
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html#vpc-sharing-share-subnet["AWS文档：共享子网"^]
+
+. 在VPC所有者帐户中、为Cloud Volumes ONTAP 创建一个安全组。
++
+link:reference-security-groups.html["请参见Cloud Volumes ONTAP 的安全组规则"]。请注意、您不需要为HA调解器创建安全组。云管理器可以为您提供这种功能。
+
+. 使用API创建新的Cloud Volumes ONTAP 工作环境、并在"haParams"对象中传递"asumeRoleArn"字段。
++
+[source, json]
+----
+"haParams": {
+     “assumeRoleArn”: “arn:aws:iam::642991768967:role/mediator_role_assume_fromdev”
+}
+----
++
+https://docs.netapp.com/us-en/cloud-manager-automation/cm/overview.html["了解Cloud Volumes ONTAP API"^]
+
+

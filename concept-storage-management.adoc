@@ -35,6 +35,14 @@ CAUTION: 必须直接从 Cloud Manager 创建和删除所有磁盘和聚合。�
 
 * 它将卷放置在现有聚合上、该聚合具有足够的可用空间。
 * 它通过为该聚合购买更多磁盘将卷放在现有聚合上。
+
+
+ifdef::aws[]
+
++如果AWS中的聚合支持弹性卷、则Cloud Manager还会增加RAID组中磁盘的大小。 link:concept-aws-elastic-volumes.html["了解有关支持弹性卷的更多信息"]。
+
+endif::aws[]
+
 * 它为新聚合购买磁盘并将卷置于该聚合上。
 
 
@@ -51,7 +59,7 @@ ifdef::aws[]
 
 当 Cloud Manager 在 AWS 中为 Cloud Volumes ONTAP 创建新聚合时，随着系统中聚合的数量的增加，它会逐渐增加聚合中的磁盘大小。Cloud Manager 这样做是为了确保您可以在系统容量达到 AWS 允许的最大数据磁盘数之前利用系统的最大容量。
 
-例如、 Cloud Manager 可能会为 Cloud Volumes ONTAP Premium 或 BYOL 系统中的聚合选择以下磁盘大小：
+例如、Cloud Manager可以选择以下磁盘大小：
 
 [cols="3*"]
 |===
@@ -66,6 +74,9 @@ ifdef::aws[]
 
 | 6. | 2 TiB | 12 TiB 
 |===
+
+NOTE: 此行为不适用于支持Amazon EBS弹性卷功能的聚合。启用了弹性卷的聚合由一个或两个RAID组组成。每个RAID组都有四个容量相同的相同磁盘。 link:concept-aws-elastic-volumes.html["了解有关支持弹性卷的更多信息"]。
+
 您可以使用高级分配选项自行选择磁盘大小。
 
 endif::aws[]
@@ -93,6 +104,14 @@ endif::aws[]
 * 如果某个聚合达到容量阈值且有空间容纳更多磁盘、则Cloud Manager会自动为该聚合购买新磁盘、以便卷可以继续增长。
 +
 Cloud Manager 每 15 分钟检查一次可用空间比率，以确定是否需要购买更多磁盘。
+
+
+
+ifdef::aws[]
+
++如果AWS中的聚合支持弹性卷、则Cloud Manager还会增加RAID组中磁盘的大小。 link:concept-aws-elastic-volumes.html["了解有关支持弹性卷的更多信息"]。
+
+endif::aws[]
 
 * 如果聚合达到容量阈值且无法支持任何其他磁盘、Cloud Manager会自动将卷从该聚合移动到具有可用容量的聚合或新聚合。
 +

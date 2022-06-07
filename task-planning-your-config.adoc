@@ -77,8 +77,14 @@ EBS 磁盘类型:: 在较高级别上、 EBS 磁盘类型之间的区别如下�
 +
 选择 GP3 磁盘时， Cloud Manager 会填充默认 IOPS 和吞吐量值，这些值可根据选定磁盘大小提供与 GP2 磁盘等效的性能。您可以通过增加这些值来以更高的成本获得更高的性能，但我们不支持使用较低的值，因为它可能会导致性能下降。简而言之，请坚持使用默认值或增加默认值。请勿降低。 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type["详细了解 GP3 磁盘及其性能"^]。
 
++
+请注意、Cloud Volumes ONTAP 支持使用GP3磁盘的Amazon EBS弹性卷功能。 link:concept-aws-elastic-volumes.html["了解有关Elastic Volumes支持的更多信息"]。
+
 * 通用 SSD （ GP2 ） _ 磁盘可平衡各种工作负载的成本和性能。性能是根据 IOPS 来定义的。
 * _Provisioned IOPS SSD （ IO1 ） _ 磁盘适用于需要以较高成本获得最高性能的关键应用程序。
++
+请注意、Cloud Volumes ONTAP 支持使用IO1磁盘的Amazon EBS弹性卷功能。 link:concept-aws-elastic-volumes.html["了解有关Elastic Volumes支持的更多信息"]。
+
 * _Throughput Optimized HDD （ st1 ） _ 磁盘适用于需要以更低价格实现快速一致吞吐量的频繁访问的工作负载。
 +
 
@@ -87,7 +93,7 @@ NOTE: 使用吞吐量优化型 HDD （ st1 ）时，不建议将数据分层到�
 
 
 --
-EBS 磁盘大小:: 启动 Cloud Volumes ONTAP 系统时，您需要选择初始磁盘大小。之后，您可以 link:concept-storage-management.html["让 Cloud Manager 为您管理系统的容量"]，但如果需要 link:task-create-aggregates.html["自行创建聚合"]，请注意以下事项：
+EBS 磁盘大小:: 如果您选择的配置不支持 link:concept-aws-elastic-volumes.html["Amazon EBS弹性卷功能"]、然后、您需要在启动Cloud Volumes ONTAP 系统时选择初始磁盘大小。之后，您可以 link:concept-storage-management.html["让 Cloud Manager 为您管理系统的容量"]，但如果需要 link:task-create-aggregates.html["自行创建聚合"]，请注意以下事项：
 +
 --
 * 聚合中的所有磁盘大小必须相同。
@@ -97,6 +103,9 @@ EBS 磁盘大小:: 启动 Cloud Volumes ONTAP 系统时，您需要选择初始�
 +
 有关 EBS 磁盘性能的详细信息，请参见 http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["AWS 文档： EBS 卷类型"^]。
 
++
+如上所述、支持Amazon EBS弹性卷功能的Cloud Volumes ONTAP 配置不支持选择磁盘大小。 link:concept-aws-elastic-volumes.html["了解有关Elastic Volumes支持的更多信息"]。
+
 
 
 --
@@ -104,7 +113,7 @@ EBS 磁盘大小:: 启动 Cloud Volumes ONTAP 系统时，您需要选择初始�
 
 有关在 AWS 中调整 Cloud Volumes ONTAP 系统规模的更多详细信息，请观看以下视频：
 
-video::GELcXmOuYPw[youtube, width=848,height=480]
+video::GELcXmOuYPw[youtube,width=848,height=480]
 
 
 == 查看默认系统磁盘

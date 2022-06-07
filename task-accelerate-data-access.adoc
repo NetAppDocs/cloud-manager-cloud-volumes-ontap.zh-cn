@@ -26,4 +26,4 @@ Cloud Manager 目前不提供 FlexCache 卷的管理，但您可以使用 ONTAP 
 
 从 3.7.2 版开始， Cloud Manager 将为所有新的 Cloud Volumes ONTAP 系统生成 FlexCache 许可证。此许可证包含 500 GiB 的使用量限制。
 
-video::PBNPVRUeT1o[youtube, width=848,height=480]
+video::PBNPVRUeT1o[youtube,width=848,height=480]

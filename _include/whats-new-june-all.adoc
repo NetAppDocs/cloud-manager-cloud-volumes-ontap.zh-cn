@@ -1,0 +1,21 @@
+= Cloud Volumes ONTAP 9.11.1
+:allow-uri-read: 
+
+
+
+
+=== Cloud Volumes ONTAP 9.11.1
+
+Cloud Manager现在可以部署和管理Cloud Volumes ONTAP 9.11.1、其中包括对新功能的支持以及其他云提供商区域的支持。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["了解此版本 Cloud Volumes ONTAP 中的新增功能"^]
+
+
+
+=== 新建高级视图
+
+如果您需要对Cloud Volumes ONTAP 执行高级管理、可以使用ONTAP 系统管理器来执行此操作、该管理器是随ONTAP 系统提供的一个管理界面。我们直接在Cloud Manager中提供了System Manager界面、因此您无需离开Cloud Manager进行高级管理。
+
+此高级视图可作为Cloud Volumes ONTAP 9.10.0及更高版本的预览版提供。我们计划改进此体验、并在即将发布的版本中添加增强功能。请通过产品内聊天向我们发送反馈。
+
+link:task-administer-advanced-view.html["了解有关高级视图的更多信息"]。

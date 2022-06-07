@@ -473,7 +473,6 @@
   <block id="65d07c0479237159daf22849e998b18c" category="admonition">帐户管理员可以从 * 设置 * 页面修改可用空间阈值。</block>
   <block id="954f6e939470d2d9311a80662ca4d02c" category="section-title">AWS 中聚合的磁盘大小选择</block>
   <block id="b3f765435c76bcf5e82649e1cf8cdf05" category="paragraph">当 Cloud Manager 在 AWS 中为 Cloud Volumes ONTAP 创建新聚合时，随着系统中聚合的数量的增加，它会逐渐增加聚合中的磁盘大小。Cloud Manager 这样做是为了确保您可以在系统容量达到 AWS 允许的最大数据磁盘数之前利用系统的最大容量。</block>
-  <block id="56f9343c98c41a75244ba7f57422c1ee" category="paragraph">例如、 Cloud Manager 可能会为 Cloud Volumes ONTAP Premium 或 BYOL 系统中的聚合选择以下磁盘大小：</block>
   <block id="bb9369920f48ccd809746c237f259822" category="cell">聚合编号</block>
   <block id="f308e6ca453d47a2876df6eae740d8f8" category="cell">Disk size</block>
   <block id="d5dc06ae68551044e742ef0c9c74a4ee" category="cell">最大聚合容量</block>
@@ -1160,14 +1159,7 @@
   <block id="f82fe496603bf204ff4b4b1c2f2016dc" category="paragraph"><block ref="f82fe496603bf204ff4b4b1c2f2016dc" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5e09b978da9c03ac56e9ae009a493fb2" category="list-text">选择一个 NetApp 支持站点帐户，然后单击 * 注册 * 。</block>
   <block id="7323c95986e1d39c2cd9db2d73aada05" category="paragraph">Cloud Manager 将系统注册到 NetApp 。</block>
-  <block id="4dfabb9a74a517d95b15695d846b0944" category="summary">如果您需要对 Cloud Volumes ONTAP 执行高级管理、则可以使用 ONTAP System Manager 或命令行界面执行此操作。</block>
-  <block id="cadd82fb79e2226fff6bf6cfb889bd39" category="section-title">正在连接到 System Manager</block>
-  <block id="f07d90bbfefc445d1cb078ac5046d7cc" category="paragraph">您可能需要从 System Manager 执行某些 Cloud Volumes ONTAP 任务， System Manager 是一种基于浏览器的管理工具，可在 Cloud Volumes ONTAP 系统上运行。例如，如果要创建 LUN ，则需要使用 System Manager 。</block>
   <block id="b11c90fa5b1825891f7306cced59a8f6" category="paragraph">要从其访问 Cloud Manager 的计算机必须与 Cloud Volumes ONTAP 建立网络连接。例如，您可能需要从云提供商网络中的跳转主机登录到 Cloud Manager 。</block>
-  <block id="bc50e2c8c6842f075870ca9f893488d7" category="admonition">在多个 AWS 可用性区域中部署时、 Cloud Volumes ONTAP HA 配置将浮动 IP 地址用于集群管理界面、这意味着外部路由不可用。您必须从属于同一路由域的主机进行连接。</block>
-  <block id="7587e47fb1fdfd160b82df32e24fa40e" category="list-text">在登录屏幕的 "User Name" 字段中输入 * 管理 * ，输入创建工作环境时指定的密码，然后单击 * 登录 * 。</block>
-  <block id="a3203a051e5a85d3cb527a2c606eeda2" category="paragraph">系统管理器控制台即会加载。您现在可以使用它来管理 Cloud Volumes ONTAP 。</block>
-  <block id="ef51c06afbfb97dceda87a3df6d89d3e" category="section-title">连接到 Cloud Volumes ONTAP CLI</block>
   <block id="ce526ab58111a5389fb309107879b9a8" category="paragraph">Cloud Volumes ONTAP 命令行界面可用于运行所有管理命令，也是执行高级任务或使用命令行界面更自如的理想选择。您可以使用 Secure Shell （ SSH ）连接到 CLI 。</block>
   <block id="3b1f07734e1995c8bb4477cd9ebabf4d" category="admonition">当部署在多个 Azs 中时、 Cloud Volumes ONTAP HA 配置将浮动 IP 地址用于集群管理界面、这意味着外部路由不可用。您必须从属于同一路由域的主机进行连接。</block>
   <block id="6ad94be4e63b3d4783fdd1f854b7bbdf" category="list-text">在 Cloud Manager 中，确定集群管理界面的 IP 地址：</block>
@@ -1190,9 +1182,7 @@
   <block id="8e0363ea5260615f78f973b9445db868" category="paragraph">默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全，并可提供性能优势。<block ref="451e081c1e4ac441ce13c50d13222051" category="inline-link-rx"></block>。</block>
   <block id="bd61dd2687bcf08b472b11c632177da1" category="paragraph">在大多数情况下，您无需执行任何操作— Cloud Manager 为您管理 Azure 专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。如果需要，您还可以禁用专用链路连接。</block>
   <block id="1bf0dfe526c6a7cc50e0e7cd24f46087" category="section-title">连接器在 Azure 中的位置</block>
-  <block id="6882deeb4b60915fc6b7a36d03f329e3" category="inline-link-macro">了解 Cloud Volumes ONTAP 如何使用 Azure 专用链路</block>
   <block id="573514d5de621ecfe56c91e7c665d73d" category="inline-link">Azure 区域对</block>
-  <block id="9a748334957b0a70bb0c68285db6fa74" category="paragraph">此连接器应部署在与其管理的 Cloud Volumes ONTAP 系统所在的同一 Azure 区域或中<block ref="71e0e9a7366955554f0600c5ea8cfc7f" category="inline-link-rx"></block> 对于 Cloud Volumes ONTAP 系统。此要求可确保在 Cloud Volumes ONTAP 与其关联存储帐户之间使用 Azure 专用链路连接。 <block ref="fb7e043720e28bdcd37f42327d3b6a7c" category="inline-link-macro-rx"></block>。</block>
   <block id="b12da0384eea760e143d1a41fe2484f9" category="section-title">专用链路连接如何与 Cloud Volumes ONTAP 配合使用</block>
   <block id="188ce8053291c28108253bf30f90ac2e" category="paragraph">当 Cloud Manager 在 Azure 中部署 Cloud Volumes ONTAP 时，它会在资源组中创建一个私有端点。专用端点与 Cloud Volumes ONTAP 的存储帐户关联。因此，对 Cloud Volumes ONTAP 存储的访问会通过 Microsoft 主干网络进行。</block>
   <block id="b2de829903c040e99b02d3d155ca0528" category="paragraph">如果客户端与 Cloud Volumes ONTAP 位于同一个 vNet 中，位于对等 VNets 中，或者使用专用 VPN 或 ExpressRoute 连接到 VNet ，则客户端访问将通过专用链路进行。</block>
@@ -2132,7 +2122,6 @@
   <block id="faba202f20e7ef67ff97d9097e268982" category="section-title">AWS 存储</block>
   <block id="699a53f8b6c691bbc6e437ae620685f7" category="paragraph">在 AWS 中， Cloud Volumes ONTAP 将 EBS 存储用于用户数据，并将本地 NVMe 存储用作某些 EC2 实例类型的 Flash Cache 。</block>
   <block id="274282151718f163e0f1ba6da8588d2f" category="list-text">EBS 存储</block>
-  <block id="ca68d847e41b650021b91ed75c8493db" category="list-text">在 AWS 中，一个聚合最多可以包含 6 个大小相同的磁盘。最大磁盘大小为 16 TiB 。</block>
   <block id="3b4f2c0ef76da93b9a05416912b2ab5e" category="inline-link-macro">将非活动数据分层到低成本对象存储</block>
   <block id="c2bd9a205e3f7a9d01f0534822cbff80" category="paragraph">底层 EBS 磁盘类型可以是通用 SSD （ GP3 或 GP2 ），配置的 IOPS SSD （ IO1 ）或吞吐量优化型 HDD （ st1 ）。您可以将 EBS 磁盘与 Amazon S3 配对 <block ref="767b2bdd82880da72a9a5d87e1fd40da" category="inline-link-macro-rx"></block>。</block>
   <block id="97329aff812b28715c211efe44a78032" category="list-text">本地 NVMe 存储</block>
@@ -2396,8 +2385,6 @@
   <block id="c165494898bc0fbf27151d6359a27936" category="doc">创建聚合</block>
   <block id="67ea3f429e13cb33e66f1359eb85cc04" category="list-text">在 " 画布 " 页面上，双击要管理聚合的 Cloud Volumes ONTAP 实例的名称。</block>
   <block id="ff4facf1a49a9f339fdb4bf4880c23f1" category="list-text">单击 * 添加聚合 * ，然后指定聚合的详细信息。</block>
-  <block id="ce1b95f9c35ae7fd7dcc22c874f3cc92" category="inline-link-macro">规划配置</block>
-  <block id="76e2a146d34fc80c0a943f367c0770e3" category="paragraph">有关磁盘类型和磁盘大小的帮助，请参见 <block ref="99028d1ab62a944a2c3b1c911a56ff71" category="inline-link-macro-rx"></block>。</block>
   <block id="833ac412ce32368430680596235b2009" category="list-text">单击 * 执行 * ，然后单击 * 批准和购买 * 。</block>
   <block id="8849800272cf8bb1e1352cd12be62c6c" category="summary">Cloud Manager 创建了包含 Cloud Manager 和 Cloud Volumes ONTAP 成功运行所需的入站和出站规则的 AWS 安全组。您可能需要参考端口进行测试，或者需要使用自己的端口。</block>
   <block id="ff12fe6f5d97035a37481ab9694afb95" category="doc">AWS 的安全组规则</block>
@@ -2568,7 +2555,6 @@
   <block id="6086d4cf524bacd53da2671f87d5c871" category="paragraph">这些权限包含在最新版本中<block ref="7fc49a88d4bedbc1252c1f5516a8dc2a" category="inline-link-rx"></block>。</block>
   <block id="465b92b3276cc18a4183d48ccf476d6a" category="inline-link-macro">将冷数据分层到低成本对象存储</block>
   <block id="79ca01fd3e60b76b5eebac3fb00bd4ed" category="paragraph">有关设置数据分层的详细信息，请参见 <block ref="9ae9bcf59853ba48ce2658a41db24feb" category="inline-link-macro-rx"></block>。</block>
-  <block id="b91716a078dd589477b99935ea53a9b0" category="section-title">私有端点</block>
   <block id="a56bcaf1bc0c36eb9ba172b30e0301c3" category="paragraph">默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全，并可提供性能优势。在大多数情况下，您无需执行任何操作— Cloud Manager 为您管理 Azure 专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。如果需要，您还可以禁用专用链路连接。</block>
   <block id="87b7d9ff8a42dbb6c0bcd13ae09f6010" category="section-title">连接到其他 ONTAP 系统</block>
   <block id="29a865e45adc910f0644ded74b229df8" category="inline-link">Microsoft Azure 文档：在 Azure 门户中创建站点到站点连接</block>
@@ -3048,7 +3034,6 @@
   <block id="321914d0fbcf9c45a3ea6a27f4c01ca0" category="list-text">EBS 磁盘大小</block>
   <block id="eaaca06e2ffe7fbec746e43258afdc54" category="inline-link-macro">让 Cloud Manager 为您管理系统的容量</block>
   <block id="191b65483363110aa6f035bd4c92d166" category="inline-link-macro">自行创建聚合</block>
-  <block id="ebd09406e229a7a0a15318dfb8a18a20" category="list-text">启动 Cloud Volumes ONTAP 系统时，您需要选择初始磁盘大小。之后，您可以 <block ref="7ea57dc79d65fd61f045c2bf970d7bfe" category="inline-link-macro-rx"></block>，但如果需要 <block ref="aeb7edffc7af212c1371b19a0140cdff" category="inline-link-macro-rx"></block>，请注意以下事项：</block>
   <block id="4e401b0a78c972fda61a913355ea8a80" category="list-text">EBS 磁盘的性能取决于磁盘大小。该大小决定了 SSD 磁盘的基准 IOPS 和最大突发持续时间以及 HDD 磁盘的基准和突发吞吐量。</block>
   <block id="42ba4ecf0d44d7f0f8b1f23fcd9240ed" category="list-text">最后，您应选择磁盘大小，以获得所需的 _stimed_perform性 能。</block>
   <block id="144201862f58fd8327905be75f594393" category="list-text">即使您选择了更大的磁盘（例如六个 4 TiB 磁盘）、但由于 EC2 实例可以达到其带宽限制，因此您可能无法获得全部 IOPS 。</block>
@@ -3207,7 +3192,6 @@
   <block id="611a1fa2f8a37527bbcb1f0228321b4d" category="list-text">选择 VM 类型，选中复选框以确认您了解更改的含义，然后单击 * 确定 * 。</block>
   <block id="3c10116b37b407ac79092a38ffb292e4" category="summary">在向 NetApp 技术支持创建支持案例之前，您需要先将 NetApp 支持站点帐户添加到 Cloud Manager 中，然后注册获取支持。</block>
   <block id="42748df9eaa0be17ddc5cc1593cf57ab" category="doc">注册以获得支持</block>
-  <block id="7ff191df90fac0fa94ab5c2b5101a5e9" category="sidebar">所有 Cloud Manager 文档</block>
   <block id="2971acb1ab572cfb61b7c86d49e2b300" category="sidebar">Cloud Volumes ONTAP 文档</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">发行说明</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
@@ -3247,17 +3231,13 @@
   <block id="fa1ae707ae125c3e33b5791a0beb374e" category="sidebar">添加现有系统</block>
   <block id="a9e825fa00a6490b83a7ab53e320af9a" category="sidebar">删除工作环境</block>
   <block id="be62ee4908c8d3dca05c47093c17858d" category="sidebar">删除系统</block>
-  <block id="88c4daa57949b9f8bdb968d773a460f9" category="sidebar">AWS 中的管理</block>
   <block id="0edcab2caeaab556e980f6a3212d51d3" category="sidebar">更改 EC2 实例类型</block>
   <block id="a96911d11ce21851c5394b372bc85f56" category="sidebar">更改 HA 对的路由表</block>
   <block id="8819d055e4c3008377d8247600c4b4e5" category="sidebar">监控 AWS 成本</block>
-  <block id="419b109f5e7e2bcd226cf075f556c655" category="sidebar">Azure 中的管理</block>
   <block id="8b1d624f794355ece665dd67c7ae9471" category="sidebar">更改 Azure 虚拟机类型</block>
   <block id="1755d74bde1ae25f7eaa96466419ce0c" category="sidebar">覆盖 CIFS 锁定</block>
   <block id="617e8eb58cebd5170335b12c077046d6" category="sidebar">使用 Azure 专用链路</block>
-  <block id="6a778631795880c14e1b8769b042ef7b" category="sidebar">Google Cloud 中的管理</block>
   <block id="57478f8fdb7096e76f6786fa003c8e66" category="sidebar">更改计算机类型</block>
-  <block id="e38fef34b2da390630fff994799681dc" category="sidebar">通过 System Manager 或 CLI 进行管理</block>
   <block id="099296bb7dee483863d545646b59496c" category="sidebar">系统运行状况和事件</block>
   <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">概念</block>
   <block id="8c4aa541ee911e8d80451ef8cc304806" category="sidebar">存储</block>
@@ -3420,12 +3400,6 @@
   <block id="40bf45be09da9df22806f3324816106f" category="cell">AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computers 。要将 Google Managed Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 * OU=Computers ， OU=Cloud* 。<block ref="8e7507132642e39310c024b1b990cf52" category="inline-link-rx"></block></block>
   <block id="e4db2787e7af2ca8c09486148b05c8e4" category="list-text">从目标系统登录到 System Manager 。</block>
   <block id="1bce083b19f5671fb510debd0f3e2ebb" category="paragraph">您可以通过将 Web 浏览器指向集群管理 LIF 的 IP 地址来登录到 System Manager 。您可以在 Cloud Volumes ONTAP 工作环境中找到 IP 地址。</block>
-  <block id="a646a80e76f72b13f2cee97e769c5030" category="doc">使用 System Manager 或 CLI</block>
-  <block id="0c0ce3241df32dee76208cf9ff12a089" category="list-text">在 " 画布 " 中，选择 Cloud Volumes ONTAP 工作环境。</block>
-  <block id="6199ed87a5c284fc6c96c4e407ddc2f0" category="list-text">在右侧窗格中，单击信息图标并复制集群管理 IP 。</block>
-  <block id="209dd9c5f51e29f38bd51ffe692ab25b" category="inline-image-macro">Cloud Volumes ONTAP 工作环境的 " 画布 " 上显示的信息图标的屏幕截图。</block>
-  <block id="508479659d1c4cbd35007e03e8274c60" category="paragraph"><block ref="508479659d1c4cbd35007e03e8274c60" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="46d765dd07540dedc3fb62a81ca5191e" category="list-text">在与 Cloud Volumes ONTAP 建立网络连接的计算机上打开 Web 浏览器，然后输入 IP 地址。</block>
   <block id="97106e7449f4966fc1e4b3b78d425110" category="section-title">已删除 System Manager 链接</block>
   <block id="249f6fd27ec465f7b6af7dc12178a1ea" category="paragraph">我们已删除先前在 Cloud Volumes ONTAP 工作环境中提供的 System Manager 链接。</block>
   <block id="1979125e36e7d7c49ca297e15301d908" category="inline-link">了解有关连接到 System Manager 的更多信息</block>
@@ -3433,14 +3407,8 @@
   <block id="5e10fd94744d67ee9b4af8576d7d871b" category="paragraph">从 9.9.0 版开始，特定 Cloud Volumes ONTAP 配置支持多个 Storage VM 。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</block>
   <block id="b06a344c267b8ee73a6d4d78ace617ea" category="paragraph">在创建 Storage VM 和分配 LIF 之前，您需要在 Azure 中分配 IP 地址。</block>
   <block id="0ecbfe2cb5b1df888639e1751cec905a" category="section-title">单节点系统</block>
-  <block id="49da92f2dba049d8208289b0992f5eea" category="paragraph">在创建 Storage VM 并分配 LIF 之前，必须在 Azure 中将 IP 地址分配给 nic0 。所需的 IP 地址数量取决于存储协议。</block>
-  <block id="0afcee1178b91716c388f1396185ac6f" category="list-text">一个用于 iSCSI 数据 LIF 访问的 IP 地址</block>
   <block id="d9fa1bba25e264315bb45a5db857089c" category="list-text">Storage VM （ SVM ）管理 LIF 的可选 IP 地址</block>
   <block id="0212110e6e591f399e46a0a33621323b" category="paragraph">此管理 LIF 可连接到 SnapCenter 等管理工具。</block>
-  <block id="eec85f955016d792db9f5b3484d9ed93" category="list-text">一个用于 NAS 数据 LIF 访问的 IP 地址</block>
-  <block id="6790f564ef647fd6702f6e6f05bf9f56" category="list-text">一个 IP 地址，用于通过 iSCSI LIF 进行 DNS 和 SMB 通信</block>
-  <block id="fffed9c5a0bdaa00d58449115b30129f" category="paragraph">为此，我们使用了 iSCSI LIF ，因为它不会在故障转移时迁移。</block>
-  <block id="59411573b05f8ba9bff2c6ebef3042a6" category="list-text">如果您使用的是 SMB ，请重复这些步骤为 DNS 和 SMB 通信创建其他 IP 地址。</block>
   <block id="3fc61f795c4036debc9bbee70495f5d3" category="list-text">如果要创建 SVM 管理 LIF ，请重复这些步骤以创建其他 IP 地址。</block>
   <block id="556696d309aaf81ce29c6a76f8f8a503" category="section-title">HA 对</block>
   <block id="8ebc8557356a6ebd39c4dd48a6f84931" category="paragraph">如何为 HA 对分配 IP 地址取决于您使用的存储协议。</block>
@@ -3460,7 +3428,6 @@
   <block id="5683cfda0c67cd1651e904160b0a5460" category="paragraph">如何在单节点系统上创建 Storage VM 和 LIF 取决于所使用的存储协议。</block>
   <block id="2d376cf045c4838856b9429d7fecf7a5" category="paragraph">按照以下步骤创建新的 Storage VM 以及所需的 LIF 。</block>
   <block id="070ee68a98b928bc45bc4178848e21da" category="list-text">创建数据 LIF ：</block>
-  <block id="7e0c9dfe920929d81d8d5761b763bb63" category="list-text">创建提供 DNS 和 SMB 通信所需的 iSCSI LIF ：</block>
   <block id="b41808a70de11f6ad8400c22ebe933f1" category="paragraph">如何在 HA 对上创建 Storage VM 和 LIF 取决于所使用的存储协议。</block>
   <block id="83871791a7611e5a981ec0b38a662078" category="list-text">使用以下命令在节点 2 上创建 iSCSI LIF 。</block>
   <block id="0cffe85429bb79552ce3607190d9dbad" category="list-text">使用以下命令在节点 2 上创建 NAS LIF 。</block>
@@ -3880,7 +3847,6 @@
   <block id="c1c335737025d8b2354cceafcdabea4e" category="list-text">导航到"**服务端点"*标题。在下拉菜单中、从列表中选择"4.microsoft.AzureActiveDirectory"。</block>
   <block id="23b8cf63899cafd6a9d0b32fbdc5c6e8" category="list-text">选择"*保存"*以捕获设置。</block>
   <block id="5bfda0e2440a8346cbb089805c29d898" category="list-title">Cloud Volumes ONTAP 配置</block>
-  <block id="293327de56819bbcc6bac1b0f0d39eb5" category="list-text">可选：创建测试卷以验证AKV的功能。`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`</block>
   <block id="89fe433ed203b193e97ffc51ade125be" category="paragraph">如果配置正确、Cloud Volumes ONTAP 将自动创建卷并启用卷加密。</block>
   <block id="2f88a80d163d0a89ca5ecdf817af1f14" category="list-text">C2S环境不支持免费许可证。</block>
   <block id="5e31f4e44c9ec2b42878b12dff64c9fb" category="paragraph">可以使用命令行界面或ONTAP REST API启用Cloud KMS的密钥管理。</block>
@@ -3907,4 +3873,257 @@
   <block id="54d3d71e00eff1d12a7498874b5be642" category="list-text">`set d`</block>
   <block id="c616900ae748d4dd41ba80df7406dd9b" category="list-text">`systemshell -node _node_-command tail -f /mroot/etc/log/mlog/kmip2_client.log`</block>
   <block id="397841d9dc0e87fae94bd33b988bf92f" category="sidebar">使用Google Cloud KMS管理密钥</block>
+  <block id="f8b475a3fefebada77a30229238d0a1a" category="section-title">2022年6月7日</block>
+  <block id="650bbb3fd1c3ec1cf13fbf6dc440ce1c" category="paragraph">连接器3.9.19版引入了以下更改。</block>
+  <block id="daa1014700acb24b76e93296bfc813fb" category="section-title">Cloud Volumes ONTAP 9.11.1</block>
+  <block id="5422eb6b3ee88eee2b931a6c1ae61c0d" category="paragraph">Cloud Manager现在可以部署和管理Cloud Volumes ONTAP 9.11.1、其中包括对新功能的支持以及其他云提供商区域的支持。</block>
+  <block id="0d69949c9de36f8752d49be7f0ec9aed" category="paragraph"><block ref="0d69949c9de36f8752d49be7f0ec9aed" category="inline-link-rx"></block></block>
+  <block id="ffe3ec3b5faef58a758d9449470882a0" category="section-title">新建高级视图</block>
+  <block id="129cb997dac90f5eb582bd49d3cae82c" category="paragraph">如果您需要对Cloud Volumes ONTAP 执行高级管理、可以使用ONTAP 系统管理器来执行此操作、该管理器是随ONTAP 系统提供的一个管理界面。我们直接在Cloud Manager中提供了System Manager界面、因此您无需离开Cloud Manager进行高级管理。</block>
+  <block id="07bba549da0c5d9af2f0531199cb73e0" category="paragraph">此高级视图可作为Cloud Volumes ONTAP 9.10.0及更高版本的预览版提供。我们计划改进此体验、并在即将发布的版本中添加增强功能。请通过产品内聊天向我们发送反馈。</block>
+  <block id="f303a87fe6efba259b752f5a9e11064b" category="inline-link-macro">了解有关高级视图的更多信息</block>
+  <block id="0c6e9220b6dd38f763ce6082c0125be9" category="paragraph"><block ref="cf41d716430563f350a841f38af568db" category="inline-link-macro-rx"></block>。</block>
+  <block id="18f1ba3764c7c45f17295cada3f1b2ff" category="section-title">支持Amazon EBS弹性卷</block>
+  <block id="2e2c03493705dc64283827f16a01fab5" category="paragraph">Cloud Volumes ONTAP 聚合支持Amazon EBS弹性卷功能、可提高性能并增加容量、同时支持Cloud Manager根据需要自动增加底层磁盘容量。</block>
+  <block id="1fb2d1e9760db598bc140d6df5875a5f" category="paragraph">从_new_ Cloud Volumes ONTAP 9.11.0系统以及GP3和IO1 EBS磁盘类型开始、可支持弹性卷。</block>
+  <block id="70fb554e00e352dd7da6941d99b53751" category="inline-link-macro">了解有关支持弹性卷的更多信息</block>
+  <block id="65c3a54d401a824934a0b2987cd79906" category="paragraph"><block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block>。</block>
+  <block id="1fa9d78d7f603e0879c6fe006c9879ac" category="paragraph">请注意、要支持弹性卷、需要为Connector提供新的AWS权限：</block>
+  <block id="209d7fb058921dcca459d965ee59c7fc" category="section-title">支持在共享AWS子网中部署HA对</block>
+  <block id="009d92f6e41918233a5d5983863734d0" category="paragraph">Cloud Volumes ONTAP 9.11.1支持AWS VPC共享。通过此版本的Connector、您可以在使用API时在AWS共享子网中部署HA对。</block>
+  <block id="d4b5e68525cac241fcf3cdcaa1a6e3dd" category="inline-link-macro">了解如何在共享子网中部署HA对</block>
+  <block id="4c45890715a33614c9b68937f7331041" category="paragraph"><block ref="a2afa807549bbfc6a98031b51b81dd74" category="inline-link-macro-rx"></block>。</block>
+  <block id="b58bf50dd57317d50ce59551de45158f" category="section-title">使用服务端点时网络访问受限</block>
+  <block id="982c0b0bc19727a7a5017f464489da09" category="paragraph">现在、当使用vNet服务端点在Cloud Volumes ONTAP 和存储帐户之间建立连接时、Cloud Manager会限制网络访问。如果禁用Azure Private Link连接、Cloud Manager将使用服务端点。</block>
+  <block id="e020ad0693308c5d73b7fe4c7bafd660" category="inline-link-macro">了解有关使用Cloud Volumes ONTAP 连接Azure专用链路的更多信息</block>
+  <block id="572f029bc460b235b79bf593e07bce0a" category="paragraph"><block ref="11d2e9af90a503c65edc8ce2e258f040" category="inline-link-macro-rx"></block>。</block>
+  <block id="aace3e8a265fffb87e8d7fbd81d6adb9" category="section-title">支持在Google Cloud中创建Storage VM</block>
+  <block id="c248c01b69af03d24d1cd7a6b9ee8e7b" category="paragraph">从9.11.1版开始、Google Cloud中的Cloud Volumes ONTAP 现在支持多个Storage VM。从此版本的Connector开始、您可以通过Cloud Manager使用API在Google Cloud中的Cloud Volumes ONTAP HA对上创建Storage VM。</block>
+  <block id="33fdc8eb46b228d804c2bf216d7ab788" category="paragraph">要支持创建Storage VM、需要为Connector提供新的Google Cloud权限：</block>
+  <block id="1639fb8b97b722c837cf68d599ffe1c4" category="paragraph">请注意、您必须使用ONTAP 命令行界面或系统管理器在单节点系统上创建Storage VM。</block>
+  <block id="ab9d588372f30d162e50dbbed45980eb" category="inline-link">详细了解Google Cloud中的Storage VM限制</block>
+  <block id="7859fc06f13ff8714740aa72213f86e7" category="list-text"><block ref="7859fc06f13ff8714740aa72213f86e7" category="inline-link-rx"></block></block>
+  <block id="3a7eebf972f838daafe4ea7948002b3d" category="inline-link-macro">了解如何在Google Cloud中为Cloud Volumes ONTAP 创建提供数据的Storage VM</block>
+  <block id="4d4f80e19da50b86ec7f247f81baedf7" category="list-text"><block ref="4d4f80e19da50b86ec7f247f81baedf7" category="inline-link-macro-rx"></block></block>
+  <block id="a4b1f03cb2371b278489814c31e9785d" category="list-text">可选：创建测试卷以验证NVE的功能。</block>
+  <block id="e683d2190ea99600c0a7bda058b93d36" category="paragraph">`vol create -vserver _svm_name_-volume _volume_name_-aggregate _aggr_-size _size_-state online -policy default`</block>
+  <block id="652f5bb57cb09b4930d22c8b8241e77c" category="summary">Cloud Volumes ONTAP 命令行界面可用于运行所有管理命令，也是执行高级任务或使用命令行界面更自如的理想选择。您可以使用SSH连接到命令行界面。</block>
+  <block id="f92c0062f5f51f34505c72b0a5c9b3be" category="doc">从命令行界面管理Cloud Volumes ONTAP</block>
+  <block id="4776e213a50dc246e0f6754031140d45" category="summary">如果您需要对Cloud Volumes ONTAP 执行高级管理、可以使用ONTAP 系统管理器来执行此操作、该管理器是随ONTAP 系统提供的一个管理界面。我们直接在Cloud Manager中提供了System Manager界面、因此您无需离开Cloud Manager进行高级管理。</block>
+  <block id="eb548256fe08b2a0e5f541bc56282edf" category="doc">使用高级视图管理Cloud Volumes ONTAP</block>
+  <block id="74593b49f99b6e21d38ca3d969b213f3" category="paragraph">此高级视图可作为预览版使用。我们计划改进此体验、并在即将发布的版本中添加增强功能。请通过产品内聊天向我们发送反馈。</block>
+  <block id="98a1dd953dfcb1729fd4013fc440cb56" category="paragraph">通过Cloud Manager中的高级视图、您可以访问其他管理功能：</block>
+  <block id="f3c3ee89c80d32726f5f937c07631d1c" category="list-text">高级存储管理</block>
+  <block id="81988711ef6c9af40c8e8973f25c0bed" category="paragraph">管理一致性组、共享、qtree、配额和Storage VM。</block>
+  <block id="62735a856683757bf28f1f02f97c151c" category="list-text">网络管理</block>
+  <block id="90aa7b1e6da20918b753d835fd9d28fb" category="paragraph">管理IP空间、网络接口、端口集和以太网端口。</block>
+  <block id="5da3380058f326675f5268466ae0c24f" category="list-text">事件和作业</block>
+  <block id="59536015b2a8a8d499cbe947387acb5e" category="paragraph">查看事件日志、系统警报、作业和审核日志。</block>
+  <block id="3f20b3134627198be1e0ff879a88cd8f" category="list-text">高级数据保护</block>
+  <block id="18edb92cf2cbf5a1d60be48cff4de617" category="paragraph">保护Storage VM、LUN和一致性组。</block>
+  <block id="f17e729a409e6c0faa3ddab50e856b07" category="list-text">主机管理</block>
+  <block id="36eae32729ecc4b53ba38b252bc6b356" category="paragraph">设置SAN启动程序组和NFS客户端。</block>
+  <block id="4f126feb6ef052715a206813cb196dbe" category="paragraph">在标准云区域、Cloud Volumes ONTAP 9.10.0及更高版本支持通过System Manager进行高级管理。</block>
+  <block id="0f1ca4e2133610fdc8b23e4db3f7cb0c" category="paragraph">在GovCloud地区或无法访问出站Internet的地区不支持System Manager集成。</block>
+  <block id="b03c3f1292327857639de1cd1434567b" category="paragraph">Cloud Volumes ONTAP 不支持System Manager界面中显示的一些功能：</block>
+  <block id="92d2b6aba6afa3f690540cf3dba9b633" category="list-text">云分层</block>
+  <block id="cc215a83a7e6c7730f38e09b8c4f520d" category="paragraph">Cloud Volumes ONTAP 不支持云分层服务。创建卷时、必须直接从Cloud Manager的标准视图设置将数据分层到对象存储。</block>
+  <block id="fe925ee04a93d96abc7adb5118b5ccc3" category="list-text">层</block>
+  <block id="591730d8508aba199423a336c23df72d" category="paragraph">System Manager不支持聚合管理(包括本地层和云层)。您必须直接从Cloud Manager的标准视图管理聚合。</block>
+  <block id="405e2b58413610be532a001334e7a862" category="list-text">固件升级</block>
+  <block id="ec10c0d50369bfb68fa19c871a22d0f7" category="paragraph">Cloud Volumes ONTAP 不支持从*集群&gt;设置*页面自动更新固件。</block>
+  <block id="f4e1c06a7a7ddbaea4c2d3349dc0b815" category="paragraph">此外、不支持从System Manager进行基于角色的访问控制。</block>
+  <block id="7540b63d6f9cc399be4f74cff91bcaf7" category="paragraph">打开Cloud Volumes ONTAP 工作环境、然后单击高级视图选项。</block>
+  <block id="bb1ef255816e8724de2a508f11ab6faa" category="list-text">在"画布"页面上、双击Cloud Volumes ONTAP 系统的名称。</block>
+  <block id="a31b079030fd3d406e06a9ce180abf58" category="list-text">在右上角、单击*切换到高级视图*。</block>
+  <block id="4764848a2e939676e46196b57ed3d239" category="inline-image-macro">Cloud Volumes ONTAP 工作环境的屏幕截图、其中显示了切换到高级视图选项。</block>
+  <block id="3ee38239984a2c6b3ae4074ced0704c7" category="paragraph"><block ref="3ee38239984a2c6b3ae4074ced0704c7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="74d668d6c47cd0c55c4ff8f77ad621bd" category="list-text">如果显示确认消息、请通读该消息并单击*关闭*。</block>
+  <block id="f0da217269d7f8fb37fd503f586df2ef" category="list-text">使用System Manager管理Cloud Volumes ONTAP。</block>
+  <block id="ebd8c98f714943a83d08bf245c867de2" category="list-text">如果需要、请单击*切换到标准视图*以通过Cloud Manager返回到标准管理。</block>
+  <block id="c7c80403ddad5bf0ae3c78cf20ad2cf1" category="inline-image-macro">Cloud Volumes ONTAP 工作环境的屏幕截图、其中显示了切换到标准视图选项。</block>
+  <block id="b98d787e610274d7cf438bd9dacb5eb3" category="paragraph"><block ref="b98d787e610274d7cf438bd9dacb5eb3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9091c5cdacecb3d4082594d5d5a31855" category="section-title">有关使用System Manager的帮助</block>
+  <block id="29b2dad08499788ccf25f529167b3782" category="paragraph">如果在Cloud Volumes ONTAP 中使用System Manager需要帮助、请参见<block ref="e4712fca3ed0fd9138bc58dbf36327e9" category="inline-link-rx"></block> 了解分步说明。以下链接可能会有所帮助：</block>
+  <block id="b9cf2d579e6b088870d384fe9910b52f" category="inline-link">卷和LUN管理</block>
+  <block id="8fc667c489390551a74eb985b297d37a" category="list-text"><block ref="8fc667c489390551a74eb985b297d37a" category="inline-link-rx"></block></block>
+  <block id="3e49e5936cffd2e96856c25fa0417df2" category="inline-link">网络管理</block>
+  <block id="57614f27dec39901199cca4b61cebfe9" category="list-text"><block ref="57614f27dec39901199cca4b61cebfe9" category="inline-link-rx"></block></block>
+  <block id="168463a2e30ac746441036fb49df730e" category="list-text"><block ref="168463a2e30ac746441036fb49df730e" category="inline-link-rx"></block></block>
+  <block id="bfa754a08df951a3a824ddeeb1780b40" category="inline-link-macro">详细了解创建卷时会发生什么情况</block>
+  <block id="a09b01c7001d3eb80404765be4eb61c9" category="list-text">如果您的Cloud Volumes ONTAP 配置支持Amazon EBS弹性卷功能、则可能需要 <block ref="15950bbc5dd5b213dd93808f9892a1c5" category="inline-link-macro-rx"></block>。</block>
+  <block id="1cbde96d4494f1d0a0cc701b14f4979e" category="list-text">在 AWS 中，一个聚合最多可以包含 6 个大小相同的磁盘。但是、如果您的配置支持Amazon EBS弹性卷功能、则聚合最多可以包含8个磁盘。 <block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block>。</block>
+  <block id="b8dd8c06193176beb2ad15367f7a1a0d" category="paragraph">最大磁盘大小为 16 TiB 。</block>
+  <block id="3635902b03ef6f329f7d82d346770acc" category="summary">具有VPC共享的AWS支持Cloud Volumes ONTAP HA对。通过VPC共享、您的组织可以与其他AWS帐户共享子网。要使用此配置、您必须设置AWS环境、然后使用API部署HA对。</block>
+  <block id="1ddb0e5b328575796533c1e7f5b1f802" category="doc">在共享子网中部署HA对</block>
+  <block id="18520da6851f84ab4d7ab3d88d237cd9" category="inline-link">VPC共享</block>
+  <block id="c81d796f0d5c668dfa8d68823f479c90" category="paragraph">使用<block ref="93089d0988badd859f8a3f19acd5c989" category="inline-link-rx"></block>、一个Cloud Volumes ONTAP HA配置分布在两个帐户中：</block>
+  <block id="77af655ba582e54e6d4578b31231fed3" category="list-text">拥有网络(VPC、子网和路由表)的VPC所有者帐户</block>
+  <block id="276a017110af33316f598f585486bc29" category="list-text">参与者帐户、其中EC2实例部署在共享子网中(包括两个HA节点和调解器)</block>
+  <block id="123682af03421de2f290c8c127ad313b" category="paragraph">如果Cloud Volumes ONTAP HA配置部署在多个可用性区域中、则HA调解器需要特定的权限来写入VPC所有者帐户中的路由表。您需要通过设置调解器可以承担的IAM角色来提供这些权限。</block>
+  <block id="d0ddf69c5f314ee3119f1732980d427e" category="list-text">创建IAM角色。</block>
+  <block id="83f73296b842a17b957ac45fce64df7a" category="list-text">转到参与者帐户中要为Cloud Volumes ONTAP 部署EC2实例的IAM控制台。</block>
+  <block id="7f4640b00b5df83a54d4aaaa51f7d6ab" category="list-text">在访问管理下，单击 * 角色 &gt; 创建角色 * ，然后按照步骤创建角色。</block>
+  <block id="e1a3d580d5cb42904b96dc05c0e0903d" category="paragraph">请务必执行以下操作：</block>
+  <block id="e506de832b98c2693eb3f400ef0722c0" category="list-text">在 * 可信实体类型 * 下，选择 * AWS 帐户 * 。</block>
+  <block id="a4977642f2eb92080375e1160904c3a7" category="list-text">选择*其他AWS帐户*并输入VPC所有者帐户的ID。</block>
+  <block id="4aaa495471a5ae62d8384762205bf782" category="inline-link">Cloud Manager 策略页面</block>
+  <block id="123f2e62fb6e53ac1b3fd91d12e190e0" category="list-text">使用 Cloud Manager IAM 策略创建策略，该策略可从获得<block ref="685f869a0580bc1af63188a3b940f7ac" category="inline-link-rx"></block>。</block>
+  <block id="fe1f47d50f78d0e14014e50d690720d7" category="list-text">复制IAM角色的角色ARN、以便在部署HA对时将其粘贴到API请求中。</block>
+  <block id="fd3149c0644c605d917aeebea557d6d6" category="list-text">与参与者帐户共享VPC所有者帐户中的子网。</block>
+  <block id="fa9fe3d94968b5f037653d41700dcd70" category="paragraph">要在共享子网中部署HA对、需要执行此步骤。</block>
+  <block id="d948aef27d8dea6efce2392f04bd6c9b" category="inline-link">AWS文档：共享子网</block>
+  <block id="5e5fbe06182db1b31429a0c61bc0a55b" category="paragraph"><block ref="5e5fbe06182db1b31429a0c61bc0a55b" category="inline-link-rx"></block></block>
+  <block id="b5efff410bfe210c5df187773e0e0617" category="list-text">在VPC所有者帐户中、为Cloud Volumes ONTAP 创建一个安全组。</block>
+  <block id="fd399fa27d12a21d9e3844eda1427121" category="inline-link-macro">请参见Cloud Volumes ONTAP 的安全组规则</block>
+  <block id="7ce51495a198d32b13be229abbde5e69" category="paragraph"><block ref="42b118f18012057fcf20af94d08351c2" category="inline-link-macro-rx"></block>。请注意、您不需要为HA调解器创建安全组。云管理器可以为您提供这种功能。</block>
+  <block id="eb89b60e2a67c0ee5e8d70c5078468fc" category="list-text">使用API创建新的Cloud Volumes ONTAP 工作环境、并在"haParams"对象中传递"asumeRoleArn"字段。</block>
+  <block id="b1dde3304edf68afb6be3819b52b7152" category="inline-link">了解Cloud Volumes ONTAP API</block>
+  <block id="45d56c7397375528eb877ce509812ff1" category="paragraph"><block ref="45d56c7397375528eb877ce509812ff1" category="inline-link-rx"></block></block>
+  <block id="73e4e3a380b383c5159ac72a69294ef7" category="paragraph">+如果AWS中的聚合支持弹性卷、则Cloud Manager还会增加RAID组中磁盘的大小。 <block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block>。</block>
+  <block id="a95a2a6014e3a2e307bfd49b7583909e" category="paragraph">例如、Cloud Manager可以选择以下磁盘大小：</block>
+  <block id="f544f5509c6658bd68f3e69072dd7145" category="admonition">此行为不适用于支持Amazon EBS弹性卷功能的聚合。启用了弹性卷的聚合由一个或两个RAID组组成。每个RAID组都有四个容量相同的相同磁盘。 <block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block>。</block>
+  <block id="149dd55e6760c710e611c0480e5069ac" category="cell">增加支持Amazon EBS弹性卷的聚合的容量</block>
+  <block id="f17996ff912274a89bd46a09126f54a0" category="list-text">选择一个聚合并单击*增加容量*。</block>
+  <block id="c2ee080a41f3128dec50564d5d2cf945" category="list-text">输入要添加的其他容量、然后单击*添加*。</block>
+  <block id="ddc70e48be52170226876f32fd0d0955" category="paragraph">请注意、您必须将聚合的容量至少增加256 GiB或聚合大小的10%。</block>
+  <block id="457b4b096cd2396d1dc52e52b77f7f16" category="paragraph">例如、如果您使用的是1.77 TiB聚合、则10%为181 GiB。该值低于256 GiB、因此聚合的大小必须增加到最小256 GiB。</block>
+  <block id="a787df3b454348b29e66a5e26381efe1" category="inline-link-macro">了解有关Elastic Volumes支持的更多信息</block>
+  <block id="0559fee905621255aa0edc1715586e21" category="paragraph">请注意、Cloud Volumes ONTAP 支持使用GP3磁盘的Amazon EBS弹性卷功能。 <block ref="2f34fac6c8e3e7a84b963b75a5591f20" category="inline-link-macro-rx"></block>。</block>
+  <block id="3b45d0097165753cbe807b39e8e38550" category="paragraph">请注意、Cloud Volumes ONTAP 支持使用IO1磁盘的Amazon EBS弹性卷功能。 <block ref="2f34fac6c8e3e7a84b963b75a5591f20" category="inline-link-macro-rx"></block>。</block>
+  <block id="44bacb29285bcdcf27b752d7b6c9e182" category="inline-link-macro">Amazon EBS弹性卷功能</block>
+  <block id="949b72c31114a68d18199e3a249a45d1" category="list-text">如果您选择的配置不支持 <block ref="7e60e4380cdf7fba407eb852e8889870" category="inline-link-macro-rx"></block>、然后、您需要在启动Cloud Volumes ONTAP 系统时选择初始磁盘大小。之后，您可以 <block ref="7ea57dc79d65fd61f045c2bf970d7bfe" category="inline-link-macro-rx"></block>，但如果需要 <block ref="aeb7edffc7af212c1371b19a0140cdff" category="inline-link-macro-rx"></block>，请注意以下事项：</block>
+  <block id="a611a569997e8479ac56d19e1a51785f" category="paragraph">如上所述、支持Amazon EBS弹性卷功能的Cloud Volumes ONTAP 配置不支持选择磁盘大小。 <block ref="2f34fac6c8e3e7a84b963b75a5591f20" category="inline-link-macro-rx"></block>。</block>
+  <block id="0e4b0391e50169d97fc505f0c73a94ba" category="paragraph">此连接器应部署在与其管理的 Cloud Volumes ONTAP 系统所在的同一 Azure 区域或中<block ref="71e0e9a7366955554f0600c5ea8cfc7f" category="inline-link-rx"></block> 对于 Cloud Volumes ONTAP 系统。此要求可确保在 Cloud Volumes ONTAP 与其关联存储帐户之间使用 Azure 专用链路连接。</block>
+  <block id="d94918dc61a0d4a0186a0235ef130897" category="paragraph">如果禁用Azure Private Link连接、Cloud Manager将改用服务端点。即使使用服务端点、Cloud Manager也会限制存储帐户对部署了Cloud Volumes ONTAP 的vNet和部署了Connector的vNet的访问。</block>
+  <block id="ab446ebd1f851655193779b7c50f3533" category="paragraph">在创建 Storage VM 并分配 LIF 之前，必须在 Azure 中将 IP 地址分配给 nic0 。</block>
+  <block id="19c2f8be3dc9f0749efedd54317e259b" category="paragraph">您需要为数据 LIF 访问创建一个 IP 地址，并为 Storage VM （ SVM ）管理 LIF 创建另一个可选 IP 地址。此管理 LIF 可连接到 SnapCenter 等管理工具。</block>
+  <block id="6705d4b1a3db9cb88b17655dcca33de5" category="list-text">如果您运行的是Cloud Volumes ONTAP 9.11.1或更高版本、请修改此Storage VM的网络服务策略。</block>
+  <block id="7acb007d1fa18c791042f54b5a8aa8ee" category="paragraph">需要修改服务、因为它可以确保Cloud Volumes ONTAP 可以使用iSCSI LIF进行出站管理连接。</block>
+  <block id="a22063e6d541a4b1d385c3d940e03996" category="doc">在Google Cloud中为Cloud Volumes ONTAP 创建数据服务Storage VM</block>
+  <block id="77701b3d3cb3179bddf053dbed6e2e43" category="paragraph">从9.11.1版开始、Google Cloud中的特定Cloud Volumes ONTAP 配置支持多个Storage VM。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</block>
+  <block id="8272f5b23e79d0ee33bd5151dcddc454" category="section-title">创建Storage VM</block>
+  <block id="944ec8ab61e0f52a9d2d97f0e9d3f8a8" category="paragraph">您可以在单节点系统或HA对上创建多个Storage VM。请注意、您必须使用Cloud Manager API在HA对上创建Storage VM、而可以使用CLI或System Manager在单节点系统上创建Storage VM。</block>
+  <block id="58bbad78237dfd7483b5391557d6f009" category="paragraph">以下步骤将使用命令行界面在单节点系统上创建新的Storage VM。创建 NAS LIF 需要一个专用 IP 地址，如果要创建管理 LIF ，则需要另一个可选专用 IP 地址。</block>
+  <block id="379013863d5e971d00b46819c677a99b" category="list-text">在Google Cloud中、转至Cloud Volumes ONTAP 实例、并为每个LIF添加一个IP范围至nic0。</block>
+  <block id="a0ffc61dcb224c763f02ac751ef98179" category="inline-image-macro">Google云控制台的屏幕截图、您可以在其中通过添加IP范围来编辑Cloud Volumes ONTAP 的网络接口。</block>
+  <block id="fd22fa73f7ee3c6c4da641ee4618201b" category="paragraph"><block ref="fd22fa73f7ee3c6c4da641ee4618201b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="18a5e21d3d0fe1670cfe0ae7de419c21" category="paragraph">如果要在Storage VM上创建管理LIF、则需要一个数据LIF的IP地址和另一个可选IP地址。</block>
+  <block id="0d7249da9a767f4786051a40b37e2502" category="inline-link">Google Cloud文档：向现有实例添加别名IP范围</block>
+  <block id="0ce39c7d673ca11ede4dc76c40ab4c47" category="paragraph"><block ref="0ce39c7d673ca11ede4dc76c40ab4c47" category="inline-link-rx"></block></block>
+  <block id="314f67251497657aa0bf5f980043c0ab" category="list-text">通过指定在Google Cloud中添加的IP地址来创建数据LIF。</block>
+  <block id="b840b6cee4c36a177669a81f293132a6" category="open-title">NFS 或 SMB</block>
+  <block id="29788364ff656936651870f4b1c88537" category="list-text">可选：通过指定在Google Cloud中添加的IP地址来创建Storage VM管理LIF。</block>
+  <block id="38116fb8b40a1b0c091634498e4e2682" category="paragraph">您必须使用Cloud Manager API在Google Cloud的Cloud Volumes ONTAP 系统上创建Storage VM。需要使用API (而不是System Manager或CLI)、因为Cloud Manager会为Storage VM配置所需的LIF服务、并为出站SMB/CIFS通信所需的HA对配置iSCSI LIF。</block>
+  <block id="156e5acb649507ff0d1f61e722efa445" category="paragraph">请注意、Cloud Manager会在Google Cloud中为您分配所需的IP地址。</block>
+  <block id="4bd46f200c4c3391a3b00fc9aa8af7dd" category="paragraph">从3.9.19版开始、连接器需要以下权限才能为Cloud Volumes ONTAP HA对创建和管理Storage VM：</block>
+  <block id="9edd86f763fc6d21418429b5c63134af" category="inline-link">NetApp 提供的策略</block>
+  <block id="e32789b345ccbe1107de29d5684f39a3" category="paragraph">中包括这些权限<block ref="d2f8d77175d2dd5e5ed1a096c2593510" category="inline-link-rx"></block></block>
+  <block id="8786838db6c83df6feac856057d2e141" category="list-text">使用以下API调用创建Storage VM：</block>
+  <block id="78beb47b48fe8b17a288b32a8942a187" category="paragraph">`POST /ocem/api/GCP/ha/work-environment/｛we ID｝/SVM/`</block>
+  <block id="995ddfd1247131c9653edbf829fa6e28" category="paragraph">请求正文应包括以下内容：</block>
+  <block id="b93afa1b577022f0769bc7e27b5bcd75" category="section-title">管理HA对上的Storage VM</block>
+  <block id="cf65cf1a7e9ad5d29b30934568abc52f" category="paragraph">Cloud Manager API还支持重命名和删除Storage VM。</block>
+  <block id="c97c5ffc330239a3245482bb4881877a" category="section-title">重命名Storage VM</block>
+  <block id="e0867a20bdb8328df5da5826abffd2f7" category="paragraph">如果需要、您可以随时更改Storage VM的名称。</block>
+  <block id="369a2d15e783c13b71dafb712d78bd30" category="list-text">使用以下API调用重命名Storage VM：</block>
+  <block id="a8e13a4a2ae779d87c425f89f896c8d6" category="paragraph">`PUT /ocem/api/GCP/ha/working-environments/｛we ID｝/SVM`</block>
+  <block id="ce9c0fa786ae9e9debeb029c1c0a4c92" category="section-title">删除Storage VM</block>
+  <block id="60bf8baad4677ce21f08a45b132bf6a5" category="paragraph">如果您不再需要Storage VM、可以将其从Cloud Volumes ONTAP 中删除。</block>
+  <block id="730a4c8af06cfa818a6cf7829358b200" category="list-text">使用以下API调用删除Storage VM：</block>
+  <block id="cf85e355c90a5d24771cdce3003c6914" category="paragraph">`delete /occm/api/GCP/ha/working-environments/｛we_ID｝/SVM/｛svm_name｝`</block>
+  <block id="393573258ab237c6e22e3d4cc7580951" category="doc">AWS中的弹性卷</block>
+  <block id="e654f7a86a4458b9cd662267e0f29b52" category="section-title">优势</block>
+  <block id="8e6dc23c6a05e7c3276ca6dbb41fd75d" category="list-text">磁盘动态增长</block>
+  <block id="68fefbc4a9a1619ecb9ec2acd1897204" category="paragraph">在Cloud Volumes ONTAP 运行期间以及磁盘仍处于连接状态时、Cloud Manager可以动态增加磁盘大小。</block>
+  <block id="adc9460c7be3f6931c573329969ae54d" category="list-text">性能更好</block>
+  <block id="929fccdd7d42b80d417b8aae81b19955" category="paragraph">启用了弹性卷的聚合最多可以包含八个磁盘、这些磁盘在两个RAID组中的利用率相等。此配置可提供更多吞吐量和稳定一致的性能。</block>
+  <block id="1790dbfd8a4a8cc7fc08daf9fcbad2c0" category="list-text">更大的聚合</block>
+  <block id="d22e43353734bd2aeade1847f21b8e3d" category="paragraph">支持八个磁盘可提供最大聚合容量128 TiB。对于未通过弹性卷功能启用的聚合、这些限制高于六个磁盘限制和96 TiB限制。</block>
+  <block id="7bb630780b8039cf7f20f5b3eb31808b" category="paragraph">请注意、系统总容量限制保持不变。</block>
+  <block id="520b27ad34f587735faedf2f4e842bc7" category="inline-link">详细了解AWS中的弹性卷</block>
+  <block id="a0ac9b8b2381362d7f62d19f1718a962" category="paragraph"><block ref="a0ac9b8b2381362d7f62d19f1718a962" category="inline-link-rx"></block></block>
+  <block id="915ad7358c605502ae877389e9ef1988" category="paragraph">特定Cloud Volumes ONTAP 版本和特定EBS磁盘类型支持Amazon EBS弹性卷功能。</block>
+  <block id="88e66f44e51b83a121b5c151da60945e" category="section-title">Cloud Volumes ONTAP 版本</block>
+  <block id="d2990e3ab65f738557c33c327e31757d" category="paragraph">从9.11.0或更高版本创建的_new_ Cloud Volumes ONTAP 系统支持弹性卷功能。9.11.0之前部署的现有Cloud Volumes ONTAP 系统支持此功能_not_。</block>
+  <block id="0526bad57a6e63f90e4cd934f37ce06c" category="paragraph">例如、如果您创建了Cloud Volumes ONTAP 9.9.0系统、然后将该系统升级到9.11.0版、则不支持弹性卷功能。它必须是使用9.11.0或更高版本部署的新系统。</block>
+  <block id="3cb078976cc9f3dcda2e9afbd8d4113f" category="section-title">EBS磁盘类型</block>
+  <block id="ba53e2e237e79570c7abb3f83408e365" category="paragraph">使用通用SSD (GP3)或配置的IOPS SSD (IO1)时、弹性卷功能会在聚合级别自动启用。使用任何其他磁盘类型的聚合不支持弹性卷功能。</block>
+  <block id="ff750c1d3ff0f21b492880e95de93510" category="section-title">所需的AWS权限</block>
+  <block id="2552dcd3565a98232892726e9fae197b" category="paragraph">从3.9.19版开始、连接器需要以下权限才能在Cloud Volumes ONTAP 聚合上启用和管理弹性卷功能：</block>
+  <block id="9708e121f9f5200cf3806e89c2633b16" category="list-text">EC2：Describe卷修改</block>
+  <block id="a0343d4d10d8960a1347cc4819cae46b" category="list-text">EC2：ModifyVolume</block>
+  <block id="850e1d8ed7edce74138eb52483482120" category="section-title">对弹性卷的支持的工作原理</block>
+  <block id="eb28dca619e92c97196a2e250fb67bf1" category="paragraph">启用了弹性卷功能的聚合由一个或两个RAID组组成。每个RAID组都有四个容量相同的相同磁盘。下面是一个10 TiB聚合的示例、该聚合包含四个磁盘、每个磁盘为2.5 TiB：</block>
+  <block id="90d83f1e182a2c13a87505ae2d400b63" category="inline-image-macro">一个概念映像、显示由四个大小相等的磁盘组成的聚合和RAID组。</block>
+  <block id="5f11336fe94aa467c6d4632d762eb36b" category="paragraph"><block ref="5f11336fe94aa467c6d4632d762eb36b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8dca34f59e71d34453720375345c4a09" category="paragraph">当Cloud Manager创建聚合时、它会从一个RAID组开始。如果需要更多容量、Cloud Manager会通过将RAID组中所有磁盘的容量增加相同的容量来增加聚合。容量增加至少为256 GiB或聚合大小的10%。</block>
+  <block id="e64977ea8d57cf2e70f795742ebdc866" category="paragraph">例如、如果您有一个1 TiB聚合、则每个磁盘都是250 GiB。聚合容量的10%为100 GiB。该值低于256 GiB、因此聚合的大小会增加到最小256 GiB (或每个磁盘64 GiB)。</block>
+  <block id="e4389ec13e4922df3e4d56c355f0ebe3" category="paragraph">在Cloud Volumes ONTAP 系统运行期间以及磁盘仍处于连接状态时、Cloud Manager会增加磁盘的大小。此更改不会造成系统中断。</block>
+  <block id="4b7cf64a687048c88be4889e9815902a" category="paragraph">如果聚合达到64 TiB (或每个磁盘上16 TiB)、Cloud Manager将创建另一个RAID组以增加容量。第二个RAID组的工作原理与第一个RAID组相同：它具有四个磁盘、其容量完全相同、并且最多可增长到64 TiB。这意味着聚合的最大容量可为128 TiB。</block>
+  <block id="58667a71835647a0d48fadd74ade5a33" category="paragraph">下面是一个包含两个RAID组的聚合示例。已达到第一个RAID组的容量限制、而第二个RAID组中的磁盘具有足够的可用空间。</block>
+  <block id="519c9a7d3a63016f7a375fc66ca7473e" category="inline-image-macro">一个概念映像、显示了一个聚合和两个RAID组、这两个RAID组都由四个大小相等的磁盘组成。</block>
+  <block id="4484bbf473388313561672300fd59a5e" category="paragraph"><block ref="4484bbf473388313561672300fd59a5e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8cae9603e8ef04ed291e5ee2b7849de4" category="section-title">创建卷时会发生什么情况</block>
+  <block id="ae8c719d69e74c849dfce28f11b46b4e" category="paragraph">如果您创建的卷使用GP3或IO1磁盘、则Cloud Manager会按如下所示在聚合上创建此卷：</block>
+  <block id="c8b33093a5fb792407c68eb447a2a7b0" category="list-text">如果现有GP3或IO1聚合已启用弹性卷、则Cloud Manager将在该聚合上创建卷。</block>
+  <block id="5f45a964ec9cd7a3632cc8e0b027d9d2" category="list-text">如果多个GP3或IO1聚合已启用弹性卷、则Cloud Manager会在所需资源最少的聚合上创建卷。</block>
+  <block id="8e3ced8aa906dd229e56c5594f875689" category="list-text">如果系统只有未为弹性卷启用的GP3或IO1聚合、则会在该聚合上创建卷。</block>
+  <block id="3e95d6583bd264db8438bf2fd489fd0e" category="paragraph">虽然不太可能出现这种情况、但在以下两种情况下可能会出现这种情况：</block>
+  <block id="1803aca3a9f75bcc66060a285a2a3cce" category="list-text">在使用API创建聚合时、您明确禁用了弹性卷功能。</block>
+  <block id="e377c5f27dcd090922232b4e802eabf2" category="list-text">您通过用户界面创建了一个新的Cloud Volumes ONTAP 系统、在这种情况下、初始聚合会禁用弹性卷功能。请查看 <block ref="1970a78ed44a3cfc31f9405835942101" category="inline-xref-macro-rx"></block> 了解更多信息。</block>
+  <block id="406ebadba42c61628e590ba8d1fda05b" category="list-text">如果现有聚合没有足够的容量、则Cloud Manager将创建启用了弹性卷的聚合、然后在该新聚合上创建卷。</block>
+  <block id="2206323b06a49c917ab8fdd25eed0898" category="paragraph">聚合大小取决于请求的卷大小加上额外的10%容量。</block>
+  <block id="35e1526d677f2c5c412538ff39eaacd5" category="section-title">容量管理模式</block>
+  <block id="0771dc2adcd72d8da362f5f6f6071394" category="paragraph">Connector的容量管理模式与弹性卷的工作方式类似、与其他类型的聚合的工作方式类似：</block>
+  <block id="4357d8c580aa0e740a5b85192e6abc29" category="list-text">如果启用了自动模式(这是默认设置)、则Cloud Manager会在需要额外容量时自动增加聚合的大小。</block>
+  <block id="8e28fce5c04483d108e13eac88b1349f" category="list-text">如果将容量管理模式更改为手动、Cloud Manager会要求您批准购买更多容量。</block>
+  <block id="3ffe064f92b34cbcdfcab03d93ac0aa6" category="inline-link-macro">了解有关容量管理模式的更多信息</block>
+  <block id="d2c22afe536c7332438ccf868d74c34d" category="paragraph"><block ref="ef63e2789991bbc45cfd16ad2085fca0" category="inline-link-macro-rx"></block>。</block>
+  <block id="a33974427bc165b7a93accc1aa8be64f" category="list-text">增加聚合的大小最多可能需要6小时。在此期间、Cloud Manager无法为该聚合请求任何额外容量。</block>
+  <block id="d95ee608b161269708126edb4b983c53" category="list-text">目前、只有API才支持在初始聚合上启用弹性卷的情况下创建新的Cloud Volumes ONTAP 系统。不支持从Cloud Manager用户界面执行此操作。如果您从用户界面创建新的Cloud Volumes ONTAP 9.11.0或更高版本系统、则初始聚合不会启用弹性卷。</block>
+  <block id="7f2dd60cac15d963d53c4b26e028d65e" category="paragraph">支持从用户界面执行所有其他操作(例如创建新聚合)。</block>
+  <block id="95f37b47d36f29b34f5eb9876539e793" category="section-title">如何使用弹性卷</block>
+  <block id="fadf0b4acbadb08e8e435a9d7130ab76" category="paragraph">您可以在Cloud Manager中使用弹性卷、如下所示：</block>
+  <block id="8a08bb1cb08b803e8dcbd2a3ace89d1e" category="list-text">创建一个在初始聚合上启用了弹性卷的新系统</block>
+  <block id="7dc2847ac93d622984709d8490d8d064" category="paragraph">如中所述 <block ref="1970a78ed44a3cfc31f9405835942101" category="inline-xref-macro-rx"></block>、目前只有API才支持此操作。用户界面不支持此功能。</block>
+  <block id="b66cb58951bd984f0fb3e8629023bbe1" category="paragraph">启动API调用时、初始聚合默认启用弹性卷功能。</block>
+  <block id="561112ad9b56b4dd0515c5b0e35146f7" category="inline-link">了解如何使用API创建Cloud Volumes ONTAP</block>
+  <block id="0a91fc79f47639b5b3ee7133c078544e" category="paragraph"><block ref="0a91fc79f47639b5b3ee7133c078544e" category="inline-link-rx"></block></block>
+  <block id="d5f89027268b27b157f79b1a29b881ab" category="list-text">在已启用弹性卷的聚合上创建新卷</block>
+  <block id="b7225bc02dfd73fec72be6e9f04f0f4a" category="paragraph">如果您创建的卷使用GP3或IO1磁盘、则Cloud Manager会自动在启用了弹性卷的聚合上创建卷。有关详细信息，请参见 <block ref="e432ed6cbb90ef2b99ca3ebe7006e953" category="inline-xref-macro-rx"></block>。</block>
+  <block id="d2089f3a642b9ad1bc7dada3770cd27d" category="inline-link-macro">了解如何创建卷</block>
+  <block id="4f2d1bfe14af7838cd1828dd52604954" category="paragraph"><block ref="4d37c6e51c7d2f46a8c72847ea473933" category="inline-link-macro-rx"></block>。</block>
+  <block id="200de8f157d06e0f341963c712acd766" category="list-text">创建启用了弹性卷的新聚合</block>
+  <block id="05d2bdc728139b94f51ceeafef16af57" category="paragraph">只要Cloud Volumes ONTAP 系统是从9.11.0或更高版本创建的、使用GP3或IO1磁盘的新聚合就会自动启用弹性卷。</block>
+  <block id="c414fe2a2f8ddedb44f4514570c3b1f6" category="paragraph">创建聚合时、Cloud Manager将提示您输入聚合的容量大小。这与其他配置不同、在这些配置中、您可以选择磁盘大小和磁盘数量。</block>
+  <block id="0b865acac59236580ae47c91e0948b90" category="paragraph">以下屏幕截图显示了一个由GP3磁盘组成的新聚合示例。</block>
+  <block id="623fda0299842e5f6b0ffab039125c30" category="inline-image-macro">GP3磁盘的"聚合磁盘"屏幕的屏幕截图、您可以在其中以TiB输入聚合大小。</block>
+  <block id="3c6f11cbd923434b71b989c727163643" category="paragraph"><block ref="3c6f11cbd923434b71b989c727163643" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d842642316b39be001efb718a0cad4bd" category="inline-link-macro">了解如何创建聚合</block>
+  <block id="3af655005fd29fbbd8824a6ef2f040dc" category="paragraph"><block ref="bdaa17f2dfe16043f8bea33e0b6d1ef8" category="inline-link-macro-rx"></block>。</block>
+  <block id="71ce9ba1a5339afe1098587175217b4b" category="list-text">确定已启用弹性卷的聚合</block>
+  <block id="71ba010a4e2b551c25de28ee7b4f8a9a" category="paragraph">转到"高级分配"页面时、您可以确定是否已在聚合上启用弹性卷功能。在以下示例中、aggr2启用了弹性卷、而aggr1未启用。</block>
+  <block id="090c5fa182e6b93f4da9c8d06195700f" category="inline-image-macro">显示两个聚合的屏幕截图、其中一个聚合的字段显示文本Elastic Volumes Enabled。</block>
+  <block id="ee7cf33bd0cd0b3af6a7cc58c5d43380" category="paragraph"><block ref="ee7cf33bd0cd0b3af6a7cc58c5d43380" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="13cb5ebd8c0b7becb3143ed413ade223" category="list-text">向聚合添加容量</block>
+  <block id="15b37b22bf56bc7834d3207d1f8c75c1" category="paragraph">虽然Cloud Manager会根据需要自动向聚合添加容量、但您可以手动自行增加容量。</block>
+  <block id="dc71aae1559eb6f97026da188f10aa46" category="inline-link-macro">了解如何增加聚合容量</block>
+  <block id="aeef03dd397a861db5fa8e9873d3c379" category="paragraph"><block ref="ea7cf76a282dc5fbb196162d820ca1ce" category="inline-link-macro-rx"></block>。</block>
+  <block id="50b028f7b0e4c1175b755f94baf3e63d" category="list-text">将数据复制到启用了弹性卷的聚合</block>
+  <block id="7d831c8a95d6f1d0ec777a6a3624c915" category="paragraph">如果目标Cloud Volumes ONTAP 系统支持弹性卷、则目标卷将放置在启用了弹性卷的聚合上(只要选择GP3或IO1磁盘)。</block>
+  <block id="40f78d193b858589ad7df4dd4ce61ad6" category="inline-link">了解如何设置数据复制</block>
+  <block id="393877290958ffe37590f4f7e5d38fd5" category="paragraph"><block ref="393877290958ffe37590f4f7e5d38fd5" category="inline-link-rx"></block></block>
+  <block id="d2d74ae0bae0ce5e572e1e18ee02a826" category="list-text">如果系统提示您选择磁盘类型和磁盘大小、请参见 <block ref="26bea762cd1da7392687166de680dabd" category="inline-link-macro-rx"></block>。</block>
+  <block id="6c68871792b245e4adbddcda60b0bd40" category="list-text">如果系统提示您输入聚合的容量大小、则您要在支持Amazon EBS弹性卷功能的配置上创建聚合。以下屏幕截图显示了一个由GP3磁盘组成的新聚合示例。</block>
+  <block id="9a66c0f1a4025f785048bbe94328bb75" category="paragraph">有关磁盘类型和磁盘大小的帮助、请参见 <block ref="01a63aaf870d7f59ca64d1c54c969d0e" category="inline-link-macro-rx"></block>。</block>
+  <block id="288c077296ee94f93986165c88b4098b" category="paragraph">有关磁盘类型和磁盘大小的帮助、请参见 <block ref="5b77fb1a990fdf84a9316de6ea1967b8" category="inline-link-macro-rx"></block>。</block>
+  <block id="11efa46f237387b311e6ed482756ac49" category="cell">9.11.1</block>
+  <block id="2d189112f4baf99b6292f68099bd0faf" category="section-title">专用链路</block>
+  <block id="748337dd27473691346f53855d193c97" category="sidebar">在Google Cloud中创建Storage VM</block>
+  <block id="e8d0dae7c2f60648015da9b6a5d0e0ed" category="sidebar">AWS管理</block>
+  <block id="cd8085e85d4fffcfec2ecbbe17e419ed" category="sidebar">Azure管理</block>
+  <block id="c871aaf8a95c147d6774c7ccaf68c0eb" category="sidebar">Google Cloud管理</block>
+  <block id="cb993f96a433ab0d99c7a6a17a1ddc9c" category="sidebar">通过System Manager进行管理</block>
+  <block id="fab7a3813da88237a3633c0b925bf6d0" category="sidebar">通过CLI进行管理</block>
 </blocks>

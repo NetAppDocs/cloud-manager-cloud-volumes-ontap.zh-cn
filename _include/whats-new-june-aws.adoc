@@ -1,0 +1,30 @@
+= 支持Amazon EBS弹性卷
+:allow-uri-read: 
+
+
+
+
+=== 支持Amazon EBS弹性卷
+
+Cloud Volumes ONTAP 聚合支持Amazon EBS弹性卷功能、可提高性能并增加容量、同时支持Cloud Manager根据需要自动增加底层磁盘容量。
+
+从_new_ Cloud Volumes ONTAP 9.11.0系统以及GP3和IO1 EBS磁盘类型开始、可支持弹性卷。
+
+link:concept-aws-elastic-volumes.html["了解有关支持弹性卷的更多信息"]。
+
+请注意、要支持弹性卷、需要为Connector提供新的AWS权限：
+
+[source, json]
+----
+"ec2:DescribeVolumesModifications",
+"ec2:ModifyVolume",
+----
+请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。您可以在上找到最新的权限列表 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
+
+
+
+=== 支持在共享AWS子网中部署HA对
+
+Cloud Volumes ONTAP 9.11.1支持AWS VPC共享。通过此版本的Connector、您可以在使用API时在AWS共享子网中部署HA对。
+
+link:task-deploy-aws-shared-vpc.html["了解如何在共享子网中部署HA对"]。

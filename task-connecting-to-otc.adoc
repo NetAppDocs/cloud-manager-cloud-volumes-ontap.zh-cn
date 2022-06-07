@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task-connecting-to-otc.html 
-keywords: system manager, connecting, cli, command, command line, connect, shell, interface 
-summary: 如果您需要对 Cloud Volumes ONTAP 执行高级管理、则可以使用 ONTAP System Manager 或命令行界面执行此操作。 
+keywords: connecting, cli, command, command line, connect, shell, interface 
+summary: Cloud Volumes ONTAP 命令行界面可用于运行所有管理命令，也是执行高级任务或使用命令行界面更自如的理想选择。您可以使用SSH连接到命令行界面。 
 ---
-= 使用 System Manager 或 CLI
+= 从命令行界面管理Cloud Volumes ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -13,39 +13,7 @@ summary: 如果您需要对 Cloud Volumes ONTAP 执行高级管理、则可以�
 :imagesdir: ./media/
 
 
-如果您需要对 Cloud Volumes ONTAP 执行高级管理、则可以使用 ONTAP System Manager 或命令行界面执行此操作。
-
-
-
-== 正在连接到 System Manager
-
-您可能需要从 System Manager 执行某些 Cloud Volumes ONTAP 任务， System Manager 是一种基于浏览器的管理工具，可在 Cloud Volumes ONTAP 系统上运行。例如，如果要创建 LUN ，则需要使用 System Manager 。
-
-要从其访问 Cloud Manager 的计算机必须与 Cloud Volumes ONTAP 建立网络连接。例如，您可能需要从云提供商网络中的跳转主机登录到 Cloud Manager 。
-
-ifdef::aws[]
-
-
-NOTE: 在多个 AWS 可用性区域中部署时、 Cloud Volumes ONTAP HA 配置将浮动 IP 地址用于集群管理界面、这意味着外部路由不可用。您必须从属于同一路由域的主机进行连接。
-
-endif::aws[]
-
-.步骤
-. 在 " 画布 " 中，选择 Cloud Volumes ONTAP 工作环境。
-. 在右侧窗格中，单击信息图标并复制集群管理 IP 。
-+
-image:screenshot-cvo-info.png["Cloud Volumes ONTAP 工作环境的 \" 画布 \" 上显示的信息图标的屏幕截图。"]
-
-. 在与 Cloud Volumes ONTAP 建立网络连接的计算机上打开 Web 浏览器，然后输入 IP 地址。
-. 在登录屏幕的 "User Name" 字段中输入 * 管理 * ，输入创建工作环境时指定的密码，然后单击 * 登录 * 。
-
-
-系统管理器控制台即会加载。您现在可以使用它来管理 Cloud Volumes ONTAP 。
-
-
-
-== 连接到 Cloud Volumes ONTAP CLI
-
+[role="lead"]
 Cloud Volumes ONTAP 命令行界面可用于运行所有管理命令，也是执行高级任务或使用命令行界面更自如的理想选择。您可以使用 Secure Shell （ SSH ）连接到 CLI 。
 
 使用 SSH 连接到 Cloud Volumes ONTAP 的主机必须与 Cloud Volumes ONTAP 建立网络连接。例如、您可能需要从云提供商网络中的跳转主机进行SSH。

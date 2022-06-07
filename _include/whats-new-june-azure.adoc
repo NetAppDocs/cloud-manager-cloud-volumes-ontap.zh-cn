@@ -1,0 +1,11 @@
+= 使用服务端点时网络访问受限
+:allow-uri-read: 
+
+
+
+
+=== 使用服务端点时网络访问受限
+
+现在、当使用vNet服务端点在Cloud Volumes ONTAP 和存储帐户之间建立连接时、Cloud Manager会限制网络访问。如果禁用Azure Private Link连接、Cloud Manager将使用服务端点。
+
+link:task-enabling-private-link.html["了解有关使用Cloud Volumes ONTAP 连接Azure专用链路的更多信息"]。
