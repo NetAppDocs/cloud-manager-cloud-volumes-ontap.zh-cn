@@ -1469,7 +1469,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:41:39 +0000">05/09/2022</time>
+    <time datetime="2022-06-08 19:21:57 +0000">06/08/2022</time>
     
   
 
@@ -1669,25 +1669,21 @@
 <p>必须为 Cloud Volumes ONTAP 所在的子网配置专用 Google 访问。有关说明，请参见 <a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">"Google Cloud 文档：配置私有 Google Access"</a>。</p>
 </li>
 <li>
-<p>您需要满足以下要求的服务帐户：</p>
-<div class="ulist">
-<ul>
-<li>
-<p>它必须具有预定义的存储管理员角色。</p>
-</li>
-<li>
-<p>Connector 服务帐户必须是此分层服务帐户的 <em>Service Account User</em> 。</p>
+<p>服务帐户必须附加到Cloud Volumes ONTAP。</p>
 <div class="paragraph">
-<p><a href="task-creating-gcp-service-account.html">"了解如何设置服务帐户"</a>。</p>
+<p><a href="task-creating-gcp-service-account.html">"了解如何设置此服务帐户"</a>。</p>
+</div>
+<div class="paragraph">
+<p>创建Cloud Volumes ONTAP 工作环境时、系统会提示您选择此服务帐户。</p>
+</div>
+<div class="paragraph">
+<p>如果您在部署期间未选择服务帐户、则需要关闭Cloud Volumes ONTAP 、转到Google云控制台、然后将服务帐户附加到Cloud Volumes ONTAP 实例。然后、您可以按照下一节所述启用数据分层。</p>
 </div>
 </li>
 <li>
 <p>要使用客户管理的加密密钥对存储分段进行加密，请启用 Google Cloud 存储分段以使用此密钥。</p>
 <div class="paragraph">
 <p><a href="task-setting-up-gcp-encryption.html">"了解如何在 Cloud Volumes ONTAP 中使用客户管理的加密密钥"</a>。</p>
-</div>
-</li>
-</ul>
 </div>
 </li>
 </ul>
@@ -1712,17 +1708,11 @@
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_enable_capacity_tiering.gif" alt="如果在 Cloud Manager 尝试启用数据分层时遇到问题描述，则可从工作环境菜单中查看启用容量分层选项的屏幕截图。"></span></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注">
-</td>
-<td class="content">
-只有在 Cloud Manager 创建系统时无法启用数据分层时，您才会看到此选项。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>只有在 Cloud Manager 创建系统时无法启用数据分层时，您才会看到此选项。</p>
+</div>
+<div class="paragraph">
+<p>在Google Cloud中、必须先将服务帐户附加到Cloud Volumes ONTAP 、然后才会显示此选项。 <a href="#Requirements">确保满足所有要求</a>。</p>
 </div>
 </li>
 <li>
