@@ -2856,11 +2856,6 @@
   <block id="aaf6c9386307243e0c7f006a0f97bb52" category="paragraph">权限包含在最新版本中<block ref="7fc49a88d4bedbc1252c1f5516a8dc2a" category="inline-link-rx"></block>。</block>
   <block id="fa1042438bed47a60c15908b94fd42c4" category="section-title">将冷数据分层到 Google Cloud 存储分段的要求</block>
   <block id="5a73034af6b91167e9ba69ce44d86e8f" category="list-text">必须为 Cloud Volumes ONTAP 所在的子网配置专用 Google 访问。有关说明，请参见<block ref="46bdb5a1fb51df5eb32e2147ea91e6d8" category="inline-link-rx"></block>。</block>
-  <block id="9d4cd42073cefc588ac43639b1e4e88a" category="list-text">您需要满足以下要求的服务帐户：</block>
-  <block id="6810b6df254e94a8ecf2052c8c7f7721" category="list-text">它必须具有预定义的存储管理员角色。</block>
-  <block id="1837fe5a2076e0b48dd89e6e407d421c" category="list-text">Connector 服务帐户必须是此分层服务帐户的 _Service Account User_ 。</block>
-  <block id="46b491767cd12d81f9bf9593f5a96cf7" category="inline-link-macro">了解如何设置服务帐户</block>
-  <block id="d959b688b1fc3950ea91b0d6cf69810f" category="paragraph"><block ref="d96cbc06eb9960eb349571429d09201c" category="inline-link-macro-rx"></block>。</block>
   <block id="afe7022770dc53fd2a2de81727d4343a" category="list-text">要使用客户管理的加密密钥对存储分段进行加密，请启用 Google Cloud 存储分段以使用此密钥。</block>
   <block id="030b67ae86ab61438eb6b00a3ade8e7a" category="inline-link-macro">了解如何在 Cloud Volumes ONTAP 中使用客户管理的加密密钥</block>
   <block id="d9c32a88801cedef2b665ed828d3ec26" category="paragraph"><block ref="c6d38e0757454a32ebb960ce7a42b88f" category="inline-link-macro-rx"></block>。</block>
@@ -4000,7 +3995,6 @@
   <block id="a22063e6d541a4b1d385c3d940e03996" category="doc">在Google Cloud中为Cloud Volumes ONTAP 创建数据服务Storage VM</block>
   <block id="77701b3d3cb3179bddf053dbed6e2e43" category="paragraph">从9.11.1版开始、Google Cloud中的特定Cloud Volumes ONTAP 配置支持多个Storage VM。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 验证您的 Cloud Volumes ONTAP 版本支持的 Storage VM 数量。</block>
   <block id="8272f5b23e79d0ee33bd5151dcddc454" category="section-title">创建Storage VM</block>
-  <block id="379013863d5e971d00b46819c677a99b" category="list-text">在Google Cloud中、转至Cloud Volumes ONTAP 实例、并为每个LIF添加一个IP范围至nic0。</block>
   <block id="a0ffc61dcb224c763f02ac751ef98179" category="inline-image-macro">Google云控制台的屏幕截图、您可以在其中通过添加IP范围来编辑Cloud Volumes ONTAP 的网络接口。</block>
   <block id="fd22fa73f7ee3c6c4da641ee4618201b" category="paragraph"><block ref="fd22fa73f7ee3c6c4da641ee4618201b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="18a5e21d3d0fe1670cfe0ae7de419c21" category="paragraph">如果要在Storage VM上创建管理LIF、则需要一个数据LIF的IP地址和另一个可选IP地址。</block>
@@ -4009,8 +4003,6 @@
   <block id="314f67251497657aa0bf5f980043c0ab" category="list-text">通过指定在Google Cloud中添加的IP地址来创建数据LIF。</block>
   <block id="b840b6cee4c36a177669a81f293132a6" category="open-title">NFS 或 SMB</block>
   <block id="29788364ff656936651870f4b1c88537" category="list-text">可选：通过指定在Google Cloud中添加的IP地址来创建Storage VM管理LIF。</block>
-  <block id="38116fb8b40a1b0c091634498e4e2682" category="paragraph">您必须使用Cloud Manager API在Google Cloud的Cloud Volumes ONTAP 系统上创建Storage VM。需要使用API (而不是System Manager或CLI)、因为Cloud Manager会为Storage VM配置所需的LIF服务、并为出站SMB/CIFS通信所需的HA对配置iSCSI LIF。</block>
-  <block id="156e5acb649507ff0d1f61e722efa445" category="paragraph">请注意、Cloud Manager会在Google Cloud中为您分配所需的IP地址。</block>
   <block id="4bd46f200c4c3391a3b00fc9aa8af7dd" category="paragraph">从3.9.19版开始、连接器需要以下权限才能为Cloud Volumes ONTAP HA对创建和管理Storage VM：</block>
   <block id="9edd86f763fc6d21418429b5c63134af" category="inline-link">NetApp 提供的策略</block>
   <block id="e32789b345ccbe1107de29d5684f39a3" category="paragraph">中包括这些权限<block ref="d2f8d77175d2dd5e5ed1a096c2593510" category="inline-link-rx"></block></block>
@@ -4128,4 +4120,13 @@
   <block id="780234ea39261cf819a32f7b1f62cacd" category="list-text">AWS<block ref="f103b81da9a8e5be0e2af29f647d4fa3" category="inline-link-rx"></block></block>
   <block id="80b607f58d83b6d6aea68e10d7e615ad" category="list-text">Azure 酒店 <block ref="a8e451d7a52ebee36c6527d684d09cd7" category="inline-link-macro-rx"></block></block>
   <block id="c06321d34601f3b5366ec101222f76b5" category="list-text">Google Cloud <block ref="7cf27d24396a294ecbe07a4a35a715e6" category="inline-link-macro-rx"></block></block>
+  <block id="b9b815f5546c4c8adc367e9b0b643daf" category="list-text">服务帐户必须附加到Cloud Volumes ONTAP。</block>
+  <block id="3416d6997f78d0ffe7261725d24751ca" category="inline-link-macro">了解如何设置此服务帐户</block>
+  <block id="1599759c277422fbe5e683ed93eafe5f" category="paragraph"><block ref="5a9b347c50656bd207fa757a3eb4fa66" category="inline-link-macro-rx"></block>。</block>
+  <block id="cfdfdba6990e94ddaae28fd71b33c102" category="paragraph">创建Cloud Volumes ONTAP 工作环境时、系统会提示您选择此服务帐户。</block>
+  <block id="4094070de63eb60a22dafb42ecab40fb" category="paragraph">如果您在部署期间未选择服务帐户、则需要关闭Cloud Volumes ONTAP 、转到Google云控制台、然后将服务帐户附加到Cloud Volumes ONTAP 实例。然后、您可以按照下一节所述启用数据分层。</block>
+  <block id="03b060a90dee73a6134cc6c1ebdf7458" category="paragraph">在Google Cloud中、必须先将服务帐户附加到Cloud Volumes ONTAP 、然后才会显示此选项。 <block ref="066865d547a10de791f5772d517b17f7" category="inline-xref-macro-rx"></block>。</block>
+  <block id="870789b9d0beec538c84e00432400091" category="list-text">在Google Cloud中、转至Cloud Volumes ONTAP 实例并为每个LIF添加一个IP地址到nic0。</block>
+  <block id="71ab72fd4554a8b53d36a4e2687c3235" category="paragraph">您必须使用Cloud Manager API在Google Cloud的Cloud Volumes ONTAP 系统上创建Storage VM。需要使用API (而不是System Manager或CLI)、因为Cloud Manager会为Storage VM配置所需的LIF服务以及出站SMB/CIFS通信所需的iSCSI LIF。</block>
+  <block id="fb806393c7f698f410dd00705de40f9b" category="paragraph">请注意、Cloud Manager会在Google Cloud中分配所需的IP地址、并创建具有用于SMB/NFS访问的数据LIF和用于出站SMB通信的iSCSI LIF的Storage VM。</block>
 </blocks>
