@@ -1469,7 +1469,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:29:47 +0000">04/14/2022</time>
+    <time datetime="2022-06-09 14:25:58 +0000">06/09/2022</time>
     
   
 
@@ -1830,6 +1830,34 @@
 <div class="paragraph">
 <p>Cloud Manager 将启动转换过程。在此过程中， Cloud Volumes ONTAP 会自动重新启动。备份时，许可信息将反映新许可证。</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="paygo和byol之间的更改">PAYGO和BYOL之间的更改</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>不支持将系统从PAYGO单节点许可转换为BYOL单节点许可(反之亦然)。如果要在按需购买订阅和BYOL订阅之间切换、则需要部署新系统并将现有系统中的数据复制到新系统。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>创建新的 Cloud Volumes ONTAP 工作环境。</p>
+</li>
+<li>
+<p>在系统之间为需要复制的每个卷设置一次性数据复制。</p>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-replication/task-replicating-data.html" target="_blank" rel="noopener">"了解如何在系统之间复制数据"</a></p>
+</div>
+</li>
+<li>
+<p>通过删除原始工作环境来终止不再需要的 Cloud Volumes ONTAP 系统。</p>
+<div class="paragraph">
+<p><a href="task-deleting-working-env.html">"了解如何删除Cloud Volumes ONTAP 工作环境"</a>。</p>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
