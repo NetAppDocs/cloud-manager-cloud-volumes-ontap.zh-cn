@@ -526,9 +526,7 @@
   <block id="7be0ecb9e73595d673d5fbaed0cb6378" category="list-text">在 Azure 门户中，打开 * 负载平衡器 * 服务。</block>
   <block id="8097feb21f6c4186704bf26f92131fe0" category="list-text">单击 HA 对的负载平衡器的名称。</block>
   <block id="91755019ec4f9b4503c2abd1e2018220" category="list-text">在 * 设置 * 下，单击 * 前端 IP 配置 * 。</block>
-  <block id="7edcf3b7dac7218c74f45badfcadf54c" category="list-text">输入前端 IP 的名称，为 Cloud Volumes ONTAP HA 对选择子网，并保持选中 * 动态 * 。</block>
   <block id="fde48a87720c7f4a7b3fe579cf70ce21" category="inline-image-macro">在选择了名称和子网的 Azure 门户中添加前端 IP 地址的屏幕截图。</block>
-  <block id="624bf1221024c93616a16790392b5131" category="paragraph"><block ref="624bf1221024c93616a16790392b5131" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0da801a9d3d38ccf39fc77f357cbd875" category="list-text">单击刚刚创建的前端 IP 配置的名称，将 * 分配 * 更改为 * 静态 * ，然后单击 * 保存 * 。</block>
   <block id="0f21ca89d8c8b745954f3d9e19a0dd80" category="list-text">为刚刚创建的每个前端 IP 添加运行状况探测。</block>
   <block id="1b45149e0b23a41687b2084ae6d33a48" category="list-text">在负载平衡器的 * 设置 * 下，单击 * 运行状况探针 * 。</block>
@@ -4129,4 +4127,19 @@
   <block id="870789b9d0beec538c84e00432400091" category="list-text">在Google Cloud中、转至Cloud Volumes ONTAP 实例并为每个LIF添加一个IP地址到nic0。</block>
   <block id="71ab72fd4554a8b53d36a4e2687c3235" category="paragraph">您必须使用Cloud Manager API在Google Cloud的Cloud Volumes ONTAP 系统上创建Storage VM。需要使用API (而不是System Manager或CLI)、因为Cloud Manager会为Storage VM配置所需的LIF服务以及出站SMB/CIFS通信所需的iSCSI LIF。</block>
   <block id="fb806393c7f698f410dd00705de40f9b" category="paragraph">请注意、Cloud Manager会在Google Cloud中分配所需的IP地址、并创建具有用于SMB/NFS访问的数据LIF和用于出站SMB通信的iSCSI LIF的Storage VM。</block>
+  <block id="8ad37a38e1be1cd56ba8016e897e15c5" category="inline-link">了解有关VPC网络对等的更多信息</block>
+  <block id="3af417bcb28902bf6e018910cab4b830" category="paragraph">如果您计划在独立于连接器的VPC中部署Cloud Volumes ONTAP 、则需要设置VPC网络对等关系。<block ref="7da1fe3c3eb485cc3c06acb3359fc320" category="inline-link-rx"></block></block>
+  <block id="b961ba228f0253598e8fe47f55865219" category="list-text">输入前端IP的名称、选择Cloud Volumes ONTAP HA对的子网、并保留*动态*选项、在具有可用性区域的区域中、保留*区域冗余*选项、以确保在区域发生故障时IP地址仍然可用。</block>
+  <block id="c00e2d19af360558425fe43036ba7057" category="paragraph"><block ref="c00e2d19af360558425fe43036ba7057" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5505ffcb759fb1c9c3793b2dd386cd82" category="inline-link-macro">了解如何在PAYGO和BYOL之间切换</block>
+  <block id="b71c93cf4431b3a81c64a35fe6dbe9cf" category="paragraph">请注意、不支持将系统从PAYGO by node许可转换为BYOL by-node许可(反之亦然)。您需要部署一个新系统、然后将数据复制到该系统。 <block ref="d81e4230804422351d525c6f4d42f594" category="inline-link-macro-rx"></block>。</block>
+  <block id="594cb44c6500d8855ad820b0653e02c7" category="section-title">PAYGO和BYOL之间的更改</block>
+  <block id="a704128156d562fe5860508e9584ee34" category="paragraph">不支持将系统从PAYGO单节点许可转换为BYOL单节点许可(反之亦然)。如果要在按需购买订阅和BYOL订阅之间切换、则需要部署新系统并将现有系统中的数据复制到新系统。</block>
+  <block id="7f7c7e70efe0e6e29f5d0b207145f30e" category="list-text">创建新的 Cloud Volumes ONTAP 工作环境。</block>
+  <block id="9bd20ffd5e91ec2bb61bc593be38bb13" category="list-text">在系统之间为需要复制的每个卷设置一次性数据复制。</block>
+  <block id="95b10ad2ca24b4c8bd5673b7383531a2" category="inline-link">了解如何在系统之间复制数据</block>
+  <block id="0f1f7d0cff1734f943c2503c9febec73" category="paragraph"><block ref="0f1f7d0cff1734f943c2503c9febec73" category="inline-link-rx"></block></block>
+  <block id="2dd15870a87ceaf45f31f08d066afaeb" category="list-text">通过删除原始工作环境来终止不再需要的 Cloud Volumes ONTAP 系统。</block>
+  <block id="2464ba8f7f97ce117f749b75a1c60906" category="inline-link-macro">了解如何删除Cloud Volumes ONTAP 工作环境</block>
+  <block id="4397e74dad93d251efd7f65b1756f22b" category="paragraph"><block ref="8170ae40f603808099e16014cfba3f00" category="inline-link-macro-rx"></block>。</block>
 </blocks>

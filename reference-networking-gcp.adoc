@@ -185,6 +185,8 @@ TIP: 如果您的网络使用代理服务器与 Internet 进行所有通信，�
 
 连接器要求与要部署 Cloud Volumes ONTAP 的 VPC 建立网络连接。如果要部署 HA 对，则 Connector 只需要连接到 VPC-0 。
 
+如果您计划在独立于连接器的VPC中部署Cloud Volumes ONTAP 、则需要设置VPC网络对等关系。 https://cloud.google.com/vpc/docs/vpc-peering["了解有关VPC网络对等的更多信息"^]
+
 
 
 === 出站 Internet 访问
