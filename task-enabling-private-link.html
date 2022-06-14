@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>将 Azure 专用链路与 Cloud Volumes ONTAP 结合使用 | NetApp Documentation</title>
+  <title>使用Azure专用链路或服务端点 | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="将 Azure 专用链路与 Cloud Volumes ONTAP 结合使用 | NetApp Documentation" />
+  <meta property="og:title" content="使用Azure专用链路或服务端点 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html" />
-	<meta property="og:description" content="默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全。" />
+	<meta property="og:description" content="默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源之间的连接启用Azure专用链路。如果需要、您可以禁用Azure专用链路、而改用服务端点。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全。">
-  <meta name="keywords" content=" azure private link, private link connection, private link to storage"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源之间的连接启用Azure专用链路。如果需要、您可以禁用Azure专用链路、而改用服务端点。">
+  <meta name="keywords" content=" azure private link, private link connection, private link to storage, service endpoints, enable service endpoint, disable private link"><!-- Icons -->
   <link rel="icon" href="/zh-cn/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/zh-cn/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -201,7 +201,7 @@
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[将 Azure 专用链路与 Cloud Volumes ONTAP 结合使用](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-enabling-private-link.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[使用Azure专用链路或服务端点](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-enabling-private-link.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -1329,7 +1329,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html">
         覆盖 CIFS 锁定
       </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html">
-        使用 Azure 专用链路
+        使用Azure专用链路或服务端点
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Google Cloud管理</div>
       </a>
@@ -1462,14 +1462,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">将 Azure 专用链路与 Cloud Volumes ONTAP 结合使用</h1>
+  <h1 class="n-doc__component-detail-heading">使用Azure专用链路或服务端点</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:55:53 +0000">06/07/2022</time>
+    <time datetime="2022-06-14 21:07:37 +0000">06/14/2022</time>
     
   
 
@@ -1479,26 +1479,72 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全，并可提供性能优势。 <a href="https://docs.microsoft.com/en-us/azure/private-link/private-link-overview" target="_blank" rel="noopener">"了解更多信息。"</a>。</p>
-</div>
-<div class="paragraph">
-<p>在大多数情况下，您无需执行任何操作— Cloud Manager 为您管理 Azure 专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。如果需要，您还可以禁用专用链路连接。</p>
+<p>默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源之间的连接启用Azure专用链路。如果需要、您可以禁用Azure专用链路、而改用服务端点。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="连接器在-azure-中的位置">连接器在 Azure 中的位置</h2>
+<h2 id="概述">概述</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>此连接器应部署在与其管理的 Cloud Volumes ONTAP 系统所在的同一 Azure 区域或中 <a href="https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies" target="_blank" rel="noopener">"Azure 区域对"</a> 对于 Cloud Volumes ONTAP 系统。此要求可确保在 Cloud Volumes ONTAP 与其关联存储帐户之间使用 Azure 专用链路连接。</p>
+<p>Cloud Manager可为Cloud Volumes ONTAP 节点与以下Azure资源之间的连接启用Azure专用链路：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Volumes ONTAP 与其关联存储帐户之间的连接</p>
+</li>
+<li>
+<p>Cloud Volumes ONTAP 与Azure Blob存储之间的连接、用于备份和数据分层</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Azure Private Link可确保Azure中端点之间的连接安全、并可提供性能优势。</p>
+</div>
+<div class="paragraph">
+<p>如果需要、您可以将Cloud Volumes ONTAP 配置为使用服务端点、而不是Azure专用链路。</p>
+</div>
+<div class="paragraph">
+<p>无论采用哪种配置、Cloud Manager都始终限制Cloud Volumes ONTAP 与存储帐户之间的连接的网络访问。网络访问仅限于部署了Cloud Volumes ONTAP 的vNet和部署了连接器的vNet。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="专用链路连接如何与-cloud-volumes-ontap-配合使用">专用链路连接如何与 Cloud Volumes ONTAP 配合使用</h2>
+<h2 id="请禁用azure专用链路并改用服务端点">请禁用Azure专用链路并改用服务端点</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>当 Cloud Manager 在 Azure 中部署 Cloud Volumes ONTAP 时，它会在资源组中创建一个私有端点。专用端点与 Cloud Volumes ONTAP 的存储帐户关联。因此，对 Cloud Volumes ONTAP 存储的访问会通过 Microsoft 主干网络进行。</p>
+<p>如果您的企业需要、您可以更改Cloud Manager中的设置、以便将Cloud Volumes ONTAP 配置为使用服务端点、而不是Azure专用链路。更改此设置将适用场景 添加您创建的新Cloud Volumes ONTAP 系统。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>在 Cloud Manager 控制台的右上角，单击设置图标，然后选择 * 连接器设置 * 。</p>
+</li>
+<li>
+<p>在 * Azure * 下，单击 * 使用 Azure 专用链接 * 。</p>
+</li>
+<li>
+<p>取消选择 * Cloud Volumes ONTAP 与存储帐户之间的专用链路连接 * 。</p>
+</li>
+<li>
+<p>单击 * 保存 * 。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="使用azure专用链路">使用Azure专用链路</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在大多数情况下、您无需执行任何操作即可使用Cloud Volumes ONTAP 设置Azure专用链路。Cloud Manager可为您管理Azure专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。此外、您还应了解Azure中连接器位置的要求。</p>
+</div>
+<div class="sect2">
+<h3 id="专用链路连接如何与cloud-volumes-ontap-存储帐户配合使用">专用链路连接如何与Cloud Volumes ONTAP 存储帐户配合使用</h3>
+<div class="paragraph">
+<p>当 Cloud Manager 在 Azure 中部署 Cloud Volumes ONTAP 时，它会在资源组中创建一个私有端点。专用端点与Cloud Volumes ONTAP 的存储帐户关联。因此，对 Cloud Volumes ONTAP 存储的访问会通过 Microsoft 主干网络进行。</p>
 </div>
 <div class="paragraph">
 <p>如果客户端与 Cloud Volumes ONTAP 位于同一个 vNet 中，位于对等 VNets 中，或者使用专用 VPN 或 ExpressRoute 连接到 VNet ，则客户端访问将通过专用链路进行。</p>
@@ -1510,10 +1556,14 @@
 <p><span class="image"><img src="./media/diagram_azure_private_link.png" alt="一个概念映像，用于显示通过专用端点和专用链路访问 Cloud Volumes ONTAP 以及存储帐户的数据。"></span></p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="连接器在-azure-中的位置">连接器在 Azure 中的位置</h3>
+<div class="paragraph">
+<p>此连接器应部署在与其管理的 Cloud Volumes ONTAP 系统所在的同一 Azure 区域或中 <a href="https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies" target="_blank" rel="noopener">"Azure 区域对"</a> 对于 Cloud Volumes ONTAP 系统。此要求可确保在 Cloud Volumes ONTAP 与其关联存储帐户之间使用 Azure 专用链路连接。</p>
 </div>
-<div class="sect1">
-<h2 id="向-cloud-manager-提供有关-azure-私有-dns-的详细信息">向 Cloud Manager 提供有关 Azure 私有 DNS 的详细信息</h2>
-<div class="sectionbody">
+</div>
+<div class="sect2">
+<h3 id="向-cloud-manager-提供有关-azure-私有-dns-的详细信息">向 Cloud Manager 提供有关 Azure 私有 DNS 的详细信息</h3>
 <div class="paragraph">
 <p>如果您使用 <a href="https://docs.microsoft.com/en-us/azure/dns/private-dns-overview" target="_blank" rel="noopener">"Azure 专用 DNS"</a>，然后您需要修改每个 Connector 上的配置文件。否则， Cloud Manager 将无法在 Cloud Volumes ONTAP 与其关联存储帐户之间启用 Azure 专用链路连接。</p>
 </div>
@@ -1553,10 +1603,8 @@
 </ol>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="启用故障回滚">启用故障回滚</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="启用故障回滚">启用故障回滚</h3>
 <div class="paragraph">
 <p>如果 Cloud Manager 无法在特定操作中创建 Azure 专用链路，则它将在没有 Azure 专用链路连接的情况下完成此操作。在创建新的工作环境（单节点或 HA 对）或对 HA 对执行以下操作时，可能会发生这种情况：创建新聚合，向现有聚合添加磁盘或在超过 32 TiB 时创建新存储帐户。</p>
 </div>
@@ -1582,33 +1630,6 @@
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="禁用-azure-专用链路连接">禁用 Azure 专用链路连接</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>如果您的 Azure 配置需要，您可以禁用 Cloud Volumes ONTAP 与存储帐户之间的 Azure 专用链路连接。</p>
-</div>
-<div class="paragraph">
-<p>如果禁用Azure Private Link连接、Cloud Manager将改用服务端点。即使使用服务端点、Cloud Manager也会限制存储帐户对部署了Cloud Volumes ONTAP 的vNet和部署了Connector的vNet的访问。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>在 Cloud Manager 控制台的右上角，单击设置图标，然后选择 * 连接器设置 * 。</p>
-</li>
-<li>
-<p>在 * Azure * 下，单击 * 使用 Azure 专用链接 * 。</p>
-</li>
-<li>
-<p>取消选择 * Cloud Volumes ONTAP 与存储帐户之间的专用链路连接 * 。</p>
-</li>
-<li>
-<p>单击 * 保存 * 。</p>
-</li>
-</ol>
 </div>
 </div>
 </div>

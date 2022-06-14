@@ -1274,7 +1274,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-overriding-cifs-locks.html">
         覆盖 CIFS 锁定
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-enabling-private-link.html">
-        使用 Azure 专用链路
+        使用Azure专用链路或服务端点
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-administer-advanced-view.html">
         通过System Manager进行管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-connecting-to-otc.html">
@@ -1403,7 +1403,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:55:53 +0000">06/07/2022</time>
+    <time datetime="2022-06-14 21:07:37 +0000">06/14/2022</time>
     
   
 
@@ -1479,37 +1479,16 @@ LIF 是与物理端口关联的 IP 地址。SnapCenter 等管理工具需要 SVM
 <div class="sect2">
 <h3 id="安全连接到-azure-服务">安全连接到 Azure 服务</h3>
 <div class="paragraph">
-<p>Cloud Manager 可设置一个 vNet 服务端点和一个 Azure 专用链路端点，以便 Cloud Volumes ONTAP 可以私有连接到 Azure 服务。</p>
-</div>
-<div class="sect3">
-<h4 id="服务端点">服务端点</h4>
-<div class="paragraph">
-<p>通过 Cloud Manager ， vNet 服务端点可以创建从 Cloud Volumes ONTAP 到 Azure Blob 存储的安全连接，以便进行数据分层。不支持从 Cloud Volumes ONTAP 到 Azure 服务的其他服务端点。</p>
+<p>默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源之间的连接启用Azure专用链路。</p>
 </div>
 <div class="paragraph">
-<p>如果 Cloud Manager 策略具有以下权限，则 Cloud Manager 将为您启用 vNet 服务端点：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">"Microsoft.Network/virtualNetworks/subnets/write",
-"Microsoft.Network/routeTables/join/action",</code></pre>
-</div>
+<p>在大多数情况下、您无需执行任何操作—​Cloud管理器为您管理Azure专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。此外、您还应了解Azure中连接器位置的要求。</p>
 </div>
 <div class="paragraph">
-<p>这些权限包含在最新版本中 <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies">"Cloud Manager 策略"</a>。</p>
+<p>如果业务需要、您还可以禁用专用链路连接。如果禁用此链接、则Cloud Manager会将Cloud Volumes ONTAP 配置为使用服务端点。</p>
 </div>
 <div class="paragraph">
-<p>有关设置数据分层的详细信息，请参见 <a href="task-tiering.html">"将冷数据分层到低成本对象存储"</a>。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="专用链路">专用链路</h4>
-<div class="paragraph">
-<p>默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全，并可提供性能优势。在大多数情况下，您无需执行任何操作— Cloud Manager 为您管理 Azure 专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。如果需要，您还可以禁用专用链路连接。</p>
-</div>
-<div class="paragraph">
-<p><a href="task-enabling-private-link.html">"了解有关将 Azure 专用链路与 Cloud Volumes ONTAP 结合使用的更多信息"</a>。</p>
-</div>
+<p><a href="task-enabling-private-link.html">"了解有关将Azure专用链路或服务端点与Cloud Volumes ONTAP 结合使用的更多信息"</a>。</p>
 </div>
 </div>
 <div class="sect2">
