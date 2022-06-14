@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task-enabling-private-link.html 
-keywords: azure private link, private link connection, private link to storage 
-summary: 默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全。 
+keywords: azure private link, private link connection, private link to storage, service endpoints, enable service endpoint, disable private link 
+summary: 默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源之间的连接启用Azure专用链路。如果需要、您可以禁用Azure专用链路、而改用服务端点。 
 ---
-= 将 Azure 专用链路与 Cloud Volumes ONTAP 结合使用
+= 使用Azure专用链路或服务端点
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,21 +14,48 @@ summary: 默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关�
 
 
 [role="lead"]
-默认情况下， Cloud Manager 会在 Cloud Volumes ONTAP 及其关联存储帐户之间启用 Azure 专用链路连接。专用链路可确保 Azure 中端点之间的连接安全，并可提供性能优势。 https://docs.microsoft.com/en-us/azure/private-link/private-link-overview["了解更多信息。"^]。
-
-在大多数情况下，您无需执行任何操作— Cloud Manager 为您管理 Azure 专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。如果需要，您还可以禁用专用链路连接。
+默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源之间的连接启用Azure专用链路。如果需要、您可以禁用Azure专用链路、而改用服务端点。
 
 
 
-== 连接器在 Azure 中的位置
+== 概述
 
-此连接器应部署在与其管理的 Cloud Volumes ONTAP 系统所在的同一 Azure 区域或中 https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["Azure 区域对"^] 对于 Cloud Volumes ONTAP 系统。此要求可确保在 Cloud Volumes ONTAP 与其关联存储帐户之间使用 Azure 专用链路连接。
+Cloud Manager可为Cloud Volumes ONTAP 节点与以下Azure资源之间的连接启用Azure专用链路：
+
+* Cloud Volumes ONTAP 与其关联存储帐户之间的连接
+* Cloud Volumes ONTAP 与Azure Blob存储之间的连接、用于备份和数据分层
+
+
+Azure Private Link可确保Azure中端点之间的连接安全、并可提供性能优势。
+
+如果需要、您可以将Cloud Volumes ONTAP 配置为使用服务端点、而不是Azure专用链路。
+
+无论采用哪种配置、Cloud Manager都始终限制Cloud Volumes ONTAP 与存储帐户之间的连接的网络访问。网络访问仅限于部署了Cloud Volumes ONTAP 的vNet和部署了连接器的vNet。
 
 
 
-== 专用链路连接如何与 Cloud Volumes ONTAP 配合使用
+== 请禁用Azure专用链路并改用服务端点
 
-当 Cloud Manager 在 Azure 中部署 Cloud Volumes ONTAP 时，它会在资源组中创建一个私有端点。专用端点与 Cloud Volumes ONTAP 的存储帐户关联。因此，对 Cloud Volumes ONTAP 存储的访问会通过 Microsoft 主干网络进行。
+如果您的企业需要、您可以更改Cloud Manager中的设置、以便将Cloud Volumes ONTAP 配置为使用服务端点、而不是Azure专用链路。更改此设置将适用场景 添加您创建的新Cloud Volumes ONTAP 系统。
+
+.步骤
+. 在 Cloud Manager 控制台的右上角，单击设置图标，然后选择 * 连接器设置 * 。
+. 在 * Azure * 下，单击 * 使用 Azure 专用链接 * 。
+. 取消选择 * Cloud Volumes ONTAP 与存储帐户之间的专用链路连接 * 。
+. 单击 * 保存 * 。
+
+
+
+
+== 使用Azure专用链路
+
+在大多数情况下、您无需执行任何操作即可使用Cloud Volumes ONTAP 设置Azure专用链路。Cloud Manager可为您管理Azure专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。此外、您还应了解Azure中连接器位置的要求。
+
+
+
+=== 专用链路连接如何与Cloud Volumes ONTAP 存储帐户配合使用
+
+当 Cloud Manager 在 Azure 中部署 Cloud Volumes ONTAP 时，它会在资源组中创建一个私有端点。专用端点与Cloud Volumes ONTAP 的存储帐户关联。因此，对 Cloud Volumes ONTAP 存储的访问会通过 Microsoft 主干网络进行。
 
 如果客户端与 Cloud Volumes ONTAP 位于同一个 vNet 中，位于对等 VNets 中，或者使用专用 VPN 或 ExpressRoute 连接到 VNet ，则客户端访问将通过专用链路进行。
 
@@ -38,7 +65,13 @@ image:diagram_azure_private_link.png["一个概念映像，用于显示通过专
 
 
 
-== 向 Cloud Manager 提供有关 Azure 私有 DNS 的详细信息
+=== 连接器在 Azure 中的位置
+
+此连接器应部署在与其管理的 Cloud Volumes ONTAP 系统所在的同一 Azure 区域或中 https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["Azure 区域对"^] 对于 Cloud Volumes ONTAP 系统。此要求可确保在 Cloud Volumes ONTAP 与其关联存储帐户之间使用 Azure 专用链路连接。
+
+
+
+=== 向 Cloud Manager 提供有关 Azure 私有 DNS 的详细信息
 
 如果您使用 https://docs.microsoft.com/en-us/azure/dns/private-dns-overview["Azure 专用 DNS"^]，然后您需要修改每个 Connector 上的配置文件。否则， Cloud Manager 将无法在 Cloud Volumes ONTAP 与其关联存储帐户之间启用 Azure 专用链路连接。
 
@@ -67,7 +100,7 @@ image:diagram_azure_private_link.png["一个概念映像，用于显示通过专
 
 
 
-== 启用故障回滚
+=== 启用故障回滚
 
 如果 Cloud Manager 无法在特定操作中创建 Azure 专用链路，则它将在没有 Azure 专用链路连接的情况下完成此操作。在创建新的工作环境（单节点或 HA 对）或对 HA 对执行以下操作时，可能会发生这种情况：创建新聚合，向现有聚合添加磁盘或在超过 32 TiB 时创建新存储帐户。
 
@@ -84,19 +117,4 @@ image:diagram_azure_private_link.png["一个概念映像，用于显示通过专
 ----
 { "rollbackOnAzurePrivateLinkFailure": true }
 ----
-
-
-
-
-== 禁用 Azure 专用链路连接
-
-如果您的 Azure 配置需要，您可以禁用 Cloud Volumes ONTAP 与存储帐户之间的 Azure 专用链路连接。
-
-如果禁用Azure Private Link连接、Cloud Manager将改用服务端点。即使使用服务端点、Cloud Manager也会限制存储帐户对部署了Cloud Volumes ONTAP 的vNet和部署了Connector的vNet的访问。
-
-.步骤
-. 在 Cloud Manager 控制台的右上角，单击设置图标，然后选择 * 连接器设置 * 。
-. 在 * Azure * 下，单击 * 使用 Azure 专用链接 * 。
-. 取消选择 * Cloud Volumes ONTAP 与存储帐户之间的专用链路连接 * 。
-. 单击 * 保存 * 。
 
