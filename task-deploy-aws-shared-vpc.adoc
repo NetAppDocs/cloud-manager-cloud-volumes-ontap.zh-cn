@@ -35,7 +35,22 @@ summary: 从9.11.1版开始、具有VPC共享的AWS支持Cloud Volumes ONTAP HA�
 +
 *** 在 * 可信实体类型 * 下，选择 * AWS 帐户 * 。
 *** 选择*其他AWS帐户*并输入VPC所有者帐户的ID。
-*** 使用 Cloud Manager IAM 策略创建策略，该策略可从获得 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
+*** 将包含"STS：AssumeRole"权限的策略附加到IAM角色。
++
+例如：
+
++
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Allow",
+    "Action": "sts:AssumeRole",
+    "Resource": "arn:aws:iam::account-id:role/Test*"
+  }
+}
+----
 
 
 .. 复制IAM角色的角色ARN、以便在部署HA对时将其粘贴到API请求中。
@@ -57,7 +72,7 @@ link:reference-security-groups.html["请参见Cloud Volumes ONTAP 的安全组�
 [source, json]
 ----
 "haParams": {
-     “assumeRoleArn”: “arn:aws:iam::642991768967:role/mediator_role_assume_fromdev”
+     "assumeRoleArn": "arn:aws:iam::642991768967:role/mediator_role_assume_fromdev"
 }
 ----
 +

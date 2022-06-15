@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-enabling-private-link.html 
 keywords: azure private link, private link connection, private link to storage, service endpoints, enable service endpoint, disable private link 
-summary: 默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源之间的连接启用Azure专用链路。如果需要、您可以禁用Azure专用链路、而改用服务端点。 
+summary: Cloud Volumes ONTAP 使用Azure专用链路连接到其关联的存储帐户。如果需要、您可以禁用Azure专用链路、而改用服务端点。 
 ---
 = 使用Azure专用链路或服务端点
 :hardbreaks:
@@ -14,19 +14,13 @@ summary: 默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源
 
 
 [role="lead"]
-默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源之间的连接启用Azure专用链路。如果需要、您可以禁用Azure专用链路、而改用服务端点。
+Cloud Volumes ONTAP 使用Azure专用链路连接到其关联的存储帐户。如果需要、您可以禁用Azure专用链路、而改用服务端点。
 
 
 
 == 概述
 
-Cloud Manager可为Cloud Volumes ONTAP 节点与以下Azure资源之间的连接启用Azure专用链路：
-
-* Cloud Volumes ONTAP 与其关联存储帐户之间的连接
-* Cloud Volumes ONTAP 与Azure Blob存储之间的连接、用于备份和数据分层
-
-
-Azure Private Link可确保Azure中端点之间的连接安全、并可提供性能优势。
+默认情况下、Cloud Manager会为Cloud Volumes ONTAP 与其关联存储帐户之间的连接启用Azure专用链路。Azure Private Link可确保Azure中端点之间的连接安全、并可提供性能优势。
 
 如果需要、您可以将Cloud Volumes ONTAP 配置为使用服务端点、而不是Azure专用链路。
 
@@ -53,7 +47,7 @@ Azure Private Link可确保Azure中端点之间的连接安全、并可提供性
 
 
 
-=== 专用链路连接如何与Cloud Volumes ONTAP 存储帐户配合使用
+=== 专用链路连接的工作原理
 
 当 Cloud Manager 在 Azure 中部署 Cloud Volumes ONTAP 时，它会在资源组中创建一个私有端点。专用端点与Cloud Volumes ONTAP 的存储帐户关联。因此，对 Cloud Volumes ONTAP 存储的访问会通过 Microsoft 主干网络进行。
 

@@ -55,7 +55,7 @@ TIP: LIF 是与物理端口关联的 IP 地址。SnapCenter 等管理工具需�
 
 === 安全连接到 Azure 服务
 
-默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure资源之间的连接启用Azure专用链路。
+默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure存储帐户之间的连接启用Azure专用链接。
 
 在大多数情况下、您无需执行任何操作—​Cloud管理器为您管理Azure专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。此外、您还应了解Azure中连接器位置的要求。
 
