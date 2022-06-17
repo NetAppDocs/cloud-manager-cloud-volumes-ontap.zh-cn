@@ -490,7 +490,6 @@
   <block id="24ccc997472d0e30221fe39df91aa347" category="inline-link-macro">从 * 高级分配 * 页面</block>
   <block id="0ea918acc7a4eddfe90aa3982fd4332c" category="paragraph">您可以自己管理聚合而不是让云管理器为您管理聚合。 <block ref="2414ef63108c7ecff38292e17ac61802" category="inline-link-macro-rx"></block>，您可以创建包含特定数量磁盘的新聚合，向现有聚合添加磁盘以及在特定聚合中创建卷。</block>
   <block id="1d19e21de0f93b11f5ceb8b535a3afc2" category="section-title">容量管理</block>
-  <block id="3b63d4ec434de86415bca73f12d741a3" category="paragraph">客户管理员可以选择 Cloud Manager 是否通知您存储容量决策，或者 Cloud Manager 是否自动管理您的容量需求。这可能有助于您了解这些模式的工作原理。</block>
   <block id="f2be69b635c39988351f6636a52c66bd" category="section-title">自动容量管理</block>
   <block id="f40e552fce5b2f183c035526f1c7bde9" category="paragraph">默认情况下，容量管理模式设置为自动。在此模式下， Cloud Manager 会在需要更多容量时自动为 Cloud Volumes ONTAP 实例购买新磁盘，删除未使用的磁盘集合（聚合），根据需要在聚合之间移动卷以及尝试解除磁盘故障。</block>
   <block id="4ecae3c28a5b318997a02fa69a0d0950" category="paragraph">以下示例说明了此模式的工作原理：</block>
@@ -4142,4 +4141,24 @@
   <block id="3b7d5a44ee60c424b0f9531a36f99994" category="section-title">专用链路连接的工作原理</block>
   <block id="cd14dd2b5bd666f4fd9008fa68836b01" category="paragraph">默认情况下、Cloud Manager会为Cloud Volumes ONTAP 和Azure存储帐户之间的连接启用Azure专用链接。</block>
   <block id="44fbda76f93db897942a813a2ca722df" category="paragraph">在大多数情况下、您无需执行任何操作—​Cloud管理器为您管理Azure专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。此外、您还应了解Azure中连接器位置的要求。</block>
+  <block id="ae271afdca3c7d6785a9aefa74e6c80e" category="doc">管理Connector上的容量设置</block>
+  <block id="b62aaf3fb48f9f8f103dc68c41211be5" category="paragraph">每个连接器都有设置、用于确定其如何管理Cloud Volumes ONTAP 的聚合容量。</block>
+  <block id="4edc935aeaaf3923beb2e4249e6c56f3" category="paragraph">这些设置会影响由连接器管理的所有Cloud Volumes ONTAP 系统。如果您有另一个连接器、则可以对其进行不同的配置。</block>
+  <block id="4f85ddd6337c9d7a3f7f9955945eece1" category="paragraph">要修改Connector设置、需要帐户管理员权限。</block>
+  <block id="03c93da41831d72dcea5fc724b2b4658" category="list-text">在*容量*下、修改以下任何设置：</block>
+  <block id="6b4ff0efcdf107fc68c01f001273f945" category="list-text">选择Cloud Manager是否通知您存储容量决策、或者Cloud Manager是否自动管理您的容量需求。</block>
+  <block id="af1f64d74440547a71a0dfdd077d8a15" category="inline-link-macro">了解容量管理模式的工作原理</block>
+  <block id="46e6171a2e84c75269ac8bcb3c5004d8" category="paragraph"><block ref="f8a3c55f9fa8638c083e126aaf830b07" category="inline-link-macro-rx"></block>。</block>
+  <block id="562e73580c466cead324e6a17fbfe1c8" category="list-text">可用空间比率</block>
+  <block id="314b05c3387324c9621b3b3cd58816d4" category="list-text">当聚合上的可用空间比率降至指定阈值以下时触发通知。</block>
+  <block id="a27b16792f86cfcc4c0f28d5d58e43f4" category="paragraph">可用空间比率的计算方法如下：</block>
+  <block id="b9fbc310908f08e909d0f601f964b6d5" category="paragraph">(聚合容量-聚合上的总已用容量)/聚合容量</block>
+  <block id="1bf0c6edc1ff4a9b211fcdf6bda9cef9" category="list-text">数据分层的可用空间比率</block>
+  <block id="0bc3c683bdb3389ca9d8d2211fce0878" category="list-text">定义将数据分层到容量层(对象存储)时、性能层(磁盘)需要多少可用空间。</block>
+  <block id="3e230a58ba269a917d314abcc623818e" category="paragraph">此比率对于灾难恢复情形非常重要。从容量层读取数据时、Cloud Volumes ONTAP 会将数据移至性能层以提高性能。如果空间不足，则 Cloud Volumes ONTAP 无法移动数据。</block>
+  <block id="a8511ef1eba750b782198f5ec3686faa" category="paragraph">客户管理员可以选择 Cloud Manager 是否通知您存储容量决策，或者 Cloud Manager 是否自动管理您的容量需求。</block>
+  <block id="99a583bf10de030bdac538c8b15f5b45" category="paragraph">此行为由连接器上的_Capacity Management Modes_确定。容量管理模式会影响由该连接器管理的所有Cloud Volumes ONTAP 系统。如果您有另一个连接器、则可以对其进行不同的配置。</block>
+  <block id="825ccc8f97f155807b31877cfd383216" category="inline-link-macro">了解如何修改容量管理模式</block>
+  <block id="bb4793d3293acae6810aa94d7a19444b" category="paragraph"><block ref="efe15a4f6f400360bbcb54034c690ce4" category="inline-link-macro-rx"></block>。</block>
+  <block id="278a1c52ea1d5d6936facc457046eea4" category="sidebar">管理容量设置</block>
 </blocks>

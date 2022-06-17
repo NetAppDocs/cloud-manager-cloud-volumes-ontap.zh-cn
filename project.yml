@@ -124,6 +124,8 @@ sidebar:
         url: "/task-create-aggregates.html"
       - title: 管理现有聚合
         url: "/task-manage-aggregates.html"
+      - title: 管理容量设置
+        url: "/task-manage-capacity-settings.html"
     - title: Storage VM 管理
       entries:
       - title: 在 Cloud Manager 中使用 Storage VM
