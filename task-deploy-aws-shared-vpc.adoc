@@ -18,7 +18,7 @@ summary: 从9.11.1版开始、具有VPC共享的AWS支持Cloud Volumes ONTAP HA�
 
 使用 https://aws.amazon.com/blogs/networking-and-content-delivery/vpc-sharing-a-new-approach-to-multiple-accounts-and-vpc-management/["VPC共享"^]、一个Cloud Volumes ONTAP HA配置分布在两个帐户中：
 
-* 拥有网络(VPC、子网和路由表)的VPC所有者帐户
+* 拥有网络(VPC、子网、路由表和安全组)的VPC所有者帐户
 * 参与者帐户、其中EC2实例部署在共享子网中(包括两个HA节点和调解器)
 
 
@@ -68,6 +68,9 @@ https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html#vpc-sharing-sh
 link:reference-security-groups.html["请参见Cloud Volumes ONTAP 的安全组规则"]。请注意、您不需要为HA调解器创建安全组。云管理器可以为您提供这种功能。
 
 . 使用API创建新的Cloud Volumes ONTAP 工作环境、并在"haParams"对象中传递"asumeRoleArn"字段。
++
+例如：
+
 +
 [source, json]
 ----
