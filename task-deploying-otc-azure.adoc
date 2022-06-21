@@ -117,16 +117,10 @@ TIP: 如果您正在使用的 Azure 帐户具有 https://mysupport.netapp.com/si
 +
 如果选择其中一个包、则只需指定卷、然后检查并批准配置。
 
-. * 许可 * ：根据需要更改 Cloud Volumes ONTAP 版本，选择许可证并选择虚拟机类型。
-+
-image:screenshot_cvo_licensing_azure.gif["许可页面的屏幕截图"]
-
-+
-如果在启动系统后需要更改、您可以稍后修改许可证或虚拟机类型。
-
+. *许可*：根据需要更改Cloud Volumes ONTAP 版本并选择虚拟机类型。
 +
 
-NOTE: 如果选定版本有较新的候选版本、一般可用性或修补程序版本可用、则在创建工作环境时， Cloud Manager 会将系统更新为该版本。例如，如果您选择 Cloud Volumes ONTAP 9.6 RC1 和 9.6 GA 可用，则会发生此更新。更新不会从一个版本更新到另一个版本，例如从 9.6 到 9.7 。
+NOTE: 如果选定版本有较新的候选版本、一般可用性或修补程序版本可用、则在创建工作环境时， Cloud Manager 会将系统更新为该版本。例如、如果选择Cloud Volumes ONTAP 9.10.1和9.10.1 P4可用、则会发生更新。更新不会从一个版本更新到另一个版本，例如从 9.6 到 9.7 。
 
 . * 订阅 Azure Marketplace * ：如果 Cloud Manager 无法启用 Cloud Volumes ONTAP 的编程部署，请按照以下步骤操作。
 . * 底层存储资源 * ：选择初始聚合的设置：磁盘类型，每个磁盘的大小以及是否应启用到 Blob 存储的数据分层。
