@@ -1473,7 +1473,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-20 12:59:57 +0000">06/20/2022</time>
+    <time datetime="2022-06-21 15:54:37 +0000">06/21/2022</time>
     
   
 
@@ -1489,7 +1489,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>拥有网络(VPC、子网、路由表和安全组)的VPC所有者帐户</p>
+<p>拥有网络(VPC、子网、路由表和Cloud Volumes ONTAP 安全组)的VPC所有者帐户</p>
 </li>
 <li>
 <p>参与者帐户、其中EC2实例部署在共享子网中(包括两个HA节点和调解器)</p>
@@ -1499,60 +1499,21 @@
 <div class="paragraph">
 <p>如果Cloud Volumes ONTAP HA配置部署在多个可用性区域中、则HA调解器需要特定的权限来写入VPC所有者帐户中的路由表。您需要通过设置调解器可以承担的IAM角色来提供这些权限。</p>
 </div>
+<div class="paragraph">
+<p>下图显示了此部署涉及的组件：</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram-aws-vpc-sharing.png" alt="共享VPC中Cloud Volumes ONTAP HA部署的概念映像。它会显示一个可供VPC所有者帐户和参与者帐户使用的共享VPC。共享VPC包括IAM角色、路由表、安全组和三个共享子网。参与者帐户包括Cloud Volumes ONTAP HA配置以及附加到调解器的IAM角色。"></span></p>
+</div>
+<div class="paragraph">
+<p>如以下步骤所述、您需要与参与者帐户共享子网、然后在VPC所有者帐户中创建IAM角色和安全组。</p>
+</div>
+<div class="paragraph">
+<p>创建Cloud Volumes ONTAP 工作环境时、Cloud Manager会自动创建IAM角色并将其附加到调解器。此角色将承担您在VPC所有者帐户中创建的IAM角色、以便更改与HA对关联的路由表。</p>
+</div>
 <div class="olist arabic">
 <div class="title">步骤</div>
 <ol class="arabic">
-<li>
-<p>创建IAM角色。</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>转到参与者帐户中要为Cloud Volumes ONTAP 部署EC2实例的IAM控制台。</p>
-</li>
-<li>
-<p>在访问管理下，单击 * 角色 &gt; 创建角色 * ，然后按照步骤创建角色。</p>
-<div class="paragraph">
-<p>请务必执行以下操作：</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>在 * 可信实体类型 * 下，选择 * AWS 帐户 * 。</p>
-</li>
-<li>
-<p>选择*其他AWS帐户*并输入VPC所有者帐户的ID。</p>
-</li>
-<li>
-<p>将包含"STS：AssumeRole"权限的策略附加到IAM角色。</p>
-<div class="paragraph">
-<p>例如：</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-  "Version": "2012-10-17",
-  "Statement": {
-    "Effect": "Allow",
-    "Action": "sts:AssumeRole",
-    "Resource": "arn:aws:iam::account-id:role/Test*"
-  }
-}</code></pre>
-</div>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>复制IAM角色的角色ARN、以便在部署HA对时将其粘贴到API请求中。</p>
-</li>
-</ol>
-</div>
-</li>
 <li>
 <p>与参与者帐户共享VPC所有者帐户中的子网。</p>
 <div class="paragraph">
@@ -1569,7 +1530,26 @@
 </div>
 </li>
 <li>
+<p>在VPC所有者帐户中、创建一个包含以下权限的IAM角色：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">Action": [
+                "ec2:AssignPrivateIpAddresses",
+                "ec2:CreateRoute",
+                "ec2:DeleteRoute",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeVpcs",
+                "ec2:ReplaceRoute",
+                "ec2:UnassignPrivateIpAddresses"</code></pre>
+</div>
+</div>
+</li>
+<li>
 <p>使用API创建新的Cloud Volumes ONTAP 工作环境、并在"haParams"对象中传递"asumeRoleArn"字段。</p>
+<div class="paragraph">
+<p>"assumeRoleArn"字段应包含您在VPC所有者帐户中创建的IAM角色的ARN (请参见上一步)。</p>
+</div>
 <div class="paragraph">
 <p>例如：</p>
 </div>
