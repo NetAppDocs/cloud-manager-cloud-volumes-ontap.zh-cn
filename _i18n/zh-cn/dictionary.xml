@@ -4109,8 +4109,6 @@
   <block id="14c6e9ce4cfa25dc1cfa02fe401deed1" category="section-title">使用Azure专用链路</block>
   <block id="347431c5a9e1d410f530ec93c187d045" category="paragraph">在大多数情况下、您无需执行任何操作即可使用Cloud Volumes ONTAP 设置Azure专用链路。Cloud Manager可为您管理Azure专用链路。但是，如果您使用 Azure 私有 DNS ，则需要编辑配置文件。此外、您还应了解Azure中连接器位置的要求。</block>
   <block id="1a4c6839ae7b3d4de45f275929539d1b" category="paragraph">当 Cloud Manager 在 Azure 中部署 Cloud Volumes ONTAP 时，它会在资源组中创建一个私有端点。专用端点与Cloud Volumes ONTAP 的存储帐户关联。因此，对 Cloud Volumes ONTAP 存储的访问会通过 Microsoft 主干网络进行。</block>
-  <block id="fe133d1f6db8d046e4b328c0d9a967a1" category="paragraph">无论使用哪种许可模式、每个NetApp帐户最多只能有50个Cloud Volumes ONTAP 系统。</block>
-  <block id="ae5034ae6657395ba1fc2a16d2c55db3" category="paragraph">system_ 是 HA 对或单节点系统。例如、如果您有八个Cloud Volumes ONTAP HA对和四个单节点系统、则总共有12个系统、帐户中还有38个系统。</block>
   <block id="11e5ec6a6dd579034180a34f735c57ee" category="paragraph">如果业务需要、您还可以禁用专用链路连接。如果禁用此链接、则Cloud Manager会将Cloud Volumes ONTAP 配置为使用服务端点。</block>
   <block id="4ff3b739a9573101f05111dd5136fe72" category="inline-link-macro">了解有关将Azure专用链路或服务端点与Cloud Volumes ONTAP 结合使用的更多信息</block>
   <block id="47d9f4d696319d2e54439849e1a532f3" category="paragraph"><block ref="c666fc2bdc96ffeac9aa956ec79d2d3c" category="inline-link-macro-rx"></block>。</block>
@@ -4158,4 +4156,19 @@
   <block id="2bce87c6b4b3176bac40c2e0439a5737" category="paragraph">"securityGroupId"字段应指定您在VPC所有者帐户中创建的安全组(请参见上文第2步)。</block>
   <block id="b11fdc24b5ec8e29c24abb5b80715fc3" category="list-text">"haParams"对象中的"assumeRoleArn"</block>
   <block id="d02c51c501566fb6b3f4693ca83b01ea" category="paragraph">"assumeRoleArn"字段应包含您在VPC所有者帐户中创建的IAM角色的ARN (请参见上文第3步)。</block>
+  <block id="f4cf4636284848695d07f7eb4c75e531" category="summary">应启用Microsoft Azure的高可用性模式、以缩短计划外故障转移时间并为Cloud Volumes ONTAP 启用NFSv4支持。</block>
+  <block id="e50998a44626779ff3f707014e804bb6" category="doc">在Azure中启用高可用性模式</block>
+  <block id="8c3a857138568ac83d0c9e6b5e13c75e" category="paragraph">从Cloud Volumes ONTAP 9.10.1版开始、我们缩短了在Microsoft Azure中运行的Cloud Volumes ONTAP HA对的计划外故障转移时间、并增加了对NFSv4的支持。要使这些增强功能可供Cloud Volumes ONTAP 使用、您需要在Azure订阅上启用高可用性功能。</block>
+  <block id="f962fda902f28c365c71973532fe62d2" category="paragraph">如果需要在Azure订阅上启用此功能、Cloud Manager将在"需要操作"消息中提示您提供这些详细信息。</block>
+  <block id="4b86a9bfe35da8d5b3e1175b8664656d" category="list-text">Cloud Volumes ONTAP HA 对的高可用性没有问题。此 Azure 功能可与 ONTAP 配合使用，以减少客户端观察到的 NFS 协议因计划外故障转移事件而发生的应用程序中断时间。</block>
+  <block id="74c86f2714a033254b4bc8058a066937" category="list-text">启用此功能不会对 Cloud Volumes ONTAP HA 对造成中断。</block>
+  <block id="7dbbac252a198b9c7c543b30ca9455a6" category="list-text">在 Azure 订阅上启用此功能不会将问题发生原因给其他 VM 。</block>
+  <block id="3a3aee537f8eb946ce95b303a0b0cde6" category="paragraph">拥有"所有者"权限的Azure用户可以从Azure命令行界面启用此功能。</block>
+  <block id="dede8f1d754e5872747fd6fdd219a9da" category="inline-link">从Azure门户访问Azure Cloud Shell</block>
+  <block id="826fb3564b49a63adcbf5c36eec58144" category="list-text"><block ref="826fb3564b49a63adcbf5c36eec58144" category="inline-link-rx"></block></block>
+  <block id="17cecf34f6070ab2eecf2740c05f04fb" category="list-text">注册高可用性模式功能：</block>
+  <block id="f2c8cae480fd1319bed5bc6dad61485e" category="list-text">(可选)验证此功能现在是否已注册：</block>
+  <block id="3f8d6716204225738a12373603bece28" category="paragraph">Azure命令行界面应返回类似于以下内容的结果：</block>
+  <block id="b730a5e05a41eebeb51f5aee7c746386" category="paragraph">system_ 是 HA 对或单节点系统。例如、如果您有两个Cloud Volumes ONTAP HA对和两个单节点系统、则总共有4个系统、您的帐户中还有16个额外的系统。</block>
+  <block id="0b6cbfb7fa10ae2ac77ae5d3273ea95e" category="sidebar">启用高可用性模式</block>
 </blocks>
