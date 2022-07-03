@@ -39,7 +39,7 @@ link:concept-licensing.html["了解有关 Cloud Volumes ONTAP 许可证的更多
 "数字电子钱包"按许可包显示帐户中的总已用容量和已用容量。这有助于您了解如何为您付费以及是否需要购买额外容量。
 
 .步骤
-. 单击 * 所有服务 > 数字电子钱包 > Cloud Volumes ONTAP * 。
+. 从左侧导航菜单中、选择*数字电子夹*。
 . 选择*基于容量的许可证*后、查看软件包摘要、其中显示了您已用容量、已许可总容量和总PAYGO容量。
 +
 ** _Total consumed capacity_是您的NetApp帐户中所有Cloud Volumes ONTAP 系统的总已配置容量。费用根据每个卷的配置大小计算、而不考虑卷中的本地、已用、已存储或有效空间。
@@ -82,8 +82,8 @@ image:screenshot-digital-wallet-packages.png["显示专业版、优化版和基�
 
 
 .步骤
-. 单击 * 所有服务 > 数字电子钱包 > Cloud Volumes ONTAP * 。
-. 单击 * 添加许可证 * 。
+. 从左侧导航菜单中、选择*数字电子夹*。
+. 在* Cloud Volumes ONTAP 基于容量的许可证*选项卡上、保持选中状态、然后单击*添加许可证*。
 . 输入基于容量的许可证的序列号或上传许可证文件。
 +
 如果您输入了序列号，则还需要选择有权访问此序列号的 NetApp 支持站点帐户。
@@ -102,8 +102,8 @@ image:screenshot-digital-wallet-packages.png["显示专业版、优化版和基�
 许可证文件（如果有 HA 对，则为 _files_ ）。
 
 .步骤
-. 单击 * 所有服务 > 数字电子钱包 > Cloud Volumes ONTAP * 。
-. 单击许可证旁边的操作菜单，然后选择 * 更新许可证 * 。
+. 从左侧导航菜单中、选择*数字电子夹*。
+. 在* Cloud Volumes ONTAP *选项卡上、单击许可证旁边的操作菜单、然后选择*更新许可证*。
 . 上传许可证文件。
 . 单击 * 上传许可证 * 。
 
@@ -115,7 +115,7 @@ image:screenshot-digital-wallet-packages.png["显示专业版、优化版和基�
 如果基于容量的许可证已过期且不再使用，则可以随时将其删除。
 
 .步骤
-. 单击 * 所有服务 > 数字电子钱包 > Cloud Volumes ONTAP * 。
-. 单击许可证旁边的操作菜单，然后选择 * 删除许可证 * 。
+. 从左侧导航菜单中、选择*数字电子夹*。
+. 在* Cloud Volumes ONTAP 删除许可证*选项卡上、单击许可证旁边的操作菜单、然后选择*删除许可证*。
 . 单击 * 删除 * 进行确认。
 

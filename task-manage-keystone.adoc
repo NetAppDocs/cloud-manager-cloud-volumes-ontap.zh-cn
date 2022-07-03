@@ -29,7 +29,7 @@ link:concept-licensing.html["了解有关 Cloud Volumes ONTAP 许可证的更多
 在 Cloud Manager 中使用和管理 Keystone Flex 订阅之前，您需要联系 NetApp 为您的 Cloud Manager 用户帐户授予 Keystone Flex 订阅的权限。
 
 .步骤
-. 单击 * 所有服务 > 数字电子钱包 * 。
+. 从左侧导航菜单中、选择*数字电子夹*。
 . 单击 * Keystone Flex 订阅 * 。
 . 如果您看到 * 欢迎使用 NetApp Keystone * 页面，请向此页面上列出的地址发送电子邮件。
 +
@@ -50,7 +50,7 @@ image:screenshot-keystone-overview.png["显示 Keystone Flex 订阅列表的屏�
 在 NetApp 授权您的帐户后，您需要链接 Keystone Flex 订阅以用于 Cloud Volumes ONTAP 。通过此操作，用户可以选择订阅作为新 Cloud Volumes ONTAP 系统的收费方法。
 
 .步骤
-. 单击 * 所有服务 > 数字电子钱包 * 。
+. 从左侧导航菜单中、选择*数字电子夹*。
 . 单击 * Keystone Flex 订阅 * 。
 . 对于要链接的订阅，请单击 image:icon-action.png["一个由三个并排点组成的图标"] 并选择 * 链接 * 。
 +
@@ -67,7 +67,7 @@ image:screenshot-keystone-link.png["显示订阅链接选项的屏幕截图。"]
 如果您需要调整订阅的已提交容量，可以直接从 Cloud Manager 界面发送请求。
 
 .步骤
-. 单击 * 所有服务 > 数字电子钱包 * 。
+. 从左侧导航菜单中、选择*数字电子夹*。
 . 单击 * Keystone Flex 订阅 * 。
 . 对于要调整容量的订阅，请单击 image:icon-action.png["一个由三个并排点组成的图标"] 并选择 * 查看详细信息并编辑 * 。
 . 输入一个或多个订阅请求的已提交容量。
@@ -86,7 +86,7 @@ image:screenshot-keystone-request.png["屏幕截图显示了请求更改订阅�
 如果您不再希望对新的 Cloud Volumes ONTAP 系统使用 Keystone Flex 订阅，则可以取消订阅链接。请注意，您只能取消链接未附加到现有 Cloud Volumes ONTAP 订阅的订阅。
 
 .步骤
-. 单击 * 所有服务 > 数字电子钱包 * 。
+. 从左侧导航菜单中、选择*数字电子夹*。
 . 单击 * Keystone Flex 订阅 * 。
 . 对于要取消链接的订阅，请单击 image:icon-action.png["一个由三个并排点组成的图标"] 并选择 * 取消链接 * 。
 

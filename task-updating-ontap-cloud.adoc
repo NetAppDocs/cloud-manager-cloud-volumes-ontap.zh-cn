@@ -226,7 +226,7 @@ image:screenshot_cot_upgrade.gif["屏幕截图：显示选择工作环境后在 
 不得在 Cloud Volumes ONTAP 系统上执行 Cloud Manager 操作，例如创建卷或聚合。
 
 .步骤
-. 单击 * 画布 * 。
+. 从左侧导航菜单中、选择*画布*。
 . 选择工作环境。
 +
 如果有新版本可用，则右窗格中将显示通知：
