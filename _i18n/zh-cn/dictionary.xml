@@ -2191,13 +2191,9 @@
   <block id="3346762ff8f7a33c4ab0e7fa6f5ae4bf" category="summary">从数字电子钱包中管理基于容量的许可证，以确保您的 NetApp 帐户具有足够的容量来容纳您的 Cloud Volumes ONTAP 系统。</block>
   <block id="56a50532d8da2bebb09d6190c126140c" category="doc">管理基于容量的许可证</block>
   <block id="93ed65a89f306426be7980ddc22595e8" category="paragraph">_capacity-based licenses_ 使您能够按每 TiB 容量为 Cloud Volumes ONTAP 付费。</block>
-  <block id="c466d075672a191cdf97342836294989" category="section-title">查看帐户的容量</block>
-  <block id="f0d6507143193afc5ed30d59568c31e8" category="paragraph">按软件包查看许可容量和已配置容量，以确保为数据卷提供足够的空间。</block>
   <block id="0abf972ae04f5fd460eb8fb37920a7e2" category="list-text">单击 * 所有服务 &gt; 数字电子钱包 &gt; Cloud Volumes ONTAP * 。</block>
-  <block id="ad1bc5e540af69d2fae33c10beba29af" category="list-text">选择 * 基于容量的许可证 * 后，查看每个软件包的许可容量和已配置容量。</block>
   <block id="8881e3192df3d6a5d7efc284f0e0beee" category="inline-image-macro">屏幕截图显示了专业软件包和基础软件包的已配置容量与已许可容量。</block>
   <block id="a67c1e3fa166897e8cc4f860ff4aa0c5" category="paragraph"><block ref="a67c1e3fa166897e8cc4f860ff4aa0c5" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="dce5019f9c2e14a57d05767b06b4b81a" category="list-text">如果需要，请购买额外的许可容量，然后将许可证添加到您的帐户中。</block>
   <block id="b2dfe525c9a6bec7392826fba889fe07" category="section-title">将已购买的许可证添加到您的帐户</block>
   <block id="a2426434bd2755150443a72dbf29878b" category="list-text">您需要为 Cloud Manager 提供许可证或许可证文件的序列号。</block>
   <block id="eb1c981bc4eb3233c26c34546542d338" category="inline-link">将您的 NetApp 支持站点帐户添加到 Cloud Manager</block>
@@ -2622,12 +2618,8 @@
   <block id="6b32e99bddf60938239aabe092cb4c16" category="paragraph">Cloud Volumes ONTAP 提供了多种许可选项。每个选项都允许您选择一种满足您需求的消费模式。</block>
   <block id="8efc36afc2e7202a9c9bda00b8e8a75d" category="section-title">许可概述</block>
   <block id="f008ecd5469e24eee31eb4e2e4a1e23f" category="paragraph">新客户可以使用以下许可选项。</block>
-  <block id="474eb171216a34faad8105c0ca4b47bd" category="list-text">免费提供</block>
-  <block id="d6140227f443f533f2d169225f41c434" category="list-text">免费提供高达 500 GiB 的已配置容量，无需购买许可证或合同。支持有限。</block>
   <block id="27d0a1d0fc95280fbaf78c65ff6b37fb" category="list-text">Essentials 软件包</block>
   <block id="57050f826fe75d25457ab448568ae53d" category="list-text">在多种不同配置中按容量为 Cloud Volumes ONTAP 付费。</block>
-  <block id="f2213b04acf4d3b9fcad6cdbc77cd671" category="list-text">专业包</block>
-  <block id="765b9232138388e3de34831ab3adb1e0" category="list-text">按容量为任何类型的 Cloud Volumes ONTAP 配置付费。包括使用 Cloud Backup 进行的无限备份。</block>
   <block id="a7c9ae4b871102b7553565c7089cf839" category="list-text">基于订阅的按需购买服务，可为 HA 对提供无缝的混合云体验。</block>
   <block id="0e1a6eb7eed81777ed9d0610be51df3b" category="paragraph">先前的逐节点许可模式仍然适用于已购买许可证或已订阅有效的 Marketplace 的现有客户。</block>
   <block id="08598187312665a33ac3ebb5fc060c00" category="paragraph">以下各节提供了有关其中每个选项的更多详细信息。</block>
@@ -2636,24 +2628,15 @@
   <block id="cc3b16b51bb72e66b8f103fef83035d9" category="list-text">不包括 NetApp 的支持。</block>
   <block id="895dacd81cbc05951744c0bce981546c" category="list-text">每个 Cloud Volumes ONTAP 系统的已配置容量限制为 500 GiB 。</block>
   <block id="46cb473c7acee70e9be90113f3acce9d" category="list-text">在任何云提供商中，每个 NetApp 帐户最多可以使用 10 个 Cloud Volumes ONTAP 系统以及免费提供的产品。</block>
-  <block id="922e54a2e69b279fbb6ab93d4f189181" category="list-text">如果为 Cloud Volumes ONTAP 系统配置的容量超过 500 GiB ，则 Cloud Manager 会将该系统转换为 Essentials 软件包（基于容量的许可）。</block>
   <block id="2b5b1f6feb7719bc282a3518f33b1784" category="paragraph">配置容量小于 500 GiB 的任何其他系统都会保留在 Freemium 上（只要这些系统是使用 Freemium 产品部署的）。</block>
   <block id="6602afb860a6cca23c3b75bf601365eb" category="inline-link-macro">在 AWS 中启动 Cloud Volumes ONTAP</block>
-  <block id="19bcaffbe8361f9d452beabc8065f223" category="section-title">基于容量的许可包</block>
-  <block id="e7cf94fb6f7d5441689859c52b410a98" category="paragraph">通过基于容量的许可，您可以按每 TiB 容量为 Cloud Volumes ONTAP 付费。此许可证与您的 NetApp 帐户关联，您可以使用此许可证向多个系统收取费用，前提是可通过此许可证获得足够的容量。</block>
   <block id="68935a38790e91889cd56742a47079f3" category="paragraph">例如，您可以购买一个 20 TiB 许可证，部署四个 Cloud Volumes ONTAP 系统，然后为每个系统分配一个 5 TiB 卷，总共 20 TiB 。该容量可供在该帐户中部署的每个 Cloud Volumes ONTAP 系统上的卷使用。</block>
-  <block id="c5a8696749d985ac6f5542bcf7ace1e2" category="paragraph">基于容量的许可以 _package_ 的形式提供。部署 Cloud Volumes ONTAP 系统时，您可以选择 _Essentials 或 _Professional 软件包。</block>
   <block id="6cc9f034206d1e740ca9a065330721b4" category="list-text">选择 Cloud Volumes ONTAP 配置：</block>
   <block id="d7a4c9387784a4f0820a7a6500b673bc" category="list-text">单节点或 HA 系统</block>
   <block id="5e9a61c426f74f04e7e194fc07bab16e" category="list-text">用于灾难恢复（ DR ）的文件和块存储或二级数据</block>
   <block id="3c5e979087ecb3ead1e8ace0120e5cb6" category="list-text">增加 NetApp 的任何云数据服务，但需额外付费</block>
-  <block id="c741d4dfd63aec956160917346d489e5" category="list-text">为任何 Cloud Volumes ONTAP 配置（具有任何存储类型的单节点或 HA ）提供许可</block>
-  <block id="71cce048f3aa67d534f433fdfc00f486" category="list-text">包括使用 Cloud Backup 的卷备份（仅适用于使用此许可证付费的卷）</block>
   <block id="26e0cffca193fe47b1c5c8f73ea3c3e1" category="section-title">消费模式</block>
   <block id="3cc132ecf0523f86195d2baf263bfdba" category="paragraph">Essentials 和 Professional 软件包可用于以下消费模式：</block>
-  <block id="f0c74524bf1dcc2586975c7d2fab30aa" category="list-text">从 NetApp 购买的一种许可证（ BYOL ），可用于在任何云提供商中部署 Cloud Volumes ONTAP 。</block>
-  <block id="c603e0cd8afdb5636238d7d652481a08" category="paragraph">此许可证不限于单个云提供商。</block>
-  <block id="f28f2c679b3208af9d5fe292ad6356b8" category="list-text">云提供商市场的每小时订阅（ PAYGO ）。</block>
   <block id="743cd9f94465042cc1367604dce1ec22" category="list-text">如果您从 NetApp （ BYOL ）购买许可证，则还需要从云提供商的市场订阅 PAYGO 产品。</block>
   <block id="0956d25698d6ea6e452e1cd574ab1eea" category="paragraph">您的许可证始终会先付费，但在以下情况下，您将从市场上的每小时费率中扣除费用：</block>
   <block id="6246af80c9ea9c857c70d2c643fcb249" category="list-text">超出许可容量时</block>
@@ -2670,7 +2653,6 @@
   <block id="28d17a1ec8598824eb0c46f1ef2668af" category="paragraph">对于许可证本身，没有最大容量限制。</block>
   <block id="25827e83a178b9b140976a356e0ea48a" category="section-title">有关充电的注意事项</block>
   <block id="c1092325501599c6dcc90500081a2184" category="list-text">如果您超出 BYOL 容量或许可证到期，则会根据您的市场订阅按每小时费率向您收取超额费用。</block>
-  <block id="caa54273e5fb3b700fad994050e4dde4" category="list-text">对于每个软件包，至少需要 4 TiB 的容量费用。容量小于 4 TiB 的任何 Cloud Volumes ONTAP 实例将按 4 TiB 的速率进行收费。</block>
   <block id="55675f6a5328a3c661aa2daa971f7c76" category="list-text">对于 HA 对，您只需为节点上的已配置容量付费。您无需为同步镜像到配对节点的数据付费。</block>
   <block id="e61eacf9a2b260a46a8935478c8a063d" category="list-text">FlexClone 卷使用的容量不会向您收取费用。</block>
   <block id="529bcec2b9675b3cb0a81186e626a92b" category="list-text">源和目标 FlexCache 卷被视为主数据，并根据配置的空间进行收费。</block>
@@ -3069,8 +3051,6 @@
   <block id="c449e34e5848c75cf2ae5048d97482c1" category="list-text">* IAM 角色 * ：最好保留默认选项，让 Cloud Manager 为您创建角色。</block>
   <block id="bef2f3bc1b5f6b5fc3eaabff818b8b07" category="inline-link">Cloud Volumes ONTAP 节点的策略要求</block>
   <block id="28df6ca63a931a73e42bb1a5832f842b" category="paragraph">如果您希望使用自己的策略，则必须满足<block ref="e6af531133ecd89e70d5f32cb2437c92" category="inline-link-rx"></block>。</block>
-  <block id="47d8aa01ec2403f7d2bfb83097302616" category="list-text">* 底层存储资源 * ：选择初始聚合的设置：磁盘类型，每个磁盘的大小以及是否应启用数据分层。</block>
-  <block id="ffc7a29a080fe8de84db524d17f3f56d" category="paragraph">有关选择磁盘类型和大小的帮助，请参见 <block ref="f64204a2336539d9a8e0dc0a2e1a572b" category="inline-link-macro-rx"></block>。</block>
   <block id="a6fcc094aa2aa8328784bade825b168a" category="inline-link-macro">了解数据分层的工作原理</block>
   <block id="e3d16ce79bcead59781233b93cb58009" category="paragraph"><block ref="204d09224c7e7513a2d3fc955e6c2d5a" category="inline-link-macro-rx"></block>。</block>
   <block id="92a1203fc5511fdb287e0ca1b80062ce" category="list-text">* 使用情况配置文件，磁盘类型和分层策略 * ：选择是否要启用存储效率功能并根据需要编辑卷分层策略。</block>
@@ -3297,7 +3277,6 @@
   <block id="1ecf939f833364bdd59ce6237b13389d" category="paragraph">客户端可以使用 NFS 和 SMB 协议访问相同的文件。</block>
   <block id="b4fdd997b1f33e0d4c6964444c2bf399" category="section-title">SMB</block>
   <block id="11b07e87cde6233c7e410399ad203deb" category="paragraph">SMB 是 Windows 系统的传统文件访问协议。客户端可以使用 SMB 2.0 ， SMB 2.1 ， SMB 3.0 和 SMB 3.1.1 协议访问 ONTAP 卷中的文件。与 NFS 一样，支持混合使用多种权限模式。</block>
-  <block id="e2ab7c65b21ed8cc1c3b642b5e36429e" category="section-title">S3</block>
   <block id="6958464059ef304c59d06fcb948ccafd" category="inline-link">了解如何在 ONTAP 中配置和管理 S3 对象存储服务</block>
   <block id="75081fb4982f7b843e702079b35f0ed4" category="paragraph"><block ref="3fe75f10a35597997861eca633c30fa7" category="inline-link-rx"></block>。</block>
   <block id="cad02caeb4ee636c87f28b0bb1263080" category="inline-link-macro">了解支持的客户端协议和版本</block>
@@ -3404,7 +3383,6 @@
   <block id="62978cf670cdcd284392400fa0cb70a9" category="list-text">*仅选定VPC*：入站流量的源筛选器是Cloud Volumes ONTAP 系统VPC的子网范围以及连接器所在VPC的子网范围。这是建议的选项。</block>
   <block id="ba2e1bf50371835f50d77c05a977d80c" category="list-text">所有VPC*：入站流量的源筛选器为0.0.0.0/0 IP范围。</block>
   <block id="4fa4c5ae842db9adb7911d016ca19362" category="paragraph">如果您使用自己的防火墙策略、请确保添加需要与Cloud Volumes ONTAP 通信的所有网络、但同时确保同时添加两个地址范围、以使内部Google负载平衡器正常运行。这些地址为 130.11.0.0/22 和 35.191.0.0/16 。有关详细信息，请参见<block ref="ec02114a2c39456710780c7d788390e7" category="inline-link-rx"></block>。</block>
-  <block id="612b1fa388e719e990cb953520986784" category="list-text">云提供商市场的年度合同。</block>
   <block id="51606c7b614cdc7ab9e0489981838dfa" category="paragraph">在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Azure Marketplace订阅年度计划。</block>
   <block id="f96723ecb29e40ca9b9fb042ab6ff4ef" category="paragraph">在NetApp与您共享私人优惠后、您可以在创建工作环境期间从Google Cloud Marketplace订阅年度计划。</block>
   <block id="49644953fd4e9612a9842d17bef5e79b" category="section-title">2022年5月2日</block>
@@ -3511,7 +3489,6 @@
   <block id="2f2289dc4d144dd69a1fd73eaab183e0" category="summary">某些Cloud Volumes ONTAP 配置包括本地NVMe存储、Cloud Volumes ONTAP 将其用作Flash Cache以提高性能。</block>
   <block id="712cc6bb6749aa390ea026f9c60a15ec" category="paragraph">某些Cloud Volumes ONTAP 配置包括本地NVMe存储、Cloud Volumes ONTAP 使用此存储作为_Flash Cache_来提高性能。</block>
   <block id="b208585c8517e02e2edf44f36a9bbb44" category="paragraph">特定Cloud Volumes ONTAP 配置支持Flash Cache。在中查看支持的配置<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block></block>
-  <block id="e9ce6ae29a2619019cac23f8015bb188" category="paragraph">Cloud Volumes ONTAP 仅支持在Microsoft Azure中使用S3作为横向扩展存储的选项。通过 S3 协议支持，您可以配置 S3 客户端对 SVM 中存储分段中的对象的访问。</block>
   <block id="409e6786522e4428d2517478280ecf40" category="section-title">Google Cloud存储</block>
   <block id="e289128f5466f0eacab7fa58b05c8169" category="paragraph">在Google Cloud中、一个聚合最多可以包含6个大小相同的磁盘。最大磁盘大小为 64 TiB 。</block>
   <block id="76cede1efa6255431fb1182712250d63" category="inline-link">Google Cloud文档：存储选项</block>
@@ -3693,7 +3670,6 @@
   <block id="06282d6bfde23265c38eaf5e9f1b9c8a" category="section-title">HA对位于多个AZs中</block>
   <block id="5cf08a0c28356ef36ccd650ef4df7ec4" category="section-title">选择写入速度</block>
   <block id="848ba74632f2d95512e41c0283190dc5" category="section-title">选择卷使用情况配置文件</block>
-  <block id="e83e6938f82d96149155f11617a3f4b6" category="paragraph">了解如何开始使用免费提供的产品：</block>
   <block id="d0e9f6e752e409a4224686569c7ed7f7" category="list-text"><block ref="d0e9f6e752e409a4224686569c7ed7f7" category="inline-link-macro-rx"></block></block>
   <block id="8f0a98314b48214c48339998c2fc4f5a" category="inline-link-macro">在Google Cloud中为Cloud Volumes ONTAP 设置许可</block>
   <block id="a24ad69dba38b7a2ce7bc133c0c71859" category="inline-image-macro">Cloud Manager界面中通知的屏幕截图、指出免费试用只剩7天。</block>
@@ -4025,15 +4001,8 @@
   <block id="3ffe064f92b34cbcdfcab03d93ac0aa6" category="inline-link-macro">了解有关容量管理模式的更多信息</block>
   <block id="d2c22afe536c7332438ccf868d74c34d" category="paragraph"><block ref="ef63e2789991bbc45cfd16ad2085fca0" category="inline-link-macro-rx"></block>。</block>
   <block id="a33974427bc165b7a93accc1aa8be64f" category="list-text">增加聚合的大小最多可能需要6小时。在此期间、Cloud Manager无法为该聚合请求任何额外容量。</block>
-  <block id="d95ee608b161269708126edb4b983c53" category="list-text">目前、只有API才支持在初始聚合上启用弹性卷的情况下创建新的Cloud Volumes ONTAP 系统。不支持从Cloud Manager用户界面执行此操作。如果您从用户界面创建新的Cloud Volumes ONTAP 9.11.0或更高版本系统、则初始聚合不会启用弹性卷。</block>
-  <block id="7f2dd60cac15d963d53c4b26e028d65e" category="paragraph">支持从用户界面执行所有其他操作(例如创建新聚合)。</block>
   <block id="95f37b47d36f29b34f5eb9876539e793" category="section-title">如何使用弹性卷</block>
   <block id="fadf0b4acbadb08e8e435a9d7130ab76" category="paragraph">您可以在Cloud Manager中使用弹性卷、如下所示：</block>
-  <block id="8a08bb1cb08b803e8dcbd2a3ace89d1e" category="list-text">创建一个在初始聚合上启用了弹性卷的新系统</block>
-  <block id="7dc2847ac93d622984709d8490d8d064" category="paragraph">如中所述 <block ref="1970a78ed44a3cfc31f9405835942101" category="inline-xref-macro-rx"></block>、目前只有API才支持此操作。用户界面不支持此功能。</block>
-  <block id="b66cb58951bd984f0fb3e8629023bbe1" category="paragraph">启动API调用时、初始聚合默认启用弹性卷功能。</block>
-  <block id="561112ad9b56b4dd0515c5b0e35146f7" category="inline-link">了解如何使用API创建Cloud Volumes ONTAP</block>
-  <block id="0a91fc79f47639b5b3ee7133c078544e" category="paragraph"><block ref="0a91fc79f47639b5b3ee7133c078544e" category="inline-link-rx"></block></block>
   <block id="d5f89027268b27b157f79b1a29b881ab" category="list-text">在已启用弹性卷的聚合上创建新卷</block>
   <block id="b7225bc02dfd73fec72be6e9f04f0f4a" category="paragraph">如果您创建的卷使用GP3或IO1磁盘、则Cloud Manager会自动在启用了弹性卷的聚合上创建卷。有关详细信息，请参见 <block ref="e432ed6cbb90ef2b99ca3ebe7006e953" category="inline-xref-macro-rx"></block>。</block>
   <block id="d2089f3a642b9ad1bc7dada3770cd27d" category="inline-link-macro">了解如何创建卷</block>
@@ -4169,6 +4138,89 @@
   <block id="17cecf34f6070ab2eecf2740c05f04fb" category="list-text">注册高可用性模式功能：</block>
   <block id="f2c8cae480fd1319bed5bc6dad61485e" category="list-text">(可选)验证此功能现在是否已注册：</block>
   <block id="3f8d6716204225738a12373603bece28" category="paragraph">Azure命令行界面应返回类似于以下内容的结果：</block>
-  <block id="b730a5e05a41eebeb51f5aee7c746386" category="paragraph">system_ 是 HA 对或单节点系统。例如、如果您有两个Cloud Volumes ONTAP HA对和两个单节点系统、则总共有4个系统、您的帐户中还有16个额外的系统。</block>
   <block id="0b6cbfb7fa10ae2ac77ae5d3273ea95e" category="sidebar">启用高可用性模式</block>
+  <block id="1511b856d0328cfba458b8f83c2e94e3" category="section-title">2022年7月3日</block>
+  <block id="11df15715c1f580c53cb06d73a344574" category="paragraph">连接器3.9.20版引入了以下更改。</block>
+  <block id="986e1f3279b4d74444bd32d4f833afbd" category="section-title">数字电子钱包</block>
+  <block id="d5503d6062daaaa4326462970164cbac" category="paragraph">现在、Digital Wallet将按许可包显示您帐户中的总已用容量和已用容量。这有助于您了解如何为您付费以及是否需要购买额外容量。</block>
+  <block id="232ac716fdabb7e9b9ba7c3a108574a7" category="inline-image-macro">屏幕截图显示了基于容量的许可证的"数字电子钱包"页面。此页面概述了您帐户中的已用容量、然后按许可包细分已用容量。</block>
+  <block id="25151b376af0a0b205be15ab92b4cd97" category="paragraph"><block ref="25151b376af0a0b205be15ab92b4cd97" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d9c05beb7c27c53dc1cb952afddea3ac" category="section-title">弹性卷增强功能</block>
+  <block id="119ffefd11e6681de49e316bc16a471d" category="paragraph">现在、Cloud Manager可在通过用户界面创建Cloud Volumes ONTAP 工作环境时支持Amazon EBS弹性卷功能。使用GP3或IO1磁盘时、弹性卷功能默认处于启用状态。您可以根据存储需求选择初始容量、并在部署Cloud Volumes ONTAP 后进行修改。</block>
+  <block id="0c5741d0ec0127a10c28f7c82579da32" category="inline-link-macro">了解有关在AWS中支持弹性卷的更多信息</block>
+  <block id="3cc8cd9bef921086f444d55cf1ea25c6" category="paragraph"><block ref="a2865c7bad4b206df6582ad55cba915e" category="inline-link-macro-rx"></block>。</block>
+  <block id="7fb4d101a5e000398c4d5b4c48b802a6" category="section-title">AWS中的ONTAP S3许可证</block>
+  <block id="e1d7a3ee89947f3549d385865ef27dda" category="paragraph">现在、Cloud Manager会在AWS中运行9.11.0或更高版本的新Cloud Volumes ONTAP 系统和现有系统上自动安装ONTAP S3许可证。</block>
+  <block id="c86d179c90248acd6ebdba05bd94320c" category="section-title">新增Azure Cloud区域支持</block>
+  <block id="c55cc410beff8f86afc3ba8027b681f7" category="paragraph">从9.10.1版开始、Azure West US 3区域现在支持Cloud Volumes ONTAP。</block>
+  <block id="1a3362a1b5304a4e1e1112496974b9ae" category="section-title">Azure中的ONTAP S3许可证</block>
+  <block id="e29ddfe6afa32fb2c96c8682f4ca73e8" category="paragraph">现在、Cloud Manager会在Azure中运行9.9.1或更高版本的新Cloud Volumes ONTAP 系统和现有系统上自动安装ONTAP S3许可证。</block>
+  <block id="82e8338c73d6540f48f2e0cc8d035511" category="list-text">马德里(欧洲-西南1)</block>
+  <block id="1a1145c860165dcd96b82eb7d32cd59f" category="list-text">巴黎(欧洲-西部9)</block>
+  <block id="eb4cae07e62b958e999eaa4c0d9b254b" category="list-text">华沙(欧洲中部2)</block>
+  <block id="1cea3dd4ff4ec3b14e8632bf82e14041" category="list-text">使用GP3或IO1磁盘时、创建在初始聚合上启用了弹性卷的新系统</block>
+  <block id="99ef8dc541c558ff343420594d6dcb5c" category="inline-link-macro">了解如何创建Cloud Volumes ONTAP 系统</block>
+  <block id="f56c72fa8323042cbff6cb92648345ca" category="paragraph"><block ref="f56c72fa8323042cbff6cb92648345ca" category="inline-link-macro-rx"></block></block>
+  <block id="13cc2ad9256954007d04ae6bbe5845a9" category="list-text">*底层存储资源*：选择磁盘类型、配置底层存储、然后选择是否启用数据分层。</block>
+  <block id="657441166e098e3ac2d1fbeca0be5a8c" category="list-text">磁盘类型适用于初始卷(和聚合)。您可以为后续卷(和聚合)选择不同的磁盘类型。</block>
+  <block id="ecc6da3e19e047e546eaa2c889eb5052" category="list-text">如果您选择GP3或IO1磁盘、Cloud Manager将使用AWS中的弹性卷功能根据需要自动增加底层存储磁盘容量。您可以根据存储需求选择初始容量、并在部署Cloud Volumes ONTAP 后进行修改。 <block ref="a2865c7bad4b206df6582ad55cba915e" category="inline-link-macro-rx"></block>。</block>
+  <block id="81415a84192a858c9e2c4f88aae60221" category="list-text">如果选择GP2或st1磁盘、则可以为初始聚合中的所有磁盘以及使用简单配置选项时Cloud Manager创建的任何其他聚合选择一个磁盘大小。您可以使用高级分配选项创建使用不同磁盘大小的聚合。</block>
+  <block id="771f877f73ed39c1ce2849efb746d509" category="list-text">基于容量的许可</block>
+  <block id="2a30ccbe01f425f3a2807267dff4fc33" category="list-text">按配置的容量为您的NetApp帐户中的多个Cloud Volumes ONTAP 系统付费。包括购买附加云数据服务的功能。</block>
+  <block id="b03772ed11df6476bff4de403713f8c3" category="paragraph">通过基于容量的许可包、您可以按每TiB容量为Cloud Volumes ONTAP 付费。此许可证与您的 NetApp 帐户关联，您可以使用此许可证向多个系统收取费用，前提是可通过此许可证获得足够的容量。</block>
+  <block id="37439fa615a442ec183c1c602f9755f1" category="paragraph">基于容量的许可以 _package_ 的形式提供。部署Cloud Volumes ONTAP 系统时、您可以根据业务需求从多个许可包中进行选择。</block>
+  <block id="27fe4eb3edbaff8f250e2d51f7462681" category="section-title">软件包</block>
+  <block id="5f50ddf0fbe0f1f7d019d566c86cfe73" category="paragraph">以下基于容量的软件包可用于Cloud Volumes ONTAP。</block>
+  <block id="1e76ec6fcee71cd95970fa3f9482e9be" category="list-text">如果为 Cloud Volumes ONTAP 系统配置的容量超过 500 GiB ，则 Cloud Manager 会将该系统转换为 Essentials 软件包。</block>
+  <block id="6784815d06685b36d779b24581ccfa66" category="inline-xref">最低费用</block>
+  <block id="011b0e1cd1e0161097d616babc107976" category="paragraph">系统转换为Essentials软件包后、即会显示 <block ref="22eeec54b04ebfde4307a78d36fd52ee" category="inline-xref-macro-rx"></block> 适用。</block>
+  <block id="4d55f77f062bf48891bd0f749c36a36d" category="section-title">要点</block>
+  <block id="9e8b160226c9fe22a910c782ce5076e2" category="section-title">专业人员</block>
+  <block id="0d007d44f30aa9582772f6ca7709803f" category="paragraph">按容量为任意类型的Cloud Volumes ONTAP 配置付费、备份不受限制。</block>
+  <block id="fdb568933703a9268c5ba46f3208f414" category="list-text">为任何 Cloud Volumes ONTAP 配置提供许可</block>
+  <block id="2b7a2bda81dcf84ff8d6b600415c5e52" category="paragraph">主卷和二级卷的容量充电速度相同的单节点或HA</block>
+  <block id="2d856ef929513d16aba9286266a2ea92" category="list-text">包括使用Cloud Backup的无限卷备份、但仅适用于使用专业版软件包部署的Cloud Volumes ONTAP 系统</block>
+  <block id="728fd439c2abdc887c4a5e678d7c8708" category="paragraph">基于容量的许可包可用于以下消费模式：</block>
+  <block id="fcbd09a2622ccd7b58495c6277262566" category="list-text">* BYOL*：从NetApp购买的许可证、可用于在任何云提供商中部署Cloud Volumes ONTAP。</block>
+  <block id="1e101142b61a711e7fbc92238adf9d20" category="list-text">* PAYGO*：从云提供商的市场按小时订阅。</block>
+  <block id="146cb6145f5238f0a019636047844250" category="list-text">*年度*：云提供商市场提供的年度合同。</block>
+  <block id="e26935ad375965079b7681b616fa96eb" category="paragraph">以下详细信息可帮助您了解收费如何与基于容量的许可配合使用。</block>
+  <block id="10297bdbea13a5f039ea0c228d352388" category="section-title">最低费用</block>
+  <block id="e779eb02b4dec3ef7d4a6d875e1d8485" category="paragraph">对于至少具有一个主(读写)卷的每个提供数据的Storage VM、最低费用为4 TiB。如果主卷的总和小于4 TiB、则Cloud Manager会将4 TiB的最低费用应用于该Storage VM。</block>
+  <block id="2f3cbf00c1fc3c4ac211dcbe5883292c" category="paragraph">如果尚未配置任何卷、则最低费用不适用。</block>
+  <block id="f167d4d0d82d9d30283cad870543871a" category="paragraph">4 TiB最小容量费用仅适用于包含二级(数据保护)卷的Storage VM。例如、如果您的Storage VM包含1 TiB的二级数据、则只需为1 TiB的数据付费。</block>
+  <block id="bec8a1d5f2dd848ffc437304b7f6557d" category="section-title">过剩</block>
+  <block id="1d47f9c9e82cf7214539548fd5c31bc6" category="paragraph">通过Essentials软件包、您将按部署类型(HA或单个节点)和卷类型(主卷或二级卷)付费。例如、_Essentials HA_的定价与_Essentials Secondary HA_不同。</block>
+  <block id="e1f0e073c7ebb806dff01cf209b73f13" category="paragraph">如果您从NetApp购买了Essentials许可证(BYOL)、并且超出了该部署和卷类型的许可容量、则数字电子钱包会根据定价较高的Essentials许可证(如果您有)收取超额费用。这是因为我们首先使用您已购买的可用容量作为预付费容量、然后再向市场收费。向市场收取费用会增加您的月度账单费用。</block>
+  <block id="ecc429e82f6e54d1b5ef6c8bb4a49308" category="paragraph">下面是一个示例。假设您已为Essentials软件包获得以下许可证：</block>
+  <block id="afac41d47fd5a7a0fff54c7d4dcc9ac8" category="list-text">一个500 TiB _Essentials二级HA_许可证、其已提交容量为500 TiB</block>
+  <block id="1ce6ab2d6dbcea26717506a031dde30c" category="list-text">500 TiB _Essentials单节点_许可证、仅具有100 TiB的已提交容量</block>
+  <block id="75c6d2a261b9cf09ec954cf0cd425e1b" category="paragraph">另有50 TiB配置在具有二级卷的HA对上。Digital Wallet不会向PAYGO收取50 TiB的费用、而是根据_Essentials Single Node_许可证对50 TiB的超额费用进行收费。该许可证的定价高于_Essentials Secondary HA_、但比PAYGO价格更便宜。</block>
+  <block id="2ba3f057b3f441a58c358dd4703ea556" category="paragraph">在"数字电子钱包"中、该50 TiB将显示为从_Essentials Single Node_许可证中扣除。</block>
+  <block id="2204b0f79985b7b0565114e8305937a5" category="section-title">Storage VM</block>
+  <block id="ea2d4d2ac58be22179ef1e523d4602b4" category="section-title">FlexClone和FlexCache 卷</block>
+  <block id="c0a01aae03aec488789ec9662cb472bb" category="paragraph">每个NetApp帐户最多只能有20个Cloud Volumes ONTAP 系统。_system_是指Cloud Volumes ONTAP HA对、Cloud Volumes ONTAP 单节点系统或您创建的任何其他Storage VM。默认Storage VM不计入此限制。这将限制适用场景 的所有许可模式。</block>
+  <block id="ee39f25358b04b9ab4c35e9b485d2797" category="paragraph">例如、假设您有三个工作环境：</block>
+  <block id="35851ad4214e2cb5358ee8d010fd31e9" category="list-text">包含一个Storage VM的单节点Cloud Volumes ONTAP 系统(这是在部署Cloud Volumes ONTAP 时创建的默认Storage VM)</block>
+  <block id="75a89431d9d36de5dedb4018f6ca3cbe" category="paragraph">此工作环境可视为一个系统。</block>
+  <block id="9dcf3eb2c417aa53d6bc0d88eef77b49" category="list-text">包含两个Storage VM (默认Storage VM加上您创建的一个额外Storage VM)的单节点Cloud Volumes ONTAP 系统</block>
+  <block id="5e28535b412ed4eaf515fbfdfce97b68" category="paragraph">此工作环境分为两个系统：一个用于单节点系统、一个用于额外的Storage VM。</block>
+  <block id="4c41d499b08fed91769d6d2c3b51157a" category="list-text">一个Cloud Volumes ONTAP HA对、其中包含三个Storage VM (默认Storage VM加上您创建的两个额外Storage VM)</block>
+  <block id="f327746b90761d64fda358e3ff9ce7a3" category="paragraph">此工作环境分为三个系统：一个用于HA对、两个用于额外的Storage VM。</block>
+  <block id="e1d61ff8b15b12854145940279164504" category="paragraph">总共有六个系统。然后、您的帐户中还可以再添加14个系统。</block>
+  <block id="03021ab228ad1d1c921bbf536e2913a4" category="section-title">查看帐户中的已用容量</block>
+  <block id="e54d493645f297f788982c1215f721bf" category="paragraph">"数字电子钱包"按许可包显示帐户中的总已用容量和已用容量。这有助于您了解如何为您付费以及是否需要购买额外容量。</block>
+  <block id="d5dde91fb8d63e816b49f1eaaf1b31f0" category="list-text">选择*基于容量的许可证*后、查看软件包摘要、其中显示了您已用容量、已许可总容量和总PAYGO容量。</block>
+  <block id="29f9c9781f75b695cb6c7c93910280cd" category="list-text">_Total consumed capacity_是您的NetApp帐户中所有Cloud Volumes ONTAP 系统的总已配置容量。费用根据每个卷的配置大小计算、而不考虑卷中的本地、已用、已存储或有效空间。</block>
+  <block id="2895d33d8798ea34fbece2f03c7b1a44" category="list-text">_Total licensed_是您从NetApp购买的总许可容量(BYOL)。</block>
+  <block id="4cca90046112da5c5d3a703dafebbb7e" category="list-text">_Total PAYGO_是使用云市场订阅的总配置容量。只有当消耗的容量高于许可容量或数字电子钱包中没有BYOL许可证时、才会通过PAYGO进行收费。</block>
+  <block id="fa5b039d6c7312346b7c921f81258971" category="paragraph">下面是一个已用容量为2000 TiB的帐户示例：</block>
+  <block id="ea7c202c277e5ccf92e08be29b4a64e9" category="list-text">在摘要下、查看每个许可包的已用容量。</block>
+  <block id="39d8821e12869173bcc44d49a6c82619" category="list-text">_consumed capacity_显示该软件包中卷的总容量。有关特定软件包的详细信息、请将鼠标悬停在工具提示上。</block>
+  <block id="d30bc4bd5cee7ac23a1df54311d1f4b3" category="inline-link-macro">了解Essentials软件包的收费信息</block>
+  <block id="33b4838dec7acdb2df64d13961f0a255" category="paragraph">要更好地了解Essentials软件包显示的容量、您应熟悉充电的工作原理。 <block ref="eee0a6ebb632d7e4c34635f35e9b54cf" category="inline-link-macro-rx"></block>。</block>
+  <block id="da1c54b789cbe5eb82490a61a1240bdc" category="list-text">_BYOL_和_PAYGO_容量按许可证使用模式显示总已用容量。</block>
+  <block id="bbb170bfbf4105204b0dbe4292724d6e" category="paragraph">以下是具有多个许可包的帐户的示例：</block>
+  <block id="9dbb08096054a8593f55c8cd3e2863d6" category="inline-image-macro">显示专业版、优化版和基础版软件包的已用容量的屏幕截图。</block>
+  <block id="943b03ddb77b543ab329dfed996ad4ac" category="paragraph"><block ref="943b03ddb77b543ab329dfed996ad4ac" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

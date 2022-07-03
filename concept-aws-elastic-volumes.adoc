@@ -132,12 +132,7 @@ link:concept-storage-management.html#capacity-management["了解有关容量管�
 
 == 限制
 
-* 增加聚合的大小最多可能需要6小时。在此期间、Cloud Manager无法为该聚合请求任何额外容量。
-* 目前、只有API才支持在初始聚合上启用弹性卷的情况下创建新的Cloud Volumes ONTAP 系统。不支持从Cloud Manager用户界面执行此操作。如果您从用户界面创建新的Cloud Volumes ONTAP 9.11.0或更高版本系统、则初始聚合不会启用弹性卷。
-+
-支持从用户界面执行所有其他操作(例如创建新聚合)。
-
-
+增加聚合的大小最多可能需要6小时。在此期间、Cloud Manager无法为该聚合请求任何额外容量。
 
 
 
@@ -145,15 +140,9 @@ link:concept-storage-management.html#capacity-management["了解有关容量管�
 
 您可以在Cloud Manager中使用弹性卷、如下所示：
 
-* 创建一个在初始聚合上启用了弹性卷的新系统
+* 使用GP3或IO1磁盘时、创建在初始聚合上启用了弹性卷的新系统
 +
-如中所述 <<Limitations>>、目前只有API才支持此操作。用户界面不支持此功能。
-
-+
-启动API调用时、初始聚合默认启用弹性卷功能。
-
-+
-https://docs.netapp.com/us-en/cloud-manager-automation/cm/overview.html["了解如何使用API创建Cloud Volumes ONTAP"^]
+link:task-deploying-otc-aws.html["了解如何创建Cloud Volumes ONTAP 系统"]
 
 * 在已启用弹性卷的聚合上创建新卷
 +
