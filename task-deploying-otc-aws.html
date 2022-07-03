@@ -1425,7 +1425,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-21 15:54:37 +0000">06/21/2022</time>
+    <time datetime="2022-07-03 16:14:35 +0000">07/03/2022</time>
     
   
 
@@ -1660,20 +1660,20 @@ Your browser does not support the video tag.
 </div>
 </li>
 <li>
-<p>* 底层存储资源 * ：选择初始聚合的设置：磁盘类型，每个磁盘的大小以及是否应启用数据分层。</p>
+<p><strong>底层存储资源</strong>：选择磁盘类型、配置底层存储、然后选择是否启用数据分层。</p>
 <div class="paragraph">
 <p>请注意以下事项：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>磁盘类型用于初始卷。您可以为后续卷选择不同的磁盘类型。</p>
+<p>磁盘类型适用于初始卷(和聚合)。您可以为后续卷(和聚合)选择不同的磁盘类型。</p>
 </li>
 <li>
-<p>磁盘大小适用于初始聚合中的所有磁盘以及使用 Simple Provisioning （简单配置）选项时 Cloud Manager 创建的任何其他聚合。您可以使用高级分配选项创建使用不同磁盘大小的聚合。</p>
-<div class="paragraph">
-<p>有关选择磁盘类型和大小的帮助，请参见 <a href="task-planning-your-config.html#sizing-your-system-in-aws">"在 AWS 中估算系统规模"</a>。</p>
-</div>
+<p>如果您选择GP3或IO1磁盘、Cloud Manager将使用AWS中的弹性卷功能根据需要自动增加底层存储磁盘容量。您可以根据存储需求选择初始容量、并在部署Cloud Volumes ONTAP 后进行修改。 <a href="concept-aws-elastic-volumes.html">"了解有关在AWS中支持弹性卷的更多信息"</a>。</p>
+</li>
+<li>
+<p>如果选择GP2或st1磁盘、则可以为初始聚合中的所有磁盘以及使用简单配置选项时Cloud Manager创建的任何其他聚合选择一个磁盘大小。您可以使用高级分配选项创建使用不同磁盘大小的聚合。</p>
 </li>
 <li>
 <p>您可以在创建或编辑卷时选择特定的卷分层策略。</p>
@@ -2045,20 +2045,20 @@ Your browser does not support the video tag.
 </div>
 </li>
 <li>
-<p>* 底层存储资源 * ：选择初始聚合的设置：磁盘类型，每个磁盘的大小以及是否应启用数据分层。</p>
+<p><strong>底层存储资源</strong>：选择磁盘类型、配置底层存储、然后选择是否启用数据分层。</p>
 <div class="paragraph">
 <p>请注意以下事项：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>磁盘类型用于初始卷。您可以为后续卷选择不同的磁盘类型。</p>
+<p>磁盘类型适用于初始卷(和聚合)。您可以为后续卷(和聚合)选择不同的磁盘类型。</p>
 </li>
 <li>
-<p>磁盘大小适用于初始聚合中的所有磁盘以及使用 Simple Provisioning （简单配置）选项时 Cloud Manager 创建的任何其他聚合。您可以使用高级分配选项创建使用不同磁盘大小的聚合。</p>
-<div class="paragraph">
-<p>有关选择磁盘类型和大小的帮助，请参见 <a href="task-planning-your-config.html#sizing-your-system-in-aws">"在 AWS 中估算系统规模"</a>。</p>
-</div>
+<p>如果您选择GP3或IO1磁盘、Cloud Manager将使用AWS中的弹性卷功能根据需要自动增加底层存储磁盘容量。您可以根据存储需求选择初始容量、并在部署Cloud Volumes ONTAP 后进行修改。 <a href="concept-aws-elastic-volumes.html">"了解有关在AWS中支持弹性卷的更多信息"</a>。</p>
+</li>
+<li>
+<p>如果选择GP2或st1磁盘、则可以为初始聚合中的所有磁盘以及使用简单配置选项时Cloud Manager创建的任何其他聚合选择一个磁盘大小。您可以使用高级分配选项创建使用不同磁盘大小的聚合。</p>
 </li>
 <li>
 <p>您可以在创建或编辑卷时选择特定的卷分层策略。</p>

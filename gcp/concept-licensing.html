@@ -1357,7 +1357,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-22 18:15:32 +0000">06/22/2022</time>
+    <time datetime="2022-07-03 16:14:35 +0000">07/03/2022</time>
     
   
 
@@ -1379,17 +1379,9 @@
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">免费提供</dt>
+<dt class="hdlist1">基于容量的许可</dt>
 <dd>
-<p>免费提供高达 500 GiB 的已配置容量，无需购买许可证或合同。支持有限。</p>
-</dd>
-<dt class="hdlist1">Essentials 软件包</dt>
-<dd>
-<p>在多种不同配置中按容量为 Cloud Volumes ONTAP 付费。</p>
-</dd>
-<dt class="hdlist1">专业包</dt>
-<dd>
-<p>按容量为任何类型的 Cloud Volumes ONTAP 配置付费。包括使用 Cloud Backup 进行的无限备份。</p>
+<p>按配置的容量为您的NetApp帐户中的多个Cloud Volumes ONTAP 系统付费。包括购买附加云数据服务的功能。</p>
 </dd>
 <dt class="hdlist1">Keystone Flex 订阅</dt>
 <dd>
@@ -1406,8 +1398,24 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="免费提供">免费提供</h2>
+<h2 id="基于容量的许可">基于容量的许可</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>通过基于容量的许可包、您可以按每TiB容量为Cloud Volumes ONTAP 付费。此许可证与您的 NetApp 帐户关联，您可以使用此许可证向多个系统收取费用，前提是可通过此许可证获得足够的容量。</p>
+</div>
+<div class="paragraph">
+<p>例如，您可以购买一个 20 TiB 许可证，部署四个 Cloud Volumes ONTAP 系统，然后为每个系统分配一个 5 TiB 卷，总共 20 TiB 。该容量可供在该帐户中部署的每个 Cloud Volumes ONTAP 系统上的卷使用。</p>
+</div>
+<div class="paragraph">
+<p>基于容量的许可以 <em>package</em> 的形式提供。部署Cloud Volumes ONTAP 系统时、您可以根据业务需求从多个许可包中进行选择。</p>
+</div>
+<div class="sect2">
+<h3 id="软件包">软件包</h3>
+<div class="paragraph">
+<p>以下基于容量的软件包可用于Cloud Volumes ONTAP。</p>
+</div>
+<div class="sect3">
+<h4 id="免费">免费</h4>
 <div class="paragraph">
 <p>免费提供 NetApp 提供的所有 Cloud Volumes ONTAP 功能（仍需支付云提供商费用）。</p>
 </div>
@@ -1426,43 +1434,22 @@
 <p>在任何云提供商中，每个 NetApp 帐户最多可以使用 10 个 Cloud Volumes ONTAP 系统以及免费提供的产品。</p>
 </li>
 <li>
-<p>如果为 Cloud Volumes ONTAP 系统配置的容量超过 500 GiB ，则 Cloud Manager 会将该系统转换为 Essentials 软件包（基于容量的许可）。</p>
+<p>如果为 Cloud Volumes ONTAP 系统配置的容量超过 500 GiB ，则 Cloud Manager 会将该系统转换为 Essentials 软件包。</p>
+<div class="paragraph">
+<p>系统转换为Essentials软件包后、即会显示 <a href="#Notes about charging">最低费用</a> 适用。</p>
+</div>
 <div class="paragraph">
 <p>配置容量小于 500 GiB 的任何其他系统都会保留在 Freemium 上（只要这些系统是使用 Freemium 产品部署的）。</p>
 </div>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="要点">要点</h4>
 <div class="paragraph">
-<p>了解如何开始使用免费提供的产品：</p>
+<p>在多种不同配置中按容量为 Cloud Volumes ONTAP 付费。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="task-set-up-licensing-google.html">"在Google Cloud中为Cloud Volumes ONTAP 设置许可"</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="基于容量的许可包">基于容量的许可包</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>通过基于容量的许可，您可以按每 TiB 容量为 Cloud Volumes ONTAP 付费。此许可证与您的 NetApp 帐户关联，您可以使用此许可证向多个系统收取费用，前提是可通过此许可证获得足够的容量。</p>
-</div>
-<div class="paragraph">
-<p>例如，您可以购买一个 20 TiB 许可证，部署四个 Cloud Volumes ONTAP 系统，然后为每个系统分配一个 5 TiB 卷，总共 20 TiB 。该容量可供在该帐户中部署的每个 Cloud Volumes ONTAP 系统上的卷使用。</p>
-</div>
-<div class="paragraph">
-<p>基于容量的许可以 <em>package</em> 的形式提供。部署 Cloud Volumes ONTAP 系统时，您可以选择 _Essentials 或 _Professional 软件包。</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Essentials 软件包</dt>
-<dd>
-<div class="openblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1484,19 +1471,21 @@
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="专业人员">专业人员</h4>
+<div class="paragraph">
+<p>按容量为任意类型的Cloud Volumes ONTAP 配置付费、备份不受限制。</p>
 </div>
-</dd>
-<dt class="hdlist1">专业包</dt>
-<dd>
-<div class="openblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>为任何 Cloud Volumes ONTAP 配置（具有任何存储类型的单节点或 HA ）提供许可</p>
+<p>为任何 Cloud Volumes ONTAP 配置提供许可</p>
+<div class="paragraph">
+<p>主卷和二级卷的容量充电速度相同的单节点或HA</p>
+</div>
 </li>
 <li>
-<p>包括使用 Cloud Backup 的卷备份（仅适用于使用此许可证付费的卷）</p>
+<p>包括使用Cloud Backup的无限卷备份、但仅适用于使用专业版软件包部署的Cloud Volumes ONTAP 系统</p>
 </li>
 <li>
 <p>增加 NetApp 的任何云数据服务，但需额外付费</p>
@@ -1505,27 +1494,21 @@
 </div>
 </div>
 </div>
-</dd>
-</dl>
-</div>
 <div class="sect2">
 <h3 id="消费模式">消费模式</h3>
 <div class="paragraph">
-<p>Essentials 和 Professional 软件包可用于以下消费模式：</p>
+<p>基于容量的许可包可用于以下消费模式：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>从 NetApp 购买的一种许可证（ BYOL ），可用于在任何云提供商中部署 Cloud Volumes ONTAP 。</p>
-<div class="paragraph">
-<p>此许可证不限于单个云提供商。</p>
-</div>
+<p>* BYOL*：从NetApp购买的许可证、可用于在任何云提供商中部署Cloud Volumes ONTAP。</p>
 </li>
 <li>
-<p>云提供商市场的每小时订阅（ PAYGO ）。</p>
+<p>* PAYGO*：从云提供商的市场按小时订阅。</p>
 </li>
 <li>
-<p>云提供商市场的年度合同。</p>
+<p><strong>年度</strong>：云提供商市场提供的年度合同。</p>
 </li>
 </ul>
 </div>
@@ -1603,23 +1586,78 @@
 </div>
 <div class="sect2">
 <h3 id="有关充电的注意事项">有关充电的注意事项</h3>
+<div class="paragraph">
+<p>以下详细信息可帮助您了解收费如何与基于容量的许可配合使用。</p>
+</div>
+<div class="sect3">
+<h4 id="最低费用">最低费用</h4>
+<div class="paragraph">
+<p>对于至少具有一个主(读写)卷的每个提供数据的Storage VM、最低费用为4 TiB。如果主卷的总和小于4 TiB、则Cloud Manager会将4 TiB的最低费用应用于该Storage VM。</p>
+</div>
+<div class="paragraph">
+<p>如果尚未配置任何卷、则最低费用不适用。</p>
+</div>
+<div class="paragraph">
+<p>4 TiB最小容量费用仅适用于包含二级(数据保护)卷的Storage VM。例如、如果您的Storage VM包含1 TiB的二级数据、则只需为1 TiB的数据付费。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="过剩">过剩</h4>
+<div class="paragraph">
+<p>如果您超出 BYOL 容量或许可证到期，则会根据您的市场订阅按每小时费率向您收取超额费用。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="essentials-软件包">Essentials 软件包</h4>
+<div class="paragraph">
+<p>通过Essentials软件包、您将按部署类型(HA或单个节点)和卷类型(主卷或二级卷)付费。例如、_Essentials HA_的定价与_Essentials Secondary HA_不同。</p>
+</div>
+<div class="paragraph">
+<p>如果您从NetApp购买了Essentials许可证(BYOL)、并且超出了该部署和卷类型的许可容量、则数字电子钱包会根据定价较高的Essentials许可证(如果您有)收取超额费用。这是因为我们首先使用您已购买的可用容量作为预付费容量、然后再向市场收费。向市场收取费用会增加您的月度账单费用。</p>
+</div>
+<div class="paragraph">
+<p>下面是一个示例。假设您已为Essentials软件包获得以下许可证：</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>如果您超出 BYOL 容量或许可证到期，则会根据您的市场订阅按每小时费率向您收取超额费用。</p>
+<p>一个500 TiB _Essentials二级HA_许可证、其已提交容量为500 TiB</p>
 </li>
 <li>
-<p>对于每个软件包，至少需要 4 TiB 的容量费用。容量小于 4 TiB 的任何 Cloud Volumes ONTAP 实例将按 4 TiB 的速率进行收费。</p>
+<p>500 TiB _Essentials单节点_许可证、仅具有100 TiB的已提交容量</p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>另有50 TiB配置在具有二级卷的HA对上。Digital Wallet不会向PAYGO收取50 TiB的费用、而是根据_Essentials Single Node_许可证对50 TiB的超额费用进行收费。该许可证的定价高于_Essentials Secondary HA_、但比PAYGO价格更便宜。</p>
+</div>
+<div class="paragraph">
+<p>在"数字电子钱包"中、该50 TiB将显示为从_Essentials Single Node_许可证中扣除。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="storage-vm">Storage VM</h4>
+<div class="ulist">
+<ul>
 <li>
 <p>对于其他提供数据的 Storage VM （ SVM ），无需额外的许可成本，但每个提供数据的 SVM 的最低容量费用为 4 TiB 。</p>
 </li>
 <li>
 <p>灾难恢复 SVM 会根据配置的容量进行收费。</p>
 </li>
-<li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ha-对">HA 对</h4>
+<div class="paragraph">
 <p>对于 HA 对，您只需为节点上的已配置容量付费。您无需为同步镜像到配对节点的数据付费。</p>
-</li>
+</div>
+</div>
+<div class="sect3">
+<h4 id="flexclone和flexcache-卷">FlexClone和FlexCache 卷</h4>
+<div class="ulist">
+<ul>
 <li>
 <p>FlexClone 卷使用的容量不会向您收取费用。</p>
 </li>
@@ -1627,6 +1665,7 @@
 <p>源和目标 FlexCache 卷被视为主数据，并根据配置的空间进行收费。</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1725,10 +1764,35 @@
 <h2 id="最大系统数">最大系统数</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>无论使用哪种许可模式，每个 NetApp 帐户最多只能有 20 个 Cloud Volumes ONTAP 系统。</p>
+<p>每个NetApp帐户最多只能有20个Cloud Volumes ONTAP 系统。_system_是指Cloud Volumes ONTAP HA对、Cloud Volumes ONTAP 单节点系统或您创建的任何其他Storage VM。默认Storage VM不计入此限制。这将限制适用场景 的所有许可模式。</p>
 </div>
 <div class="paragraph">
-<p>system_ 是 HA 对或单节点系统。例如、如果您有两个Cloud Volumes ONTAP HA对和两个单节点系统、则总共有4个系统、您的帐户中还有16个额外的系统。</p>
+<p>例如、假设您有三个工作环境：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>包含一个Storage VM的单节点Cloud Volumes ONTAP 系统(这是在部署Cloud Volumes ONTAP 时创建的默认Storage VM)</p>
+<div class="paragraph">
+<p>此工作环境可视为一个系统。</p>
+</div>
+</li>
+<li>
+<p>包含两个Storage VM (默认Storage VM加上您创建的一个额外Storage VM)的单节点Cloud Volumes ONTAP 系统</p>
+<div class="paragraph">
+<p>此工作环境分为两个系统：一个用于单节点系统、一个用于额外的Storage VM。</p>
+</div>
+</li>
+<li>
+<p>一个Cloud Volumes ONTAP HA对、其中包含三个Storage VM (默认Storage VM加上您创建的两个额外Storage VM)</p>
+<div class="paragraph">
+<p>此工作环境分为三个系统：一个用于HA对、两个用于额外的Storage VM。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>总共有六个系统。然后、您的帐户中还可以再添加14个系统。</p>
 </div>
 <div class="paragraph">
 <p>如有任何疑问，请联系您的客户代表或销售团队。</p>

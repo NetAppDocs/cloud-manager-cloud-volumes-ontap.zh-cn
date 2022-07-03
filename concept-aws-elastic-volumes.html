@@ -1425,7 +1425,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:55:53 +0000">06/07/2022</time>
+    <time datetime="2022-07-03 16:14:35 +0000">07/03/2022</time>
     
   
 
@@ -1616,18 +1616,8 @@
 <div class="sect1">
 <h2 id="限制">限制</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>增加聚合的大小最多可能需要6小时。在此期间、Cloud Manager无法为该聚合请求任何额外容量。</p>
-</li>
-<li>
-<p>目前、只有API才支持在初始聚合上启用弹性卷的情况下创建新的Cloud Volumes ONTAP 系统。不支持从Cloud Manager用户界面执行此操作。如果您从用户界面创建新的Cloud Volumes ONTAP 9.11.0或更高版本系统、则初始聚合不会启用弹性卷。</p>
 <div class="paragraph">
-<p>支持从用户界面执行所有其他操作(例如创建新聚合)。</p>
-</div>
-</li>
-</ul>
+<p>增加聚合的大小最多可能需要6小时。在此期间、Cloud Manager无法为该聚合请求任何额外容量。</p>
 </div>
 </div>
 </div>
@@ -1640,15 +1630,9 @@
 <div class="ulist">
 <ul>
 <li>
-<p>创建一个在初始聚合上启用了弹性卷的新系统</p>
+<p>使用GP3或IO1磁盘时、创建在初始聚合上启用了弹性卷的新系统</p>
 <div class="paragraph">
-<p>如中所述 <a href="#Limitations">[Limitations]</a>、目前只有API才支持此操作。用户界面不支持此功能。</p>
-</div>
-<div class="paragraph">
-<p>启动API调用时、初始聚合默认启用弹性卷功能。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-automation/cm/overview.html" target="_blank" rel="noopener">"了解如何使用API创建Cloud Volumes ONTAP"</a></p>
+<p><a href="task-deploying-otc-aws.html">"了解如何创建Cloud Volumes ONTAP 系统"</a></p>
 </div>
 </li>
 <li>

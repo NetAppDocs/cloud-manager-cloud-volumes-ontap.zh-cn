@@ -1425,7 +1425,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:41:39 +0000">05/09/2022</time>
+    <time datetime="2022-07-03 16:14:35 +0000">07/03/2022</time>
     
   
 
@@ -1463,10 +1463,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="查看帐户的容量">查看帐户的容量</h2>
+<h2 id="查看帐户中的已用容量">查看帐户中的已用容量</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>按软件包查看许可容量和已配置容量，以确保为数据卷提供足够的空间。</p>
+<p>"数字电子钱包"按许可包显示帐户中的总已用容量和已用容量。这有助于您了解如何为您付费以及是否需要购买额外容量。</p>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
@@ -1475,13 +1475,48 @@
 <p>单击 * 所有服务 &gt; 数字电子钱包 &gt; Cloud Volumes ONTAP * 。</p>
 </li>
 <li>
-<p>选择 * 基于容量的许可证 * 后，查看每个软件包的许可容量和已配置容量。</p>
+<p>选择*基于容量的许可证*后、查看软件包摘要、其中显示了您已用容量、已许可总容量和总PAYGO容量。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>_Total consumed capacity_是您的NetApp帐户中所有Cloud Volumes ONTAP 系统的总已配置容量。费用根据每个卷的配置大小计算、而不考虑卷中的本地、已用、已存储或有效空间。</p>
+</li>
+<li>
+<p>_Total licensed_是您从NetApp购买的总许可容量(BYOL)。</p>
+</li>
+<li>
+<p>_Total PAYGO_是使用云市场订阅的总配置容量。只有当消耗的容量高于许可容量或数字电子钱包中没有BYOL许可证时、才会通过PAYGO进行收费。</p>
+<div class="paragraph">
+<p>下面是一个已用容量为2000 TiB的帐户示例：</p>
+</div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_capacity-based-licenses.png" alt="屏幕截图显示了专业软件包和基础软件包的已配置容量与已许可容量。"></span></p>
 </div>
 </li>
 <li>
-<p>如果需要，请购买额外的许可容量，然后将许可证添加到您的帐户中。</p>
+<p>在摘要下、查看每个许可包的已用容量。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>_consumed capacity_显示该软件包中卷的总容量。有关特定软件包的详细信息、请将鼠标悬停在工具提示上。</p>
+<div class="paragraph">
+<p>要更好地了解Essentials软件包显示的容量、您应熟悉充电的工作原理。 <a href="concept-licensing.html#notes-about-charging">"了解Essentials软件包的收费信息"</a>。</p>
+</div>
+</li>
+<li>
+<p>_BYOL_和_PAYGO_容量按许可证使用模式显示总已用容量。</p>
+<div class="paragraph">
+<p>以下是具有多个许可包的帐户的示例：</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot-digital-wallet-packages.png" alt="显示专业版、优化版和基础版软件包的已用容量的屏幕截图。"></span></p>
+</div>
 </li>
 </ol>
 </div>
