@@ -16,6 +16,8 @@ summary: 勒索软件攻击可能会耗费业务时间，资源和声誉。您�
 [role="lead"]
 勒索软件攻击可能会耗费业务时间，资源和声誉。您可以通过 Cloud Manager 实施 NetApp 解决方案 for 勒索软件，它可以提供有效的工具来实现可见性，检测和补救。
 
+使用此功能改进对勒索软件的保护可解决与不同的使用情形 https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["ONTAP 防勒索软件功能"^] 可通过System Manager或ONTAP 命令行界面启用。
+
 .步骤
 . 在工作环境中，单击 * 勒索软件 * 图标。
 +
