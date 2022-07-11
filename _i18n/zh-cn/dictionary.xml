@@ -1180,8 +1180,6 @@
   <block id="9cc699a3c9c133d094ca124626325568" category="paragraph">请注意， DNS 名称必须与 Azure DNS 命名要求匹配<block ref="6fc4fbd803a50e88fc639ed7537b302d" category="inline-link-rx"></block>。</block>
   <block id="a06cf36058872986abd7f3dd286084e3" category="list-text">通过 SSH 连接到 Connector 主机并登录。</block>
   <block id="fccc9b1aa20f1188588a2827e62fa40a" category="list-text">导航到以下目录： /opt/application/netapp/cloudmanager/docker_occm/data</block>
-  <block id="47ea64e6173d0ab4cda577e25a2d608b" category="list-text">通过修改以下参数来编辑 app.conf ，如图所示：</block>
-  <block id="03df5ed990dc79c8e6e9d61bc890ac4f" category="paragraph">只有当专用 DNS 区域的订阅与 Connector 不同时，才需要 subscription 参数。</block>
   <block id="6f35ba1af4056628e6fc10196137fc15" category="list-text">保存文件并注销 Connector 。</block>
   <block id="4dbd1699313f9a246cfb29418554adf1" category="paragraph">不需要重新启动。</block>
   <block id="65d4f53995ffa0759f8e9ed896c6e68e" category="section-title">启用故障回滚</block>
@@ -4223,4 +4221,7 @@
   <block id="f225a4f57ea32da8b983d7bffd20b6eb" category="paragraph">现在、在Azure中运行版本9.9.1或更高版本的新Cloud Volumes ONTAP 系统和现有系统中提供了ONTAP S3许可证。</block>
   <block id="809e3658d55a8182673968a51f763bd4" category="inline-link">ONTAP 防勒索软件功能</block>
   <block id="286a15f897b0ea49a39300795dbb689e" category="paragraph">使用此功能改进对勒索软件的保护可解决与不同的使用情形<block ref="4212bad7bd1fb5a7b1b9d017fd36eeae" category="inline-link-rx"></block> 可通过System Manager或ONTAP 命令行界面启用。</block>
+  <block id="21f6d246225534dc3444037c83f109c3" category="list-text">通过使用以下关键字值对添加"user-private-dns-zone-settings"参数来编辑app.conf：</block>
+  <block id="b5544a18e847192d0e5a82658b3e0f92" category="paragraph">应在与"system-id"相同的级别输入参数、如下所示：</block>
+  <block id="ff9fcf498a74a638ff2a01da3cae4468" category="paragraph">请注意、只有当专用DNS区域与Connector订阅不同时、才需要使用subscription关键字。</block>
 </blocks>
