@@ -1359,7 +1359,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-15 15:45:19 +0000">06/15/2022</time>
+    <time datetime="2022-07-11 22:29:13 +0000">07/11/2022</time>
     
   
 
@@ -1457,18 +1457,27 @@
 <p>导航到以下目录： /opt/application/netapp/cloudmanager/docker_occm/data</p>
 </li>
 <li>
-<p>通过修改以下参数来编辑 app.conf ，如图所示：</p>
+<p>通过使用以下关键字值对添加"user-private-dns-zone-settings"参数来编辑app.conf：</p>
 <div class="literalblock">
 <div class="content">
-<pre>"user-private-dns-zone-settings": {
-   "use-existing": true,
-   "resource-group": "&lt;resource group name of the DNS zone&gt;",
-   "subscription": "&lt;subscription ID&gt;"
-  }</pre>
+<pre>"user-private-dns-zone-settings" : {
+   "resource-group" : "&lt;resource group name of the DNS zone&gt;",
+   "subscription" : "&lt;subscription ID&gt;",
+   "use-existing" : true
+}</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>只有当专用 DNS 区域的订阅与 Connector 不同时，才需要 subscription 参数。</p>
+<p>应在与"system-id"相同的级别输入参数、如下所示：</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>"system-id" : "&lt;system ID&gt;",
+"user-private-dns-zone-settings" : {</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>请注意、只有当专用DNS区域与Connector订阅不同时、才需要使用subscription关键字。</p>
 </div>
 </li>
 <li>
