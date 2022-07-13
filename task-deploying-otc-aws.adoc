@@ -132,7 +132,7 @@ link:concept-security.html#encryption-of-data-at-rest["了解有关支持的加�
 
 . * IAM 角色 * ：最好保留默认选项，让 Cloud Manager 为您创建角色。
 +
-如果您希望使用自己的策略，则必须满足 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Volumes ONTAP 节点的策略要求"^]。
+如果您希望使用自己的策略，则必须满足 link:task-set-up-iam-roles.html["Cloud Volumes ONTAP 节点的策略要求"]。
 
 . *许可*：根据需要更改Cloud Volumes ONTAP 版本、并选择实例类型和实例租户。
 +
@@ -355,7 +355,7 @@ link:concept-security.html#encryption-of-data-at-rest["了解有关支持的加�
 
 . * IAM 角色 * ：最好保留默认选项，让 Cloud Manager 为您创建角色。
 +
-如果您希望使用自己的策略，则必须满足 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Volumes ONTAP 节点和 HA 调解器的策略要求"^]。
+如果您希望使用自己的策略，则必须满足 link:task-set-up-iam-roles.html["Cloud Volumes ONTAP 节点和 HA 调解器的策略要求"]。
 
 . *许可*：根据需要更改Cloud Volumes ONTAP 版本、并选择实例类型和实例租户。
 +

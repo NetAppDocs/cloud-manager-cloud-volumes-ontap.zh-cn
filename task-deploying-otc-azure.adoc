@@ -101,7 +101,7 @@ video::video_subscribing_azure.mp4[width=848,height=480]
 您必须为在 Azure 中部署的每个 Cloud Volumes ONTAP HA 对使用一个专用资源组。一个资源组仅支持一个 HA 对。如果您尝试在 Azure 资源组中部署第二个 Cloud Volumes ONTAP HA 对，则 Cloud Manager 会遇到连接问题。
 
 
-TIP: 如果您正在使用的 Azure 帐户具有 https://mysupport.netapp.com/site/info/cloud-manager-policies["所需权限"^]，在部署失败或删除时， Cloud Manager 会从资源组中删除 Cloud Volumes ONTAP 资源。
+TIP: 如果您正在使用的 Azure 帐户具有 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["所需权限"^]，在部署失败或删除时， Cloud Manager 会从资源组中删除 Cloud Volumes ONTAP 资源。
 
 
 

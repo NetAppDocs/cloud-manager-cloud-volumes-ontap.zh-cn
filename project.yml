@@ -56,6 +56,8 @@ sidebar:
           url: "/reference-security-groups.html"
       - title: 设置 AWS KMS
         url: "/task-setting-up-kms.html"
+      - title: 设置IAM角色
+        url: "/task-set-up-iam-roles.html"
       - title: 设置许可
         url: "/task-set-up-licensing-aws.html"
       - title: 在 AWS 中监控 Cloud Volumes ONTAP

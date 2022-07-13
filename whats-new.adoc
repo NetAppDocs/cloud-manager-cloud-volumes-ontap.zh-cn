@@ -121,7 +121,7 @@ link:concept-aws-elastic-volumes.html["了解有关支持弹性卷的更多信�
 "ec2:DescribeVolumesModifications",
 "ec2:ModifyVolume",
 ----
-请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。您可以在上找到最新的权限列表 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
+请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["查看AWS的最新Connector策略"^]。
 
 
 
@@ -233,7 +233,7 @@ https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.htm
 ----
 现在、要优化Cloud Manager创建布局组的方式、需要这些权限。
 
-请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。您可以在上找到最新的权限列表 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
+请务必为您添加到Cloud Manager的每组AWS凭据提供这些权限。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["查看AWS的最新Connector策略"^]。
 
 endif::aws[]
 
@@ -579,7 +579,7 @@ image:screenshot_azure_resource_group.png["创建工作环境向导的屏幕截�
 "Microsoft.Network/privateEndpoints/delete",
 "Microsoft.Compute/availabilitySets/delete",
 ----
-请务必为您添加到 Cloud Manager 的每组 Azure 凭据提供这些权限。您可以在上找到最新的权限列表 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
+请务必为您添加到 Cloud Manager 的每组 Azure 凭据提供这些权限。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["查看Azure的最新Connector策略"^]。
 
 
 
@@ -673,7 +673,7 @@ link:task-tiering.html#changing-the-cooling-period-for-the-auto-tiering-policy["
 
 ifdef::azure[]
 
-请注意， Connector 需要新的权限才能删除 Azure 快照。 https://mysupport.netapp.com/site/info/cloud-manager-policies["查看 Azure 的最新 Cloud Manager 策略"^]。
+请注意， Connector 需要新的权限才能删除 Azure 快照。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["查看Azure的最新Connector策略"^]。
 
 [source, json]
 ----

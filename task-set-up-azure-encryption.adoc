@@ -110,7 +110,7 @@ HA 对::
 "Microsoft.KeyVault/vaults/read",
 "Microsoft.KeyVault/vaults/accessPolicies/write"
 ----
-您可以在上找到最新的权限列表 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略页面"^]。
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["查看最新的权限列表"^]
 
 
 NOTE: HA对不需要前三个权限。

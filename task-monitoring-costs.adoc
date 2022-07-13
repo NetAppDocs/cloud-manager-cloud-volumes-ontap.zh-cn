@@ -21,17 +21,9 @@ Cloud Manager 会在您刷新页面时更新成本。有关最终成本详细信
 .步骤
 . 验证 Cloud Manager 是否可以从 AWS 获取成本信息：
 +
-.. 确保为 Cloud Manager 提供权限的 IAM 策略包括以下操作：
+.. 确保为Cloud Manager提供权限的IAM策略包含所需权限。
 +
-[source, json]
-----
-"ce:GetReservationUtilization",
-"ce:GetDimensionValues",
-"ce:GetCostAndUsage",
-"ce:GetTags"
-----
-+
-这些操作包含在最新的中 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"^]。从 NetApp Cloud Central 部署的新系统会自动包含这些权限。
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["查看所需权限"^]
 
 .. https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html["激活 * 工作环境 Id* 标记"^]。
 +

@@ -69,7 +69,7 @@ https://aws.amazon.com/ebs/features/["详细了解AWS中的弹性卷"^]
 * EC2：ModifyVolume
 
 
-中包括这些权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["NetApp 提供的策略"^]
+中包括这些权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["NetApp 提供的策略"^]
 
 
 

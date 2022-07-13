@@ -19,7 +19,7 @@ summary: 虽然 Google Cloud Storage 始终会在数据写入磁盘之前对数�
 .步骤
 . 确保 Cloud Manager Connector 服务帐户在存储密钥的项目中的项目级别具有正确的权限。
 +
-权限由提供 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager YAML 文件"^] 默认情况下，如果您使用云密钥管理服务的备用项目，则可能不会应用此功能。
+权限在中提供 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-gcp.html["默认情况下、Connector服务帐户权限"^]、但如果您使用云密钥管理服务的备用项目、则可能不会应用此功能。
 
 +
 权限如下：

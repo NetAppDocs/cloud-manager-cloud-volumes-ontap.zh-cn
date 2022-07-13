@@ -112,7 +112,7 @@ vserver add-aggregates -vserver <svm-name> -aggregates <aggr1,aggr2>
 - compute.instanceGroups.get
 - compute.addresses.get
 ----
-中包括这些权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["NetApp 提供的策略"^]
+中包括这些权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-gcp.html["NetApp 提供的策略"]。
 
 .步骤
 . 使用以下API调用创建Storage VM：

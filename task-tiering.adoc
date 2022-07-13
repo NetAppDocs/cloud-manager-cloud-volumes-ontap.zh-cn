@@ -150,14 +150,14 @@ ifdef::azure[]
 
 === 将冷数据分层到 Azure Blob 存储的要求
 
-只要 Cloud Manager 具有所需权限，您就无需在性能层和容量层之间设置连接。如果 Cloud Manager 策略具有以下权限，则 Cloud Manager 将为您启用 vNet 服务端点：
+只要 Cloud Manager 具有所需权限，您就无需在性能层和容量层之间设置连接。如果Connector的自定义角色具有以下权限、则Cloud Manager将为您启用vNet服务端点：
 
 [source, json]
 ----
 "Microsoft.Network/virtualNetworks/subnets/write",
 "Microsoft.Network/routeTables/join/action",
 ----
-权限包含在最新版本中 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"]。
+默认情况下、权限包括在自定义角色中。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["查看Connector的Azure权限"^]
 
 endif::azure[]
 
