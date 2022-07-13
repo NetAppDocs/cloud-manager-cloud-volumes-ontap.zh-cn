@@ -112,7 +112,21 @@ endif::gcp[]
 
 == 发生数据丢失时的预期情况
 
-如果您选择较高的写入速度并且发生数据丢失，则系统应能够启动并继续提供数据，而无需用户干预。当节点发生数据丢失时，将报告两条 EMS 消息。一个是带有错误严重性级别事件的 wafl.root.content.changed ，另一个是带有调试严重性级别事件的 nv.check.failed 。这两条消息都必须显示为数据丢失的指示。
+如果由于写入速度较快而导致数据丢失、事件管理系统(EMS)将报告以下两个事件：
+
+* Cloud Volumes ONTAP 9.11.0或更高版本
++
+ DEBUG nv.check.failed: NVRAM check failed with error "NVRAM disabled due to dirty shutdown with High Write Speed mode"
++
+ ERROR wafl.root.content.changed: Contents of the root volume '' might have changed. Verify that all recent configuration changes are still in effect.
+* Cloud Volumes ONTAP 9.8到9.10.1
++
+ DEBUG nv.check.failed: NVRAM check failed with error "NVRAM disabled due to dirty shutdown"
++
+ ERROR wafl.root.content.changed: Contents of the root volume '' might have changed. Verify that all recent configuration changes are still in effect.
+
+
+发生这种情况时、Cloud Volumes ONTAP 应能够启动并继续提供数据、而无需用户干预。
 
 
 

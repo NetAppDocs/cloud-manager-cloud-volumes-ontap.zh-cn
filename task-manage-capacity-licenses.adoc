@@ -59,7 +59,8 @@ image:screenshot_capacity-based-licenses.png["屏幕截图显示了专业软件�
 +
 要更好地了解Essentials软件包显示的容量、您应熟悉充电的工作原理。 link:concept-licensing.html#notes-about-charging["了解Essentials软件包的收费信息"]。
 
-** _BYOL_和_PAYGO_容量按许可证使用模式显示总已用容量。
+** _BYOL_显示您从NetApp购买的许可容量。
+** _PAYGO_按许可证使用模式显示总使用容量。
 +
 以下是具有多个许可包的帐户的示例：
 

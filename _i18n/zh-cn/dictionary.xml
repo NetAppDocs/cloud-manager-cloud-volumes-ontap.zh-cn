@@ -49,7 +49,6 @@
   <block id="3d64d0d43e2b3f4726dd94ece523a44b" category="inline-link-macro">更改现有系统的写入速度</block>
   <block id="f7ccf02d84fa210180071ca2470f84e9" category="paragraph">您可以在创建新的工作环境时选择写入速度，也可以选择写入速度 <block ref="bb09c850cc1f480d84d76846ade7e379" category="inline-link-macro-rx"></block>。</block>
   <block id="a6b5c3b6343acd9e9c252b6734e21729" category="section-title">发生数据丢失时的预期情况</block>
-  <block id="c2bed051015327a0fbd183fa026d6072" category="paragraph">如果您选择较高的写入速度并且发生数据丢失，则系统应能够启动并继续提供数据，而无需用户干预。当节点发生数据丢失时，将报告两条 EMS 消息。一个是带有错误严重性级别事件的 wafl.root.content.changed ，另一个是带有调试严重性级别事件的 nv.check.failed 。这两条消息都必须显示为数据丢失的指示。</block>
   <block id="ccd6abf00ee311d6ee0fe0cfa658d4af" category="section-title">如何在发生数据丢失时停止数据访问</block>
   <block id="3c88118331e31a974e72f747b05eac91" category="paragraph">如果您担心数据丢失，希望应用程序在数据丢失时停止运行，并希望在正确解决数据丢失问题描述后恢复数据访问，则可以使用命令行界面中的 NVFAIL 选项来实现此目标。</block>
   <block id="da40cbf3df02166f4e0befe0ef32dcce" category="list-text">启用 NVFAIL 选项</block>
@@ -822,10 +821,6 @@
   <block id="cc3717c29172e7c4beafc5f30f3639ac" category="paragraph">我们在创建新的 Cloud Volumes ONTAP 工作环境时重新设计了许可选择屏幕。这些变更重点介绍了 2021 年 7 月推出的按容量收费方法，并通过云提供商市场为即将推出的产品提供支持。</block>
   <block id="cb859e966c34323b5da18c0c77998603" category="section-title">数字电子钱包更新</block>
   <block id="912b97680395d2b9dfdd2d9fcfded8bf" category="paragraph">我们通过将 Cloud Volumes ONTAP 许可证整合到一个选项卡中来更新了 * 数字电子钱包 * 。</block>
-  <block id="6040922a9492ff1a6966cd9d9d73a9f9" category="section-title">每个 NetApp 帐户 20 个系统</block>
-  <block id="3ac6338087c4180b5cbb359584abab3a" category="paragraph">无论使用哪种许可模式，每个 NetApp 帐户最多只能有 20 个 Cloud Volumes ONTAP 系统。</block>
-  <block id="5908d4e5a438659ba844464125f51abe" category="paragraph">system_ 是 HA 对或单节点系统。例如，如果您有两个 Cloud Volumes ONTAP HA 对和两个单节点系统，则总共有 4 个系统，您的帐户中还有 16 个额外的系统。</block>
-  <block id="a259bb127cd2a1cd02edf6a3a2484f33" category="paragraph">如有任何疑问，请联系您的客户代表或销售团队。</block>
   <block id="fc2be74c7bf9f46e12967c2298a899ba" category="inline-link-macro">了解有关 NetApp 客户的更多信息</block>
   <block id="bbbee7961ccb9cea5bdfe8ab78e43452" category="paragraph">从 9.10.1 版开始， Microsoft Azure 中的以下 VM 类型现在支持 Cloud Volumes ONTAP ：</block>
   <block id="aafab9b991240605f56b3df780360449" category="list-text">E4ds_v4</block>
@@ -3229,7 +3224,6 @@
   <block id="506e74c9262ca17fcd45f9fc1bb03b87" category="paragraph">如果需要调整卷大小，可以通过执行此操作<block ref="bfb8b856b98909d9b8eda9fe0698d61f" category="inline-link-rx"></block>。调整卷大小时，请务必考虑系统的容量限制。转至<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 有关详细信息：</block>
   <block id="06c86f2b2f40c7b5ae916f820dace6f3" category="inline-link">转至《 Cloud Volumes ONTAP 发行说明》</block>
   <block id="65e42190c099391692bcdbf38f75b3dc" category="paragraph">此页面上介绍的增强功能专用于支持 Cloud Volumes ONTAP 管理的 Cloud Manager 功能。要了解 Cloud Volumes ONTAP 软件本身的新增功能，<block ref="708e09e3f2783926556b9c6d77f63a27" category="inline-link-rx"></block></block>
-  <block id="e0109745edea3dd07561e6ef24e031b3" category="paragraph"><block ref="e0109745edea3dd07561e6ef24e031b3" category="inline-link-rx"></block></block>
   <block id="eaae0996b48caf454deb2608523a1af2" category="paragraph"><block ref="a3830f1e68e521753c115aa90de96c67" category="inline-link-rx"></block>。</block>
   <block id="cd46020b2ca09f66f5c79bd35fe2da2e" category="paragraph"><block ref="4107f790de2a45bc9a00a9b75db49bc5" category="inline-link-rx"></block>。</block>
   <block id="0149fd22e5722b132cbafe2d3e86e10b" category="list-text">为模板中未硬编码的所有参数添加值。请参见 <block ref="c4711ce582f4a278fe266c32d7e1a70b" category="inline-xref-macro-rx"></block> 有关部署 Cloud Volumes ONTAP 卷所需完成的所有参数的详细信息。</block>
@@ -4184,7 +4178,6 @@
   <block id="2ba3f057b3f441a58c358dd4703ea556" category="paragraph">在"数字电子钱包"中、该50 TiB将显示为从_Essentials Single Node_许可证中扣除。</block>
   <block id="2204b0f79985b7b0565114e8305937a5" category="section-title">Storage VM</block>
   <block id="ea2d4d2ac58be22179ef1e523d4602b4" category="section-title">FlexClone和FlexCache 卷</block>
-  <block id="c0a01aae03aec488789ec9662cb472bb" category="paragraph">每个NetApp帐户最多只能有20个Cloud Volumes ONTAP 系统。_system_是指Cloud Volumes ONTAP HA对、Cloud Volumes ONTAP 单节点系统或您创建的任何其他Storage VM。默认Storage VM不计入此限制。这将限制适用场景 的所有许可模式。</block>
   <block id="ee39f25358b04b9ab4c35e9b485d2797" category="paragraph">例如、假设您有三个工作环境：</block>
   <block id="35851ad4214e2cb5358ee8d010fd31e9" category="list-text">包含一个Storage VM的单节点Cloud Volumes ONTAP 系统(这是在部署Cloud Volumes ONTAP 时创建的默认Storage VM)</block>
   <block id="75a89431d9d36de5dedb4018f6ca3cbe" category="paragraph">此工作环境可视为一个系统。</block>
@@ -4204,7 +4197,6 @@
   <block id="39d8821e12869173bcc44d49a6c82619" category="list-text">_consumed capacity_显示该软件包中卷的总容量。有关特定软件包的详细信息、请将鼠标悬停在工具提示上。</block>
   <block id="d30bc4bd5cee7ac23a1df54311d1f4b3" category="inline-link-macro">了解Essentials软件包的收费信息</block>
   <block id="33b4838dec7acdb2df64d13961f0a255" category="paragraph">要更好地了解Essentials软件包显示的容量、您应熟悉充电的工作原理。 <block ref="eee0a6ebb632d7e4c34635f35e9b54cf" category="inline-link-macro-rx"></block>。</block>
-  <block id="da1c54b789cbe5eb82490a61a1240bdc" category="list-text">_BYOL_和_PAYGO_容量按许可证使用模式显示总已用容量。</block>
   <block id="bbb170bfbf4105204b0dbe4292724d6e" category="paragraph">以下是具有多个许可包的帐户的示例：</block>
   <block id="9dbb08096054a8593f55c8cd3e2863d6" category="inline-image-macro">显示专业版、优化版和基础版软件包的已用容量的屏幕截图。</block>
   <block id="943b03ddb77b543ab329dfed996ad4ac" category="paragraph"><block ref="943b03ddb77b543ab329dfed996ad4ac" category="inline-image-macro-rx" type="image"></block></block>
@@ -4224,4 +4216,12 @@
   <block id="21f6d246225534dc3444037c83f109c3" category="list-text">通过使用以下关键字值对添加"user-private-dns-zone-settings"参数来编辑app.conf：</block>
   <block id="b5544a18e847192d0e5a82658b3e0f92" category="paragraph">应在与"system-id"相同的级别输入参数、如下所示：</block>
   <block id="ff9fcf498a74a638ff2a01da3cae4468" category="paragraph">请注意、只有当专用DNS区域与Connector订阅不同时、才需要使用subscription关键字。</block>
+  <block id="34010f1e0d61721ccadb44d47c32e547" category="paragraph">使用基于容量的许可时、每个NetApp帐户最多只能使用20个Cloud Volumes ONTAP 系统。_system_是指Cloud Volumes ONTAP HA对、Cloud Volumes ONTAP 单节点系统或您创建的任何其他Storage VM。默认Storage VM不计入此限制。这将限制适用场景 的所有许可模式。</block>
+  <block id="b4c7b5de587c69b61237e13a2d37bbf1" category="paragraph">如果您的大型部署需要20个以上的系统、请联系您的客户代表或销售团队。</block>
+  <block id="3bc8827b2b8b4b47a25fb21994526d52" category="paragraph">如果由于写入速度较快而导致数据丢失、事件管理系统(EMS)将报告以下两个事件：</block>
+  <block id="be98a72c550adaac0016c02f579ae8d6" category="list-text">Cloud Volumes ONTAP 9.11.0或更高版本</block>
+  <block id="7cd42532925d5e610a9d3694b57652da" category="list-text">Cloud Volumes ONTAP 9.8到9.10.1</block>
+  <block id="deae9d093dee266b166a3693474231a9" category="paragraph">发生这种情况时、Cloud Volumes ONTAP 应能够启动并继续提供数据、而无需用户干预。</block>
+  <block id="4f68f7a47531b2df7b7a4db5225d57b5" category="list-text">_BYOL_显示您从NetApp购买的许可容量。</block>
+  <block id="0c27ea3454ff74c09bafc9361752d263" category="list-text">_PAYGO_按许可证使用模式显示总使用容量。</block>
 </blocks>
