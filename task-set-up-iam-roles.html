@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>更改 Cloud Volumes ONTAP 的密码 | NetApp Documentation</title>
+  <title>为Cloud Volumes ONTAP 设置IAM角色 | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="更改 Cloud Volumes ONTAP 的密码 | NetApp Documentation" />
+  <meta property="og:title" content="为Cloud Volumes ONTAP 设置IAM角色 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html" />
-	<meta property="og:description" content="Cloud Volumes ONTAP 包括集群管理员帐户。如果需要，您可以从 Cloud Manager 更改此帐户的密码。" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" />
+	<meta property="og:description" content="每个Cloud Volumes ONTAP 节点都必须连接一个IAM角色、以提供所需的权限。HA调解器也是如此。让Cloud Manager为您创建IAM角色最简单、但您可以使用自己的角色。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Volumes ONTAP 包括集群管理员帐户。如果需要，您可以从 Cloud Manager 更改此帐户的密码。">
-  <meta name="keywords" content=" change password, modify password, admin password, password"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="每个Cloud Volumes ONTAP 节点都必须连接一个IAM角色、以提供所需的权限。HA调解器也是如此。让Cloud Manager为您创建IAM角色最简单、但您可以使用自己的角色。">
+  <meta name="keywords" content=" iam role, mediator role, cloud volumes ontap role, policy, iam policy, permissions"><!-- Icons -->
   <link rel="icon" href="/zh-cn/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/zh-cn/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -52,9 +52,6 @@
   <link rel="stylesheet" href="/zh-cn/cloud-manager-cloud-volumes-ontap/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/cloud-manager-cloud-volumes-ontap/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
-  
-    
-    <link rel="canonical" href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html" />
   <link rel='stylesheet' href='/zh-cn/cloud-manager-cloud-volumes-ontap/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     if (document.location.hostname === "docs.netapp.com") {
       var head = document.getElementsByTagName('head')[0];
@@ -164,7 +161,7 @@
 </head>
 
 
-  <body class role="document" data-flavor="aws">
+  <body class role="document" data-flavor="">
     <div id="page" class="n-off-canvas-menu">
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
@@ -173,40 +170,38 @@
   <!-- Start Page Toolbar -->
   
   <div class="page-nav-toolbar">
-<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html">
   
-  
-  <div class="custom-dropdown-select selected" title="AWS">
+  <div class="custom-dropdown-select unselected" title="所有云提供商">
     <label>云提供商</label>
-    <div>AWS</div>  
-    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon selected" alt="" />
-    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/dismiss.svg" class="custom-icon selected" id="remove-flavor" alt="" />
+    <span>所有云提供商</span>
+    <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
   </div>
   
 
   <ul class="custom-dropdown-menu">
     
     
-    <li data-value="aws" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-change-password.html">
+    <li data-value="aws" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-set-up-iam-roles.html">
       <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
     </li>
     
     
     
-    <li data-value="gcp" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/gcp/task-change-password.html">
+    <li data-value="gcp" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/gcp">
       <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
     </li>
     
     
     
-    <li data-value="azure" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-change-password.html">
+    <li data-value="azure" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/azure">
       <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
     </li>
     
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[更改 Cloud Volumes ONTAP 的密码](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" alt="" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-change-password.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" alt="" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" alt="" class="github-icon" />提供者指南</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[为Cloud Volumes ONTAP 设置IAM角色](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" alt="" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-set-up-iam-roles.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" alt="" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" alt="" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -303,7 +298,7 @@
           data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
           data-error-reset="Reset Search"
           data-sk-es-pf-indexes=""
-          data-flavor="aws"></div>
+          data-flavor=""></div>
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
@@ -327,15 +322,15 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
@@ -389,7 +384,7 @@
         
         
         
-        <a target="_blank" href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/fullsite-sidebar/Cloud_Volumes_ONTAP_文档.pdf" >
+        <a target="_blank" href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/fullsite-sidebar/Cloud_Volumes_ONTAP_文档.pdf" >
           <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>此文档站点的 PDF</a>
 
 
@@ -402,7 +397,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/发行说明.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/发行说明.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -431,7 +426,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/入门.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/入门.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -449,7 +444,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/开始使用_Amazon_Web_Services.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/开始使用_Amazon_Web_Services.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -469,7 +464,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/设置网络.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/设置网络.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -493,6 +488,8 @@
 
 
 
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
 
 
 
@@ -517,7 +514,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/开始使用_Microsoft_Azure.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/开始使用_Microsoft_Azure.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -554,7 +551,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/开始使用_Google_Cloud.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/开始使用_Google_Cloud.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -600,7 +597,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/使用_Cloud_Volumes_ONTAP.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/使用_Cloud_Volumes_ONTAP.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -616,7 +613,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/许可证管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/许可证管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -645,7 +642,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/卷和_LUN_管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/卷和_LUN_管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -678,7 +675,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/聚合管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/聚合管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -707,7 +704,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/Storage_VM_管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Storage_VM_管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -738,7 +735,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/安全性和数据加密.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/安全性和数据加密.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -769,7 +766,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/系统管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/系统管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -786,8 +783,6 @@
 
 
 
-    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
-  
 
 
 
@@ -799,7 +794,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/添加_删除或删除系统.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/添加_删除或删除系统.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -828,7 +823,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/AWS管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/AWS管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -857,7 +852,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/Azure管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Azure管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -886,7 +881,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/Google_Cloud管理.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Google_Cloud管理.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -922,7 +917,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/系统运行状况和事件.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/系统运行状况和事件.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -956,7 +951,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/概念.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/概念.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -974,7 +969,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/存储.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/存储.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -1013,7 +1008,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/高可用性对.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/高可用性对.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -1061,7 +1056,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/知识和支持.pdf" 
+              href="/zh-cn/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/知识和支持.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/pdf.png" alt="" width="16" height="16"/>
@@ -1119,191 +1114,253 @@
 </script><div class="prod-nav" id="product-nav">
   <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/zh-cn/cloud-manager-family/"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
 </div><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/index.html">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/index.html">
         Cloud Volumes ONTAP 文档
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 发行说明</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/whats-new.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/whats-new.html">
         新增功能
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/reference-limitations.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/reference-limitations.html">
         已知限制
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/whats-new-ontap.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/whats-new-ontap.html">
         《 Cloud Volumes ONTAP 发行说明》
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 入门</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-overview-cvo.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-overview-cvo.html">
         了解 Cloud Volumes ONTAP
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 开始使用 Amazon Web Services</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-getting-started-aws.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html">
         快速入门
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-planning-your-config.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-planning-your-config.html">
         规划您的配置
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 设置网络</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/reference-networking-aws.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/reference-networking-aws.html">
         网络要求
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-setting-up-transit-gateway.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-setting-up-transit-gateway.html">
         设置 AWS 传输网关
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-deploy-aws-shared-vpc.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-deploy-aws-shared-vpc.html">
         在共享子网中部署HA对
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/reference-security-groups.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/reference-security-groups.html">
         AWS 的安全组规则
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-setting-up-kms.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html">
         设置 AWS KMS
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-set-up-iam-roles.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html">
         设置IAM角色
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-set-up-licensing-aws.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-licensing-aws.html">
         设置许可
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-deploying-otc-aws.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-deploying-otc-aws.html">
         在 AWS 中监控 Cloud Volumes ONTAP
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-getting-started-aws-c2s.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-getting-started-aws-c2s.html">
         AWS C2S 入门
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 开始使用 Microsoft Azure</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html">
+        快速入门
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-planning-your-config-azure.html">
+        规划您的配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/reference-networking-azure.html">
+        设置网络
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-azure-encryption.html">
+        使用密钥设置加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-licensing-azure.html">
+        设置许可
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html">
+        启用高可用性模式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html">
+        在 Azure 中启动 Cloud Volumes ONTAP
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 开始使用 Google Cloud</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html">
+        快速入门
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-planning-your-config-gcp.html">
+        规划您的配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/reference-networking-gcp.html">
+        设置网络
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/reference-vpc-service-controls-gcp.html">
+        规划 VPC 服务控制
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html">
+        创建服务帐户
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-setting-up-gcp-encryption.html">
+        使用客户管理的加密密钥
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-licensing-google.html">
+        设置许可
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html">
+        在Google Cloud中启动Cloud Volumes ONTAP
       </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 使用 Cloud Volumes ONTAP</div>
       </a>
       <ul><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 许可证管理</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-manage-capacity-licenses.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html">
         管理基于容量的许可证
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-manage-keystone.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-manage-keystone.html">
         管理 Keystone Flex 订阅
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-manage-node-licenses.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html">
         管理基于节点的许可证
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 卷和 LUN 管理</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-create-volumes.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-create-volumes.html">
         创建卷
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-manage-volumes.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html">
         管理现有卷
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-tiering.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-tiering.html">
         将非活动数据分层到对象存储
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-connect-lun.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-connect-lun.html">
         将 LUN 连接到主机
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-accelerate-data-access.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-accelerate-data-access.html">
         借助 FlexCache 加快数据访问速度
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 聚合管理</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-create-aggregates.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html">
         创建聚合
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-manage-aggregates.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-manage-aggregates.html">
         管理现有聚合
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-manage-capacity-settings.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-manage-capacity-settings.html">
         管理容量设置
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Storage VM 管理</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-managing-svms.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-managing-svms.html">
         在 Cloud Manager 中使用 Storage VM
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-managing-svms-aws.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-managing-svms-aws.html">
         在 AWS 中创建 Storage VM
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html">
+        在 Azure 中创建 Storage VM
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-managing-svms-gcp.html">
+        在Google Cloud中创建Storage VM
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 安全性和数据加密</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-encrypting-volumes.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-encrypting-volumes.html">
         使用 NetApp 加密对卷进行加密
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-protecting-ransomware.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-azure-key-vault.html">
+        使用Azure密钥存储管理密钥
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-google-key-manager.html">
+        使用Google Cloud KMS管理密钥
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-protecting-ransomware.html">
         改进勒索软件保护
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 系统管理</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-updating-ontap-cloud.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-updating-ontap-cloud.html">
         升级 Cloud Volumes ONTAP
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-registering.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-registering.html">
         注册按需购买系统
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-managing-state.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-managing-state.html">
         停止并启动系统
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-sync-time.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-sync-time.html">
         同步系统时间
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-modify-write-speed.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-modify-write-speed.html">
         修改系统写入速度
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-change-password.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html">
         更改系统密码
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 添加，删除或删除系统</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-adding-systems.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-adding-systems.html">
         添加现有系统
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-removing.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-removing.html">
         删除工作环境
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-deleting-working-env.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-deleting-working-env.html">
         删除系统
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> AWS管理</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-change-ec2-instance.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-ec2-instance.html">
         更改 EC2 实例类型
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-change-route-tables.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-route-tables.html">
         更改 HA 对的路由表
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-monitoring-costs.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-monitoring-costs.html">
         监控 AWS 成本
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-administer-advanced-view.html">
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Azure管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-azure-vm.html">
+        更改 Azure 虚拟机类型
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html">
+        覆盖 CIFS 锁定
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html">
+        使用Azure专用链路或服务端点
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Google Cloud管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-gcp-machine.html">
+        更改计算机类型
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html">
         通过System Manager进行管理
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-connecting-to-otc.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html">
         通过CLI进行管理
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 系统运行状况和事件</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-verify-autosupport.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-verify-autosupport.html">
         验证 AutoSupport 设置
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-configure-ems.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-configure-ems.html">
         配置 EMS
       </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 概念</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-licensing.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-licensing.html">
         许可
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 存储</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-client-protocols.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-client-protocols.html">
         客户端协议
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-storage.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-storage.html">
         磁盘和聚合
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-aws-elastic-volumes.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-aws-elastic-volumes.html">
         AWS中的弹性卷
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-data-tiering.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html">
         数据分层
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-storage-management.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-storage-management.html">
         存储管理
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-write-speed.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-write-speed.html">
         写入速度
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-flash-cache.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-flash-cache.html">
         Flash Cache
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-worm.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-worm.html">
         WORM 存储
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 高可用性对</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-ha.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-ha.html">
         AWS 中的 HA 对
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-degraded-ha-pair.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-ha-azure.html">
+        Azure 中的 HA 对
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-ha-google-cloud.html">
+        GCP 中的 HA 对
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-degraded-ha-pair.html">
         存储接管期间的操作
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-security.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-security.html">
         安全性
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-performance.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-performance.html">
         性能
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-license-management.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-license-management.html">
         管理基于节点的 BYOL
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/concept-active-iq.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/concept-active-iq.html">
         AutoSupport 和 Active IQ 数字顾问
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/reference-default-configs.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/reference-default-configs.html">
         默认配置
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知识和支持</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-support-registration.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-support-registration.html">
         注册以获得支持
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-get-help.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/task-get-help.html">
         获取帮助
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/legal-notices.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/legal-notices.html">
         法律声明
       </a></li></ul>
 </div>
@@ -1367,14 +1424,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">更改 Cloud Volumes ONTAP 的密码</h1>
+  <h1 class="n-doc__component-detail-heading">为Cloud Volumes ONTAP 设置IAM角色</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:29:47 +0000">04/14/2022</time>
+    <time datetime="2022-07-13 19:49:38 +0000">07/13/2022</time>
     
   
 
@@ -1382,16 +1439,19 @@
 </p>
 
 <div class="paragraph lead">
-<p>Cloud Volumes ONTAP 包括集群管理员帐户。如果需要，您可以从 Cloud Manager 更改此帐户的密码。</p>
+<p>必须将具有所需权限的IAM角色附加到每个Cloud Volumes ONTAP 节点。HA调解器也是如此。让Cloud Manager为您创建IAM角色最简单、但您可以使用自己的角色。</p>
 </div>
-<div class="admonitionblock caution">
+<div class="paragraph">
+<p>此任务为可选任务。创建Cloud Volumes ONTAP 工作环境时、默认选项是让Cloud Manager为您创建IAM角色。如果贵企业的安全策略要求您自己创建IAM角色、请按照以下步骤进行操作。</p>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/caution.svg" alt="注意">
+<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注">
 </td>
 <td class="content">
-不应通过 System Manager 或 CLI 更改管理员帐户的密码。该密码不会反映在 Cloud Manager 中。因此， Cloud Manager 无法正确监控实例。
+在AWS商用云服务环境中、需要提供您自己的IAM角色。 <a href="task-getting-started-aws-c2s.html">"了解如何在C2S中部署Cloud Volumes ONTAP"</a>。
 </td>
 </tr>
 </table>
@@ -1400,15 +1460,162 @@
 <div class="title">步骤</div>
 <ol class="arabic">
 <li>
-<p>在工作环境中，单击菜单图标，然后单击 * 高级 &gt; 设置密码 * 。</p>
+<p>转到AWS IAM控制台。</p>
 </li>
 <li>
-<p>输入新密码两次，然后单击 * 保存 * 。</p>
-<div class="paragraph">
-<p>新密码必须不同于您使用的最后六个密码之一。</p>
+<p>创建包含以下权限的IAM策略：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Volumes ONTAP 节点</p>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">标准区域</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Action": "s3:ListAllMyBuckets",
+			"Resource": "arn:aws:s3:::*",
+			"Effect": "Allow"
+		}, {
+			"Action": [
+				"s3:ListBucket",
+				"s3:GetBucketLocation"
+			],
+			"Resource": "arn:aws:s3:::fabric-pool-*",
+			"Effect": "Allow"
+		}, {
+			"Action": [
+				"s3:GetObject",
+				"s3:PutObject",
+				"s3:DeleteObject"
+			],
+			"Resource": "arn:aws:s3:::fabric-pool-*",
+			"Effect": "Allow"
+		}
+	]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">GovCloud (美国)地区</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-us-gov:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-us-gov:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-us-gov:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">C2S环境</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-iso:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </li>
+<li>
+<p>HA 调解器</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Effect": "Allow",
+			"Action": [
+				"ec2:AssignPrivateIpAddresses",
+				"ec2:CreateRoute",
+				"ec2:DeleteRoute",
+				"ec2:DescribeNetworkInterfaces",
+				"ec2:DescribeRouteTables",
+				"ec2:DescribeVpcs",
+				"ec2:ReplaceRoute",
+				"ec2:UnassignPrivateIpAddresses"
+			],
+			"Resource": "*"
+		}
+	]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>创建一个IAM角色、并将您在上一步中创建的策略附加到该角色。</p>
+</li>
 </ol>
+</div>
+<div class="paragraph">
+<p>现在、您可以在创建新的Cloud Volumes ONTAP 工作环境时选择IAM角色。</p>
+</div>
+<div class="ulist">
+<div class="title">更多信息</div>
+<ul>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html" target="_blank" rel="noopener">"AWS文档：创建IAM策略"</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html" target="_blank" rel="noopener">"AWS文档：创建IAM角色"</a></p>
+</li>
+</ul>
 </div>
 
     </article>

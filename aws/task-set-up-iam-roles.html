@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>更改 Cloud Volumes ONTAP 的密码 | NetApp Documentation</title>
+  <title>为Cloud Volumes ONTAP 设置IAM角色 | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="更改 Cloud Volumes ONTAP 的密码 | NetApp Documentation" />
+  <meta property="og:title" content="为Cloud Volumes ONTAP 设置IAM角色 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html" />
-	<meta property="og:description" content="Cloud Volumes ONTAP 包括集群管理员帐户。如果需要，您可以从 Cloud Manager 更改此帐户的密码。" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" />
+	<meta property="og:description" content="每个Cloud Volumes ONTAP 节点都必须连接一个IAM角色、以提供所需的权限。HA调解器也是如此。让Cloud Manager为您创建IAM角色最简单、但您可以使用自己的角色。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Volumes ONTAP 包括集群管理员帐户。如果需要，您可以从 Cloud Manager 更改此帐户的密码。">
-  <meta name="keywords" content=" change password, modify password, admin password, password"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="每个Cloud Volumes ONTAP 节点都必须连接一个IAM角色、以提供所需的权限。HA调解器也是如此。让Cloud Manager为您创建IAM角色最简单、但您可以使用自己的角色。">
+  <meta name="keywords" content=" iam role, mediator role, cloud volumes ontap role, policy, iam policy, permissions"><!-- Icons -->
   <link rel="icon" href="/zh-cn/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/zh-cn/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -54,7 +54,7 @@
   <!-- Canonical url -->
   
     
-    <link rel="canonical" href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html" />
+    <link rel="canonical" href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" />
   <link rel='stylesheet' href='/zh-cn/cloud-manager-cloud-volumes-ontap/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     if (document.location.hostname === "docs.netapp.com") {
       var head = document.getElementsByTagName('head')[0];
@@ -173,7 +173,7 @@
   <!-- Start Page Toolbar -->
   
   <div class="page-nav-toolbar">
-<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html">
   
   
   <div class="custom-dropdown-select selected" title="AWS">
@@ -187,26 +187,26 @@
   <ul class="custom-dropdown-menu">
     
     
-    <li data-value="aws" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-change-password.html">
+    <li data-value="aws" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-set-up-iam-roles.html">
       <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
     </li>
     
     
     
-    <li data-value="gcp" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/gcp/task-change-password.html">
+    <li data-value="gcp" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/gcp">
       <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
     </li>
     
     
     
-    <li data-value="azure" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/azure/task-change-password.html">
+    <li data-value="azure" data-url="/zh-cn/cloud-manager-cloud-volumes-ontap/azure">
       <img alt="" src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/zh-cn/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
     </li>
     
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[更改 Cloud Volumes ONTAP 的密码](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" alt="" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-change-password.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" alt="" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" alt="" class="github-icon" />提供者指南</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[为Cloud Volumes ONTAP 设置IAM角色](https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" alt="" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-set-up-iam-roles.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" alt="" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" alt="" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -327,15 +327,15 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-change-password.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
@@ -493,6 +493,8 @@
 
 
 
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
 
 
 
@@ -786,8 +788,6 @@
 
 
 
-    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
-  
 
 
 
@@ -1155,7 +1155,7 @@
         AWS 的安全组规则
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-setting-up-kms.html">
         设置 AWS KMS
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-set-up-iam-roles.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-set-up-iam-roles.html">
         设置IAM角色
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-set-up-licensing-aws.html">
         设置许可
@@ -1224,7 +1224,7 @@
         同步系统时间
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-modify-write-speed.html">
         修改系统写入速度
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-change-password.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-cloud-volumes-ontap/aws/task-change-password.html">
         更改系统密码
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 添加，删除或删除系统</div>
@@ -1367,14 +1367,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">更改 Cloud Volumes ONTAP 的密码</h1>
+  <h1 class="n-doc__component-detail-heading">为Cloud Volumes ONTAP 设置IAM角色</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:29:47 +0000">04/14/2022</time>
+    <time datetime="2022-07-13 19:49:38 +0000">07/13/2022</time>
     
   
 
@@ -1382,16 +1382,19 @@
 </p>
 
 <div class="paragraph lead">
-<p>Cloud Volumes ONTAP 包括集群管理员帐户。如果需要，您可以从 Cloud Manager 更改此帐户的密码。</p>
+<p>必须将具有所需权限的IAM角色附加到每个Cloud Volumes ONTAP 节点。HA调解器也是如此。让Cloud Manager为您创建IAM角色最简单、但您可以使用自己的角色。</p>
 </div>
-<div class="admonitionblock caution">
+<div class="paragraph">
+<p>此任务为可选任务。创建Cloud Volumes ONTAP 工作环境时、默认选项是让Cloud Manager为您创建IAM角色。如果贵企业的安全策略要求您自己创建IAM角色、请按照以下步骤进行操作。</p>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/caution.svg" alt="注意">
+<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注">
 </td>
 <td class="content">
-不应通过 System Manager 或 CLI 更改管理员帐户的密码。该密码不会反映在 Cloud Manager 中。因此， Cloud Manager 无法正确监控实例。
+在AWS商用云服务环境中、需要提供您自己的IAM角色。 <a href="task-getting-started-aws-c2s.html">"了解如何在C2S中部署Cloud Volumes ONTAP"</a>。
 </td>
 </tr>
 </table>
@@ -1400,15 +1403,162 @@
 <div class="title">步骤</div>
 <ol class="arabic">
 <li>
-<p>在工作环境中，单击菜单图标，然后单击 * 高级 &gt; 设置密码 * 。</p>
+<p>转到AWS IAM控制台。</p>
 </li>
 <li>
-<p>输入新密码两次，然后单击 * 保存 * 。</p>
-<div class="paragraph">
-<p>新密码必须不同于您使用的最后六个密码之一。</p>
+<p>创建包含以下权限的IAM策略：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Volumes ONTAP 节点</p>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">标准区域</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Action": "s3:ListAllMyBuckets",
+			"Resource": "arn:aws:s3:::*",
+			"Effect": "Allow"
+		}, {
+			"Action": [
+				"s3:ListBucket",
+				"s3:GetBucketLocation"
+			],
+			"Resource": "arn:aws:s3:::fabric-pool-*",
+			"Effect": "Allow"
+		}, {
+			"Action": [
+				"s3:GetObject",
+				"s3:PutObject",
+				"s3:DeleteObject"
+			],
+			"Resource": "arn:aws:s3:::fabric-pool-*",
+			"Effect": "Allow"
+		}
+	]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">GovCloud (美国)地区</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-us-gov:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-us-gov:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-us-gov:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">C2S环境</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-iso:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </li>
+<li>
+<p>HA 调解器</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Effect": "Allow",
+			"Action": [
+				"ec2:AssignPrivateIpAddresses",
+				"ec2:CreateRoute",
+				"ec2:DeleteRoute",
+				"ec2:DescribeNetworkInterfaces",
+				"ec2:DescribeRouteTables",
+				"ec2:DescribeVpcs",
+				"ec2:ReplaceRoute",
+				"ec2:UnassignPrivateIpAddresses"
+			],
+			"Resource": "*"
+		}
+	]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>创建一个IAM角色、并将您在上一步中创建的策略附加到该角色。</p>
+</li>
 </ol>
+</div>
+<div class="paragraph">
+<p>现在、您可以在创建新的Cloud Volumes ONTAP 工作环境时选择IAM角色。</p>
+</div>
+<div class="ulist">
+<div class="title">更多信息</div>
+<ul>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html" target="_blank" rel="noopener">"AWS文档：创建IAM策略"</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html" target="_blank" rel="noopener">"AWS文档：创建IAM角色"</a></p>
+</li>
+</ul>
 </div>
 
     </article>
