@@ -60,5 +60,4 @@ image:screenshot_enable_worm.png["显示了创建新工作环境时可用的 WOR
 * Cloud Volumes ONTAP 中的 WORM 存储在 " 可信存储管理员 " 模式下运行。虽然 WORM 文件不受更改或修改的影响，但集群管理员可以删除卷，即使这些卷包含未过期的 WORM 数据也是如此。
 * 除了可信存储管理员模式之外， Cloud Volumes ONTAP 中的 WORM 存储还隐式地在 " 可信云管理员 " 模式下运行。云管理员可以通过直接从云提供商中删除或编辑云存储，在 WORM 数据到期之前将其删除。
 * 激活 WORM 存储后，无法启用对象存储的数据分层。
-* 要启用 WORM 存储，必须禁用 Cloud Backup Service 。
 

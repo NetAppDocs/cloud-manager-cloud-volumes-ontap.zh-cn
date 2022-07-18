@@ -157,7 +157,7 @@ NOTE: 如果选定版本有较新的候选版本、一般可用性或修补程�
 link:concept-write-speed.html["了解有关写入速度的更多信息。"]。
 
 +
-如果启用了 Cloud Backup 或启用了数据分层，则无法启用 WORM 。
+如果启用了数据分层，则无法启用 WORM 。
 
 +
 link:concept-worm.html["了解有关 WORM 存储的更多信息。"]。

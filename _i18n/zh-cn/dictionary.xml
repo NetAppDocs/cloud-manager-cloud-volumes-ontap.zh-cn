@@ -140,7 +140,6 @@
   <block id="5f785ef412cf3ae3f3656054cca2d342" category="list-text">* 写入速度和 WORM* （仅限单节点系统）：选择 * 正常 * 或 * 高 * 写入速度，并根据需要激活一次写入，多次读取（ WORM ）存储。</block>
   <block id="7e747f6f397a13c9ddfd3cf35ed0a063" category="inline-link-macro">了解有关写入速度的更多信息。</block>
   <block id="154182f595466ead49f0896392c37343" category="paragraph"><block ref="12222f10612c9f092ca31c9e99478649" category="inline-link-macro-rx"></block>。</block>
-  <block id="aaba9ed07f65bdca98f42e38431e1fa9" category="paragraph">如果启用了 Cloud Backup 或启用了数据分层，则无法启用 WORM 。</block>
   <block id="750f81869269b4f604a849fb2104a6b3" category="inline-link-macro">了解有关 WORM 存储的更多信息。</block>
   <block id="9fbcc7d5f14bd49b571c1a321923fd19" category="paragraph"><block ref="b8e9389aa16366d8b675fc0ac72edf2e" category="inline-link-macro-rx"></block>。</block>
   <block id="99933c51e50b7da9dbe73f3421397211" category="list-text">* 安全通信到存储和 WORM* （仅限 HA ）：选择是否启用与 Azure 存储帐户的 HTTPS 连接，并根据需要激活一次写入，多次读取（ WORM ）存储。</block>
@@ -1002,7 +1001,6 @@
   <block id="e2d4a517cbcae1c0966d5e478d743531" category="list-text">Cloud Volumes ONTAP 中的 WORM 存储在 " 可信存储管理员 " 模式下运行。虽然 WORM 文件不受更改或修改的影响，但集群管理员可以删除卷，即使这些卷包含未过期的 WORM 数据也是如此。</block>
   <block id="6d0cc0f6b100bdce8cb06276811faff9" category="list-text">除了可信存储管理员模式之外， Cloud Volumes ONTAP 中的 WORM 存储还隐式地在 " 可信云管理员 " 模式下运行。云管理员可以通过直接从云提供商中删除或编辑云存储，在 WORM 数据到期之前将其删除。</block>
   <block id="eb57ade58504f4d5c09cb5e8cd78ae55" category="list-text">激活 WORM 存储后，无法启用对象存储的数据分层。</block>
-  <block id="d9054c47c3f9c235104ce71c08d03270" category="list-text">要启用 WORM 存储，必须禁用 Cloud Backup Service 。</block>
   <block id="098ced68694df35d5e0943a0cad2fb8f" category="summary">如果在启动初始 Cloud Volumes ONTAP 系统后需要更多存储，则可以从 Cloud Manager 为 NFS ， CIFS 或 iSCSI 创建新的 FlexVol 卷。</block>
   <block id="c65544a3678422a2d15f8bc1a12dec12" category="doc">创建 FlexVol 卷</block>
   <block id="f5452253eae7fb5f36ff2e68cd8aa5ae" category="paragraph">Cloud Manager 提供了多种创建新卷的方法：</block>
@@ -4247,4 +4245,5 @@
   <block id="ca28d9f44067f5a160cea063e474fc37" category="paragraph">如果您希望使用自己的策略，则必须满足 <block ref="a89eb99c31d3fd4d78e3bc9ddfb0dc20" category="inline-link-macro-rx"></block>。</block>
   <block id="6459a9ada2e38351f8beba8f79c30a5f" category="paragraph">如果您希望使用自己的策略，则必须满足 <block ref="f5cab54abdefb42b27e2bac59f2262c2" category="inline-link-macro-rx"></block>。</block>
   <block id="e26c5d07fc30848902a99c95897441b4" category="sidebar">设置IAM角色</block>
+  <block id="15cbb1f16ecbbcee7df3dcd252b9d2ef" category="paragraph">如果启用了数据分层，则无法启用 WORM 。</block>
 </blocks>
